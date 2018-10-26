@@ -1,0 +1,19 @@
+.app {
+	min-width: 320px; height: 100vh; min-height: 480px;
+	overflow: hidden;
+	background: #304FFE;
+
+	.wr {
+		&-header {
+			width: 100%;
+		}
+
+		&-main {
+			width: 100%; height: 100%;
+
+			.container {
+				height: 100%;
+			}
+		}
+	}
+}

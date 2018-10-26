@@ -1,0 +1,22 @@
+.icon {
+	&.arrow-left {
+		&:before {
+			background: url('../img/icons/arrow-left.svg') center center no-repeat;
+		}
+	}
+	&.calendar {
+		&:before {
+			background: url('../img/icons/calendar.svg') center center no-repeat;
+		}
+	}
+	&.money {
+		&:before {
+			background: url('../img/icons/money.svg') center center no-repeat;
+		}
+	}
+	&.plus {
+		&:before {
+			background: url('../img/icons/plus.svg') center center no-repeat;
+		}
+	}
+}
