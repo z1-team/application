@@ -1,4 +1,12 @@
-// Roboto
-@include font-face('roboto-regular', roboto-regular);
-@include font-face('roboto-medium', roboto-medium);
-@include font-face('roboto-bold', roboto-bold);
+// Montserrat
+@include font-face('montserrat-thin', montserrat-thin);
+@include font-face('montserrat-light', montserrat-light);
+@include font-face('montserrat-regular', montserrat-regular);
+@include font-face('montserrat-medium', montserrat-medium);
+@include font-face('montserrat-semibold', montserrat-semibold);
+@include font-face('montserrat-bold', montserrat-bold);
+
+// Open Sans
+@include font-face('opensans-light', opensans-light);
+@include font-face('opensans-regular', opensans-regular);
+@include font-face('opensans-bold', opensans-bold);

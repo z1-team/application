@@ -1,0 +1,46 @@
+.footer {
+	display: flex; align-items: center;
+
+	a.logo {
+		margin-right: 25px; flex-shrink: 0;
+	}
+
+	ul.socials {
+		display: flex; align-items: center; margin-right: 80px; flex-shrink: 0;
+
+		li {
+			margin-right: 20px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			a {
+				color: #161616; font-size: 14px;
+
+				&:hover {
+					svg {
+						&.fa {
+							&-facebook-f {
+								color: #4267b2;
+							}
+							&-twitter {
+								color: #1da0f1;
+							}
+							&-google-plus-g {
+								color: #d44132;
+							}
+							&-pinterest-p {
+								color: #cb2027;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	small {
+		color: #161616; font-size: 11px; font-family: $m-m; line-height: 18px;
+	}
+}

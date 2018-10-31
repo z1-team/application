@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Categories from './Categories'
-import ListResults from './ListResults'
+import Sidebar from './Sidebar'
+import Results from './Results'
 
 class Main extends Component {
 	render() {
@@ -8,8 +8,8 @@ class Main extends Component {
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						<Categories />
-						<ListResults />
+						<Sidebar />
+						<Results />
 					</div>
 				</div>
 			</div>

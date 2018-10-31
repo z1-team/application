@@ -1,70 +1,37 @@
 .header {
-	.range {
-		display: none;
+	display: flex; align-items: center; justify-content: space-between;
 
-		&.active {
-			display: block;
-		}
-	}
+	.contacts {
+		display: flex; align-items: center;
 
-	.info {
-		padding: 12px 8px; display: none;
-
-		&.active {
-			display: block;
-		}
-
-		header {
-			margin-bottom: 18px; padding: 0 14px;
-		}
-
-		section {
-			display: flex; align-items: center; padding: 8px 0;
-			border-top: solid 1px #fff;
-		}
-
-		ul li, p {
-			color: #fff; font-size: 16px; font-family: $r-r; line-height: 28px; letter-spacing: 0.44px;
-			
-			strong {
-				font-family: $r-b;
-			}
+		a, p {
+			color: #fff; font-size: 12px; line-height: 14px; font-family: $m-m;
 		}
 
 		a {
-			height: 40px; width: 40px; display: block; margin-right: 20px;
+			svg {
+				margin-right: 5px;
+			}
 		}
 
-		ul {
-			display: flex; align-items: center;
+		p {
+			padding-left: 14px; margin-left: 14px;
+			border-left: solid 1px #fff;
+		}
+	}
 
-			li {
-				position: relative; display: flex; align-items: center; margin-right: 18px; padding-right: 18px;
+	ul {
+		display: flex; align-items: center;
 
-				&:last-child {
-					padding-right: 0; margin-right: 0;
-					&:after {
-						content: none;
-					}
-				}
+		li {
+			margin-right: 35px;
 
-				&:after {
-					content: '';
-					display: block; width: 1px; height: 32px; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-					background: #fff;
-				}
+			&:last-child {
+				margin-right: 0;
+			}
 
-				p {
-					font-size: 10px; letter-spacing: 0.4px; line-height: 16px;
-
-					strong {
-						font-size: 14px;
-					}
-				}
-
-				i {
-					margin-right: 10px;
-				}
+			a {
+				color: #fff; font-size: 12px; line-height: 14px; font-family: $m-m; text-transform: uppercase;
 			}
 		}
 	}

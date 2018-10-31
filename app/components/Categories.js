@@ -53,7 +53,7 @@ class Categories extends Component {
 					selected: false,
 					count: '256',
 					key: 'categories'
-				},
+				}
 			]
 		}
 	}
@@ -63,6 +63,7 @@ class Categories extends Component {
 
 		return (
 			<div className="categories">
+			
 				<ul>
 					{list.categories.map((item) => (
 						<li key={item.id}>
