@@ -10,10 +10,18 @@ class Results extends Component {
 		super(props);
 
 		this.handleClick = this.handleClick.bind(this);
+
+		this.state = {active: false}
+
+		this.detailsRefs = []
 	}
 
-	handleClick(e) {
-		e.preventDefault();
+	handleClick(index) {
+
+		this.setState({active: !this.state.active});
+
+		this.detailsRefs[index].classList.toggle('active');
+
 	}
 
 	render() {
@@ -71,11 +79,11 @@ class Results extends Component {
 									<p>переплата {item.overpayment}</p>
 								</div>
 							</section>
-							<footer className="active">
+							<footer ref={(input) => {this.detailsRefs[index] = input }}>
 								<CardDetails details={item.details} />
 								<ul>
 									<li>{item.firstLoan} первый заем.</li>
-									<li><a href="#" onClick={this.handleClick}>Подробнее <img src="img/more.png"/></a></li>
+									<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>
 								</ul>
 							</footer>
 						</div>
