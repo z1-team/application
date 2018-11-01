@@ -291,8 +291,24 @@
 				padding: 6px 25px 6px 22px;
 				background: #f7f7f7; border-top: solid 1px #e2e2e2;
 
+				&.active {
+					.details {
+						display: flex;
+					}
+
+					& > ul {
+						li {
+							a {
+								img {
+									transform: rotate(0);
+								}
+							}
+						}
+					}
+				}
+
 				.details {
-					display: flex; align-items: flex-start; padding: 25px 0;
+					display: none; align-items: flex-start; padding: 25px 0;
 
 					ul {
 						width: 33.33333%; padding-right: 10px;
@@ -329,7 +345,7 @@
 							display: flex; align-items: center;
 
 							img {
-								margin-left: 5px;
+								margin-left: 5px; transform: rotate(180deg);
 							}
 						}
 					}

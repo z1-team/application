@@ -35,6 +35,7 @@ class UsefullInfo extends Component {
 								</li>
 							</ul>
 						</div>
+						{/*
 						<div className="feedback">
 							<h3>Нужна помощь?</h3>
 							<form action="#">
@@ -56,6 +57,7 @@ class UsefullInfo extends Component {
 								</div>
 							</form>
 						</div>
+						*/}
 						<div className="effects">
 							<h3>Последствия невыплаты займа</h3>
 							<p>В случае просрочки по выплатам, со следующего дня после истечения срока займа, вам будет ежедневно начисляться пеня в размере 0,05-1% в день от суммы кредита. 

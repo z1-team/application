@@ -12,9 +12,11 @@ class Header extends Component {
 							<p>Москва</p>
 						</div>
 						<ul>
+							{/*
 							<li>
 								<a href="#">ВЫБРАТЬ СВОЙ ЗАЙМ</a>							
 							</li>
+							*/}
 							<li>
 								<a href="#">ОФОРМИТЬ СЕЙЧАС</a>
 							</li>

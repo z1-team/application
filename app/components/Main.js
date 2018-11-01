@@ -8,7 +8,7 @@ class Main extends Component {
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						<Sidebar />
+						{/* <Sidebar /> */}
 						<Results />
 					</div>
 				</div>
