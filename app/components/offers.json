@@ -1,134 +1,695 @@
 [
 	{
-		"title": "Тинькофф кредит",
-		"logo": "img/partners-logo-1.png", /* нужны логотипы, потом надо будет заменить */
+		"title": "Kredito24",
+		"logo": "img/kredito24-logo.png", /* нужны логотипы, потом надо будет заменить */
 		"pros": { /* нужны данные, записано по макету */
 			"money": "10 000",
-			"day": "25",
-			"percent": "1,8%"
+			"day": "30",
+			"percent": "1,9%"
 		},
-		"overpayment": "4 500 руб.", /* нужны данные, записано по макету */
+		"overpayment": "5 509 руб.", /* нужны данные, записано по макету */
 		"details": {
-			"minSumm": "50 000 руб.",
-			"maxSumm": "1 000 000 руб.; До 15 000 000 руб. под залог недвижимости",
-			"minPercent": "12%",
-			"maxPercent": "24.9%",
-			"minTerm": "3 месяца",
-			"maxTerm": "36 месяцев; До 15 лет, если сумма более 1 млн.",
-			"appProcessTime": "До 10 мин.",
-			"getMoneyTime": "1—2 раб. дня",
-			"penalty": "0.5% от суммы кредита, до 1 500 руб.",
+			"minSumm": "2 000 руб.",
+			"maxSumm": "9 000 000 руб.; До 15 000 000 руб. для постоянных клиентов",
+			"minPercent": "1.9%",
+			"maxPercent": "1.9%",
+			"minTerm": "7 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1-2 мин.",
+			"getMoneyTime": "в течение 15 мин.",
+			"penalty": "2 дня - 0.11%, 6 дней - 0.22%, 10 дней - 0.22%, 20 дней - 0.55%",
 			"incomeProof": "Нет",
 			"regionRegistr": "Нет",
-			"identification": "Проверка документов при встрече с сотрудником банка",
+			"identification": "Скан паспорта",
 			"age": "От 18 лет",
-			"obtainingMethods": "Курьером домой на дебетовой карте Tinkoff Black",
-			"repaymentOptions": "Бесплатно: в офисах, банкоматах и Интернет-банке Совкомбанка, в отделениях Почты России; Платно: сторонние банки и платежные системы",
-			"creditHistory": "Желательно хорошая",
+			"obtainingMethods": "Именные банковский карты Visa Classic, MasterCard и МИР",
+			"repaymentOptions": "Банковская карта, Банковский счет, Платежные терминалы Элекснет и QIWI ",
+			"creditHistory": "Любая",
 			"schedule": "24/7",
 			"personalArea": "Да",
-			"application": "Бесплатно; Apple, Android, Windows Phone"
+			"application": "Нет"
 		},
-		"link": "https://pxl.leads.su/click/3e679f50d291a9356180f8ec497f2510",
-		"firstLoan": "0%" /* нужны данные, записано по макету */
+		"link": "https://pxl.leads.su/click/6cb3e26d1759393afde92f168542db8c",
+		"firstLoan": "" /* нужны данные, записано по макету */
 	},
 	{
-		"title": "Совкомбанк Кредит Наличными",
-		"logo": "img/partners-logo-1.png", /* нужны логотипы, потом надо будет заменить */
+		"title": "Turbozaim",
+		"logo": "img/turbozaim-logo.png", /* нужны логотипы, потом надо будет заменить */
 		"pros": { /* нужны данные, записано по макету */
 			"money": "10 000",
-			"day": "25",
-			"percent": "1,8%"
+			"day": "15",
+			"percent": "2,3%"
 		},
-		"overpayment": "4 500 руб.", /* нужны данные, записано по макету */
+		"overpayment": "3 450 руб.", /* нужны данные, записано по макету */
 		"details": {
-			"minSumm": "5 000 руб.",
-			"maxSumm": "400 000 руб.",
-			"minPercent": "8.9% при подключении услуги \"Гарантия минимальной ставки\"; 13.9% со справкой о доходах и при целевом использовании средств более 80% (целевым использованием средств считается приобретение покупок с помощью карты Совкомбанка)",
-			"maxPercent": "18.9% без справки о доходах и при целевом использовании средств более 80%",
-			"minTerm": "12 мес.",
-			"maxTerm": "5 лет",
-			"appProcessTime": "До 1 дня",
-			"getMoneyTime": "От 2 до 5 дней",
-			"penalty": "20% от суммы просроченной заложенности",
-			"incomeProof": "Желательно (влияет на процентную ставку)",
-			"regionRegistr": "Да (постоянное проживание не более 70 км от ближайшего отделения банка)",
-			"identification": "Проверка документов в отделении",
-			"age": "От 20 до 85 лет на момент окончания срока кредита",
-			"obtainingMethods": "На карту Совкомбанка в отделении",
-			"repaymentOptions": "Бесплатно: в офисах, банкоматах и Интернет-банке Совкомбанка, в отделениях Почты России; Платно: сторонние банки и платежные системы",
-			"credit history": "Желательно хорошая",
+			"minSumm": "1 000 руб.",
+			"maxSumm": "10 000 руб., 15 000 руб. для постоянных клиентов",
+			"minPercent": "2.3%",
+			"maxPercent": "2,3%",
+			"minTerm": "7 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "15 минут",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% годовых",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Фото",
+			"age": "21-65 лет",
+			"obtainingMethods": "Банковская карта, Яндекс.Деньги",
+			"repaymentOptions": "Банковская карта, Сбербанк Онлайн, Альфа-Клик, Яндекс.Деньги, Евросеть, Связной",
+			"credit history": "Любая",
 			"schedule": "24/7",
 			"Personal Area": "Да",
-			"application": "Бесплатно; Apple, Android"
+			"application": "Нет"
 		},
-		"link": "https://pxl.leads.su/click/f9b00cde0d5f29ebd138e7274e3d257a",
-		"firstLoan": "0%" /* нужны данные, записано по макету */
+		"link": "https://pxl.leads.su/click/16ede2e1f9bbb558b098e9c95de0d437",
+		"firstLoan": "" /* нужны данные, записано по макету */
 	},
 	{
-		"title": "Совкомбанк На Большую Сумму",
-		"logo": "img/partners-logo-1.png", /* нужны логотипы, потом надо будет заменить */
+		"title": "Webbankir",
+		"logo": "img/webbankir-logo.png", /* нужны логотипы, потом надо будет заменить */
 		"pros": { /* нужны данные, записано по макету */
-			"money": "10 000",
-			"day": "25",
-			"percent": "1,8%"
+			"money": "8 000",
+			"day": "10",
+			"percent": "0%"
 		},
-		"overpayment": "4 500 руб.", /* нужны данные, записано по макету */
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
 		"details": {
-			"minSumm": "150 000 руб.",
-			"maxSumm": "30 000 000 руб.",
-			"minPercent": "11.9%",
-			"maxPercent": "22.9%",
-			"minTerm": "5 лет",
-			"maxTerm": "10 лет",
-			"appProcessTime": "До 1 дня",
-			"getMoneyTime": "От 2 до 5 дней",
-			"penalty": "20% от суммы просроченной заложенности",
-			"incomeProof": "Желательно (влияет на процентную ставку)",
-			"regionRegistr": "Да (постоянное проживание не более 70 км от ближайшего отделения банка)",
-			"identification": "Проверка документов в отделении",
-			"age": "20 - 85 лет на момент окончания срока кредита",
-			"obtainingMethods": "На карту Совкомбанка в отделении",
-			"repaymentOptions": "Бесплатно: в офисах, банкоматах и Интернет-банке Совкомбанка, в отделениях Почты России; Платно: сторонние банки и платежные системы",
-			"credit history": "Желательно хорошая",
-			"schedule": "24/7",
-			"Personal Area": "Да",
-			"application": "Бесплатно; Apple, Android"
-		},
-		"link": "https://pxl.leads.su/click/cf4147b7b2601150f5b5c63143523e93",
-		"firstLoan": "0%" /* нужны данные, записано по макету */
-	},
-	{
-		"title": "Совкомбанк Кредитный Доктор",
-		"logo": "img/partners-logo-1.png", /* нужны логотипы, потом надо будет заменить */
-		"pros": { /* нужны данные, записано по макету */
-			"money": "10 000",
-			"day": "25",
-			"percent": "1,8%"
-		},
-		"overpayment": "4 500 руб.", /* нужны данные, записано по макету */
-		"details": {
-			"minSumm": "4 999 руб.",
-			"maxSumm": "60 000 руб.",
-			"minPercent": "20,9%",
-			"maxPercent": "33,3%",
-			"minTerm": "3 месяца",
-			"maxTerm": "18 месяцев",
-			"appProcessTime": "До 1 дня",
-			"getMoneyTime": "От 2 до 5 дней",
-			"penalty": "Отмена программы улучшения КИ",
-			"incomeProof": "Не обязательно",
-			"regionRegistr": "Да",
-			"identification": "В отделении Совкомбанка",
-			"age": "От 20 до 85 лет",
-			"obtainingMethods": "На карту Совкомбанка в отделении банка",
-			"repaymentOptions": "Интернет-банк Совкомбанк; Банкомат Совкомбанк; Отделение Совкомбанк; Сторонние банки и платежные системы",
+			"minSumm": "1 000 руб.",
+			"maxSumm": "15 000 руб.",
+			"minPercent": "0%",
+			"maxPercent": "1.9%",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1 минута",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% годовых",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "19-100 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система Контакт, Киви Кошелек, Яндекс.Деньги",
+			"repaymentOptions": "Банковская карта, Сбербанк Онлайн, Почта России, Яндекс.Деньги, и др.",
 			"credit history": "Любая",
 			"schedule": "24/7",
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/8387a871673447d781776566611ec038",
-		"firstLoan": "0%" /* нужны данные, записано по макету */
+		"link": "https://pxl.leads.su/click/1e706f18a4a8df3bff2eef5362629746",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+	},
+	{
+		"title": "Moneyman",
+		"logo": "img/moneyman-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "9 000",
+			"day": "15",
+			"percent": "0%"
+		},
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "1 500 руб.",
+			"maxSumm": "70 000 руб.",
+			"minPercent": "0%",
+			"maxPercent": "1,9%",
+			"minTerm": "5 дней",
+			"maxTerm": "126 дней",
+			"appProcessTime": "1-2 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% годовых",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система 'Контакт', Золотая корона, Система Юнистрим",
+			"repaymentOptions": "Банковская карта, Банковский счет, Яндекс.Деньги, QIWI, Элекснет, Золотая корона и др.",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Бесплатно; Apple, Android"
+		},
+		"link": "https://pxl.leads.su/click/6de646a555cb3c2f8d34fe2c20dbbc26",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+	},
+	{
+		"title": "Ezaem",
+		"logo": "img/ezaem-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "5 000",
+			"day": "14",
+			"percent": "0%"
+		},
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "30 000 руб. для постоянных клиентов",
+			"minPercent": "0%",
+			"maxPercent": "2,14%",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "15 мин.",
+			"getMoneyTime": "В зависимости от способа получения. От 1 минуты до 3-х дней",
+			"penalty": "20% годовых",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "20-65 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система 'Контакт', Qiwi-кошелек",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI терминал, Contact",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/8852a7ff566ffdcf7de070b32038f960",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+	},
+	{
+		"title": "МигКредит",
+		"logo": "img/migkredit-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "7",
+			"percent": "2,2%"
+		},
+		"overpayment": "1 540 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "55 000 руб. для новых клиентов, 100 000 для постоянных клиентов",
+			"minPercent": "0,16%",
+			"maxPercent": "2,2%",
+			"minTerm": "3 дня",
+			"maxTerm": "12 месяцев",
+			"appProcessTime": "до 15 мин.",
+			"getMoneyTime": "В течение 24 часов",
+			"penalty": "0,1% от суммы просроченного платежа в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "от 21 года",
+			"obtainingMethods": "Банковская карта, Золотая корона, Система Contact, Система Юнистрим",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI, Contact, Связной, Евросеть",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Бесплатно, Apple, Android"
+		},
+		"link": "https://pxl.leads.su/click/7be1e03de0a6008ec461f08cb078ec61",
+		"firstLoan": "" /* нужны данные, записано по макету */
+	},
+	{
+		"title": "Займер",
+		"logo": "img/zaimer-logo.svg", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "30 000",
+			"day": "30",
+			"percent": "1,98%"
+		},
+		"overpayment": "5 940 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "15 000 руб. для новых клиентов, 30 000 для постоянных клиентов",
+			"minPercent": "0,63%",
+			"maxPercent": "2,17%",
+			"minTerm": "7 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1-2 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "-",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "от 18 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Золотая корона, Система Contact, Яндекс.деньги, QIWI",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI, Contact, Золотая корона, Яндекс Деньги",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Бесплатно, Android"
+		},
+		"link": "https://trkleads.ru/click/237cfc0ff063285a046669d133d226cb",
+		"firstLoan": "" /* нужны данные, записано по макету */
+	},
+	{
+		"title": "Moneza",
+		"logo": "img/moneza-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "5 000",
+			"day": "14",
+			"percent": "0%"
+		},
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "15 000 руб. для новых клиентов, 30 000 для постоянных клиентов",
+			"minPercent": "1,64%",
+			"maxPercent": "2,17%",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "15 мин.",
+			"getMoneyTime": "Банковская карта и QIWI - моментально, Банковский перевод - 1-3 дня",
+			"penalty": "Начисляются проценты лишь по основному долгу – штрафные проценты не начисляются",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "20-65 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система Contact, QIWI",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI, Contact, Любой онлайн-банк, Почта России",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/81fce9178342e243c9f22286556b404a",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Ekapusta",
+		"logo": "img/ekapusta-logo.svg", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "12 000",
+			"day": "12",
+			"percent": "0%"
+		},
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "100 руб.",
+			"maxSumm": "15 000 руб. для новых клиентов, 30 000 для постоянных клиентов",
+			"minPercent": "0%",
+			"maxPercent": "2,1%",
+			"minTerm": "7 дней",
+			"maxTerm": "21 дней",
+			"appProcessTime": "1-2 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "1.7% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "3 фотографии:Фото с надписью 'Заявка на займ Екапуста', Фото с паспортом, Фото паспорта в развороте",
+			"age": "от 18 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система Contact, Яндекс.Деньги, Золотая корона",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI, Contact, Золотая корона",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://trkleads.ru/click/992d548bfdb5454b2b4f8cf414ab7e68",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+		},
+	{
+		"title": "СлонФинанс",
+		"logo": "img/slonfinance-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "7 000",
+			"day": "14",
+			"percent": "1,61%"
+		},
+		"overpayment": "2 254 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "1 000 руб.",
+			"maxSumm": "20 000 руб.",
+			"minPercent": "1%",
+			"maxPercent": "2,3%",
+			"minTerm": "7 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "До 20 мин.",
+			"getMoneyTime": "До 1 дня",
+			"penalty": "20% годовых за каждый день просрочки",
+			"incomeProof": "Звонок в отдел кадров, работодателю",
+			"regionRegistr": "Нет",
+			"identification": "Фото паспорта в развороте",
+			"age": "18-75 лет",
+			"obtainingMethods": "Банковская карта VISA, MasterCard, МИР",
+			"repaymentOptions": "Банковская карта, QIWI, Элекснет, Связной, Евросеть",
+			"credit history": "Любая",
+			"schedule": "Режим работы call-центра:07:00 до 21:00 (по московскому времени),7 дней в неделю, без выходных.",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/3f1706aed51b6e6b2de1331a7c0f3269",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "GreenMoney",
+		"logo": "img/greenmoney-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "2,23%"
+		},
+		"overpayment": "3 122 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "25 000 руб.",
+			"minPercent": "1%",
+			"maxPercent": "2,3%",
+			"minTerm": "3 дня",
+			"maxTerm": "30 дней",
+			"appProcessTime": "30 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% годовых + продолжает действовать процентная ставка",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Фото",
+			"age": "18-65 лет",
+			"obtainingMethods": "Банковская карта",
+			"repaymentOptions": "Банковская карта, QIWI, Банковский перевод",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/3a38c061477aa1e76fdb2094f140f744",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "OneClickMoney",
+		"logo": "img/oneclickmoney-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "2,07%"
+		},
+		"overpayment": "2 899 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "500 руб.",
+			"maxSumm": "30 000 руб.",
+			"minPercent": "1,09%",
+			"maxPercent": "2,23%",
+			"minTerm": "6 дней (возможно досрочное погашение)",
+			"maxTerm": "21 или 31 день",
+			"appProcessTime": "7 мин.",
+			"getMoneyTime": "15 мин.",
+			"penalty": "Продолжает начисляться процентная ставка по договору. Дополнительных штрафов нет",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Копия паспорта (скан). Фото заемщика с листом бумаги, на котором написан 6-значный код",
+			"age": "18-80 лет",
+			"obtainingMethods": "Банковская карта, Яндекс.Деньги, Qiwi, Золотая корона",
+			"repaymentOptions": "Банковская карта, Банковский перевод, Яндекс.Деньги, Альфа-Клик, Промсвязьбанк, WebMoney",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Бесплатно. Apple, Android"
+		},
+		"link": "https://pxl.leads.su/click/47a7d6ef7286c780c6c38dec42feb6bf",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Konga",
+		"logo": "img/konga-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "1,8%"
+		},
+		"overpayment": "2 520 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "8 000 руб. для новых клиентов, 20 000 руб. для постоянных клиентов",
+			"minPercent": "0,77%",
+			"maxPercent": "1,9%",
+			"minTerm": "7 дней (возможно досрочное погашение)",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "0,05% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "	Звонок от сотрудника с уточняющими вопросами",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Яндекс.Деньги, Qiwi, Банковский счет",
+			"repaymentOptions": "Банковская карта, Банковский перевод, Яндекс.Деньги, QIWI",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/0742915eedcd9beaf48da4a289a9efac",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Lime",
+		"logo": "img/lime-logo.svg", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "0%"
+		},
+		"overpayment": "0 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "70 000 руб.",
+			"minPercent": "0,6%",
+			"maxPercent": "2,3%",
+			"minTerm": "7 дней (возможно досрочное погашение)",
+			"maxTerm": "168 дней",
+			"appProcessTime": "1 мин.",
+			"getMoneyTime": "10-15 минут",
+			"penalty": "20% от суммы займа",
+			"incomeProof": "Да, только в режиме ручного рассмотрения",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Qiwi, Банковский счет, QIWI, Система Contact",
+			"repaymentOptions": "Банковская карта, Банковский перевод, QIWI, Евросеть",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/76f212c91c8710e6e7fcf353cdf929db",
+		"firstLoan": "0% первый заем." /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Online-Zaim",
+		"logo": "img/onlinezaim-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "1,28%"
+		},
+		"overpayment": "1 800 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 500 руб.",
+			"maxSumm": "30 000 руб.",
+			"minPercent": "1%",
+			"maxPercent": "1,9% (беспроцентный период - 5 дней)",
+			"minTerm": "6 дней",
+			"maxTerm": "25 дней",
+			"appProcessTime": "5 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "2% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет, Система Contact",
+			"repaymentOptions": "В офисах компании, Личный кабинет, QIWI, Contact, Сбербанк Онлайн",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://trkleads.ru/click/188c06d2af0a89d7ca9050b5e2934cbf",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Smart Сredit",
+		"logo": "img/smartcredit-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "1,9%"
+		},
+		"overpayment": "2 660 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "2 000 руб.",
+			"maxSumm": "15 000 руб.",
+			"minPercent": "0,95%",
+			"maxPercent": "2,17% (беспроцентный период - 5 дней)",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "2% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "21 - 68 лет",
+			"obtainingMethods": "Первично - только именная карта. Далее - Банковская карта, Банковский счет, Система Contact",
+			"repaymentOptions": "Яндекс.Деньги, QIWI, Contact",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/36e57eb60ebe223b71cec5925b9d3491",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Platiza",
+		"logo": "img/platiza-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "2,17%"
+		},
+		"overpayment": "3 038 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "1 000 руб.",
+			"maxSumm": "15 000 руб.",
+			"minPercent": "1%",
+			"maxPercent": "2,5%",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "1-2 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "0,1% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Скан паспорт",
+			"age": "От 18 до 70 лет",
+			"obtainingMethods": "Банковская карта, Яндекс.Деньги, QIWI, Contact",
+			"repaymentOptions": "Банковская карт, Яндекс.Деньги, QIWI, Евросеть",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Бесплатно, Android"
+		},
+		"link": "https://pxl.leads.su/click/aafaf101a39581036a1d09964e2644af",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Честное Слово",
+		"logo": "img/chestnoeslovo-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "2,2%"
+		},
+		"overpayment": "3 080 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "10 000 руб. для новых клиентов, 30 000 руб. для постоянных клиентов",
+			"minPercent": "1%",
+			"maxPercent": "2,2%",
+			"minTerm": "5 дней",
+			"maxTerm": "30 дней",
+			"appProcessTime": "5 мин.",
+			"getMoneyTime": "20 мин.",
+			"penalty": "0,1% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 до 75 лет",
+			"obtainingMethods": "Банковская карта, Банковский счет",
+			"repaymentOptions": "Банковская карт, Банковский счет, Элекснет, QIWI, Банкомат Почта Банка",
+			"credit history": "Любая, главное не иметь текущих просрочек по кредитам",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/2455cd347cc5e2fd0b5df2e96f7c3350",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Joy Money",
+		"logo": "img/joymoney-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "10 000",
+			"day": "14",
+			"percent": "2,17%"
+		},
+		"overpayment": "3 038 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "60 000 руб.",
+			"minPercent": "0,8%",
+			"maxPercent": "2,17%",
+			"minTerm": "5 дней (возможно досрочное погашение)",
+			"maxTerm": "18 недель",
+			"appProcessTime": "15 мин.(Заявки рассматриваются с 6 до 21 часов по МСК)",
+			"getMoneyTime": "Моментально",
+			"penalty": "0,05% в день",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "21 - 60 лет",
+			"obtainingMethods": "Банковская карта, Contact",
+			"repaymentOptions": "Банковская карт, Элекснет, QIWI, Банковский перевод",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/af41bd5dd25191f74753ca5bfadd8f69",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "Mili",
+		"logo": "img/mili-logo.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "12 100",
+			"day": "14",
+			"percent": "1,5%"
+		},
+		"overpayment": "3 038 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "30 000 руб.",
+			"minPercent": "1,5%",
+			"maxPercent": "2%",
+			"minTerm": "3 дня",
+			"maxTerm": "30 дней",
+			"appProcessTime": "5 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% от суммы долга",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Карта 'Кукуруза', Евросеть",
+			"repaymentOptions": "Банковская карт, QIWI, Салоны связи: Евросеть, МТС, Билайн, Связной, карта 'Кукуруза'",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/c9b1a22f1cf09ce5628bdde2357e92f1",
+		"firstLoan": "" /* нужны данные, записано по макету */
+		},
+	{
+		"title": "ГлавФинанс",
+		"logo": "img/partners-logo-1.png", /* нужны логотипы, потом надо будет заменить */
+		"pros": { /* нужны данные, записано по макету */
+			"money": "12 100",
+			"day": "14",
+			"percent": "1,5%"
+		},
+		"overpayment": "3 038 руб.", /* нужны данные, записано по макету */
+		"details": {
+			"minSumm": "3 000 руб.",
+			"maxSumm": "30 000 руб.",
+			"minPercent": "1,5%",
+			"maxPercent": "2%",
+			"minTerm": "3 дня",
+			"maxTerm": "30 дней",
+			"appProcessTime": "5 мин.",
+			"getMoneyTime": "Моментально",
+			"penalty": "20% от суммы долга",
+			"incomeProof": "Нет",
+			"regionRegistr": "Нет",
+			"identification": "Паспорт",
+			"age": "От 18 лет",
+			"obtainingMethods": "Банковская карта, Карта 'Кукуруза', Евросеть",
+			"repaymentOptions": "Банковская карт, QIWI, Салоны связи: Евросеть, МТС, Билайн, Связной, карта 'Кукуруза'",
+			"credit history": "Любая",
+			"schedule": "24/7",
+			"Personal Area": "Да",
+			"application": "Нет"
+		},
+		"link": "https://pxl.leads.su/click/c9b1a22f1cf09ce5628bdde2357e92f1",
+		"firstLoan": "" /* нужны данные, записано по макету */
 	}
 ]

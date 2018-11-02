@@ -75,14 +75,14 @@ class Results extends Component {
 									</ul>
 								</div>
 								<div className="process">
-									<a href={item.link}>Оформить</a>
+									<a target="_blank" href={item.link}>Оформить</a>
 									<p>переплата {item.overpayment}</p>
 								</div>
 							</section>
 							<footer ref={(input) => {this.detailsRefs[index] = input }}>
 								<CardDetails details={item.details} />
 								<ul>
-									<li>{item.firstLoan} первый заем.</li>
+									<li>{item.firstLoan}</li>
 									<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>
 								</ul>
 							</footer>
