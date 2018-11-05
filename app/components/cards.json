@@ -1,0 +1,74 @@
+[
+	{
+		"title": "Тинькоф Платинум карта",
+		"logo": "img/card-logo.png",
+		"pros": {
+			"money": "",
+			"percent": "",
+			"time": ""
+		},
+		"details": {
+			"paySystem": "MasterCard",
+			"cardType": "World",
+			"validity": "3 года",
+			"minLimit": "10 000 руб.",
+			"maxLimit": "300 000 руб.",
+			"interestRate": "12 - 29.9% за покупки; 30 - 49.9% за снятие наличных",
+			"maintenanceСost": "590 руб. в год",
+			"gracePeriod": "До 55 дней",
+			"commission": "2.9% + 290 руб.",
+			"cashback": "1-30%",
+			"minPayment": "До 8%, мин. 600 руб.",
+			"considerationTime": "2 мин.",
+			"delivery": "На дом",
+			"deliveryTime": "1-7 дней",
+			"incomeProof": "Необязательно",
+			"age": "18-70 лет",
+			"regionRegistr": "Нет",
+			"chipAvailability": "Да",
+			"contactlessPayment": "PayPass",
+			"secure3D": "Да",
+			"supplyDepartment": "Нет",
+			"application": "Бесплатно; Apple, Android, Windows Phone",
+			"internetBank": "0 руб."
+		},
+		"link": "",
+		"firstLoan": "0% = 100 дней" 
+	},
+	{
+		"title": "Альфа-Банк \"100 дней без %\"",
+		"logo": "img/card-logo.png",
+		"pros": {
+			"money": "",
+			"percent": "",
+			"time": ""
+		},
+		"details": {
+			"paySystem": "Visa / MasterCard",
+			"cardType": "Classic / Standard",
+			"validity": "2 года",
+			"minLimit": "500 000 руб.",
+			"maxLimit": "10 800 руб.",
+			"interestRate": "14,99%—39.99%",
+			"maintenanceСost": "1 190—6 990 руб. в год",
+			"gracePeriod": "100 дней (возобновляется после погашения задолженности)",
+			"commission": "0 руб. до 50 000 руб. в мес.; 3.9-5.9% мин. 300 руб. свыше 50 000 в мес.",
+			"cashback": "Нет",
+			"minPayment": "3-10%, мин. 300 руб.",
+			"considerationTime": "2 мин.",
+			"delivery": "В отделение",
+			"deliveryTime": "До 5 дней",
+			"incomeProof": "Нет",
+			"age": "От 18 лет",
+			"regionRegistr": "Да",
+			"chipAvailability": "Да",
+			"contactlessPayment": "PayWave",
+			"secure3D": "Да",
+			"supplyDepartment": "Нет",
+			"application": "Бесплатно; Apple, Android",
+			"internetBank": "0 руб."
+		},
+		"link": "https://pxl.leads.su/click/0dd0965f2d4358a37c70c77a88b1de17",
+		"firstLoan": "0% = 100 дней" 
+	}
+]

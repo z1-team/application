@@ -3,7 +3,8 @@ import React, {Component} from 'react'
 import CardDetails from './CardDetails'
 import ResultsPagination from './ResultsPagination'
 
-import Offers from './offers.json'
+import OffersMFO from './mfo.json'
+import OffersCards from './cards.json'
 
 class Results extends Component {
 	constructor(props) {
@@ -48,7 +49,7 @@ class Results extends Component {
 				</div>
 				*/}
 				<div className="list">
-					{Offers.map((item, index) => (
+					{OffersMFO.map((item, index) => (
 						<div className="result-item" key={index}>
 							<section>
 								<figure>
@@ -75,14 +76,14 @@ class Results extends Component {
 									</ul>
 								</div>
 								<div className="process">
-									<a target="_blank" href={item.link}>Оформить</a>
-									<p>переплата {item.overpayment}</p>
+									<a target="_blank" href={item.link} rel="nofollow noopener">Оформить</a>
+									{item.hasOwnProperty('overpayment') && item.overpayment != '' && <p>переплата {item.overpayment}</p>}
 								</div>
 							</section>
 							<footer ref={(input) => {this.detailsRefs[index] = input }}>
 								<CardDetails details={item.details} />
 								<ul>
-									<li>{item.firstLoan}</li>
+									<li>{item.hasOwnProperty('firstLoan') && item.firstLoan}</li>
 									<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>
 								</ul>
 							</footer>
