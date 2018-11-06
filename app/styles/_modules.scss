@@ -235,9 +235,10 @@
 			}
 
 			& > section {
-				display: flex; align-items: flex-start; justify-content: space-between; padding: 23px 31px 30px 23px;
+				display: flex; align-items: center; justify-content: space-between; padding: 23px 31px 30px 23px;
 
 				figure {
+					text-align: center;
 					width: 280px; flex-shrink: 0; padding-right: 15px;
 
 					img {max-width: 80%; max-height: 150px;}

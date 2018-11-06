@@ -1,21 +1,13 @@
 import React, {Component} from 'react'
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
+  Route
 } from 'react-router-dom'
 
-import Cards from './Cards'
+import CardList from './CardList'
 import ResultsPagination from './ResultsPagination'
-
-import OffersMFO from './mfo.json'
-import OffersCards from './cards.json'
-import OffersCredits from './credits.json'
 
 class Results extends Component {
 	render() {
-		
 		return (
 			<div className="results">
 				<h2>Рейтинг микрокредитов <em>Рунета 2018 года</em></h2>
@@ -38,7 +30,7 @@ class Results extends Component {
 					</ul>
 				</div>
 				*/}
-				<Cards cards={OffersMFO} />
+					<Route path="/:id" component={CardList} />
 				{/* <ResultsPagination /> */}
 			</div>
 		)

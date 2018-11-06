@@ -5,8 +5,13 @@ import {
   Link
 } from 'react-router-dom'
 
+import { withRouter } from "react-router";
+
 class Intro extends Component {
 	render() {
+		const { match, location, history } = this.props;
+		const url = location.pathname
+
 		return (
 			<div className="wr-intro">
 				<div className="container">
@@ -16,9 +21,9 @@ class Intro extends Component {
 								<img src="img/logo.png" />
 							</figure>
 							<ul>
-								<li><Link to="mfo">Микрозаймы</Link></li>
-								<li><Link to="cards">Кредитные карты</Link></li>
-								<li><Link to="credits">Кредиты</Link></li>
+								<li><Link className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
+								<li><Link className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
+								<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>
 							</ul>
 						</header>
 						<section>
@@ -32,4 +37,4 @@ class Intro extends Component {
 	}
 }
 
-export default Intro
+export default withRouter(Intro)

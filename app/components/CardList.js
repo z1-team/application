@@ -1,31 +1,48 @@
 import React, {Component} from 'react'
 
-import CardDetails from './CardDetails'
+import CardAccordeon from './CardAccordeon'
+
+import OffersMFO from './mfo.json'
+import OffersCards from './cards.json'
+import OffersCredits from './credits.json'
 
 class Cards extends Component {
 	constructor(props) {
 		super(props);
 
-		this.handleClick = this.handleClick.bind(this);
+		//this.handleClick = this.handleClick.bind(this);
 
-		this.state = {active: false}
+		//this.state = {active: false}
 
-		this.detailsRefs = []
+		//this.detailsRefs = []
 	}
 
-	handleClick(index) {
+	/*handleClick(index) {
 
 		this.setState({active: !this.state.active});
 
 		this.detailsRefs[index].classList.toggle('active');
+	}*/
 
+	getCards() {
+		const url = this.props.match.params.id
+
+		switch(url) {
+			case "mfo":
+				return OffersMFO
+			case "cards":
+				return OffersCards
+			case "credits":
+				return OffersCredits
+			default:
+				break;
+		}
 	}
-	render() {
-		const {cards} = this.props;
 
+	render() {
 		return (
 			<div className="list">
-				{cards.map((item, index) => (
+				{this.getCards().map((item, index) => (
 					<div className="result-item" key={index}>
 						<section>
 							<figure>
@@ -59,13 +76,7 @@ class Cards extends Component {
 								{item.hasOwnProperty('overpayment') && item.overpayment != '' && <p>переплата {item.overpayment}</p>}
 							</div>
 						</section>
-						<footer ref={(input) => {this.detailsRefs[index] = input }}>
-							<CardDetails details={item.details} />
-							<ul>
-								<li>{item.hasOwnProperty('firstLoan') && item.firstLoan}</li>
-								<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>
-							</ul>
-						</footer>
+						<CardAccordeon data={item} />
 					</div>
 				))}
 			</div>
