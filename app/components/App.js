@@ -9,15 +9,23 @@ import About from './About'
 import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
 class App extends Component {
 	render() {
 		return (
-			<div className="app">
-				<Intro />
-				<Main />
-				<Footer />
-			</div>
-			)
+			<Router>
+				<div className="app">
+					<Intro />
+					<Main />
+					<Footer />
+				</div>
+			</Router>
+		)
 	}
 }
 
