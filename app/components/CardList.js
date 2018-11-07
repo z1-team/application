@@ -35,7 +35,7 @@ class Cards extends Component {
 			case "credits":
 				return OffersCredits
 			default:
-				break;
+				return OffersMFO
 		}
 	}
 
