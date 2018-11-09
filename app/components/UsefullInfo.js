@@ -7,12 +7,12 @@ class UsefullInfo extends Component {
 				<div className="container">
 					<div className="usefull-info">
 						<div className="links">
-							<h3>Moneyonline</h3>
+							{/*<h3>Moneyonline</h3>*/}
 							<ul>
 								<li>
-									<a href="#">О проекте</a>
+									<a href="#">Подробнее о проекте</a>
 								</li>
-								<li>
+								{/*<li>
 									<a href="#">Почему мы?</a>
 								</li>
 								<li>
@@ -23,16 +23,16 @@ class UsefullInfo extends Component {
 								</li>
 								<li>
 									<a href="#">Соглашение</a>
-								</li>
+								</li>*/}
 								<li>
 									<a href="#">Конфиденциальность</a>
 								</li>
-								<li>
+								{/*<li>
 									<a href="#">Отказ от гарантии</a>
 								</li>
 								<li>
 									<a href="#">Реклама</a>
-								</li>
+								</li>*/}
 							</ul>
 						</div>
 						{/*
@@ -57,7 +57,6 @@ class UsefullInfo extends Component {
 								</div>
 							</form>
 						</div>
-						*/}
 						<div className="effects">
 							<h3>Последствия невыплаты займа</h3>
 							<p>В случае просрочки по выплатам, со следующего дня после истечения срока займа, вам будет ежедневно начисляться пеня в размере 0,05-1% в день от суммы кредита. 
@@ -68,6 +67,7 @@ class UsefullInfo extends Component {
 							Следите за уведомлениями, которые кредиторы отправляют вам накануне наступления срока платежа. Точные данные следует уточнять у кредиторов. 
 							Взыскание долгов осуществляется посредством телефонных звонков, уведомлений по СМС и электронной почте, как заемщика, так и контактного лица.</p>
 						</div>
+						*/}
 					</div>
 				</div>
 			</div>

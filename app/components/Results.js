@@ -7,10 +7,25 @@ import CardList from './CardList'
 import ResultsPagination from './ResultsPagination'
 
 class Results extends Component {
+	getTitle() {
+		const url = this.props.match.params.id
+
+		switch(url) {
+			case "mfo":
+				return "микрозаймов"
+			case "cards":
+				return "кредитных карт"
+			case "credits":
+				return "кредитов"
+			default:
+				return "микрокредитов"
+		}
+	}
+
 	render() {
 		return (
 			<div className="results">
-				<h2>Рейтинг микрокредитов <em>Рунета 2018 года</em></h2>
+				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
 				{/*
 				<div className="sort">
 					<p>СОРТИРОВАТЬ:</p>

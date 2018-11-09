@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import Sidebar from './Sidebar'
 import Results from './Results'
+import {
+  Route
+} from 'react-router-dom'
 
 class Main extends Component {
 	render() {
@@ -8,8 +11,8 @@ class Main extends Component {
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						{/* <Sidebar /> */}
-						<Results />
+						{/*<Sidebar />*/}
+						<Route path="/:id" component={Results} />
 					</div>
 				</div>
 			</div>

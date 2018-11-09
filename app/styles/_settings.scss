@@ -58,8 +58,7 @@ body {
 	position: relative; margin: 0 auto; width: 1140px; padding: 0 15px; z-index: 5;
 	@include respond-to(lg) {width: 980px;}
 	@include respond-to(md) {width: 760px;}
-	@include respond-to(sm) {width: 450px;}
-	@include respond-to(xs) {width: 100%; padding: 0;}
+	@include respond-to(sm) {width: 100%;}
 
 	&:before {content: ''; display: table;}
 	&:after {content: ''; display: table; clear: both;}

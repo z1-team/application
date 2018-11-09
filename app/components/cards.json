@@ -3,9 +3,9 @@
 		"title": "Тинькоф Платинум карта",
 		"logo": "img/tinkoff_platinum.png",
 		"pros": {
-			"money": "300 000 руб.",
-			"percent": "от 12%",
-			"time": "3 года"
+			"limit": "300 000",
+			"percent": "12%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "MasterCard",
@@ -33,15 +33,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/f70ce0bd79fdff3a77c2b192c8d7c494",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 	},
 	{
 		"title": "Альфа-Банк \"100 дней без %\"",
 		"logo": "img/alfa-100-dnei.png",
 		"pros": {
-			"money": "500 000 руб.",
-			"percent": "от 14,99%",
-			"time": "2 года"
+			"limit": "500 000",
+			"percent": "14,99%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa / MasterCard",
@@ -69,15 +69,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/0dd0965f2d4358a37c70c77a88b1de17",
-		"firstLoan": "0%" 
-		},
+		"firstLoan": "БЕЗ ПРОЦЕНТОВ — 100 дней." 
+	},
 	{
 		"title": "Альфа-Банк \"CashBack\"",
 		"logo": "img/alfa-cashback.png",
 		"pros": {
-			"money": "300 000 руб.",
-			"percent": "от 25,99%",
-			"time": "2 года"
+			"limit": "300 000",
+			"percent": "25,99%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "MasterCard",
@@ -105,15 +105,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/11ee8752c1497a4343e29fa12b788876",
-		"firstLoan": "0%" 
-		},
+		"firstLoan": "—" 
+	},
 	{
 		"title": "Альфа-Банк \"Перекресток\"",
 		"logo": "img/alfa-perekrestok.png",
 		"pros": {
-			"money": "300 000 руб.",
-			"percent": "от 23,99%",
-			"time": "5 лет"
+			"limit": "300 000",
+			"percent": "23,99%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "MasterCard",
@@ -141,15 +141,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/060442f806f4bbe69b06967aeb98cba8",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 		},
 	{
 		"title": "Райффайзенбанк \"#Всесразу\"",
 		"logo": "img/raifaisen-vsesrazu.jpg",
 		"pros": {
-			"money": "600 000 руб.",
-			"percent": "от 28%",
-			"time": "4 года"
+			"limit": "600 000",
+			"percent": "28%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa",
@@ -177,15 +177,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/b244c94c69a48700f61016789cd8e34e",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 		},
 	{
 		"title": "Виртуальная кредитная карта Квику",
 		"logo": "img/kviku-card.png",
 		"pros": {
-			"money": "200 000 руб.",
-			"percent": "от 21,9%",
-			"time": "1 год"
+			"limit": "200 000",
+			"percent": "21,9%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa",
@@ -213,15 +213,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/3287d7ee7c66dd99641f402098081474",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 		},
 	{
 		"title": "Быстроденьги - Быстрокарта",
 		"logo": "img/bistrokarta-card.png",
 		"pros": {
-			"money": "30 000 руб.",
-			"percent": "от 2,17%",
-			"time": "3 года"
+			"limit": "30 000",
+			"percent": "2,17%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa",
@@ -249,15 +249,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/434fb6bbce5858bb89551c7729ce37bb",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 		},
 	{
 		"title": "УБРиР Банк Кредитная карта 120 дней",
 		"logo": "img/ubrir-120dnei-card.png",
 		"pros": {
-			"money": "300 000 руб.",
-			"percent": "от 29%",
-			"time": "3 года"
+			"limit": "300 000",
+			"percent": "29%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa",
@@ -285,15 +285,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/914fff3e47ed68b038a2f9f9bcf08987",
-		"firstLoan": "0%" 
+		"firstLoan": "—" 
 		},
 	{
 		"title": "Совкомбанк, карта \"Халва\"",
 		"logo": "img/sovkombank-halva-card.png",
 		"pros": {
-			"money": "350 000 руб.",
-			"percent": "от 0%",
-			"time": "10 лет"
+			"limit": "350 000",
+			"percent": "0%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "MasterCard",
@@ -321,15 +321,15 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/6bd3b42af6d3ffc3fdd524c9d19a266a",
-		"firstLoan": "0%"
+		"firstLoan": "—"
 		},
 	{
 		"title": "Карта рассрочки \"Совесть\"",
 		"logo": "img/karta_rassrochki_sovest.png",
 		"pros": {
-			"money": "300 000 руб.",
-			"percent": "от 0%",
-			"time": "5 лет"
+			"limit": "300 000",
+			"percent": "0%",
+			"cashback": "—"
 		},
 		"details": {
 			"paySystem": "Visa",
@@ -357,6 +357,6 @@
 			"internetBank": "0 руб."
 		},
 		"link": "https://pxl.leads.su/click/4197f2d21f2756855cd64264195ed6f0",
-		"firstLoan": "0%"
+		"firstLoan": "—"
 	}
 ]

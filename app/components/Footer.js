@@ -7,7 +7,7 @@ class Footer extends Component {
 			<div className="wr-footer">
 				<div className="container">
 					<div className="footer">
-						<a href="#" className="logo"><img src="img/logo-footer.png"/></a>
+						<span className="logo"><img src="img/logo-footer.png"/></span>
 						{/*
 						<ul className="socials">
 							<li>
@@ -24,7 +24,7 @@ class Footer extends Component {
 							</li>
 						</ul>
 						*/}
-						<small>&copy; 2018 Moneyonline | Все права защищены</small>
+						<small>&copy; 2018 Moneyonline. Информация, предоставленная на сайте, носит ознакомительный характер. Реальные предложения организаций могут отличаться.</small>
 					</div>
 				</div>
 			</div>

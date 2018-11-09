@@ -4,8 +4,8 @@
 		"logo": "img/kredito24-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "30",
-			"percent": "1,9%"
+			"term": "30",
+			"minRate": "1,9%"
 		},
 		"overpayment": "5 509 руб.",
 		"details": {
@@ -39,8 +39,8 @@
 		"logo": "img/turbozaim-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "15",
-			"percent": "2,3%"
+			"term": "15",
+			"minRate": "2,3%"
 		},
 		"overpayment": "3 450 руб.",
 		"details": {
@@ -74,8 +74,8 @@
 		"logo": "img/webbankir-logo.png",
 		"pros": {
 			"money": "8 000",
-			"day": "10",
-			"percent": "0%"
+			"term": "10",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -109,8 +109,8 @@
 		"logo": "img/moneyman-logo.png",
 		"pros": {
 			"money": "9 000",
-			"day": "15",
-			"percent": "0%"
+			"term": "15",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -144,8 +144,8 @@
 		"logo": "img/ezaem-logo.png",
 		"pros": {
 			"money": "5 000",
-			"day": "14",
-			"percent": "0%"
+			"term": "14",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -179,8 +179,8 @@
 		"logo": "img/migkredit-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "7",
-			"percent": "2,2%"
+			"term": "7",
+			"minRate": "2,2%"
 		},
 		"overpayment": "1 540 руб.",
 		"details": {
@@ -214,8 +214,8 @@
 		"logo": "img/zaimer-logo.svg",
 		"pros": {
 			"money": "30 000",
-			"day": "30",
-			"percent": "1,98%"
+			"term": "30",
+			"minRate": "1,98%"
 		},
 		"overpayment": "5 940 руб.",
 		"details": {
@@ -249,8 +249,8 @@
 		"logo": "img/moneza-logo.png",
 		"pros": {
 			"money": "5 000",
-			"day": "14",
-			"percent": "0%"
+			"term": "14",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -284,8 +284,8 @@
 		"logo": "img/ekapusta-logo.svg",
 		"pros": {
 			"money": "12 000",
-			"day": "12",
-			"percent": "0%"
+			"term": "12",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -319,8 +319,8 @@
 		"logo": "img/slonfinance-logo.png",
 		"pros": {
 			"money": "7 000",
-			"day": "14",
-			"percent": "1,61%"
+			"term": "14",
+			"minRate": "1,61%"
 		},
 		"overpayment": "2 254 руб.",
 		"details": {
@@ -354,8 +354,8 @@
 		"logo": "img/greenmoney-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "2,23%"
+			"term": "14",
+			"minRate": "2,23%"
 		},
 		"overpayment": "3 122 руб.",
 		"details": {
@@ -389,8 +389,8 @@
 		"logo": "img/oneclickmoney-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "2,07%"
+			"term": "14",
+			"minRate": "2,07%"
 		},
 		"overpayment": "2 899 руб.",
 		"details": {
@@ -424,8 +424,8 @@
 		"logo": "img/konga-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "1,8%"
+			"term": "14",
+			"minRate": "1,8%"
 		},
 		"overpayment": "2 520 руб.",
 		"details": {
@@ -459,8 +459,8 @@
 		"logo": "img/lime-logo.svg",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "0%"
+			"term": "14",
+			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -494,8 +494,8 @@
 		"logo": "img/onlinezaim-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "1,28%"
+			"term": "14",
+			"minRate": "1,28%"
 		},
 		"overpayment": "1 800 руб.",
 		"details": {
@@ -529,8 +529,8 @@
 		"logo": "img/smartcredit-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "1,9%"
+			"term": "14",
+			"minRate": "1,9%"
 		},
 		"overpayment": "2 660 руб.",
 		"details": {
@@ -564,8 +564,8 @@
 		"logo": "img/platiza-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "2,17%"
+			"term": "14",
+			"minRate": "2,17%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -599,8 +599,8 @@
 		"logo": "img/chestnoeslovo-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "2,2%"
+			"term": "14",
+			"minRate": "2,2%"
 		},
 		"overpayment": "3 080 руб.",
 		"details": {
@@ -634,8 +634,8 @@
 		"logo": "img/joymoney-logo.png",
 		"pros": {
 			"money": "10 000",
-			"day": "14",
-			"percent": "2,17%"
+			"term": "14",
+			"minRate": "2,17%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -669,8 +669,8 @@
 		"logo": "img/mili-logo.png",
 		"pros": {
 			"money": "12 100",
-			"day": "14",
-			"percent": "1,5%"
+			"term": "14",
+			"minRate": "1,5%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -704,8 +704,8 @@
 		"logo": "img/partners-logo-1.png",
 		"pros": {
 			"money": "12 100",
-			"day": "14",
-			"percent": "1,5%"
+			"term": "14",
+			"minRate": "1,5%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {

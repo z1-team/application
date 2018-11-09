@@ -2,7 +2,12 @@
 	{
 		"title": "Тинькофф Банк кредит наличными",
 		"logo": "img/credit_tinkoff.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "1 000 000 руб.; До 15 000 000 руб. под залог недвижимости",
 			"minPercent": "12%",
@@ -23,13 +28,17 @@
 			"personalArea": "Да",
 			"application": "Бесплатно, Apple, Android, Windows Phone"
 		},
-		"link": "https://pxl.leads.su/click/3e679f50d291a9356180f8ec497f2510",
-		"firstLoan": "0%" 
+		"link": "https://pxl.leads.su/click/3e679f50d291a9356180f8ec497f2510" 
 	},
 	{
 		"title": "Совкомбанк Кредит Наличными",
 		"logo": "img/credit_sovkombank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "5 000 руб.",
 			"maxSumm": "400 000 руб.",
 			"minPercent": "8,9% при подключении услуги \"Гарантия минимальной ставки\"; 13,9% со справкой о доходах и при целевом использовании средств более 80% (целевым использованием средств считается приобретение покупок с помощью карты Совкомбанка)",
@@ -50,13 +59,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/f9b00cde0d5f29ebd138e7274e3d257a",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/f9b00cde0d5f29ebd138e7274e3d257a"
+	},
 	{
 		"title": "Совкомбанк Кредит На Большую Сумму",
 		"logo": "img/credit_sovkombank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "150 000 руб.",
 			"maxSumm": "30 000 000 руб.",
 			"minPercent": "11,9%",
@@ -77,13 +90,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/cf4147b7b2601150f5b5c63143523e93",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/cf4147b7b2601150f5b5c63143523e93"
+	},
 	{
 		"title": "Совкомбанк Кредитный Доктор",
 		"logo": "img/sovkombank_doktor.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "4 999 руб.",
 			"maxSumm": "60 000 руб.",
 			"minPercent": "20,9%",
@@ -104,13 +121,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/8387a871673447d781776566611ec038",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/8387a871673447d781776566611ec038"
+	},
 	{
 		"title": "HomeCredit Bank",
 		"logo": "img/homecreditbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "10 000 руб.",
 			"maxSumm": "1 000 000 руб.",
 			"minPercent": "12,5%",
@@ -131,13 +152,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/24c0ca570a406bd6ad8ceb63ffd8a27e",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/24c0ca570a406bd6ad8ceb63ffd8a27e"
+	},
 	{
 		"title": "Райффайзен Банк",
 		"logo": "img/raiffeisenbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "90 000 руб.",
 			"maxSumm": "2 000 000 руб.",
 			"minPercent": "10,99% действует со второго года при оформлении страховки",
@@ -158,13 +183,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/e904063a50cb88421843d5c6f7ab9b94",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/e904063a50cb88421843d5c6f7ab9b94"
+	},
 	{
 		"title": "Ренессанс Банк",
 		"logo": "img/renessans_credit_bank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "30 000 руб.",
 			"maxSumm": "700 000 руб.",
 			"minPercent": "11,3%",
@@ -185,13 +214,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/06d549b51ff1bfa8f7429dc7cc380878",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/06d549b51ff1bfa8f7429dc7cc380878"
+	},
 	{
 		"title": "ОТП Банк Кредит Особый",
 		"logo": "img/otpbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "300 000 руб.",
 			"maxSumm": "1 000 000 руб.",
 			"minPercent": "11,5%",
@@ -212,13 +245,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/a42497fdff46702c4c8d761f3a8a247f",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/a42497fdff46702c4c8d761f3a8a247f"
+	},
 	{
 		"title": "Альфа Банк Кредит Наличными",
 		"logo": "img/alfabank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "1 000 000 руб.",
 			"minPercent": "11,99%",
@@ -239,13 +276,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://trkleads.ru/click/c714e9d7935ef202dbb7fd555f1a1591",
-		"firstLoan": "0%"
-		},
+		"link": "https://trkleads.ru/click/c714e9d7935ef202dbb7fd555f1a1591"
+	},
 	{
 		"title": "Альфа Банк Рефинансирование",
 		"logo": "img/alfabank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "4 000 000 руб.",
 			"minPercent": "11,99%",
@@ -266,13 +307,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://trkleads.ru/click/c714e9d7935ef202dbb7fd555f1a1591",
-		"firstLoan": "0%"
-		},
+		"link": "https://trkleads.ru/click/c714e9d7935ef202dbb7fd555f1a1591"
+	},
 	{
 		"title": "СКБ Банк",
 		"logo": "img/skbbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "51 000 руб.",
 			"maxSumm": "1 300 000 руб.",
 			"minPercent": "11,9%",
@@ -293,13 +338,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/2d0d9d007cc5c22bedb1cc8d604cb3f2",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/2d0d9d007cc5c22bedb1cc8d604cb3f2"
+	},
 	{
 		"title": "Росбанк",
 		"logo": "img/rosbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "3 000 000 руб.",
 			"minPercent": "9,99%",
@@ -320,13 +369,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/8f4b12880debc5e923f37572664cd2a1",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/8f4b12880debc5e923f37572664cd2a1"
+	},
 	{
 		"title": "УБРиР (Уральский Банк Реконструкции и Развития) Кредит Наличными",
 		"logo": "img/ubrir.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "30 000 руб.",
 			"maxSumm": "600 000 руб.",
 			"minPercent": "13%",
@@ -347,13 +400,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/4a8ca99c933cfebbbd883ddd471973f3",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/4a8ca99c933cfebbbd883ddd471973f3"
+	},
 	{
 		"title": "УБРиР (Уральский Банк Реконструкции и Развития) Кредит Пенсионный",
 		"logo": "img/ubrir.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "600 000 руб.",
 			"minPercent": "14,99%",
@@ -374,13 +431,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/ec8debdf85619b7c6a9cae1a0985c906",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/ec8debdf85619b7c6a9cae1a0985c906"
+	},
 	{
 		"title": "Интерпром Банк Рефинансирование",
 		"logo": "img/interprombank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "45 000 руб.",
 			"maxSumm": "1 100 000 руб.",
 			"minPercent": "11%",
@@ -401,13 +462,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/0296a5815120359dedc96c79e588aabf",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/0296a5815120359dedc96c79e588aabf"
+	},
 	{
 		"title": "Интерпром Банк. Кредит для пенсионеров",
 		"logo": "img/interprombank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "45 000 руб.",
 			"maxSumm": "1 000 000 руб.",
 			"minPercent": "11%",
@@ -428,13 +493,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/6ad8e9924c94583e55428547f1b1dedd",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/6ad8e9924c94583e55428547f1b1dedd"
+	},
 	{
 		"title": "Восточный банк",
 		"logo": "img/vostochnyj_bank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "25 000 руб.",
 			"maxSumm": "30 000 000 руб.",
 			"minPercent": "11,5%",
@@ -455,13 +524,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/858eb5a2b6ce920a5ad43e024c163b84",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/858eb5a2b6ce920a5ad43e024c163b84"
+	},
 	{
 		"title": "Восточный банк. Кредит под залог недвижимости",
 		"logo": "img/vostochnyj_bank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "300 000 руб.",
 			"maxSumm": "30 000 000 руб.",
 			"minPercent": "9,9%",
@@ -482,13 +555,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/f0466983aaa44b823a6ae425f8501d34",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/f0466983aaa44b823a6ae425f8501d34"
+	},
 	{
 		"title": "Промсвязьбанк. Кредит наличными",
 		"logo": "img/promsvyazbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "3 000 000 руб.",
 			"minPercent": "6,9%",
@@ -509,13 +586,17 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/63c7eac3b5f385e4a4e12e0386aa8790",
-		"firstLoan": "0%"
-		},
+		"link": "https://pxl.leads.su/click/63c7eac3b5f385e4a4e12e0386aa8790"
+	},
 	{
 		"title": "Промсвязьбанк. Кредит для бюджетников и госслужащих",
 		"logo": "img/promsvyazbank.png",
-			"details": {
+		"pros": {
+			"maxSumm": "—",
+			"rate": "—",
+			"timing": "—"
+		},
+		"details": {
 			"minSumm": "50 000 руб.",
 			"maxSumm": "3 000 000 руб.",
 			"minPercent": "10,4% для действующих клиентов. 10,9% для новых",
@@ -536,7 +617,6 @@
 			"Personal Area": "Да",
 			"application": "Бесплатно; Apple, Android"
 		},
-		"link": "https://pxl.leads.su/click/0c58bdb7064a95f9d32255d1e6c458c6",
-		"firstLoan": "0%"
+		"link": "https://pxl.leads.su/click/0c58bdb7064a95f9d32255d1e6c458c6"
 	}
 ]

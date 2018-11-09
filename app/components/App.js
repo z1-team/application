@@ -10,10 +10,7 @@ import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
 
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
+  BrowserRouter as Router
 } from 'react-router-dom'
 
 class App extends Component {
@@ -23,6 +20,7 @@ class App extends Component {
 				<div className="app">
 					<Intro />
 					<Main />
+					<UsefullInfo />
 					<Footer />
 				</div>
 			</Router>

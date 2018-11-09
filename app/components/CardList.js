@@ -62,18 +62,28 @@ class Cards extends Component {
 									<p><a href="#">22 отзыва</a> (4.1 из 5)</p>
 								</div>
 								*/}
-								{item.hasOwnProperty('pros') && item.pros != '' &&
+								{item.pros &&
 									<ul className="pros">
-										{item.pros.hasOwnProperty('money') && item.pros.money != '' && <li><strong>{item.pros.money}</strong> руб.</li>}
-										{item.pros.hasOwnProperty('day') && item.pros.day != '' && <li><strong>{item.pros.day}</strong> дней</li>}
-										{item.pros.hasOwnProperty('percent') && item.pros.percent != '' && <li><strong>{item.pros.percent}</strong> в день</li>}
-										{item.pros.hasOwnProperty('time') && item.pros.time != '' && <li><strong>{item.pros.time}</strong></li>}
+										{/* For MFO */}
+										{item.pros.money && <li><strong>{item.pros.money}</strong> руб.<em>сумма займа</em></li>}
+										{item.pros.term && <li><strong>{item.pros.term}</strong> дней<em>срок займа</em></li>}
+										{item.pros.minRate && <li><strong>{item.pros.minRate}</strong><em>мин. ставка</em></li>}
+
+										{/* For credit cards */}
+										{item.pros.limit && <li><strong>{item.pros.limit}</strong> руб.<em>кредитный лимит</em></li>}
+										{item.pros.percent && <li>от <strong>{item.pros.percent}</strong><em>процентная ставка</em></li>}
+										{item.pros.cashback && <li>от <strong>{item.pros.cashback}</strong><em>cashback</em></li>}
+
+										{/* For credits */}
+										{item.pros.maxSumm && <li><strong>{item.pros.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}
+										{item.pros.rate && <li>от <strong>{item.pros.rate}</strong><em>процентная ставка</em></li>}
+										{item.pros.timing && <li><strong>{item.pros.timing}</strong><em>время рассмотрения</em></li>}
 									</ul>
 								}
 							</div>
 							<div className="process">
 								<a target="_blank" href={item.link} rel="nofollow noopener">Оформить</a>
-								{item.hasOwnProperty('overpayment') && item.overpayment != '' && <p>переплата {item.overpayment}</p>}
+								{/* item.overpayment && <p>переплата {item.overpayment}</p> */}
 							</div>
 						</section>
 						<CardAccordeon data={item} />

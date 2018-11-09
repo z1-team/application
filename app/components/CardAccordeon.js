@@ -14,7 +14,7 @@ class CardAccordeon extends Component {
 			{/*<footer ref={(input) => {this.detailsRef = input }}>*/}
 				<CardDetails details={data.details} />
 				<ul>
-					<li>{data.hasOwnProperty('firstLoan') && data.firstLoan}</li>
+					<li>{data.firstLoan && data.firstLoan}</li>
 					<li><button onClick={this.handleClick.bind(this)}>Подробнее <img src="img/more.png"/></button></li>
 					{/*<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>*/}
 				</ul>

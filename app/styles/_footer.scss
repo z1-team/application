@@ -1,8 +1,8 @@
 .footer {
-	display: flex; align-items: center;
+	display: flex; align-items: center; flex-direction: column;
 
-	a.logo {
-		margin-right: 25px; flex-shrink: 0;
+	.logo {
+		margin-bottom: 5px; flex-shrink: 0;
 	}
 
 	ul.socials {
