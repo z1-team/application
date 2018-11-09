@@ -66,7 +66,7 @@ class Cards extends Component {
 									<ul className="pros">
 										{/* For MFO */}
 										{item.pros.money && <li><strong>{item.pros.money}</strong> руб.<em>сумма займа</em></li>}
-										{item.pros.term && <li><strong>{item.pros.term}</strong> дней<em>срок займа</em></li>}
+										{item.pros.term && <li>до <strong>{item.pros.term}</strong> дней<em>срок займа</em></li>}
 										{item.pros.minRate && <li><strong>{item.pros.minRate}</strong><em>мин. ставка</em></li>}
 
 										{/* For credit cards */}

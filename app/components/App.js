@@ -4,13 +4,14 @@ import Library from './FontAwesome'
 
 import Header from './Header'
 import Intro from './Intro'
-import Main from './Main'
+import Content from './Content'
 import About from './About'
 import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
 
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router,
+  Route
 } from 'react-router-dom'
 
 class App extends Component {
@@ -19,8 +20,8 @@ class App extends Component {
 			<Router>
 				<div className="app">
 					<Intro />
-					<Main />
-					<UsefullInfo />
+					<Route path="/:id" component={Content} />
+					<Route path="/:id" component={UsefullInfo} />
 					<Footer />
 				</div>
 			</Router>

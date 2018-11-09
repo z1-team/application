@@ -19,6 +19,10 @@ class Intro extends Component {
 				return "wr-intro cards"
 			case "/credits":
 				return "wr-intro credits"
+			case "/about":
+				return "wr-intro inner"
+			case "/confidentiality":
+				return "wr-intro inner"
 			default:
 				return "wr-intro mfo"
 		}
@@ -49,6 +53,10 @@ class Intro extends Component {
 						<h2>Все Банки в одном месте</h2>
 					</section>
 				)
+			case "/about":
+				return false
+			case "/confidentiality":
+				return false
 			default:
 				return (
 					<section>

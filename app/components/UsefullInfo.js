@@ -1,7 +1,14 @@
 import React, {Component} from 'react'
+import {
+	Link
+} from 'react-router-dom'
+import { withRouter } from "react-router";
 
 class UsefullInfo extends Component {
 	render() {
+		const { match, location, history } = this.props;
+		const url = location.pathname
+
 		return (
 			<div className="wr-usefull-info">
 				<div className="container">
@@ -10,7 +17,7 @@ class UsefullInfo extends Component {
 							{/*<h3>Moneyonline</h3>*/}
 							<ul>
 								<li>
-									<a href="#">Подробнее о проекте</a>
+									<Link className={url === "/about" ? "active" : ""} to="about">Подробнее о проекте</Link>
 								</li>
 								{/*<li>
 									<a href="#">Почему мы?</a>
@@ -25,7 +32,7 @@ class UsefullInfo extends Component {
 									<a href="#">Соглашение</a>
 								</li>*/}
 								<li>
-									<a href="#">Конфиденциальность</a>
+									<Link className={url === "/confidentiality" ? "active" : ""} to="confidentiality">Конфиденциальность</Link>
 								</li>
 								{/*<li>
 									<a href="#">Отказ от гарантии</a>
@@ -75,4 +82,4 @@ class UsefullInfo extends Component {
 	}
 }
 
-export default UsefullInfo
+export default withRouter(UsefullInfo)
