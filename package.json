@@ -7,7 +7,8 @@
   "repository": "",
   "scripts": {
     "start": "brunch watch --server",
-    "build": "brunch build --production"
+    "build": "brunch build --production",
+    "deploy": "node deploy"
   },
   "dependencies": {
     "@babel/preset-env": "^7.0.0",
@@ -29,6 +30,7 @@
     "babel-preset-react": "^6.24.1",
     "brunch": "^2",
     "clean-css-brunch": "^2",
+    "ftp-deploy": "^2.1.4",
     "postcss-brunch": "^2.1.0",
     "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "^2"
