@@ -5,23 +5,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Отдолжить денег до ЗП</title>
-	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="app.css?v=1.0">
 </head>
 <body>
 	<div id="preloader">
 		<div>
 			<h2>
 				<img src="img/preloader-img.png">
-				<span>собираем</span>
+				<span id="preloader-title">Обрабатываем</span>
 			</h2>
-			<p>варианты в вашем городе</p>
-			<div class="loading">
-				<div class="loading-bar"></div>
-				<div class="loading-percent">75%</div>
+			<p id="preloader-text">фильтры</p>
+			<div id="loading">
+				<div id="loading-bar"></div>
+				<div id="loading-percent">0%</div>
 			</div>
 		</div>
 	</div>
 	<div id="root"></div>
+	<script src="preloader.js"></script>
 	<script src="vendor.js"></script>
 	<script src="app.js"></script>
 	<script>require('index')</script>

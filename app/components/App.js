@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 
-import Library from './FontAwesome'
-
 import Header from './Header'
 import Intro from './Intro'
 import Content from './Content'
@@ -19,11 +17,15 @@ class App extends Component {
 		const ele = document.getElementById('preloader')
 		if(ele){
 			setTimeout(() => {
+				document.getElementById('loading-percent').innerHTML = '100%';
+				document.getElementById('loading-bar').style.width = '100%';
+			}, 2300)
+			setTimeout(() => {
 				ele.classList.add('fadeOut')
-			}, 3000)
+			}, 2500)
 			setTimeout(() => {
 				ele.outerHTML = ''
-			}, 3800)
+			}, 3300)
 		}
 	}
 

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Header extends Component {
 	render() {
@@ -8,7 +7,7 @@ class Header extends Component {
 				<div className="container">
 					<div className="header">
 						<div className="contacts">
-							<a href="#"><FontAwesomeIcon icon={['fas', 'phone']} />+7 (495) 666-55-44</a>
+							<a href="#"><i className="fas fa-phone"></i>+7 (495) 666-55-44</a>
 							<p>Москва</p>
 						</div>
 						<ul>

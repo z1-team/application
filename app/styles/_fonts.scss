@@ -10,3 +10,10 @@
 @include font-face('opensans-light', opensans-light);
 @include font-face('opensans-regular', opensans-regular);
 @include font-face('opensans-bold', opensans-bold);
+
+// Font Awesome
+$fa-font-path: "./fonts/font-awesome" !default;
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';

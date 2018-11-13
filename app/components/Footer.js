@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Footer extends Component {
 	render() {
@@ -11,16 +10,16 @@ class Footer extends Component {
 						{/*
 						<ul className="socials">
 							<li>
-								<a href="#"><FontAwesomeIcon icon={['fab', 'facebook-f']} /></a>
+								<a href="#"><i></i></a>
 							</li>
 							<li>
-								<a href="#"><FontAwesomeIcon icon={['fab', 'twitter']} /></a>
+								<a href="#"><i></i></a>
 							</li>
 							<li>
-								<a href="#"><FontAwesomeIcon icon={['fab', 'google-plus-g']} /></a>
+								<a href="#"><i></i></a>
 							</li>
 							<li>
-								<a href="#"><FontAwesomeIcon icon={['fab', 'pinterest-p']} /></a>
+								<a href="#"><i></i></a>
 							</li>
 						</ul>
 						*/}
