@@ -15,6 +15,18 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+	componentDidMount(){
+		const ele = document.getElementById('preloader')
+		if(ele){
+			setTimeout(() => {
+				ele.classList.add('fadeOut')
+			}, 3000)
+			setTimeout(() => {
+				ele.outerHTML = ''
+			}, 3800)
+		}
+	}
+
 	render() {
 		return (
 			<Router>

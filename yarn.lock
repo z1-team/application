@@ -650,6 +650,14 @@
     humps "^2.0.1"
     prop-types "^15.5.10"
 
+"@icetee/ftp@^0.3.15":
+  version "0.3.15"
+  resolved "https://registry.yarnpkg.com/@icetee/ftp/-/ftp-0.3.15.tgz#d32efd91ab7585f0a3b6cbed9ceffe2763b04ec6"
+  integrity sha512-RxSa9VjcDWgWCYsaLdZItdCnJj7p4LxggaEk+Y3MP0dHKoxez8ioG07DVekVbZZqccsrL+oPB/N9AzVPxj4blg==
+  dependencies:
+    readable-stream "1.1.x"
+    xregexp "2.0.0"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -986,6 +994,16 @@ block-stream@*:
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
   dependencies:
     inherits "~2.0.0"
+
+bluebird@2.x:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
+  integrity sha1-U0uQM8AiyVecVro7Plpcqvu2UOE=
+
+bluebird@^3.5.1:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
+  integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
@@ -1994,6 +2012,17 @@ fstream@^1.0.0, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+ftp-deploy@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/ftp-deploy/-/ftp-deploy-2.1.4.tgz#84afb3ccf429412d3d0943fe101c9bb5a60488d0"
+  integrity sha512-JV83rXPgcFU0N2Ot6nnNjf+HLVdFf5dvld0xYpU/IjV6WMe8IP68fPo6TKHynG07DrPusf5+2QkRDwYAv9j8gQ==
+  dependencies:
+    bluebird "^3.5.1"
+    minimatch "3.0.4"
+    promise-ftp "^1.3.5"
+    read "^1.0.7"
+    upath "^1.0.5"
+
 function-bind@^1.1.0, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -2845,7 +2874,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
 
-"minimatch@2 || 3", minimatch@^3.0.4, minimatch@~3.0.2:
+"minimatch@2 || 3", minimatch@3.0.4, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -2900,6 +2929,11 @@ ms@2.0.0:
 ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
+
+mute-stream@~0.0.4:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
+  integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
 nan@^2.10.0, nan@^2.9.2:
   version "2.11.1"
@@ -3409,6 +3443,20 @@ progeny@^0.12.0, progeny@~0.12.0:
     fs-mode "^1.0.1"
     glob "^7.0.3"
 
+promise-ftp-common@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/promise-ftp-common/-/promise-ftp-common-1.1.5.tgz#b4f8082a74035647703506763edb14230d9865da"
+  integrity sha1-tPgIKnQDVkdwNQZ2PtsUIw2YZdo=
+
+promise-ftp@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/promise-ftp/-/promise-ftp-1.3.5.tgz#ecfa4a5e5b779a6bfdd4dd3096957b58286f5104"
+  integrity sha512-v368jPSqzmjjKDIyggulC+dRFcpAOEX7aFdEWkFYQp8Ao3P2N4Y6XnFFdKgK7PtkylwvGQkZR/65HZuzmq0V7A==
+  dependencies:
+    "@icetee/ftp" "^0.3.15"
+    bluebird "2.x"
+    promise-ftp-common "^1.1.5"
+
 promise.prototype.finally@^2:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/promise.prototype.finally/-/promise.prototype.finally-2.0.1.tgz#b70d44ceb3825fa88004b5d1fbd906b3b7d9b758"
@@ -3576,6 +3624,23 @@ read-pkg@^1.0.0:
     load-json-file "^1.0.0"
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
+
+read@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/read/-/read-1.0.7.tgz#b3da19bd052431a97671d44a42634adf710b40c4"
+  integrity sha1-s9oZvQUkMal2cdRKQmNK33ELQMQ=
+  dependencies:
+    mute-stream "~0.0.4"
+
+readable-stream@1.1.x:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
+  integrity sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
 
 readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6:
   version "2.3.6"
@@ -4445,6 +4510,11 @@ ws@~1.1.0:
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"
+
+xregexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-2.0.0.tgz#52a63e56ca0b84a7f3a5f3d61872f126ad7a5943"
+  integrity sha1-UqY+VsoLhKfzpfPWGHLxJq16WUM=
 
 xtend@^4.0.0:
   version "4.0.1"
