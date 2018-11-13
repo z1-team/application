@@ -3,9 +3,9 @@
 		"title": "Тинькофф Банк кредит наличными",
 		"logo": "img/credit_tinkoff.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "15 000 000",
+			"rate": "12%",
+			"timing": "До 10 мин."
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -34,9 +34,9 @@
 		"title": "Совкомбанк Кредит Наличными",
 		"logo": "img/credit_sovkombank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "400 000",
+			"rate": "8,9%",
+			"timing": "До 1 дня"
 		},
 		"details": {
 			"minSumm": "5 000 руб.",
@@ -65,9 +65,9 @@
 		"title": "Совкомбанк Кредит На Большую Сумму",
 		"logo": "img/credit_sovkombank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "30 000 000",
+			"rate": "11,9%",
+			"timing": "До 1 дня"
 		},
 		"details": {
 			"minSumm": "150 000 руб.",
@@ -96,9 +96,9 @@
 		"title": "Совкомбанк Кредитный Доктор",
 		"logo": "img/sovkombank_doktor.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "60 000",
+			"rate": "20,9%",
+			"timing": "До 1 дня"
 		},
 		"details": {
 			"minSumm": "4 999 руб.",
@@ -127,9 +127,9 @@
 		"title": "HomeCredit Bank",
 		"logo": "img/homecreditbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 000 000",
+			"rate": "12,5%",
+			"timing": "До 2 часов"
 		},
 		"details": {
 			"minSumm": "10 000 руб.",
@@ -158,9 +158,9 @@
 		"title": "Райффайзен Банк",
 		"logo": "img/raiffeisenbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "2 000 000",
+			"rate": "10,99",
+			"timing": "От 1 часа"
 		},
 		"details": {
 			"minSumm": "90 000 руб.",
@@ -189,9 +189,9 @@
 		"title": "Ренессанс Банк",
 		"logo": "img/renessans_credit_bank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "700 000",
+			"rate": "11,3%",
+			"timing": "10 мин."
 		},
 		"details": {
 			"minSumm": "30 000 руб.",
@@ -220,9 +220,9 @@
 		"title": "ОТП Банк Кредит Особый",
 		"logo": "img/otpbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 000 000",
+			"rate": "11,5%",
+			"timing": "от 15 мин. до 1 дня"
 		},
 		"details": {
 			"minSumm": "300 000 руб.",
@@ -251,9 +251,9 @@
 		"title": "Альфа Банк Кредит Наличными",
 		"logo": "img/alfabank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 000 000",
+			"rate": "11,9%",
+			"timing": "1-2 дня"
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -282,9 +282,9 @@
 		"title": "Альфа Банк Рефинансирование",
 		"logo": "img/alfabank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "4 000 000",
+			"rate": "11,99%",
+			"timing": "от 15 мин."
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -313,9 +313,9 @@
 		"title": "СКБ Банк",
 		"logo": "img/skbbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 300 000",
+			"rate": "11,9%",
+			"timing": "До 2-х дней"
 		},
 		"details": {
 			"minSumm": "51 000 руб.",
@@ -344,9 +344,9 @@
 		"title": "Росбанк",
 		"logo": "img/rosbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "3 000 000",
+			"rate": "9,99%",
+			"timing": "1-2 дня"
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -375,9 +375,9 @@
 		"title": "УБРиР (Уральский Банк Реконструкции и Развития) Кредит Наличными",
 		"logo": "img/ubrir.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "600 000",
+			"rate": "13%",
+			"timing": "1-2 дня"
 		},
 		"details": {
 			"minSumm": "30 000 руб.",
@@ -406,9 +406,9 @@
 		"title": "УБРиР (Уральский Банк Реконструкции и Развития) Кредит Пенсионный",
 		"logo": "img/ubrir.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "600 000",
+			"rate": "14,99%",
+			"timing": "1 день"
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -437,9 +437,9 @@
 		"title": "Интерпром Банк Рефинансирование",
 		"logo": "img/interprombank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 100 000",
+			"rate": "11%",
+			"timing": "1 день"
 		},
 		"details": {
 			"minSumm": "45 000 руб.",
@@ -468,9 +468,9 @@
 		"title": "Интерпром Банк. Кредит для пенсионеров",
 		"logo": "img/interprombank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "1 000 000",
+			"rate": "11%",
+			"timing": "1 день"
 		},
 		"details": {
 			"minSumm": "45 000 руб.",
@@ -499,9 +499,9 @@
 		"title": "Восточный банк",
 		"logo": "img/vostochnyj_bank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "30 000 000",
+			"rate": "11,5%",
+			"timing": "От 15 мин."
 		},
 		"details": {
 			"minSumm": "25 000 руб.",
@@ -530,9 +530,9 @@
 		"title": "Восточный банк. Кредит под залог недвижимости",
 		"logo": "img/vostochnyj_bank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "30 000 000",
+			"rate": "9,9%",
+			"timing": "1 час"
 		},
 		"details": {
 			"minSumm": "300 000 руб.",
@@ -561,9 +561,9 @@
 		"title": "Промсвязьбанк. Кредит наличными",
 		"logo": "img/promsvyazbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "3 000 000",
+			"rate": "6,9%",
+			"timing": "До 1 дня"
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
@@ -592,9 +592,9 @@
 		"title": "Промсвязьбанк. Кредит для бюджетников и госслужащих",
 		"logo": "img/promsvyazbank.png",
 		"pros": {
-			"maxSumm": "—",
-			"rate": "—",
-			"timing": "—"
+			"maxSumm": "3 000 000",
+			"rate": "10,4%",
+			"timing": "До 1 дня"
 		},
 		"details": {
 			"minSumm": "50 000 руб.",
