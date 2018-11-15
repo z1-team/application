@@ -13,6 +13,15 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			category: null
+		}
+		this.handleCategory = this.handleCategory.bind(this)
+	}
+
 	componentDidMount(){
 		const ele = document.getElementById('preloader')
 		if(ele){
@@ -29,12 +38,17 @@ class App extends Component {
 		}
 	}
 
+	handleCategory(dataID) {
+		this.setState({category: dataID})
+	}
+
 	render() {
 		return (
 			<Router>
 				<div className="app">
+					<Header onChange={this.handleCategory} />
 					<Intro />
-					<Route path="/:id" component={Content} />
+					<Content category={this.state.category} />
 					<Route path="/:id" component={UsefullInfo} />
 					<Footer />
 				</div>

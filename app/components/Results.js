@@ -1,28 +1,26 @@
 import React, {Component} from 'react'
-import {
-  Route
-} from 'react-router-dom'
 
 import CardList from './CardList'
 import ResultsPagination from './ResultsPagination'
 
 class Results extends Component {
 	getTitle() {
-		const url = this.props.match.params.id
+		const {url} = this.props
 
 		switch(url) {
-			case "mfo":
+			case "/mfo":
 				return "микрозаймов"
-			case "cards":
+			case "/cards":
 				return "кредитных карт"
-			case "credits":
-				return "кредитов"
+			// case "/credits":
+			// 	return "кредитов"
 			default:
-				return "микрокредитов"
+				return "микрозаймов"
 		}
 	}
 
 	render() {
+		const {category, url} = this.props
 		return (
 			<div className="results">
 				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
@@ -45,7 +43,7 @@ class Results extends Component {
 					</ul>
 				</div>
 				*/}
-					<Route path="/:id" component={CardList} />
+					<CardList category={category} url={url} />
 				{/* <ResultsPagination /> */}
 			</div>
 		)
