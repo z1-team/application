@@ -36,6 +36,8 @@ class Header extends Component {
 		if(typeof onChange === "function") {
 			onChange(dataID)
 		}
+
+		document.getElementsByClassName('app')[0].classList.toggle('headerCategories')
 	}
 
 	render() {

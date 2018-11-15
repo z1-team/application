@@ -34,10 +34,10 @@ class Cards extends Component {
 				return false
 			}
 		}).sort(function(first, second){
-			if (first.categories[category] && !second.categories[category]) {
+			if (first.categories[category] < second.categories[category]) {
 				return -1;
 			}
-			if (!first.categories[category] && second.categories[category]) {
+			if (first.categories[category] > second.categories[category]) {
 				return 1;
 			}
 			return 0;
