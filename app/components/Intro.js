@@ -17,14 +17,14 @@ class Intro extends Component {
 				return "wr-intro mfo"
 			case "/cards":
 				return "wr-intro cards"
-			case "/credits":
-				return "wr-intro credits"
+			// case "/credits":
+			// 	return "wr-intro credits"
 			case "/about":
 				return "wr-intro inner"
 			case "/confidentiality":
 				return "wr-intro inner"
 			default:
-				return "wr-intro mfo"
+				return "wr-intro"
 		}
 	}
 
@@ -35,7 +35,7 @@ class Intro extends Component {
 			case "/mfo":
 				return (
 					<section>
-						<h1>Лучшие <strong>Микрозаймы</strong> Рунета</h1>
+						<h1>Ищите <strong>ключевое слово</strong>?</h1>
 						<h2>Быстро. Надежно. Онлайн</h2>
 					</section>
 				)
@@ -46,24 +46,19 @@ class Intro extends Component {
 						<h2>Лучшие Предложения Банков</h2>
 					</section>
 				)
-			case "/credits":
-				return (
-					<section>
-						<h1><span><strong>Кредиты</strong></span> на любые цели</h1>
-						<h2>Все Банки в одном месте</h2>
-					</section>
-				)
+			// case "/credits":
+			// 	return (
+			// 		<section>
+			// 			<h1><span><strong>Кредиты</strong></span> на любые цели</h1>
+			// 			<h2>Все Банки в одном месте</h2>
+			// 		</section>
+			// 	)
 			case "/about":
 				return false
 			case "/confidentiality":
 				return false
 			default:
-				return (
-					<section>
-						<h1>Лучшие <strong>Микрозаймы</strong> Рунета</h1>
-						<h2>Быстро. Надежно. Онлайн</h2>
-					</section>
-				)
+				return false
 		}
 	}
 
@@ -91,7 +86,7 @@ class Intro extends Component {
 							<ul>
 								<li><Link className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
 								<li><Link className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
-								<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>
+								{/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
 							</ul>
 						</header>
 						{this.getTitle()}

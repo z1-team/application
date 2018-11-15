@@ -9,37 +9,44 @@ import OffersCredits from './credits.json'
 class Cards extends Component {
 	constructor(props) {
 		super(props);
-
-		//this.handleClick = this.handleClick.bind(this);
-
-		//this.state = {active: false}
-
-		//this.detailsRefs = []
 	}
 
-	/*handleClick(index) {
-
-		this.setState({active: !this.state.active});
-
-		this.detailsRefs[index].classList.toggle('active');
-	}*/
-
 	getCards() {
-		const url = this.props.match.params.id
+		const {category, url} = this.props
 
 		switch(url) {
-			case "mfo":
-				return OffersMFO
-			case "cards":
-				return OffersCards
-			case "credits":
-				return OffersCredits
+			case "/mfo":
+				return category === null ? OffersMFO : this.sortCategory(OffersMFO, category)
+			case "/cards":
+				return category === null ? OffersCards : this.sortCategory(OffersCards, category)
+			// case "/credits":
+			// 	return OffersCredits
 			default:
 				return OffersMFO
 		}
 	}
 
+	sortCategory(data, category) {
+		return data.filter(function(el){
+			if(el.categories[category]) {
+				return true
+			} else {
+				return false
+			}
+		}).sort(function(first, second){
+			if (first.categories[category] < second.categories[category]) {
+				return -1;
+			}
+			if (first.categories[category] > second.categories[category]) {
+				return 1;
+			}
+			return 0;
+		})
+	}
+
 	render() {
+		const {category, url} = this.props
+
 		return (
 			<div className="list">
 				{this.getCards().map((item, index) => (
@@ -66,13 +73,13 @@ class Cards extends Component {
 									<ul className="pros">
 										{/* For MFO */}
 										{item.pros.money && <li><strong>{item.pros.money}</strong> руб.<em>сумма займа</em></li>}
-										{item.pros.term && <li>до <strong>{item.pros.term}</strong> дней<em>срок займа</em></li>}
-										{item.pros.minRate && <li><strong>{item.pros.minRate}</strong><em>мин. ставка</em></li>}
+										{item.pros.term && <li><strong>{item.pros.term}</strong><em>срок займа</em></li>}
+										{item.pros.minRate && <li><strong>{item.pros.minRate}</strong><em>ставка</em></li>}
 
 										{/* For credit cards */}
 										{item.pros.limit && <li><strong>{item.pros.limit}</strong> руб.<em>кредитный лимит</em></li>}
 										{item.pros.percent && <li>от <strong>{item.pros.percent}</strong><em>процентная ставка</em></li>}
-										{item.pros.cashback && <li>от <strong>{item.pros.cashback}</strong><em>cashback</em></li>}
+										{item.pros.cashback && <li><strong>{item.pros.cashback}</strong><em>cashback</em></li>}
 
 										{/* For credits */}
 										{item.pros.maxSumm && <li><strong>{item.pros.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}

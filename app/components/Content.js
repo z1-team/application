@@ -1,21 +1,31 @@
 import React, {Component} from 'react'
 
+import { withRouter } from "react-router"
+
 import Main from './Main'
 import AboutProject from './AboutProject'
 import Confidentiality from './Confidentiality'
+import NotFound from './NotFound'
 
 class Content extends Component {
 
 	getContent() {
-		const url = this.props.match.params.id
+		const url = this.props.location.pathname
+		const {category} = this.props
 
 		switch(url) {
-			case "about":
+			case "/mfo":
+				return <Main url={url} category={category} />
+			case "/cards":
+				return <Main url={url} category={category} />
+			// case "/credits":
+			// 	return <Main url={url} category={category} />
+			case "/about":
 				return <AboutProject />
-			case "confidentiality":
+			case "/confidentiality":
 				return <Confidentiality />
 			default: 
-				return <Main />
+				return <NotFound />
 		}
 	}
 
@@ -24,4 +34,4 @@ class Content extends Component {
 	}
 }
 
-export default Content
+export default withRouter(Content)

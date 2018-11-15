@@ -1,4 +1,8 @@
 (function() {
+	if(window.location.origin === "http://localhost:3333") {
+		document.getElementById('preloader').style.display = 'none';
+	}
+
 	var currentProgress = 0,
 		preloaderbar = document.getElementById('loading-bar'),
 		preloaderPercent = document.getElementById('loading-percent'),
@@ -22,5 +26,5 @@
 				preloaderText.innerHTML = 'результаты';
 			}
 		}, 20);
-
+	
 })()

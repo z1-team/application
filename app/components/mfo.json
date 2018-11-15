@@ -3,8 +3,8 @@
 		"title": "Kredito24",
 		"logo": "img/kredito24-logo.png",
 		"pros": {
-			"money": "15 000",
-			"term": "30",
+			"money": "от 2000 до 15 000",
+			"term": "от 7 до 30 дней",
 			"minRate": "1,9%"
 		},
 		"overpayment": "5 509 руб.",
@@ -31,22 +31,45 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/6cb3e26d1759393afde92f168542db8c",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/kredito24",
+		"firstLoan": "",
+		"categories": {
+			"badCreditHistory": 2,
+			"online": 1,
+			"fast": 1,
+			"instantApprove": 1,
+			"urgently": 1,
+			"express": 1,
+			"d&n": 1,
+			"inCash": 1,
+			"instant": 1,
+			"accordingPassport": 1,
+			"toPaycheck": 1,
+			"longTerm": 1, 
+			"withoutFailure": 1,
+			"withoutGuarantors": 1,
+			"forStudents": 1,
+			"forPensioners": 1,
+			"noInterest": 1,
+			"from18Years": 2,
+			"unemployed": 1,
+			"withoutPassport": 1,
+			"noCreditHistory": 1
+		}
 	},
 	{
 		"title": "Turbozaim",
 		"logo": "img/turbozaim-logo.png",
 		"pros": {
-			"money": "15 000",
-			"term": "30",
+			"money": "от 1 000 до 15 000",
+			"term": "от 7 до 30 дней",
 			"minRate": "2,3%"
 		},
 		"overpayment": "3 450 руб.",
 		"details": {
 			"minSumm": "1 000 руб.",
 			"maxSumm": "10 000 руб., 15 000 руб. для постоянных клиентов",
-			"minPercent": "2.3%",
+			"minPercent": "2,3%",
 			"maxPercent": "2,3%",
 			"minTerm": "7 дней",
 			"maxTerm": "30 дней",
@@ -66,15 +89,38 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/16ede2e1f9bbb558b098e9c95de0d437",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/Turbozaim",
+		"firstLoan": "",
+		"categories": {
+			"badCreditHistory": 1,
+			"online": 2,
+			"fast": 2,
+			"instantApprove": 2,
+			"urgently": 2,
+			"express": 2,
+			"d&n": 2,
+			"inCash": 2,
+			"instant": 2,
+			"accordingPassport": 2,
+			"toPaycheck": 2,
+			"longTerm": 2, 
+			"withoutFailure": 2,
+			"withoutGuarantors": 2,
+			"forStudents": 2,
+			"forPensioners": 2,
+			"noInterest": 2,
+			"from18Years": 2,
+			"unemployed": 2,
+			"withoutPassport": 2,
+			"noCreditHistory": 2
+		}
 	},
 	{
 		"title": "Webbankir",
 		"logo": "img/webbankir-logo.png",
 		"pros": {
-			"money": "15 000",
-			"term": "30",
+			"money": "от 1 000 до 15 000",
+			"term": "от 5 до 30 дней",
 			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
@@ -101,15 +147,38 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/1e706f18a4a8df3bff2eef5362629746",
-		"firstLoan": "0% первый заем."
+		"link": "https://zanyatdengi.online/webbankir",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+			"badCreditHistory": 3,
+			"online": 3,
+			"fast": 3,
+			"instantApprove": 3,
+			"urgently": 3,
+			"express": 3,
+			"d&n": 3,
+			"inCash": 3,
+			"instant": 3,
+			"accordingPassport": 3,
+			"toPaycheck": 3,
+			"longTerm": 3, 
+			"withoutFailure": 3,
+			"withoutGuarantors": 3,
+			"forStudents": 3,
+			"forPensioners": 3,
+			"noInterest": 3,
+			"from18Years": 3,
+			"unemployed": 3,
+			"withoutPassport": 3,
+			"noCreditHistory": 3
+		}
 	},
 	{
 		"title": "Moneyman",
 		"logo": "img/moneyman-logo.png",
 		"pros": {
-			"money": "70 000",
-			"term": "126",
+			"money": "от 1 500 до 70 000",
+			"term": "от 5 до 126 дней",
 			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
@@ -136,15 +205,18 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/6de646a555cb3c2f8d34fe2c20dbbc26",
-		"firstLoan": "0% первый заем."
+		"link": "https://zanyatdengi.online/moneyman",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+
+		}
 	},
 	{
 		"title": "Ezaem",
 		"logo": "img/ezaem-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
+			"money": "от 2 000 до 30 000",
+			"term": "от 5 до 30 дней",
 			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
@@ -171,16 +243,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/8852a7ff566ffdcf7de070b32038f960",
-		"firstLoan": "0% первый заем."
+		"link": "https://zanyatdengi.online/ezaem",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "МигКредит",
 		"logo": "img/migkredit-logo.png",
 		"pros": {
-			"money": "100 000",
-			"term": "365",
-			"minRate": "0,16%"
+			"money": "от 3 000 до 100 000",
+			"term": "от 3 до 336 дней",
+			"minRate": "от 0,16%"
 		},
 		"overpayment": "1 540 руб.",
 		"details": {
@@ -189,7 +264,7 @@
 			"minPercent": "0,16%",
 			"maxPercent": "2,2%",
 			"minTerm": "3 дня",
-			"maxTerm": "12 месяцев",
+			"maxTerm": "48 недель",
 			"appProcessTime": "до 15 мин.",
 			"getMoneyTime": "В течение 24 часов",
 			"penalty": "0,1% от суммы просроченного платежа в день",
@@ -206,16 +281,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/7be1e03de0a6008ec461f08cb078ec61",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/migkredit",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "Займер",
 		"logo": "img/zaimer-logo.svg",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
-			"minRate": "0,63%"
+			"money": "от 7 до 30 000",
+			"term": "от 7 до 30 дней",
+			"minRate": "от 0,63%"
 		},
 		"overpayment": "5 940 руб.",
 		"details": {
@@ -241,16 +319,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "20% от суммы долга"
 		},
-		"link": "https://trkleads.ru/click/237cfc0ff063285a046669d133d226cb",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/zaimer",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "Moneza",
 		"logo": "img/moneza-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
-			"minRate": "1,64%"
+			"money": "от 2 000 до 30 000",
+			"term": "от 5 до 30 дней",
+			"minRate": "от 1,64%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -276,15 +357,18 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/81fce9178342e243c9f22286556b404a",
-		"firstLoan": "0% первый заем."
-		},
+		"link": "https://zanyatdengi.online/moneza",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Ekapusta",
 		"logo": "img/ekapusta-logo.svg",
 		"pros": {
-			"money": "30 000",
-			"term": "21",
+			"money": "от 100 до 30 000",
+			"term": "от 7 до 21 дня",
 			"minRate": "0%"
 		},
 		"overpayment": "0 руб.",
@@ -311,16 +395,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://trkleads.ru/click/992d548bfdb5454b2b4f8cf414ab7e68",
-		"firstLoan": "0% первый заем."
-		},
+		"link": "https://zanyatdengi.online/ekapusta",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "СлонФинанс",
 		"logo": "img/slonfinance-logo.png",
 		"pros": {
-			"money": "20 000",
-			"term": "30",
-			"minRate": "1%"
+			"money": "от 1 000 до 20 000",
+			"term": "от 7 до 30 дней",
+			"minRate": "от 1%"
 		},
 		"overpayment": "2 254 руб.",
 		"details": {
@@ -346,16 +433,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/3f1706aed51b6e6b2de1331a7c0f3269",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/slonfinance",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "GreenMoney",
 		"logo": "img/greenmoney-logo.png",
 		"pros": {
-			"money": "25 000",
-			"term": "30",
-			"minRate": "1%"
+			"money": "от 3 000 до 25 000",
+			"term": "от 3 до 30 дней",
+			"minRate": "от 1%"
 		},
 		"overpayment": "3 122 руб.",
 		"details": {
@@ -381,16 +471,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/3a38c061477aa1e76fdb2094f140f744",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/greenmoney",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "OneClickMoney",
 		"logo": "img/oneclickmoney-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "31",
-			"minRate": "1,09%"
+			"money": "от 500 до 30 000",
+			"term": "от 6 до 31 дня",
+			"minRate": "от 1,09%"
 		},
 		"overpayment": "2 899 руб.",
 		"details": {
@@ -416,16 +509,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/47a7d6ef7286c780c6c38dec42feb6bf",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/oneclickmoney",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Konga",
 		"logo": "img/konga-logo.png",
 		"pros": {
-			"money": "20 000",
-			"term": "30",
-			"minRate": "0,77%"
+			"money": "от 2 000 до 20 000",
+			"term": "от 7 до 30 дней",
+			"minRate": "от 0,77%"
 		},
 		"overpayment": "2 520 руб.",
 		"details": {
@@ -451,16 +547,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/0742915eedcd9beaf48da4a289a9efac",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/konga",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Lime",
 		"logo": "img/lime-logo.svg",
 		"pros": {
-			"money": "70 000",
-			"term": "168",
-			"minRate": "0,6%"
+			"money": "от 2 000 до 70 000",
+			"term": "от 7 до 168 дней",
+			"minRate": "от 0%"
 		},
 		"overpayment": "0 руб.",
 		"details": {
@@ -486,16 +585,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/76f212c91c8710e6e7fcf353cdf929db",
-		"firstLoan": "0% первый заем."
-		},
+		"link": "https://zanyatdengi.online/lime",
+		"firstLoan": "0% первый заем.",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Online-Zaim",
 		"logo": "img/onlinezaim-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "25",
-			"minRate": "1%"
+			"money": "от 3 500 до 30 000",
+			"term": "от 6 до 25 дней",
+			"minRate": "от 1%"
 		},
 		"overpayment": "1 800 руб.",
 		"details": {
@@ -521,16 +623,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://trkleads.ru/click/188c06d2af0a89d7ca9050b5e2934cbf",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/onlinezaim",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Smart Сredit",
 		"logo": "img/smartcredit-logo.png",
 		"pros": {
-			"money": "15 000",
-			"term": "30",
-			"minRate": "0,95%"
+			"money": "от 2 000 до 15 000",
+			"term": "от 5 до 30 дней",
+			"minRate": "от 0,95%"
 		},
 		"overpayment": "2 660 руб.",
 		"details": {
@@ -556,16 +661,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/36e57eb60ebe223b71cec5925b9d3491",
-		"firstLoan": ""
-		},
+		"link": "https://zanyatdengi.online/smartkredit",
+		"firstLoan": "",
+		"categories": {
+			
+		}
+	},
 	{
 		"title": "Platiza",
 		"logo": "img/platiza-logo.png",
 		"pros": {
-			"money": "15 000",
-			"term": "30",
-			"minRate": "1%"
+			"money": "от 1 000 до 15 000",
+			"term": "от 5 до 30 дней",
+			"minRate": "от 1%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -591,16 +699,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/aafaf101a39581036a1d09964e2644af",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/platiza",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "Честное Слово",
 		"logo": "img/chestnoeslovo-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
-			"minRate": "1%"
+			"money": "от 3 000 до 30 000",
+			"term": "от 5 до 30 дней",
+			"minRate": "от 1%"
 		},
 		"overpayment": "3 080 руб.",
 		"details": {
@@ -626,16 +737,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/2455cd347cc5e2fd0b5df2e96f7c3350",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/chestnoeslovo",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "Joy Money",
 		"logo": "img/joymoney-logo.png",
 		"pros": {
-			"money": "60 000",
-			"term": "126",
-			"minRate": "0,8%"
+			"money": "от 3 000 до 60 000",
+			"term": "от 5 до 126 дней",
+			"minRate": "от 0,8%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -661,16 +775,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/af41bd5dd25191f74753ca5bfadd8f69",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/joymoney",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "Mili",
 		"logo": "img/mili-logo.png",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
-			"minRate": "1,5%"
+			"money": "от 3 000 до 30 000",
+			"term": "от 3 до 30 дней",
+			"minRate": "от 1,5%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -696,16 +813,19 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/c9b1a22f1cf09ce5628bdde2357e92f1",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/mili",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	},
 	{
 		"title": "ГлавФинанс",
 		"logo": "img/partners-logo-1.png",
 		"pros": {
-			"money": "30 000",
-			"term": "30",
-			"minRate": "1,5%"
+			"money": "от 3 000 до 30 000",
+			"term": "от 3 до 30 дней",
+			"minRate": "от 1,5%"
 		},
 		"overpayment": "3 038 руб.",
 		"details": {
@@ -731,7 +851,10 @@
 			"creditHistoryImprovement": "Да",
 			"smsInfo": "0 руб."
 		},
-		"link": "https://pxl.leads.su/click/c9b1a22f1cf09ce5628bdde2357e92f1",
-		"firstLoan": ""
+		"link": "https://zanyatdengi.online/glavfinance",
+		"firstLoan": "",
+		"categories": {
+			
+		}
 	}
 ]
