@@ -22,6 +22,7 @@ class App extends Component {
 
 		this.handleCategory = this.handleCategory.bind(this)
 		this.clearCategory = this.clearCategory.bind(this)
+		this.hideCategories = this.hideCategories.bind(this)
 	}
 
 	componentDidMount(){
@@ -48,10 +49,15 @@ class App extends Component {
 		this.setState({category: null})
 	}
 
+	hideCategories() {
+		document.getElementsByClassName('app')[0].classList.remove('headerCategories')
+	}
+
 	render() {
 		return (
 			<Router>
 				<div className="app">
+					<div className="overlay" onClick={this.hideCategories}></div>
 					<Header onChange={this.handleCategory} />
 					<Intro onChange={this.clearCategory} />
 					<Content category={this.state.category} />
