@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import App from './components/App'
 import app from './core/app'
-import dispatcher from './core/console-dispatcher'
+import dispatcher from './core/remote-dispatcher'
 
 app.init(dispatcher)
 

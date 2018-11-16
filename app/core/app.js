@@ -46,9 +46,10 @@ class AppCore {
     if (this.dispatcher && typeof this.dispatcher.dispatch === 'function') {
       this.dispatcher.dispatch({
         ...event,
+        client_id: 15400,
         source: query.utm_source || 'none',
-        campaign: query.utm_campaign || 'none',
-        timestamp: (new Date()).toLocaleTimeString()
+        campaign: query.utm_campaign || -1,
+        time: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
       })
     } else {
       console.log('Dispatch error: application core is not initialized!')
