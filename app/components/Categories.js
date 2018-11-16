@@ -134,16 +134,178 @@ const categories = {
 	],
 	"cards": [
 		{
-			"text": "Кредитная карта",
-			"dataID": "",
+			"text": "Альфа-Банк",
+			"dataID": "alfaBank",
 			"sortParam": "",
 			"index": 1
 		},
 		{
-			"text": "Кредитная карта",
-			"dataID": "",
+			"text": "Тинькофф",
+			"dataID": "tinkoff",
 			"sortParam": "",
 			"index": 2
+		},
+		{
+			"text": "Самые лучшие кредитные карты",
+			"dataID": "bestCards",
+			"sortParam": "",
+			"index": 3
+		},
+		{
+			"text": "Самые выгодные",
+			"dataID": "mostProfitable",
+			"sortParam": "",
+			"index": 4
+		},
+		{
+			"text": "В день обращения",
+			"dataID": "dayOfTreatment",
+			"sortParam": "",
+			"index": 5
+		},
+		{
+			"text": "Без процентов",
+			"dataID": "withoutInterest",
+			"sortParam": "",
+			"index": 6
+		},
+		{
+			"text": "Срочно",
+			"dataID": "urgent",
+			"sortParam": "",
+			"index": 7
+		},
+		{
+			"text": "Без отказа",
+			"dataID": "withoutFailure",
+			"sortParam": "",
+			"index": 8
+		},
+		{
+			"text": "Без справок",
+			"dataID": "withoutReferences",
+			"sortParam": "",
+			"index": 9
+		},
+		{
+			"text": "На дом без визита в банк",
+			"dataID": "deliveryPlace",
+			"sortParam": "",
+			"index": 10
+		},
+		{
+			"text": "Без годового обслуживания",
+			"dataID": "withoutAnnualService",
+			"sortParam": "",
+			"index": 11
+		},
+		{
+			"text": "Без подтверждения дохода",
+			"dataID": "withoutIncomeProof",
+			"sortParam": "",
+			"index": 12
+		},
+		{
+			"text": "Без кредитной истории",
+			"dataID": "withoutCreditHistory",
+			"sortParam": "",
+			"index": 13
+		},
+		{
+			"text": "Для пенсионеров",
+			"dataID": "forPensioners",
+			"sortParam": "",
+			"index": 14
+		},
+		{
+			"text": "Для студентов",
+			"dataID": "forStudents",
+			"sortParam": "",
+			"index": 15
+		},
+		{
+			"text": "Безработным",
+			"dataID": "unemployed",
+			"sortParam": "",
+			"index": 16
+		},
+		{
+			"text": "С беспроцентным периодом",
+			"dataID": "interestFreePeriod",
+			"sortParam": "",
+			"index": 17
+		},
+		{
+			"text": "С кэшбэком",
+			"dataID": "cashback",
+			"sortParam": "",
+			"index": 18
+		},
+		{
+			"text": "Моментальные",
+			"dataID": "instant",
+			"sortParam": "",
+			"index": 19
+		},
+		{
+			"text": "Для снятия наличных",
+			"dataID": "forCashWithdrawals",
+			"sortParam": "",
+			"index": 20
+		},
+		{
+			"text": "Виртуальные",
+			"dataID": "virtual",
+			"sortParam": "",
+			"index": 21
+		},
+		{
+			"text": "Apple Pay",
+			"dataID": "applePay",
+			"sortParam": "",
+			"index": 22
+		},
+		{
+			"text": "Samsung Pay",
+			"dataID": "samsungPay",
+			"sortParam": "",
+			"index": 23
+		},
+		{
+			"text": "За 5 минут",
+			"dataID": "in5Minutes",
+			"sortParam": "",
+			"index": 24
+		},
+		{
+			"text": "За 15 минут",
+			"dataID": "in15Minutes",
+			"sortParam": "",
+			"index": 25
+		},
+		{
+			"text": "За 30 минут",
+			"dataID": "in30Minutes",
+			"sortParam": "",
+			"index": 26
+		},
+		{
+			"text": "Visa",
+			"dataID": "visa",
+			"sortParam": "",
+			"index": 27
+		},
+		{
+			"text": "MasterCard",
+			"dataID": "masterCard",
+			"sortParam": "",
+			"index": 28
+		},
+		{
+			"text": "МИР",
+			"dataID": "mir",
+			"sortParam": "",
+			"index": 29
 		}
 	]
 }

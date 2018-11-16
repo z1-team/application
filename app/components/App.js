@@ -19,7 +19,9 @@ class App extends Component {
 		this.state = {
 			category: null
 		}
+
 		this.handleCategory = this.handleCategory.bind(this)
+		this.clearCategory = this.clearCategory.bind(this)
 	}
 
 	componentDidMount(){
@@ -42,12 +44,16 @@ class App extends Component {
 		this.setState({category: dataID})
 	}
 
+	clearCategory() {
+		this.setState({category: null})
+	}
+
 	render() {
 		return (
 			<Router>
 				<div className="app">
 					<Header onChange={this.handleCategory} />
-					<Intro />
+					<Intro onChange={this.clearCategory} />
 					<Content category={this.state.category} />
 					<Route path="/:id" component={UsefullInfo} />
 					<Footer />

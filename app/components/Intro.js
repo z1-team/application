@@ -9,6 +9,11 @@ import {
 import { withRouter } from "react-router";
 
 class Intro extends Component {
+	constructor(props) {
+		super(props)
+
+		this.handleClick = this.handleClick.bind(this)
+	}
 	getBackground() {
 		const url = this.props.location.pathname
 
@@ -70,6 +75,14 @@ class Intro extends Component {
 		}
 	}
 
+	handleClick() {
+		const {onChange} = this.props
+
+		if(typeof onChange === "function") {
+			onChange()
+		}
+	}
+
 	render() {
 		const { match, location, history } = this.props;
 		const url = location.pathname
@@ -84,8 +97,8 @@ class Intro extends Component {
 								<img src="img/logo.png" />
 							</figure>
 							<ul>
-								<li><Link className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
-								<li><Link className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
+								<li><Link onClick={this.handleClick} className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
+								<li><Link onClick={this.handleClick} className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
 								{/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
 							</ul>
 						</header>
