@@ -5,6 +5,7 @@ import {
   Link,
   Redirect
 } from 'react-router-dom'
+import app from '../core/app'
 
 import { withRouter } from "react-router";
 
@@ -35,12 +36,13 @@ class Intro extends Component {
 
 	getTitle() {
 		const url = this.props.location.pathname
+    const keyword = app.getQuery().utm_term || 'займ'
 
 		switch(url) {
 			case "/mfo":
 				return (
 					<section>
-						<h1>Ищите <strong>ключевое слово</strong>?</h1>
+						<h1>Ищите <strong>{keyword}</strong>?</h1>
 						<h2>Быстро. Надежно. Онлайн</h2>
 					</section>
 				)
