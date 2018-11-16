@@ -5,10 +5,23 @@ import CardAccordeon from './CardAccordeon'
 import OffersMFO from './mfo.json'
 import OffersCards from './cards.json'
 import OffersCredits from './credits.json'
+import app from '../core/app'
+import queryString from 'query-string'
 
 class Cards extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			params: app.getLinkParams()
+		}
+		document.addEventListener('yacounter50978069inited', () => {
+			this.setState(prev => ({
+				params: {
+					...prev.params,
+					client_id: yaCounter50978069.getClientId()
+				}
+			}))
+    })
 	}
 
 	getCards() {
@@ -46,6 +59,8 @@ class Cards extends Component {
 
 	render() {
 		const {category, url} = this.props
+		const {params} = this.state
+		const linkParams = `?${queryString.stringify(params)}`
 
 		return (
 			<div className="list">
@@ -89,7 +104,7 @@ class Cards extends Component {
 								}
 							</div>
 							<div className="process">
-								<a target="_blank" href={item.link} rel="nofollow noopener">Оформить</a>
+								<a target="_blank" href={item.link + linkParams} rel="nofollow noopener">Оформить</a>
 								{/* item.overpayment && <p>переплата {item.overpayment}</p> */}
 							</div>
 						</section>

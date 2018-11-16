@@ -5,6 +5,9 @@ class AppCore {
   init(dispatcher) {
     this.dispatcher = dispatcher
     this.query = queryString.parse(location.search)
+    document.addEventListener('yacounter50978069inited', () => {
+      this.clientId = yaCounter50978069.getClientId()
+    })
     console.log('Application initialized')
     this.dispatch({
       type: 'EVENT_ENTER_LANDING',
@@ -14,6 +17,13 @@ class AppCore {
 
   getQuery() {
     return this.query
+  }
+
+  getLinkParams() {
+    return {
+      client_id: this.clientId || 145,
+      yclick_id: this.query.yclid || 100500
+    }
   }
 
   getCity() {
@@ -46,7 +56,7 @@ class AppCore {
     if (this.dispatcher && typeof this.dispatcher.dispatch === 'function') {
       this.dispatcher.dispatch({
         ...event,
-        client_id: 15400,
+        client_id: this.clientId || 0,
         source: query.utm_source || 'none',
         campaign: query.utm_campaign || -1,
         time: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
