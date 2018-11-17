@@ -18,7 +18,7 @@ class Cards extends Component {
 			this.setState(prev => ({
 				params: {
 					...prev.params,
-					client_id: yaCounter50978069.getClientId()
+					client_id: yaCounter50978069.getClientID()
 				}
 			}))
     })

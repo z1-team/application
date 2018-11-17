@@ -6,13 +6,13 @@ class AppCore {
     this.dispatcher = dispatcher
     this.query = queryString.parse(location.search)
     document.addEventListener('yacounter50978069inited', () => {
-      this.clientId = yaCounter50978069.getClientId()
+      this.clientId = yaCounter50978069.getClientID()
+      this.dispatch({
+        type: 'EVENT_ENTER_LANDING',
+        payload: this.query
+      })
     })
     console.log('Application initialized')
-    this.dispatch({
-      type: 'EVENT_ENTER_LANDING',
-      payload: this.query
-    })
   }
 
   getQuery() {

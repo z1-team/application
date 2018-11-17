@@ -6,23 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Отдолжить денег до ЗП</title>
 	<link rel="stylesheet" href="app.css?v=1.0">
-</head>
-<body>
-	<div id="preloader">
-		<div>
-			<h2>
-				<img src="img/preloader-img.png">
-				<span id="preloader-title">Обрабатываем</span>
-			</h2>
-			<p id="preloader-text">фильтры</p>
-			<div id="loading">
-				<div id="loading-bar"></div>
-				<div id="loading-percent">0%</div>
-			</div>
-		</div>
-	</div>
-	<div id="root"></div>
-	<script src="preloader.js"></script>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
 	(function (d, w, c) {
@@ -34,7 +17,7 @@
 					trackLinks:true,
 					accurateTrackBounce:true,
 					webvisor:true,
-					triggerEvent: true
+					triggerEvent:true
 				});
 			} catch(e) { }
 		});
@@ -53,8 +36,25 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/50978069" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-	<script src="vendor.js"></script>
-	<script src="app.js"></script>
+</head>
+<body>
+	<div id="preloader">
+		<div>
+			<h2>
+				<img src="img/preloader-img.png">
+				<span id="preloader-title">Обрабатываем</span>
+			</h2>
+			<p id="preloader-text">фильтры</p>
+			<div id="loading">
+				<div id="loading-bar"></div>
+				<div id="loading-percent">0%</div>
+			</div>
+		</div>
+	</div>
+	<div id="root"></div>
+	<script src="/preloader.js"></script>
+	<script src="/vendor.js"></script>
+	<script src="/app.js"></script>
 	<script>require('index')</script>
 </body>
 </html>
