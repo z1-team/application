@@ -2,10 +2,13 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import { withRouter } from "react-router";
-import {openPopup} from '../actions'
+import {openPopup, closePopup} from '../actions'
 
-import CategoriesController from './CategoriesController'
 import app from '../core/app'
+
+const mapStateToProps = ({popups}) => ({
+  popups: popups.categories || false
+})
 
 class Header extends Component {
 	constructor() {
@@ -14,7 +17,6 @@ class Header extends Component {
 			city: 'Москва'
 		}
 		this.handleClick = this.handleClick.bind(this)
-		this.handleCategory = this.handleCategory.bind(this)
 	}
 
 	componentDidMount() {
@@ -39,17 +41,13 @@ class Header extends Component {
 	}
 
 	handleClick() {
-		this.props.dispatch(openPopup('categories'))
-	}
+		const {popups} = this.props
 
-	handleCategory(dataID) {
-		const {onChange} = this.props
-
-		if(typeof onChange === "function") {
-			onChange(dataID)
+		if(popups) {
+			this.props.dispatch(closePopup('categories'))
+		} else {
+			this.props.dispatch(openPopup('categories'))
 		}
-
-		document.getElementsByClassName('app')[0].classList.toggle('headerCategories')
 	}
 
 	render() {
@@ -71,7 +69,6 @@ class Header extends Component {
 							</li>
 							*/}
 						</ul>
-						<CategoriesController/>
 					</div>
 				</div>
 			</div>

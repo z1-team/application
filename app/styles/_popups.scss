@@ -1,0 +1,90 @@
+.popups {
+	display: block; width: 100%; height: 100vh; position: fixed; left: 0; top: 0; transform: translateX(-100%); z-index: 45;
+	opacity: 0; pointer-events: none;
+	transition: opacity 0.4s ease-out, transform 0s 0.4s ease-out;
+
+	&.active {
+		transform: translateX(0);
+		opacity: 1; pointer-events: auto;
+		transition: opacity 0.4s ease-out, transform 0s 0s ease-out
+	}
+
+	.overlay {
+		position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 5;
+		background: rgba(22,22,22,0.9);
+		
+	}
+}
+
+.popup {
+	position: relative; margin: 0 auto; width: 1140px; padding: 0 15px; z-index: 5; transform: translateX(-100%); left: 0; z-index: 6;
+	background: #fff; border-radius: 8px;
+	transition: left 0s 0.4s ease-out, transform 0s 0.4s ease-out;
+
+	@include respond-to(lg) {width: 980px;}
+	@include respond-to(md) {width: 760px;}
+	@include respond-to(sm) {width: calc(100% - 30px); left: 15px; transform: translateX(0);}
+
+	&.active {
+		left: 50%; transform: translateX(-50%);
+		transition: left 0s 0s ease-out, transform 0s 0s ease-out;
+	}
+
+	&.categories {
+		position: absolute; top: 60px; max-height: calc(100vh - 70px); display: flex; align-items: flex-start; padding: 40px 40px 25px;
+		overflow-y: auto;
+
+		@include respond-to(xs) {
+			padding: 30px 25px;
+		}
+
+		.headerCategories & {
+			opacity: 1; pointer-events: auto;
+		}
+
+		& > div {
+			width: 100%;
+		}
+
+		h2 {
+			color: #161616; font-size: 16px; font-family: $m-sb; line-height: 22px;
+			margin-bottom: 25px;
+		}
+
+		button {
+			color: #161616; font-size: 14px; font-family: $os-r; line-height: 18px; text-align: left;
+			padding-left: 15px; position: relative;
+			background: transparent;
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			&:before {
+				content: '';
+				display: block; width: 5px; height: 5px; position: absolute; left: 0; top: 7px;
+				background: #161616; border-radius: 50%;
+			}
+		}
+
+		ul {
+			display: flex; align-items: flex-start; flex-wrap: wrap; width: 100%;
+
+			li {
+				margin-bottom: 15px; width: 33.33333%; padding-right: 15px;
+
+				@include respond-to(sm) {
+					width: 50%;
+				}
+				@include respond-to(xs) {
+					width: 100%;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

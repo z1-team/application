@@ -36,7 +36,7 @@ class Intro extends Component {
 
 	getTitle() {
 		const url = this.props.location.pathname
-    const keyword = app.getQuery().utm_term || 'займ'
+    	const keyword = app.getQuery().utm_term || 'займ'
 
 		switch(url) {
 			case "/mfo":
