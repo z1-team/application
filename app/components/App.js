@@ -9,7 +9,7 @@ import About from './About'
 import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
 import PopupsController from './PopupsController'
-import {closePopup} from '../actions'
+import {closePopup, fetchPartners} from '../actions'
 
 const mapStateToProps = ({popups}) => ({
   isCategoriesOpen: popups.categories
@@ -27,6 +27,7 @@ class App extends Component {
 	}
 
 	componentDidMount(){
+    const {dispatch} = this.props
 		const ele = document.getElementById('preloader')
 		if(ele){
 			setTimeout(() => {
@@ -40,6 +41,8 @@ class App extends Component {
 				ele.outerHTML = ''
 			}, 3300)
 		}
+    dispatch(fetchPartners('mfo'))
+    dispatch(fetchPartners('cards'))
 	}
 
 	clearCategory() {
