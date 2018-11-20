@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { withRouter } from "react-router"
 
 import CategoriesList from './CategoriesList'
+import {changeFilter} from '../actions'
 
 const categories = {
 	"mfo": [
@@ -318,12 +319,9 @@ class Categories extends Component {
 	}
 
 	handleClick({target}) {
-		const {onChange} = this.props
+		const {dispatch} = this.props
 		const dataID = target.getAttribute('data-id')
-
-		if(typeof onChange === "function" && dataID !== "") {
-			onChange(dataID)
-		}
+		dispatch(changeFilter('category', dataID))
 	}
 
 	getCategories() {
@@ -347,7 +345,7 @@ class Categories extends Component {
 	render(){
 		return (
 			<div className="categories">
-			{this.getCategories() && 
+			{this.getCategories() &&
 				<CategoriesList>
 					{this.getCategories().map((item, index) => (
 						<li key={item.index}>

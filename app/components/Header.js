@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 import { withRouter } from "react-router";
+import {openPopup} from '../actions'
 
-import Categories from './Categories'
+import CategoriesController from './CategoriesController'
 import app from '../core/app'
 
 class Header extends Component {
@@ -37,7 +39,7 @@ class Header extends Component {
 	}
 
 	handleClick() {
-		document.getElementsByClassName('app')[0].classList.toggle('headerCategories')
+		this.props.dispatch(openPopup('categories'))
 	}
 
 	handleCategory(dataID) {
@@ -69,7 +71,7 @@ class Header extends Component {
 							</li>
 							*/}
 						</ul>
-						<Categories onChange={this.handleCategory} />
+						<CategoriesController/>
 					</div>
 				</div>
 			</div>
@@ -77,4 +79,4 @@ class Header extends Component {
 	}
 }
 
-export default withRouter(Header)
+export default connect()(withRouter(Header))

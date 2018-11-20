@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Header from './Header'
 import Intro from './Intro'
@@ -6,11 +8,11 @@ import Content from './Content'
 import About from './About'
 import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
+import {closePopup} from '../actions'
 
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom'
+const mapStateToProps = ({popups}) => ({
+  isCategoriesOpen: popups.categories
+})
 
 class App extends Component {
 	constructor(props) {
@@ -50,23 +52,22 @@ class App extends Component {
 	}
 
 	hideCategories() {
-		document.getElementsByClassName('app')[0].classList.remove('headerCategories')
+    this.props.dispatch(closePopup('categories'))
 	}
 
 	render() {
+    const {isCategoriesOpen} = this.props
 		return (
-			<Router>
-				<div className="app">
-					<div className="overlay" onClick={this.hideCategories}></div>
-					<Header onChange={this.handleCategory} />
-					<Intro onChange={this.clearCategory} />
-					<Content category={this.state.category} />
-					<Route path="/:id" component={UsefullInfo} />
-					<Footer />
-				</div>
-			</Router>
+      <div className={isCategoriesOpen ? 'app headerCategories' : 'app'}>
+        <div className="overlay" onClick={this.hideCategories}></div>
+        <Header onChange={this.handleCategory} />
+        <Intro onChange={this.clearCategory} />
+        <Content category={this.state.category} />
+        <Route path="/:id" component={UsefullInfo} />
+        <Footer />
+      </div>
 		)
 	}
 }
 
-export default App
+export default connect(mapStateToProps)(App)

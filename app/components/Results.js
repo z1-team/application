@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import CardList from './CardList'
+import CardListController from './CardListController'
 import ResultsPagination from './ResultsPagination'
 
 class Results extends Component {
@@ -43,7 +43,7 @@ class Results extends Component {
 					</ul>
 				</div>
 				*/}
-					<CardList category={category} url={url} />
+					<CardListController url={url} />
 				{/* <ResultsPagination /> */}
 			</div>
 		)
