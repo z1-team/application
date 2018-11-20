@@ -24,8 +24,6 @@ class CardList extends Component {
 		const {params} = this.state
 		const linkParams = `?${queryString.stringify(params)}`
 
-		console.log(url)
-
 		return (
 			<div className="list">
 				{cards.map((item, index) => (

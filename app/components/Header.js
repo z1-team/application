@@ -76,4 +76,4 @@ class Header extends Component {
 	}
 }
 
-export default connect()(withRouter(Header))
+export default withRouter(connect()(Header))
