@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { withRouter } from "react-router"
 
 import CategoriesList from './CategoriesList'
 import {changeFilter} from '../actions'
@@ -359,4 +358,4 @@ class Categories extends Component {
 	}
 }
 
-export default withRouter(Categories)
+export default Categories
