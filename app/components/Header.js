@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import { withRouter } from "react-router";
-import {openPopup, closePopup} from '../actions'
+import {openPopup, closePopup, changeFilter} from '../actions'
 
 import app from '../core/app'
 
@@ -23,6 +23,13 @@ class Header extends Component {
 		app.getCity().then((city) => {
 			this.setState({city})
 		})
+	}
+
+  componentDidUpdate({location}) {
+		console.log(location)
+		if (this.props.location.pathname !== location.pathname) {
+			this.props.dispatch(changeFilter('category', null))
+		}
 	}
 
 	getCategoriesButton() {
