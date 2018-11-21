@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Sidebar from './Sidebar'
+import FilterController from './FilterController'
 import Results from './Results'
 
 class Main extends Component {
@@ -9,7 +9,7 @@ class Main extends Component {
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						{/*<Sidebar />*/}
+						<FilterController />
 						<Results category={category} url={url} />
 					</div>
 				</div>

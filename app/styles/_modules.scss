@@ -323,8 +323,10 @@
 		color: #161616; font-size: 14px; font-family: $m-sb; line-height: 18px;
 		display: flex; justify-content: space-between; margin-bottom: 10px;
 
-		a {
+		button {
 			color: #c2c2c2; font-size: 10px; font-family: $os-r; text-transform: uppercase;
+			background: transparent;
+			cursor: pointer;
 		}
 	}
 
@@ -360,11 +362,6 @@
 	}
 
 	.checkbox-module {
-		margin-bottom: 8px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 
 		&.disabled {
 			label {
@@ -377,20 +374,24 @@
 			}
 		}
 
-		input {
-			display: none;
+		label {
+			color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
+			padding-left: 25px; position: relative; display: flex; justify-content: space-between; margin-bottom: 8px;
+			cursor: pointer;
 
-			&:checked + label {
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			input {
+				display: none;
+			}
+
+			&.active {
 				&:before {
 					background: #f7f7f7 url('./img/checked.png') center center no-repeat;
 				}
 			}
-		}
-
-		label {
-			color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
-			padding-left: 25px; position: relative; display: flex; justify-content: space-between;
-			cursor: pointer;
 
 			&:before {
 				content: '';

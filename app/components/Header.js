@@ -26,7 +26,6 @@ class Header extends Component {
 	}
 
   componentDidUpdate({location}) {
-		console.log(location)
 		if (this.props.location.pathname !== location.pathname) {
 			this.props.dispatch(changeFilter('category', null))
 		}
