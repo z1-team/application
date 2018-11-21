@@ -9,7 +9,7 @@ import About from './About'
 import UsefullInfo from './UsefullInfo'
 import Footer from './Footer'
 import PopupsController from './PopupsController'
-import {closePopup, fetchPartners} from '../actions'
+import {closePopup, fetchPartners, initSession} from '../actions'
 
 const mapStateToProps = ({popups}) => ({
   isCategoriesOpen: popups.categories
@@ -41,6 +41,7 @@ class App extends Component {
 				ele.outerHTML = ''
 			}, 3300)
 		}
+    dispatch(initSession())
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
 	}

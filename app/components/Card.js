@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import CardAccordeon from './CardAccordeon'
-import app from '../core/app'
 
 class Card extends Component {
   constructor(props) {
@@ -9,16 +8,14 @@ class Card extends Component {
   }
 
   handleOrder(event) {
-    app.dispatch({
-      type: 'EVENT_OPEN_PARTNER',
-      payload: {
-        name: this.props.item.title
-      }
-    })
+    const {onOrder} = this.props
+    if (typeof onOrder === 'function') {
+      onOrder(this.props.item.title)
+    }
   }
 
   render() {
-    const {item, linkParams} = this.props
+    const {item, tail} = this.props
     return (
       <div className="result-item">
         <section>
@@ -59,7 +56,7 @@ class Card extends Component {
             }
           </div>
           <div className="process">
-            <a target="_blank" href={item.link + linkParams} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
+            <a target="_blank" href={`${item.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
             {/* item.overpayment && <p>переплата {item.overpayment}</p> */}
           </div>
         </section>

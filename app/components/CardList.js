@@ -1,33 +1,29 @@
 import React, {Component} from 'react'
 import Card from './Card'
-import app from '../core/app'
-import queryString from 'query-string'
+import {sendEvent} from '../actions'
 
 class CardList extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			params: app.getLinkParams()
-		}
-		document.addEventListener('yacounter50978069inited', () => {
-			this.setState(prev => ({
-				params: {
-					...prev.params,
-					client_id: yaCounter50978069.getClientID()
-				}
-			}))
-    })
+		this.handleOrder = this.handleOrder.bind(this)
+	}
+
+	handleOrder(partner) {
+		const {dispatch} = this.props
+		dispatch(sendEvent({
+      type: 'EVENT_OPEN_PARTNER',
+      payload: {
+        name: partner
+      }
+    }))
 	}
 
 	render() {
-		const {cards} = this.props
-		const {params} = this.state
-		const linkParams = `?${queryString.stringify(params)}`
-
+		const {cards, tail} = this.props
 		return (
 			<div className="list">
 				{cards.map((item, index) => (
-					<Card key={index} item={item} linkParams={linkParams}/>
+					<Card key={index} item={item} tail={tail} onOrder={this.handleOrder}/>
 				))}
 			</div>
 		)

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import CardList from './CardList'
+import queryString from 'query-string'
 
 const directionFromURL = {
   '/mfo':'mfo',
@@ -34,8 +35,26 @@ function selectCards(partners, category, url) {
   }
 }
 
-const mapStateToProps = ({filters, partners}, {url}) => ({
-  cards: selectCards(partners, filters.category || null, url)
+function makeTail({query, user_id, client_id}) {
+  const tail = {}
+  if (query && user_id) {
+    tail.user_id = user_id
+    if (query.yclid) {
+      tail.yclick_id = query.yclid
+    }
+    if (query.utm_campaign) {
+      tail.utm_campaign = query.utm_campaign
+    }
+    if (client_id) {
+      tail.client_id = client_id
+    }
+  }
+  return queryString.stringify(tail)
+}
+
+const mapStateToProps = ({session, filters, partners}, {url}) => ({
+  cards: selectCards(partners, filters.category || null, url),
+  tail: makeTail(session)
 })
 
 export default connect(mapStateToProps)(CardList)

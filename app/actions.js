@@ -1,9 +1,13 @@
+import queryString from 'query-string'
 import fetch from 'isomorphic-fetch'
+import uuid from 'uuid-js'
 
 export const FILTER_CHANGE = 'FILTER_CHANGE'
 export const POPUP_OPEN = 'POPUP_OPEN'
 export const POPUP_CLOSE = 'POPUP_CLOSE'
 export const PARTNERS_FETCH = 'PARTNERS_FETCH'
+export const SESSION_INIT = 'SESSION_INIT'
+export const SESSION_UPDATE = 'SESSION_UPDATE'
 
 export const changeFilter = (filter, value) => ({
   type: FILTER_CHANGE,
@@ -26,6 +30,66 @@ export function fetchPartners(direction) {
       dispatch({type: PARTNERS_FETCH, direction, status: 1, data})
     }).catch((error) => {
       dispatch({type: PARTNERS_FETCH, direction, status: 2, error})
+    })
+  }
+}
+
+export function sendEvent(event) {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/send-event.php' : '/send-event.php'
+  return (dispatch, getState) => {
+    const {session} = getState()
+    const fullEvent = {
+      ...event,
+      click_id: session.query.click_id || 'none',
+      client_id: session.client_id || 'none',
+      utm_campaign: session.query.utm_campaign || 'none',
+      utm_source: session.query.utm_source || 'none',
+      timestamp: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
+    }
+    console.log('Dispatching event: ', fullEvent)
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        ...fullEvent,
+        payload: JSON.stringify(fullEvent.payload)
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        console.log('Event dispatched!')
+        return responce.text()
+      }
+    }).then(console.log)
+    .catch(console.log)
+  }
+}
+
+export function initSession() {
+  function getUserId() {
+    const saved = localStorage.getItem('user_id')
+    if (!saved) {
+      const user_id = uuid.create().toString()
+      localStorage.setItem('user_id', user_id)
+      return user_id;
+    }
+    return saved
+  }
+  return (dispatch) => {
+    const session = {
+      query: queryString.parse(location.search),
+      user_id: getUserId()
+    }
+    dispatch({type: SESSION_INIT, session})
+    document.addEventListener('yacounter50978069inited', () => {
+      const client_id = yaCounter50978069.getClientID()
+      dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
+      dispatch(sendEvent({
+        type: 'EVENT_ENTER_LANDING',
+        payload: session.query
+      }))
     })
   }
 }
