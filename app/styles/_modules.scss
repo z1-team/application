@@ -396,7 +396,7 @@
 			&:before {
 				content: '';
 				display: block; width: 13px; height: 13px; position: absolute; left: 0; top: 0;
-				border: solid 1px #b1b1b1;
+				background: #f7f7f7; border: solid 1px #b1b1b1;
 			}
 		}
 	}

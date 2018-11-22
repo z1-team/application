@@ -9,7 +9,7 @@ class Main extends Component {
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						<FilterController />
+						{/* <FilterController /> */}
 						<Results category={category} url={url} />
 					</div>
 				</div>

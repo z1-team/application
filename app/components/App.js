@@ -41,8 +41,8 @@ class App extends Component {
 				ele.outerHTML = ''
 			}, 3300)
 		}
-    dispatch(fetchPartners('mfo'))
-    dispatch(fetchPartners('cards'))
+	    dispatch(fetchPartners('mfo'))
+	    dispatch(fetchPartners('cards'))
 	}
 
 	clearCategory() {

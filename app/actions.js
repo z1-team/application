@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
 export const FILTER_CHANGE = 'FILTER_CHANGE'
+export const FILTER_RESET = 'FILTER_RESET'
 export const POPUP_OPEN = 'POPUP_OPEN'
 export const POPUP_CLOSE = 'POPUP_CLOSE'
 export const PARTNERS_FETCH = 'PARTNERS_FETCH'
@@ -10,6 +11,7 @@ export const changeFilter = (filter, value) => ({
   filter,
   value
 })
+export const resetFilter = () => ({type: FILTER_RESET})
 
 export const openPopup = (name) => ({type: POPUP_OPEN, name})
 export const closePopup = (name) => ({type: POPUP_CLOSE, name})

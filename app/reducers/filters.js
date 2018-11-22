@@ -1,4 +1,5 @@
 import {FILTER_CHANGE} from '../actions'
+import {FILTER_RESET} from '../actions'
 
 const initialState = {
   category: null,
@@ -24,15 +25,31 @@ const initialState = {
   secure_3d: [false, false]
 }
 
+function resetFilters(filters) {
+  return Object.getOwnPropertyNames(filters).reduce((result, filter) => {
+    if(Array.isArray(filters[filter])) {
+      result[filter] = filters[filter].map((x) => false)
+    } else {
+      result[filter] = filters[filter]
+    }
+
+    return result
+  }, {})
+}
+
 function filtersReducer(state = initialState, action) {
-  if (action.type === FILTER_CHANGE) {
-  	if(action.value === null && Array.isArray(state[action.filter])) {
-    	return {...state, [action.filter]: state[action.filter].map((x) => false)}
-  	} else {
-  		return {...state, [action.filter]: action.value}
-  	}
+  switch(action.type) {
+    case FILTER_CHANGE:
+      if(action.value === null && Array.isArray(state[action.filter])) {
+        return {...state, [action.filter]: state[action.filter].map((x) => false)}
+      } else {
+        return {...state, [action.filter]: action.value}
+      }
+    case FILTER_RESET:
+      return resetFilters(state)
+    default:
+      return state
   }
-  return state
 }
 
 export default filtersReducer
