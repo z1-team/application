@@ -54,7 +54,7 @@ class Footer extends Component {
 						</ul>
 						*/}
 						<small>&copy; 2018 Moneyonline. Информация, предоставленная на сайте, носит ознакомительный характер. Реальные предложения организаций могут отличаться.</small>
-						<button onClick={this.handleClick}>{isLoggedIn ? "Выйти" : "Войти"}</button>
+						{/*<button onClick={this.handleClick}>{isLoggedIn ? "Выйти" : "Войти"}</button>*/}
 					</div>
 				</div>
 			</div>
