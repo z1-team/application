@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import { withRouter } from "react-router";
-import {openPopup, closePopup, changeFilter} from '../actions'
+import {openPopup, closePopup, changeFilter, resetFilter} from '../actions'
 
 import app from '../core/app'
 
@@ -26,9 +26,9 @@ class Header extends Component {
 	}
 
   componentDidUpdate({location}) {
-		console.log(location)
 		if (this.props.location.pathname !== location.pathname) {
 			this.props.dispatch(changeFilter('category', null))
+			this.props.dispatch(resetFilter())
 		}
 	}
 
