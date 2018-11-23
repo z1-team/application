@@ -41,11 +41,11 @@ export function sendEvent(event) {
     const {session} = getState()
     const fullEvent = {
       ...event,
-      click_id: session.query.click_id || 'none',
+      yclick_id: session.query.click_id || 'none',
       client_id: session.client_id || 'none',
       utm_campaign: session.query.utm_campaign || 'none',
       utm_source: session.query.utm_source || 'none',
-      timestamp: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
+      datetime: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
     }
     console.log('Dispatching event: ', fullEvent)
     fetch(url, {

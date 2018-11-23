@@ -1,0 +1,12 @@
+{
+    "name": "z1/backend",
+    "authors": [
+        {
+            "name": "Vladimir Shalaev",
+            "email": "vladimir-shalaev22@yandex.ru"
+        }
+    ],
+    "require": {
+        "bozerkins/clickhouse-client": "^1.0"
+    }
+}
