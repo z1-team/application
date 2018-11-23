@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import Card from './Card'
-import {sendEvent} from '../actions'
+import {sendEvent, openPopup} from '../actions'
 
 class CardList extends Component {
 	constructor(props) {
 		super(props);
 		this.handleOrder = this.handleOrder.bind(this)
+		this.handleEdit = this.handleEdit.bind(this)
 	}
 
 	handleOrder(partner) {
@@ -18,12 +19,17 @@ class CardList extends Component {
     }))
 	}
 
+	handleEdit() {
+		const {dispatch} = this.props
+		dispatch(openPopup('edit'))
+	}
+
 	render() {
-		const {cards, tail} = this.props
+		const {cards, tail, isLoggedIn} = this.props
 		return (
 			<div className="list">
 				{cards.map((item, index) => (
-					<Card key={index} item={item} tail={tail} onOrder={this.handleOrder}/>
+					<Card key={index} item={item} tail={tail} onOrder={this.handleOrder} edit={isLoggedIn} onEdit={this.handleEdit} dataID={index} />
 				))}
 			</div>
 		)

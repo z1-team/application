@@ -1,5 +1,4 @@
-import {FILTER_CHANGE} from '../actions'
-import {FILTER_RESET} from '../actions'
+import {FILTER_CHANGE, FILTER_RESET} from '../actions'
 
 const initialState = {
   category: null,

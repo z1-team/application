@@ -2,31 +2,74 @@ import React, {Component} from 'react'
 
 import CategoriesController from './CategoriesController'
 
-import {openPopup} from '../actions'
-import {closePopup} from '../actions'
+import {openPopup, closePopup, login} from '../actions'
 
 class Popups extends Component {
 	constructor(props) {
 		super(props)
 
+		this.state = {
+			login: '',
+			pass: '',
+			tab: {
+				main: true,
+				details: false,
+				categories: false
+			}
+		}
+
 		this.closePopup = this.closePopup.bind(this)
+		this.handleLogin = this.handleLogin.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+		this.changeTab = this.changeTab.bind(this)
 	}
 
 	isOpened() {
 		const {popups} = this.props
 
-		for(let p in popups)
-			if(popups[p]) return true
-
-		return false
+		return Object.getOwnPropertyNames(popups).some(p => popups[p])
 	}
 
-	closePopup() {
-		this.props.dispatch(closePopup('categories'))
+	closePopup(event) {
+		event.preventDefault()
+
+		this.props.dispatch(closePopup())
+	}
+
+	handleLogin(event) {
+		event.preventDefault()
+		const {login: l, pass} = this.state
+
+		this.props.dispatch(login(l, pass))
+	}
+
+	handleChange(event) {
+		const input = event.target
+		this.setState({[input.name]: input.value})
+	}
+
+	changeTab(event) {
+		event.preventDefault()
+
+		const button = event.target
+		const newTab = button.getAttribute('data-tab')
+
+		switch(newTab) {
+			case 'main':
+				return this.setState({tab: { main: true, details: false, categories: false }})
+			case 'details':
+				return this.setState({tab: { main: false, details: true, categories: false }})
+			case 'categories':
+				return this.setState({tab: { main: false, details: false, categories: true }})
+			default:
+				return state
+		}
 	}
 
 	render() {
 		const {popups} = this.props
+		const {login, pass} = this.state
+		const {main, details, categories} = this.state.tab
 
 		return (
 			<div className={this.isOpened() ? "popups active" : "popups"}>
@@ -34,35 +77,33 @@ class Popups extends Component {
 				<div className={popups.categories ? "popup categories active" : "popup categories"}>
 					<CategoriesController/>
 				</div>
-				{/*<div className={popups.login ? "popup login active" : "popup login"}>*/}
-				<div className="popup login">
+				<div className={popups.login ? "popup login active" : "popup login"}>
 					<h2>Авторизация</h2>
-					<form action="#">
-						<label>Логин: <input type="text"/></label>
-						<label>Пароль: <input type="text"/></label>
+					<form action="#" onSubmit={this.handleLogin}>
+						<label>Логин: <input type="text" name="login" onChange={this.handleChange} value={login} /></label>
+						<label>Пароль: <input type="password" name="pass" onChange={this.handleChange} value={pass} /></label>
 						<button>Войти</button>
 					</form>
 				</div>
-				{/*<div className={popups.redact ? "popup redact active" : "popup redact"}>*/}
-				<div className="popup redact active">
+				<div className={popups.edit ? "popup edit active" : "popup edit"}>
 					<form action="#">
 						<header>
 							<h3>Редактирование карточки <strong>партнера</strong></h3>
-							<button></button>
+							<button onClick={this.closePopup}></button>
 						</header>
 						<section>
 							<ul className="tabs">
 								<li>
-									<button className="active">Основные сведения</button>
+									<button onClick={this.changeTab} data-tab="main" className={main ? 'active' : undefined}>Основные сведения</button>
 								</li>
 								<li>
-									<button>Подробнее</button>
+									<button onClick={this.changeTab} data-tab="details" className={details ? 'active' : undefined}>Подробнее</button>
 								</li>
 								<li>
-									<button>Категории</button>
+									<button onClick={this.changeTab} data-tab="categories" className={categories ? 'active' : undefined}>Категории</button>
 								</li>
 							</ul>
-							<div className="card-main active">
+							<div className={main ? 'card-main active' : 'card-main'}>
 								<figure>
 									<img src="img/kredito24-logo.png" />
 									<figcaption>
@@ -77,7 +118,7 @@ class Popups extends Component {
 									<label>Ссылка: <input type="text"/></label>
 								</div>
 							</div>
-							<div className="card-details active">
+							<div className={details ? 'card-details active' : 'card-details'}>
 								<ul>
 									<li>
 										<label>Минимальная сумма (руб.): <input type="text"/></label>
@@ -113,7 +154,7 @@ class Popups extends Component {
 									</li>
 								</ul>
 							</div>
-							<div className="card-categories active">
+							<div className={categories ? 'card-categories active' : 'card-categories'}>
 								<ul>
 									<li>
 										<label>С плохой кред. историей<input type="checkbox"/></label>

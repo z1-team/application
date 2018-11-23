@@ -52,9 +52,10 @@ function makeTail({query, user_id, client_id}) {
   return queryString.stringify(tail)
 }
 
-const mapStateToProps = ({session, filters, partners}, {url}) => ({
+const mapStateToProps = ({session, filters, partners, auth}, {url}) => ({
   cards: selectCards(partners, filters.category || null, url),
-  tail: makeTail(session)
+  tail: makeTail(session),
+  isLoggedIn: auth.token !== null
 })
 
 export default connect(mapStateToProps)(CardList)
