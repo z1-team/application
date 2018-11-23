@@ -5,14 +5,34 @@ require('vendor/autoload.php');
 use ClickhouseClient\Client\Config;
 use ClickhouseClient\Client\Client;
 
+function withNull($value) {
+  return strcmp($value, 'NULL') === 0 ? NULL : $value;
+}
+
 class Event
 {
+  private static $utm = [
+    'utm_term' => 'utmTerm',
+    'utm_source' => 'utmSource',
+    'utm_medium' => 'utmMedium',
+    'utm_campaign' => 'utmCampaign',
+    'utm_content' => 'utmContent',
+    'utm_gbid' => 'utmGbId',
+    'utm_phrase' => 'utmPhrase',
+    'utm_gender' => 'utmGender',
+    'utm_age' => 'utmAge'
+  ];
   private $default;
   private $request;
 
+  private static function mapUtmKeys($key) {
+    return isset(self::$utm[$key]) ? self::$utm[$key] : $key;
+  }
+
   private function getField($field)
   {
-    return isset($this->request[$field]) ? $this->request[$field] : $this->default[$field];
+    return isset($this->request[$field]) ?
+      withNull($this->request[$field]) : $this->default[$field];
   }
 
   private function getPayload()
@@ -27,6 +47,7 @@ class Event
       'utm_campaign' => NULL,
       'client_id' => NULL,
       'yclick_id' => NULL,
+      'user_id' => NULL,
       'type' => 'event_none',
       'date' => date('Y-m-d'),
       'datetime' => date('Y-m-d H:i:s'),
@@ -58,22 +79,40 @@ class Event
 
   public function utmExtraKeys()
   {
-    return ['utm_source'];
+    $utmParams = array_intersect_key($this->getPayload(), self::$utm);
+    $utmParams['utm_source'] = $this->getField('utm_source');
+    return array_map(['Event', 'mapUtmKeys'], array_keys($utmParams));
   }
 
   public function utmExtraValues()
   {
-    return [$this->getField('utm_source')];
+    $utmParams = array_intersect_key($this->getPayload(), self::$utm);
+    $utmParams['utm_source'] = $this->getField('utm_source');
+    return array_values($utmParams);
   }
 
   public function eventExtraKeys()
   {
-    return array_keys($this->getPayload());
+    $otherParams = array_diff_key($this->getPayload(), self::$utm);
+    return array_keys($otherParams);
   }
 
   public function eventExtraValues()
   {
-    return array_values($this->getPayload());
+    $otherParams = array_diff_key($this->getPayload(), self::$utm);
+    return array_values($otherParams);
+  }
+
+  public function extraKeys()
+  {
+    $userId = $this->getField('user_id');
+    return $userId !== NULL ? ['userId'] : [];
+  }
+
+  public function extraValues()
+  {
+    $userId = $this->getField('user_id');
+    return $userId !== NULL ? [$userId] : [];
   }
 
   public function date()
@@ -133,8 +172,8 @@ class EventStore
         'UserRegion' => $event->userRegion(),
         'UserCity' => $event->userCity(),
         'UserLocalTime' => $event->userLocalTime(),
-        'ExtraKeys' => [],
-        'ExtraValues' => [],
+        'ExtraKeys' => $event->extraKeys(),
+        'ExtraValues' => $event->extraValues(),
         'EventVersion' => 1
       ]
     ]);

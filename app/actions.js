@@ -9,6 +9,22 @@ export const PARTNERS_FETCH = 'PARTNERS_FETCH'
 export const SESSION_INIT = 'SESSION_INIT'
 export const SESSION_UPDATE = 'SESSION_UPDATE'
 
+function getDateTime() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDate()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const seconds = date.getSeconds()
+  const f = v => v < 10 ? '0' + v : v
+  return {
+    local: `${year}-${f(month)}-${f(day)} ${f(hours)}:${f(minutes)}:${f(seconds)}`,
+    utcDateTime: date.toISOString().slice(0, 19).replace('T', ' '),
+    utcDate: date.toISOString().slice(0, 10)
+  }
+}
+
 export const changeFilter = (filter, value) => ({
   type: FILTER_CHANGE,
   filter,
@@ -38,14 +54,18 @@ export function sendEvent(event) {
   const url = location.hostname === 'localhost' ?
     'http://localhost:8080/send-event.php' : '/send-event.php'
   return (dispatch, getState) => {
+    const datetime = getDateTime()
     const {session} = getState()
     const fullEvent = {
       ...event,
-      yclick_id: session.query.click_id || 'none',
-      client_id: session.client_id || 'none',
-      utm_campaign: session.query.utm_campaign || 'none',
-      utm_source: session.query.utm_source || 'none',
-      datetime: (new Date()).toISOString().slice(0, 19).replace('T', ' ')
+      yclick_id: session.query.yclid || 'NULL',
+      client_id: session.client_id || 'NULL',
+      utm_campaign: session.query.utm_campaign || 'NULL',
+      utm_source: session.query.utm_source || 'NULL',
+      user_id: session.user_id || 'NULL',
+      date: datetime.utcDate,
+      datetime: datetime.utcDateTime,
+      localtime: datetime.local
     }
     console.log('Dispatching event: ', fullEvent)
     fetch(url, {
@@ -84,10 +104,11 @@ export function initSession() {
     }
     dispatch({type: SESSION_INIT, session})
     document.addEventListener('yacounter50978069inited', () => {
+      console.log('!!!')
       const client_id = yaCounter50978069.getClientID()
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
       dispatch(sendEvent({
-        type: 'EVENT_ENTER_LANDING',
+        type: 'enter_landing',
         payload: session.query
       }))
     })

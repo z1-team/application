@@ -11,9 +11,9 @@ class CardList extends Component {
 	handleOrder(partner) {
 		const {dispatch} = this.props
 		dispatch(sendEvent({
-      type: 'EVENT_OPEN_PARTNER',
+      type: 'click_offer',
       payload: {
-        name: partner
+        partnerName: partner
       }
     }))
 	}

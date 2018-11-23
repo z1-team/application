@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Redirect
 } from 'react-router-dom'
-import app from '../core/app'
 
 import { withRouter } from "react-router";
+
+const mapStateToProps = ({session}) => ({
+  keyword: session.query && session.query.utm_term ?
+    session.query.utm_term : 'Займ'
+})
 
 class Intro extends Component {
 	constructor(props) {
@@ -36,7 +41,7 @@ class Intro extends Component {
 
 	getTitle() {
 		const url = this.props.location.pathname
-    	const keyword = app.getQuery().utm_term || 'займ'
+    const {keyword} = this.props
 
 		switch(url) {
 			case "/mfo":
@@ -112,4 +117,4 @@ class Intro extends Component {
 	}
 }
 
-export default withRouter(Intro)
+export default withRouter(connect()(Intro))
