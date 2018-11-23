@@ -24,6 +24,7 @@ class App extends Component {
 		}
 
 		this.clearCategory = this.clearCategory.bind(this)
+		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
 	componentDidMount(){
@@ -50,10 +51,18 @@ class App extends Component {
 		this.setState({category: null})
 	}
 
+	handleKeyDown(event) {
+		const {dispatch} = this.props
+
+		if(event.keyCode === 27) {
+			dispatch(closePopup())
+		}
+	}
+
 	render() {
     	const {isCategoriesOpen} = this.props
 		return (
-			<div className="app">
+			<div onKeyDown={this.handleKeyDown} tabIndex="1" className="app">
 				<Header />
 				<Intro />
 				<Content category={this.state.category} />

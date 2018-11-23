@@ -5,6 +5,7 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.handleOrder = this.handleOrder.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleOrder(event) {
@@ -14,8 +15,16 @@ class Card extends Component {
     }
   }
 
+  handleClick() {
+    const {onEdit, dataID} = this.props
+
+    if(typeof onEdit === 'function') {
+      onEdit(dataID)
+    }
+  }
+
   render() {
-    const {item, tail} = this.props
+    const {item, tail, edit} = this.props
     return (
       <div className="result-item">
         <section>
@@ -56,6 +65,7 @@ class Card extends Component {
             }
           </div>
           <div className="process">
+            {edit && <button onClick={this.handleClick}><i className="fas fa-edit"></i></button>}
             <a target="_blank" href={`${item.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
             {/* item.overpayment && <p>переплата {item.overpayment}</p> */}
           </div>

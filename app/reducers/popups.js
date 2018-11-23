@@ -1,9 +1,9 @@
-import {FILTER_CHANGE, POPUP_OPEN, POPUP_CLOSE} from '../actions'
+import {FILTER_CHANGE, POPUP_OPEN, POPUP_CLOSE, AUTH_LOGIN} from '../actions'
 
 const initialState = {
   categories: false,
   login: false,
-  redact: false
+  edit: false
 }
 
 function popupsReducer(state = initialState, action) {
@@ -11,9 +11,14 @@ function popupsReducer(state = initialState, action) {
     case POPUP_OPEN:
       return {...state, [action.name]: true}
     case POPUP_CLOSE:
-      return {...state, [action.name]: false}
+      return Object.getOwnPropertyNames(state).reduce(function(result, popup) {
+        result[popup] = false
+        return result
+      }, {})
     case FILTER_CHANGE:
       return {...state, categories: false}
+    case AUTH_LOGIN:
+      return action.status === 1 ? {...state, login: false} : state
     default:
       return state
   }

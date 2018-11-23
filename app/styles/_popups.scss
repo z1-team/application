@@ -98,6 +98,15 @@
 			transition: left 0s 0s ease-out, transform 0s 0s ease-out;
 		}
 
+		h2 {
+			color: #161616; font-size: 24px; font-family: $m-sb; line-height: 28px; text-align: center;
+			margin-bottom: 15px;
+		}
+
+		form {
+			text-align: center;
+		}
+
 		label {
 			color: #161616; font-size: 16px; font-family: $m-r; line-height: 20px;
 			width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
@@ -112,9 +121,21 @@
 				border: solid 1px #161616; border-radius: 4px;
 			}
 		}
+
+		button {
+			color: #f96868; font-size: 14px; font-family: $m-sb; line-height: 18px;
+			display: inline-block; padding: 8px 14px;
+			background: transparent; border: solid 2px #f96868; border-radius: 5px;
+			cursor: pointer;
+
+			&:hover {
+				color: $white;
+				background: #f96868;
+			}
+		}
 	}
 
-	&.redact {
+	&.edit {
 		max-width: 800px; left: 0; top: 50%; transform: translate(-110%, -50%); padding: 20px; max-height: 90vh;
 		background: #e2e2e2;
 
@@ -139,6 +160,7 @@
 			button {
 				display: block; width: 20px; height: 20px; position: relative; padding: 0;
 				border: none; background: transparent;
+				cursor: pointer;
 
 				&:hover {
 					background: transparent;
@@ -170,6 +192,10 @@
 				padding-right: 8px; margin-right: 10px;
 				border-right: solid 2px #999999;
 
+				&:last-child {
+					border-right: none;
+				}
+
 				button {
 					color: #999999; font-size: 12px; font-family: $m-sb; line-height: 18px;
 					background: transparent;
@@ -186,11 +212,15 @@
 			&-main,
 			&-details,
 			&-categories {
-				padding: 10px 0;
+				padding: 10px 0; display: none;
 			}
 
 			&-main {
-				display: flex; align-items: flex-start;
+				align-items: flex-start;
+
+				&.active {
+					display: flex;
+				}
 
 				figure {
 					width: 200px; height: 160px; margin-right: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;
@@ -239,6 +269,11 @@
 				}
 			}
 			&-details {
+
+				&.active {
+					display: block;
+				}
+
 				ul {
 					max-height: calc(90vh - 202px);
 					overflow-y: auto;
@@ -270,6 +305,11 @@
 				}
 			}
 			&-categories {
+
+				&.active {
+					display: block;
+				}
+
 				ul {
 					display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap;
 
@@ -327,12 +367,7 @@
 				background: transparent; border: solid 2px #f96868; border-radius: 5px;
 				cursor: pointer;
 
-				&:hover {
-					color: $white;
-					background: #f96868;
-				}
-
-				&.active {
+				&:hover, &.active {
 					color: $white;
 					background: #f96868;
 				}

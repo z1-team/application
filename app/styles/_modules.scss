@@ -445,7 +445,7 @@
 
 	.list {
 		.result-item {
-			margin: 0 auto 22px; max-width: 880px; width: 100%;
+			margin: 0 auto 22px; max-width: 880px; width: 100%; position: relative;
 			border: solid 1px #e2e2e2;
 
 			@include respond-to(lg) {
@@ -582,6 +582,13 @@
 					}
 					@include respond-to(xs) {
 						order: 2; width: 100%;
+					}
+
+					button {
+						color: #f96868; font-size: 16px; line-height: 20px;
+						display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; position: absolute; right: 5px; top: 5px;
+						background: none;
+						cursor: pointer;
 					}
 
 					a {

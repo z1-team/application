@@ -9,6 +9,8 @@ export const POPUP_CLOSE = 'POPUP_CLOSE'
 export const PARTNERS_FETCH = 'PARTNERS_FETCH'
 export const SESSION_INIT = 'SESSION_INIT'
 export const SESSION_UPDATE = 'SESSION_UPDATE'
+export const AUTH_LOGIN = 'AUTH_LOGIN'
+export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
 function getDateTime() {
   const date = new Date()
@@ -34,7 +36,7 @@ export const changeFilter = (filter, value) => ({
 export const resetFilter = () => ({type: FILTER_RESET})
 
 export const openPopup = (name) => ({type: POPUP_OPEN, name})
-export const closePopup = (name) => ({type: POPUP_CLOSE, name})
+export const closePopup = () => ({type: POPUP_CLOSE})
 
 export function fetchPartners(direction) {
   return (dispatch) => {
@@ -121,3 +123,11 @@ export function initSession() {
     })
   }
 }
+
+export function login(login, pass) {
+  return (dispatch) => {
+    dispatch({type: AUTH_LOGIN, status: 1, token: "KUGF032945ih32f98GBUFGWS"})
+  }
+}
+
+export const logout = () => ({type: AUTH_LOGOUT})
