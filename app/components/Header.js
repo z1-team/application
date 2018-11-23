@@ -4,25 +4,15 @@ import {connect} from 'react-redux'
 import { withRouter } from "react-router";
 import {openPopup, closePopup, changeFilter, resetFilter} from '../actions'
 
-import app from '../core/app'
-
-const mapStateToProps = ({popups}) => ({
-  popups: popups.categories || false
+const mapStateToProps = ({popups, session}) => ({
+  popups: popups.categories || false,
+  city: session.ip_info ? (session.ip_info.city || session.ip_info.place) : '...'
 })
 
 class Header extends Component {
 	constructor() {
 		super()
-		this.state = {
-			city: 'Москва'
-		}
 		this.handleClick = this.handleClick.bind(this)
-	}
-
-	componentDidMount() {
-		app.getCity().then((city) => {
-			this.setState({city})
-		})
 	}
 
   componentDidUpdate({location}) {
@@ -64,7 +54,7 @@ class Header extends Component {
 					<div className="header">
 						<div className="contacts">
 							{/*<a href="#"><i className="fas fa-phone"></i>+7 (495) 666-55-44</a>*/}
-							<p><i className="fas fa-map-marker-alt"></i>{this.state.city}</p>
+							<p><i className="fas fa-map-marker-alt"></i>{this.props.city}</p>
 						</div>
 						<ul>
 							<li>
@@ -83,4 +73,4 @@ class Header extends Component {
 	}
 }
 
-export default withRouter(connect()(Header))
+export default withRouter(connect(mapStateToProps)(Header))

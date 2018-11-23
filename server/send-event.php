@@ -1,6 +1,6 @@
 <?php
 
-require('vendor/autoload.php');
+require dirname(__FILE__) . '/vendor/autoload.php';
 
 use ClickhouseClient\Client\Config;
 use ClickhouseClient\Client\Client;
@@ -52,7 +52,10 @@ class Event
       'date' => date('Y-m-d'),
       'datetime' => date('Y-m-d H:i:s'),
       'localtime' => date('Y-m-d H:i:s'),
-      'payload' => '{}'
+      'payload' => '{}',
+      'user_ip' => NULL,
+      'user_region' => NULL,
+      'user_city' => NULL
     ];
     $this->request = $request;
   }
@@ -132,12 +135,12 @@ class Event
 
   public function userRegion()
   {
-    return NULL;
+    return $this->getField('user_region');
   }
 
   public function userCity()
   {
-    return NULL;
+    return  $this->getField('user_city');
   }
 
   public function userLocalTime()

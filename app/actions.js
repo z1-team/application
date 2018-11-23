@@ -67,7 +67,9 @@ export function sendEvent(event) {
       user_id: session.user_id || 'NULL',
       date: datetime.utcDate,
       datetime: datetime.utcDateTime,
-      localtime: datetime.local
+      localtime: datetime.local,
+      user_region: session.ip_info && session.ip_info.region ? session.ip_info.region : 'NULL',
+      user_city: session.ip_info && session.ip_info.city ? session.ip_info.city : 'NULL'
     }
     console.log('Dispatching event: ', fullEvent)
     fetch(url, {
@@ -102,7 +104,10 @@ export function initSession() {
   return (dispatch) => {
     const session = {
       query: queryString.parse(location.search),
-      user_id: getUserId()
+      user_id: getUserId(),
+      ip_info: window.__IP_INFO__ ? __IP_INFO__ : {
+        place: 'Москва'
+      }
     }
     dispatch({type: SESSION_INIT, session})
     document.addEventListener('yacounter50978069inited', () => {
