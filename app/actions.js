@@ -104,6 +104,7 @@ export function initSession() {
     return saved
   }
   return (dispatch) => {
+    console.log(window.__IP_INFO__)
     const session = {
       query: queryString.parse(location.search),
       user_id: getUserId(),
@@ -112,6 +113,11 @@ export function initSession() {
       }
     }
     dispatch({type: SESSION_INIT, session})
+    document.addEventListener('DOMContentLoaded', () => {
+      dispatch({type: SESSION_UPDATE, field: 'ip_info', value: window.__IP_INFO__ ? __IP_INFO__ : {
+        place: 'Москва'
+      }})
+    });
     document.addEventListener('yacounter50978069inited', () => {
       console.log('!!!')
       const client_id = yaCounter50978069.getClientID()

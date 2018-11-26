@@ -5,6 +5,7 @@ import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
+import {initSession} from './actions'
 
 import App from './components/App'
 import appReducer from './reducers/app'
@@ -12,6 +13,8 @@ import appReducer from './reducers/app'
 const store = createStore(appReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
+
+store.dispatch(initSession())
 
 ReactDOM.render(
   <Provider store={store}>
