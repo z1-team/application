@@ -53,7 +53,7 @@
 	</div>
 	<div id="root"></div>
 	<script>
-    window.__IP_INFO__ = <?php echo json_encode($ip_info, JSON_UNESCAPED_UNICODE); ?>;
+		window.__IP_INFO__ = <?php echo json_encode($ip_info, JSON_UNESCAPED_UNICODE); ?>;
   </script>
 	<script src="/preloader.js"></script>
 	<script src="/vendor.js"></script>

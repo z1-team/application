@@ -104,7 +104,6 @@ export function initSession() {
     return saved
   }
   return (dispatch) => {
-    console.log(window.__IP_INFO__)
     const session = {
       query: queryString.parse(location.search),
       user_id: getUserId(),

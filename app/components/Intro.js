@@ -75,10 +75,13 @@ class Intro extends Component {
 	}
 
 	renderRedirect() {
-		const url = this.props.location.pathname
+		const {pathname: url, search} = this.props.location
 
 		if (url == "" || url == undefined || url == "/") {
-			return <Redirect exact from="/" to="/mfo" />
+			return <Redirect exact from="/" to={{
+        pathname: '/mfo',
+        search
+      }}/>
 		}
 	}
 
