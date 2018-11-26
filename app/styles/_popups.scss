@@ -12,7 +12,7 @@
 	.overlay {
 		position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 5;
 		background: rgba(22,22,22,0.9);
-		
+
 	}
 }
 
@@ -24,7 +24,7 @@
 
 	@include respond-to(lg) {width: 980px;}
 	@include respond-to(md) {width: 760px;}
-	@include respond-to(sm) {width: calc(100% - 30px); left: 15px; transform: translateX(0);}
+	@include respond-to(sm) {width: calc(100% - 30px);}
 
 	&.active {
 		left: 50%; transform: translateX(-50%);
@@ -93,6 +93,10 @@
 	&.login {
 		left: 0; top: 50%; transform: translate(-110%, -50%); width: 400px; padding: 20px;
 
+		@include respond-to(xs) {
+			width: calc(100% - 30px); padding: 15px;
+		}
+
 		&.active {
 			left: 50%; transform: translate(-50%, -50%);
 			transition: left 0s 0s ease-out, transform 0s 0s ease-out;
@@ -110,6 +114,10 @@
 		label {
 			color: #161616; font-size: 16px; font-family: $m-r; line-height: 20px;
 			width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+
+			@include respond-to(xs) {
+				font-size: 14px;
+			}
 
 			&:last-child {
 				margin-bottom: 0;
@@ -139,6 +147,10 @@
 		max-width: 800px; left: 0; top: 50%; transform: translate(-110%, -50%); padding: 20px; max-height: 90vh;
 		background: #e2e2e2;
 
+		@include respond-to(xs) {
+			max-height: 96vh; padding: 10px; width: calc(100% - 10px);
+		}
+
 		&.active {
 			left: 50%; transform: translate(-50%, -50%);
 			transition: left 0s 0s ease-out, transform 0s 0s ease-out;
@@ -151,6 +163,10 @@
 
 			h3 {
 				color: #161616; font-size: 18px; font-family: $m-sb; line-height: 25px;
+
+				@include respond-to(xs) {
+					font-size: 12px; line-height: 18px;
+				}
 
 				strong {
 					color: #f96868;
@@ -183,16 +199,25 @@
 
 		section {
 			margin-bottom: 20px;
+
+			@include respond-to(xs) {
+				margin-bottom: 10px;
+			}
 		}
 
 		ul.tabs {
 			display: flex; align-items: center; margin-bottom: 15px;
+
+			@include respond-to(xs) {
+				margin-bottom: 12px;
+			}
 
 			li {
 				padding-right: 8px; margin-right: 10px;
 				border-right: solid 2px #999999;
 
 				&:last-child {
+					padding-right: 0; margin-right: 0;
 					border-right: none;
 				}
 
@@ -212,11 +237,20 @@
 			&-main,
 			&-details,
 			&-categories {
-				padding: 10px 0; display: none;
+				padding: 10px 0; display: none; max-height: calc(90vh - 202px);
+				overflow-y: auto;
+
+				@include respond-to(xs) {
+					max-height: calc(96vh - 138px);
+				}
 			}
 
 			&-main {
 				align-items: flex-start;
+
+				@include respond-to(sm) {
+					flex-direction: column;
+				}
 
 				&.active {
 					display: flex;
@@ -226,6 +260,10 @@
 					width: 200px; height: 160px; margin-right: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;
 					border-radius: 8px;
 					overflow: hidden;
+
+					@include respond-to(sm) {
+						width: 100%;
+					}
 
 					&:hover {
 						figcaption {
@@ -256,6 +294,11 @@
 						color: #161616; font-size: 14px; font-family: $m-r; line-height: 18px;
 						width: 100%; margin-bottom: 5px; display: flex; align-items: center; justify-content: space-between;
 
+						@include respond-to(xs) {
+							font-family: $m-sb;
+							margin-bottom: 5px; flex-direction: column; align-items: flex-start;
+						}
+
 						&:last-child {
 							margin-bottom: 0;
 						}
@@ -264,6 +307,10 @@
 							color: #161616; font-size: 14px; font-family: $m-sb; line-height: 18px;
 							width: 60%; padding: 5px;
 							background: $white; border-radius: 4px;
+
+							@include respond-to(xs) {
+								width: 100%; margin-top: 2px;
+							}
 						}
 					}
 				}
@@ -275,24 +322,39 @@
 				}
 
 				ul {
-					max-height: calc(90vh - 202px);
-					overflow-y: auto;
 
 					li {
 						display: flex; align-items: stretch; justify-content: space-between;
 						margin-bottom: 2px;
+
+						@include respond-to(sm) {
+							margin-bottom: 5px; flex-direction: column;
+						}
 
 						&:last-child {
 							margin-bottom: 0;
 						}
 
 						label {
-							color: #161616; font-size: 12px; font-family: $m-r; line-height: 16px;
+							color: #161616; font-size: 12px; font-family: $m-r; line-height: 16px; white-space: nowrap;
 							width: calc(50% - 1px); padding: 5px 10px; display: flex; align-items: center; justify-content: space-between;
 							background: $white;
 
+							@include respond-to(sm) {
+								font-family: $m-sb;
+								flex-direction: column; align-items: flex-start; padding: 0; width: 100%;
+								background: transparent;
+							}
+
 							input {
 								color: #161616; font-size: 12px; font-family: $m-sb; line-height: 16px; text-align: right;
+								width: 100%;
+
+								@include respond-to(sm) {
+									text-align: left;
+									padding: 5px 10px;
+									border-bottom: solid 1px #e2e2e2;
+								}
 							}
 						}
 
@@ -300,6 +362,10 @@
 							color: #161616; font-size: 12px; font-family: $m-r; line-height: 16px;
 							width: calc(50% - 1px); padding: 5px 10px;
 							background: $white;
+
+							@include respond-to(sm) {
+								width: 100%;
+							}
 						}
 					}
 				}
@@ -309,12 +375,15 @@
 				&.active {
 					display: block;
 				}
-
+				
 				ul {
-					display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap;
+					display: flex; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;
 
 					li {
 						width: 33.333333%; padding-right: 10px; margin-bottom: 10px;
+						@include respond-to(xs) {
+							width: 50%;
+						}
 
 						label {
 							color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
@@ -355,6 +424,10 @@
 				li {
 					margin-right: 10px;
 
+					@include respond-to(xs) {
+						margin-right: 5px;
+					}
+
 					&:last-child {
 						margin-right: 0;
 					}
@@ -366,6 +439,11 @@
 				display: inline-block; padding: 10px 16px;
 				background: transparent; border: solid 2px #f96868; border-radius: 5px;
 				cursor: pointer;
+
+				@include respond-to(xs) {
+					font-size: 14px; line-height: 18px;
+					padding: 8px;
+				}
 
 				&:hover, &.active {
 					color: $white;

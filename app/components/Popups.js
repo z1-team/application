@@ -94,7 +94,7 @@ class Popups extends Component {
 						<section>
 							<ul className="tabs">
 								<li>
-									<button onClick={this.changeTab} data-tab="main" className={main ? 'active' : undefined}>Основные сведения</button>
+									<button onClick={this.changeTab} data-tab="main" className={main ? 'active' : undefined}>Основное</button>
 								</li>
 								<li>
 									<button onClick={this.changeTab} data-tab="details" className={details ? 'active' : undefined}>Подробнее</button>
