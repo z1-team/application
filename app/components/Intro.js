@@ -75,10 +75,13 @@ class Intro extends Component {
 	}
 
 	renderRedirect() {
-		const url = this.props.location.pathname
+		const {pathname: url, search} = this.props.location
 
 		if (url == "" || url == undefined || url == "/") {
-			return <Redirect exact from="/" to="/mfo" />
+			return <Redirect exact from="/" to={{
+        pathname: '/mfo',
+        search
+      }}/>
 		}
 	}
 
@@ -117,4 +120,4 @@ class Intro extends Component {
 	}
 }
 
-export default withRouter(connect()(Intro))
+export default withRouter(connect(mapStateToProps)(Intro))

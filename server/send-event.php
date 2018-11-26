@@ -82,15 +82,21 @@ class Event
 
   public function utmExtraKeys()
   {
+    $utmSource = $this->getField('utm_source');
     $utmParams = array_intersect_key($this->getPayload(), self::$utm);
-    $utmParams['utm_source'] = $this->getField('utm_source');
+    if ($utmSource !== NULL) {
+      $utmParams['utm_source'] = $this->getField('utm_source');
+    }
     return array_map(['Event', 'mapUtmKeys'], array_keys($utmParams));
   }
 
   public function utmExtraValues()
   {
+    $utmSource = $this->getField('utm_source');
     $utmParams = array_intersect_key($this->getPayload(), self::$utm);
-    $utmParams['utm_source'] = $this->getField('utm_source');
+    if ($utmSource !== NULL) {
+      $utmParams['utm_source'] = $this->getField('utm_source');
+    }
     return array_values($utmParams);
   }
 

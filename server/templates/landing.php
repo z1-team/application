@@ -6,9 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Отдолжить денег до ЗП</title>
 	<link rel="stylesheet" href="app.css?v=1.0">
-  <script>
-    window.__IP_INFO__ = <?php echo json_encode($ip_info, JSON_UNESCAPED_UNICODE); ?>;
-  </script>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
 	(function (d, w, c) {
@@ -55,6 +52,9 @@
 		</div>
 	</div>
 	<div id="root"></div>
+	<script>
+		window.__IP_INFO__ = <?php echo json_encode($ip_info, JSON_UNESCAPED_UNICODE); ?>;
+  </script>
 	<script src="/preloader.js"></script>
 	<script src="/vendor.js"></script>
 	<script src="/app.js"></script>
