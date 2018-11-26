@@ -120,4 +120,4 @@ class Intro extends Component {
 	}
 }
 
-export default withRouter(connect()(Intro))
+export default withRouter(connect(mapStateToProps)(Intro))
