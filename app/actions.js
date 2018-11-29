@@ -11,6 +11,8 @@ export const SESSION_INIT = 'SESSION_INIT'
 export const SESSION_UPDATE = 'SESSION_UPDATE'
 export const AUTH_LOGIN = 'AUTH_LOGIN'
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'
+export const PARTNER_UPDATE = 'PARTNER_UPDATE'
+export const PARTNER_SELECT = 'PARTNER_SELECT'
 
 function getDateTime() {
   const date = new Date()
@@ -38,18 +40,18 @@ export const resetFilter = () => ({type: FILTER_RESET})
 export const openPopup = (name) => ({type: POPUP_OPEN, name})
 export const closePopup = () => ({type: POPUP_CLOSE})
 
-export function fetchPartners(direction) {
+export function fetchPartners() {
   return (dispatch) => {
-    dispatch({type: PARTNERS_FETCH, direction, status: 0})
-    fetch(`/data/${direction}.json`).then((response) => {
+    dispatch({type: PARTNERS_FETCH, status: 0})
+    fetch(`/data/partners.json`).then((response) => {
       if (response.status >= 400) {
         throw new Error('Bad response from server')
       }
       return response.json()
     }).then((data) => {
-      dispatch({type: PARTNERS_FETCH, direction, status: 1, data})
+      dispatch({type: PARTNERS_FETCH, status: 1, data})
     }).catch((error) => {
-      dispatch({type: PARTNERS_FETCH, direction, status: 2, error})
+      dispatch({type: PARTNERS_FETCH, status: 2, error})
     })
   }
 }
@@ -111,6 +113,7 @@ export function initSession() {
         place: 'Москва'
       }
     }
+    console.log(session)
     dispatch({type: SESSION_INIT, session})
     document.addEventListener('DOMContentLoaded', () => {
       dispatch({type: SESSION_UPDATE, field: 'ip_info', value: window.__IP_INFO__ ? __IP_INFO__ : {
@@ -136,3 +139,11 @@ export function login(login, pass) {
 }
 
 export const logout = () => ({type: AUTH_LOGOUT})
+
+export function updatePartner(id, partner) {
+  return (dispatch) => {
+    dispatch({type: PARTNER_UPDATE, id, partner})
+  }
+}
+
+export const selectPartner = (id) => ({type: PARTNER_SELECT, id})
