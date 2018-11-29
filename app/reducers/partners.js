@@ -1,4 +1,5 @@
-import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE} from '../actions'
+import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE, PARTNER_CREATE} from '../actions'
+import templates from '../partnersTemplate'
 
 const initialState = {
   isFetching: false,
@@ -45,7 +46,17 @@ function partnersReducer(state = initialState, action) {
     case PARTNER_SELECT:
       return { ...state, selected: action.id}
     case PARTNER_UPDATE:
-      return state
+      return { ...state, data: {
+        ...state.data,
+        [action.id]: action.partner
+      }}
+    case PARTNER_CREATE:
+      return { ...state,
+        selected: "new",
+        data: {
+        ...state.data,
+        "new": templates[action.partnerType]
+      }}
     default:
      return state
   }

@@ -207,7 +207,7 @@
 			}
 		}
 	}
-	
+
 	h1, h2 {
 		color: $white; font-family: $m-th; text-align: center; text-transform: uppercase;
 	}
@@ -443,6 +443,18 @@
 		}
 	}
 
+	.add-card {
+		color: $white; font-size: 20px; font-family: $m-sb; line-height: 26px;
+		margin: 0 auto 30px; display: block; padding: 10px 16px;
+		background: #f96868; border: solid 2px #f96868; border-radius: 5px;
+		cursor: pointer;
+
+		&:hover {
+			color: #f96868;
+			background: $white;
+		}
+	}
+
 	.list {
 		.result-item {
 			margin: 0 auto 22px; max-width: 880px; width: 100%; position: relative;
@@ -504,7 +516,7 @@
 					@include respond-to(xs) {
 						order: 1; padding-left: 0;
 					}
-					
+
 					h3 {
 						color: #161616; font-size: 14px; font-family: $m-sb; line-height: 18px;
 						margin-bottom: 10px; padding-bottom: 11px; position: relative;
@@ -868,7 +880,7 @@
 
 	&.not-found {
 		text-align: center;
-		
+
 		h2 {
 			font-size: 48px; line-height: 56px;
 		}

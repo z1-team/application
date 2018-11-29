@@ -2,16 +2,16 @@
   {
     "id": 1,
     "type": "mfo",
-    "logo": "img/kredito24-logo.png",
     "main": {
       "title": "Kredito24",
+      "logo": "img/kredito24-logo.png",
       "money": "от 2 000 до 15 000",
       "term": "от 7 до 30 дней",
       "minRate": "1,9%",
       "link": "https://zanyatdengi.online/kredito24",
-      "firstLoan": ""
+      "firstLoan": "",
+      "overpayment": "5 509 руб."
     },
-    "overpayment": "5 509 руб.",
     "details": {
       "minSumm": "2 000 руб.",
       "maxSumm": "9 000 руб.; До 15 000 руб. для постоянных клиентов",
@@ -74,16 +74,16 @@
   {
     "id": 2,
     "type": "mfo",
-    "logo": "img/turbozaim-logo.png",
     "main": {
       "title": "Turbozaim",
+      "logo": "img/turbozaim-logo.png",
       "money": "от 1 000 до 15 000",
       "term": "от 7 до 30 дней",
       "minRate": "2,3%",
       "link": "https://zanyatdengi.online/Turbozaim",
-      "firstLoan": ""
+      "firstLoan": "",
+      "overpayment": "3 450 руб."
     },
-    "overpayment": "3 450 руб.",
     "details": {
       "minSumm": "1 000 руб.",
       "maxSumm": "10 000 руб., 15 000 руб. для постоянных клиентов",
@@ -146,16 +146,16 @@
   {
     "id": 3,
     "type": "mfo",
-    "logo": "img/webbankir-logo.png",
     "main": {
       "title": "Webbankir",
+      "logo": "img/webbankir-logo.png",
       "money": "от 1 000 до 15 000",
       "term": "от 5 до 30 дней",
       "minRate": "0%",
       "link": "https://zanyatdengi.online/webbankir",
-      "firstLoan": "0% первый заем."
+      "firstLoan": "0% первый заем.",
+      "overpayment": "0 руб."
     },
-    "overpayment": "0 руб.",
     "details": {
       "minSumm": "1 000 руб.",
       "maxSumm": "15 000 руб.",
@@ -221,9 +221,9 @@
   {
     "id": 4,
     "type": "cards",
-    "logo": "img/tinkoff_platinum.png",
     "main": {
       "title": "Тинькоф Платинум карта",
+      "logo": "img/tinkoff_platinum.png",
       "limit": "300 000",
       "percent": "12%",
       "cashback": "от 1%",
@@ -305,9 +305,9 @@
   {
     "id": 5,
     "type": "cards",
-    "logo": "img/alfa-100-dnei.png",
     "main": {
       "title": "Альфа-Банк \"100 дней без %\"",
+      "logo": "img/alfa-100-dnei.png",
       "limit": "500 000",
       "percent": "14,99%",
       "cashback": "Нет",

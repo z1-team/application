@@ -6,7 +6,7 @@ import EditPopupDetails from './EditPopupDetails'
 import EditPopupCategories from './EditPopupCategories'
 import EditPopupFilter from './EditPopupFilter'
 
-import {closePopup} from '../actions'
+import {closePopup, updatePartner} from '../actions'
 
 const filterNames = {
   special_offers: {
@@ -294,6 +294,7 @@ const mainNames = {
   percent: "Процентная ставка",
   cashback: "Cashback",
   link: "Ссылка",
+  overpayment: "Переплата",
   firstLoan: "Акция"
 }
 
@@ -307,7 +308,6 @@ class EditPopup extends Component {
     }
 
     this.changes = {
-      changed: false,
       main: {},
       details: {},
       categories: {},
@@ -317,6 +317,7 @@ class EditPopup extends Component {
     this.changeTab = this.changeTab.bind(this)
     this.closePopup = this.closePopup.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleSave = this.handleSave.bind(this)
   }
 
   changeTab(event) {
@@ -338,6 +339,47 @@ class EditPopup extends Component {
     this.changes[type][field] = value
     this.setState({changed: true})
     console.log(this.changes)
+  }
+
+  handleSave(event) {
+    event.preventDefault()
+
+    const {partner, dispatch} = this.props
+
+    const partner_ = {
+      id: partner.id,
+      type: partner.type,
+      main: {
+        ...partner.main,
+        ...this.changes.main
+      },
+      details: {
+        ...partner.details,
+        ...this.changes.details
+      },
+      categories: {
+        ...partner.categories,
+        ...this.changes.categories
+      },
+      filters: {
+        ...partner.filters,
+        ...this.changes.filters
+      }
+    }
+
+    this.setState({changed: false})
+    dispatch(updatePartner(partner.id, partner_))
+    this.props.dispatch(closePopup())
+
+    console.log(partner_)
+  }
+
+  handleDelete(event) {
+    event.preventDefault()
+  }
+
+  handleCancel(event) {
+    event.preventDefault()
   }
 
   render() {
@@ -366,7 +408,7 @@ class EditPopup extends Component {
             </li>
           </ul>
           <div className={tab === "main" ? 'card-main active' : 'card-main'}>
-            {partner && <LogoUploader logo={partner.logo} onChange={this.handleChange} />}
+            {partner && <LogoUploader logo={partner.main.logo} onChange={this.handleChange} />}
             {partner && <EditPopupMain names={mainNames} main={partner.main} onChange={this.handleChange} />}
           </div>
           <div className={tab === "details" ? 'card-details active' : 'card-details'}>
@@ -387,13 +429,13 @@ class EditPopup extends Component {
         <footer>
           <ul>
             <li>
-              <button className={this.state.changed ? 'active' : ''}>Сохранить</button>
+              <button className={this.state.changed ? 'active' : ''} onClick={this.handleSave}>Сохранить</button>
             </li>
             <li>
-              <button>Удалить</button>
+              <button onClick={this.handleDelete}>Удалить</button>
             </li>
           </ul>
-          <button>Отмена</button>
+          <button onClick={this.handleCancel}>Отмена</button>
         </footer>
       </form>
     )
