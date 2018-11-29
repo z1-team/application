@@ -32,7 +32,7 @@ class Card extends Component {
             <img src={item.logo} />
           </figure>
           <div className="info">
-            <h3>{item.title}</h3>
+            <h3>{item.main.title}</h3>
             {/*
             <div className="rating">
               <ul>
@@ -45,32 +45,32 @@ class Card extends Component {
               <p><a href="#">22 отзыва</a> (4.1 из 5)</p>
             </div>
             */}
-            {item.pros &&
+            {item.main &&
               <ul className="pros">
                 {/* For MFO */}
-                {item.pros.money && <li><strong>{item.pros.money}</strong> руб.<em>сумма займа</em></li>}
-                {item.pros.term && <li><strong>{item.pros.term}</strong><em>срок займа</em></li>}
-                {item.pros.minRate && <li><strong>{item.pros.minRate}</strong><em>ставка</em></li>}
+                {item.main.money && <li><strong>{item.main.money}</strong> руб.<em>сумма займа</em></li>}
+                {item.main.term && <li><strong>{item.main.term}</strong><em>срок займа</em></li>}
+                {item.main.minRate && <li><strong>{item.main.minRate}</strong><em>ставка</em></li>}
 
                 {/* For credit cards */}
-                {item.pros.limit && <li><strong>{item.pros.limit}</strong> руб.<em>кредитный лимит</em></li>}
-                {item.pros.percent && <li>от <strong>{item.pros.percent}</strong><em>процентная ставка</em></li>}
-                {item.pros.cashback && <li><strong>{item.pros.cashback}</strong><em>cashback</em></li>}
+                {item.main.limit && <li><strong>{item.main.limit}</strong> руб.<em>кредитный лимит</em></li>}
+                {item.main.percent && <li>от <strong>{item.main.percent}</strong><em>процентная ставка</em></li>}
+                {item.main.cashback && <li><strong>{item.main.cashback}</strong><em>cashback</em></li>}
 
                 {/* For credits */}
-                {item.pros.maxSumm && <li><strong>{item.pros.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}
-                {item.pros.rate && <li>от <strong>{item.pros.rate}</strong><em>процентная ставка</em></li>}
-                {item.pros.timing && <li><strong>{item.pros.timing}</strong><em>время рассмотрения</em></li>}
+                {item.main.maxSumm && <li><strong>{item.main.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}
+                {item.main.rate && <li>от <strong>{item.main.rate}</strong><em>процентная ставка</em></li>}
+                {item.main.timing && <li><strong>{item.main.timing}</strong><em>время рассмотрения</em></li>}
               </ul>
             }
           </div>
           <div className="process">
             {edit && <button onClick={this.handleClick}><i className="fas fa-edit"></i></button>}
-            <a target="_blank" href={`${item.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
+            <a target="_blank" href={`${item.main.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
             {/* item.overpayment && <p>переплата {item.overpayment}</p> */}
           </div>
         </section>
-        <CardAccordeon data={item} />
+        <CardAccordeon details={item.details} main={item.main} />
       </div>
     )
   }

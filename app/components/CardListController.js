@@ -10,19 +10,7 @@ const directionFromURL = {
 
 function sortResults(ids, category, partners) {
   return ids.filter(function (id) {
-    if(partners[id].categories[category]) {
-      return true
-    } else {
-      return false
-    }
-  }).sort(function(first, second){
-    if (partners[first].categories[category] < partners[second].categories[category]) {
-      return -1;
-    }
-    if (partners[first].categories[category] > partners[second].categories[category]) {
-      return 1;
-    }
-    return 0;
+    return partners[id].categories[category]
   })
 }
 

@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 
-import PopupFilter from './PopupFilter'
+import LogoUploader from './LogoUploader'
+import EditPopupMain from './EditPopupMain'
+import EditPopupDetails from './EditPopupDetails'
+import EditPopupCategories from './EditPopupCategories'
+import EditPopupFilter from './EditPopupFilter'
 
 import {closePopup} from '../actions'
 
@@ -190,16 +194,129 @@ const filterNames = {
   }
 }
 
+const detailsNames = {
+  minSumm: "Минимальная сумма",
+  maxSumm: "Максимальная сумма",
+  minPercent: "Минимальная процентная ставка",
+  maxPercent: "Максимальная процентная ставка",
+  minTerm: "Минимальный срок",
+  maxTerm: "Максимальный срок",
+  appProcessTime: "Время рассмотрения заявки",
+  getMoneyTime: "Время получения денег",
+  penalty: "Штраф за неуплату",
+  incomeProof: "Подтверждение дохода",
+  regionRegistr: "Прописка в регионе банка",
+  identification: "Идентификация",
+  age: "Возраст",
+  obtainingMethods: "Способы получения",
+  repaymentOptions: "Способы погашения",
+  creditHistory: "Кредитная история",
+  schedule: "График работы",
+  personalArea: "Личный кабинет",
+  application: "Приложение",
+  creditHistoryImprovement: "Улучшение кредитной истории",
+  smsInfo: "Смс-информирование",
+  paySystem: "Платежная система",
+  cardType: "Тип карты",
+  validity: "Срок действия",
+  minLimit: "Максимальный лимит",
+  maxLimit: "Минимальный лимит",
+  interestRate: "Процентная ставка",
+  maintenanceСost: "Стоимость обслуживания",
+  gracePeriod: "Льготный период",
+  commission: "Комиссия за снятие наличных",
+  cashback: "Кэшбэк",
+  minPayment: "Минимальный платеж",
+  considerationTime: "Время рассмотрения",
+  delivery: "Доставка карты",
+  deliveryTime: "Срок доставки",
+  chipAvailability: "Наличие чипа",
+  contactlessPayment: "Бесконтактная оплата",
+  secure3D: "3D Secure",
+  supplyDepartment: "OPC",
+  internetBank: "Интернет-банк"
+}
+
+const categoriesNames = {
+  badCreditHistory: "С плохой кред. историей",
+  online: "Онлайн",
+  fast: "Быстрые",
+  instantApprove: "С мгновенным одобрением",
+  urgently: "Срочные",
+  express: "Экспресс",
+  DaN: "Круглосуточно",
+  inCash: "Наличными",
+  instant: "Моментальные",
+  accordingPassport: "По паспорту",
+  toPaycheck: "До зарплаты",
+  longTerm: "Долгосрочные",
+  withoutFailure: "Без отказа",
+  withoutGuarantors: "Без поручителей",
+  forStudents: "Для студентов",
+  forPensioners: "Для пенсионеров",
+  noInterest: "Без процентов",
+  from18Years: "С 18 лет",
+  unemployed: "Безработным",
+  withoutPassport: "Без паспорта",
+  noCreditHistory: "Без кредит. истории",
+  alfaBank: "Альфа-Банк",
+  tinkoff: "Тинькофф",
+  bestCards: "Самые лучшие кредитные карты",
+  mostProfitable: "Самые выгодные",
+  dayOfTreatment: "В день обращения",
+  withoutInterest: "Без процентов",
+  urgent: "Срочно",
+  withoutReferences: "Без справок",
+  deliveryPlace: "На дом без визита в банк",
+  withoutAnnualService: "Без годового обслуживания",
+  withoutIncomeProof: "Без подтверждения дохода",
+  withoutCreditHistory: "Без кредитной истории",
+  interestFreePeriod: "С беспроцентным периодом",
+  cashback: "С кэшбэком",
+  forCashWithdrawals: "Для снятия наличных",
+  virtual: "Виртуальные",
+  applePay: "Apple Pay",
+  samsungPay: "Samsung Pay",
+  in5Minutes: "За 5 минут",
+  in15Minutes: "За 15 минут",
+  in30Minutes: "За 30 минут",
+  visa: "Visa",
+  masterCard: "MasterCard",
+  mir: "МИР"
+}
+
+const mainNames = {
+  title: "Заголовок",
+  money: "Сумма займа",
+  term: "Срок займа",
+  minRate: "Ставка",
+  limit: "Кредитный лимит",
+  percent: "Процентная ставка",
+  cashback: "Cashback",
+  link: "Ссылка",
+  firstLoan: "Акция"
+}
+
 class EditPopup extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      changed: false,
       tab: "main"
+    }
+
+    this.changes = {
+      changed: false,
+      main: {},
+      details: {},
+      categories: {},
+      filters: {}
     }
 
     this.changeTab = this.changeTab.bind(this)
     this.closePopup = this.closePopup.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   changeTab(event) {
@@ -216,6 +333,12 @@ class EditPopup extends Component {
 
 		this.props.dispatch(closePopup())
 	}
+
+  handleChange(type, field, value) {
+    this.changes[type][field] = value
+    this.setState({changed: true})
+    console.log(this.changes)
+  }
 
   render() {
     const {tab} = this.state
@@ -243,69 +366,28 @@ class EditPopup extends Component {
             </li>
           </ul>
           <div className={tab === "main" ? 'card-main active' : 'card-main'}>
-            <figure>
-              <img src="img/kredito24-logo.png" />
-              <figcaption>
-                <i className="fas fa-upload"></i>
-              </figcaption>
-            </figure>
-            <div>
-              <label>Название карточки: <input type="text" /></label>
-              <label>Сумма займа: <input type="text"/></label>
-              <label>Срок займа: <input type="text"/></label>
-              <label>Ставка: <input type="text"/></label>
-              <label>Ссылка: <input type="text"/></label>
-            </div>
+            {partner && <LogoUploader logo={partner.logo} onChange={this.handleChange} />}
+            {partner && <EditPopupMain names={mainNames} main={partner.main} onChange={this.handleChange} />}
           </div>
           <div className={tab === "details" ? 'card-details active' : 'card-details'}>
-            {/* MFO */}
-            <ul>
-              <li>
-                <label>Минимальная сумма (руб.): <input type="text"/></label>
-              </li>
-            </ul>
+            {partner && <EditPopupDetails details={partner.details} names={detailsNames} onChange={this.handleChange} />}
           </div>
           <div className={tab === "categories" ? 'card-categories active' : 'card-categories'}>
-            <ul>
-              <li>
-                <label>С плохой кред. историей<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Онлайн<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Быстрые<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>С мгновенным одобрением<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Срочные<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Экспресс<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Круглосуточно<input type="checkbox"/></label>
-              </li>
-              <li>
-                <label>Наличными<input type="checkbox"/></label>
-              </li>
-            </ul>
+            {partner && <EditPopupCategories categories={partner.categories} names={categoriesNames} onChange={this.handleChange} />}
           </div>
           <div className={tab === "filters" ? 'card-filters active' : 'card-filters'}>
             {/* partner && Object.getOwnPropertyNames(partner.filters).map((filter) => (
               console.log()
             )) */}
             {partner && Object.getOwnPropertyNames(partner.filters).map((filter, index) => (
-              <PopupFilter key={index} title={filterNames[filter].title} names={filterNames[filter].names} values={partner.filters[filter]}/>
+              <EditPopupFilter name={filter} key={index} title={filterNames[filter].title} names={filterNames[filter].names} values={partner.filters[filter]} onChange={this.handleChange} />
             ))}
           </div>
         </section>
         <footer>
           <ul>
             <li>
-              <button>Сохранить</button>
+              <button className={this.state.changed ? 'active' : ''}>Сохранить</button>
             </li>
             <li>
               <button>Удалить</button>

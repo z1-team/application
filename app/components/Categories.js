@@ -43,7 +43,7 @@ const categories = {
 		},
 		{
 			"text": "Круглосуточно",
-			"dataID": "d&n",
+			"dataID": "DaN",
 			"sortParam": "",
 			"index": 7
 		},
