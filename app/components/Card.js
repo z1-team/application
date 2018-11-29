@@ -29,7 +29,7 @@ class Card extends Component {
       <div className="result-item">
         <section>
           <figure>
-            <img src={item.logo} />
+            <img src={item.main.logo} />
           </figure>
           <div className="info">
             <h3>{item.main.title}</h3>
@@ -67,7 +67,7 @@ class Card extends Component {
           <div className="process">
             {edit && <button onClick={this.handleClick}><i className="fas fa-edit"></i></button>}
             <a target="_blank" href={`${item.main.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
-            {/* item.overpayment && <p>переплата {item.overpayment}</p> */}
+            {/* item.main.overpayment && <p>переплата {item.main.overpayment}</p> */}
           </div>
         </section>
         <CardAccordeon details={item.details} main={item.main} />
