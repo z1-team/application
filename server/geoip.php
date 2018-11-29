@@ -10,19 +10,11 @@ class GeoIP
     return $ipx[0] * 16777216 + $ipx[1] * 65536 + $ipx[2] * 256 + $ipx[3];
   }
 
-  private function findGeoRecord($ip)
+  private function findCityRecord($ip)
   {
-    $sql = 'SELECT * FROM geoip WHERE start <= :ip AND end >= :ip';
+    $sql = 'SELECT * FROM locations WHERE id = (SELECT location FROM ipblocks WHERE start <= :ip AND end >= :ip)';
     $sth = $this->db->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $sth->execute(['ip' => $ip]);
-    return $sth->fetch(PDO::FETCH_ASSOC);
-  }
-
-  private function findCityRecord($id)
-  {
-    $sql = 'SELECT * FROM cities WHERE id = :id';
-    $sth = $this->db->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-    $sth->execute(['id' => $id]);
     return $sth->fetch(PDO::FETCH_ASSOC);
   }
 
@@ -37,15 +29,7 @@ class GeoIP
 
   public function findCity($ip)
   {
-    $georecord = $this->findGeoRecord($this->getFlatIP($ip));
-    if ($georecord) {
-      if ($georecord['city'] !== NULL) {
-        return $this->findCityRecord($georecord['city']);
-      } else {
-        return $georecord['country'];
-      }
-    } else {
-      return 'Планета Земля';
-    }
+    $location = $this->findCityRecord($this->getFlatIP($ip));
+    return $location ? $location : 'Планета Земля';
   }
 }
