@@ -14,6 +14,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.5.0",
+    "detect-browser": "^3.0.1",
     "es6-promise": "^4.2.5",
     "isomorphic-fetch": "^2.2.1",
     "json-brunch": "^1.5.4",

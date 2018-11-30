@@ -1,4 +1,5 @@
 import queryString from 'query-string'
+import {detect} from 'detect-browser'
 import fetch from 'isomorphic-fetch'
 import uuid from 'uuid-js'
 
@@ -60,6 +61,7 @@ export function fetchPartners() {
 }
 
 export function sendEvent(event) {
+  const browserInfo = ({browser}) => browser ? JSON.stringify(browser) : NULL
   const url = location.hostname === 'localhost' ?
     'http://localhost:8080/send-event.php' : '/send-event.php'
   return (dispatch, getState) => {
@@ -76,7 +78,9 @@ export function sendEvent(event) {
       datetime: datetime.utcDateTime,
       localtime: datetime.local,
       user_region: session.ip_info && session.ip_info.region ? session.ip_info.region : 'NULL',
-      user_city: session.ip_info && session.ip_info.city ? session.ip_info.city : 'NULL'
+      user_city: session.ip_info && session.ip_info.city ? session.ip_info.city : 'NULL',
+      user_country: session.ip_info && session.ip_info.country ? session.ip_info.country : 'NULL',
+      browser: browserInfo(session)
     }
     console.log('Dispatching event: ', fullEvent)
     fetch(url, {
@@ -114,7 +118,8 @@ export function initSession() {
       user_id: getUserId(),
       ip_info: window.__IP_INFO__ ? __IP_INFO__ : {
         place: 'Москва'
-      }
+      },
+      browser: detect() || 'unknown'
     }
     console.log(session)
     dispatch({type: SESSION_INIT, session})

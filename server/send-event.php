@@ -55,7 +55,9 @@ class Event
       'payload' => '{}',
       'user_ip' => NULL,
       'user_region' => NULL,
-      'user_city' => NULL
+      'user_city' => NULL,
+      'user_country' => NULL,
+      'browser' => NULL
     ];
     $this->request = $request;
   }
@@ -78,6 +80,20 @@ class Event
   public function utmCampaign()
   {
     return $this->getField('utm_campaign');
+  }
+
+  public function browserInfo()
+  {
+    $info = $this->getField('browser');
+    if ($info !== NULL) {
+      $browser = json_decode($info, true);
+      return [
+        'browserName' => $browser['name'],
+        'browserVersion' => $browser['version'],
+        'browserOS' => $browser['os']
+      ]
+    }
+    return NULL;
   }
 
   public function utmExtraKeys()
@@ -112,16 +128,32 @@ class Event
     return array_values($otherParams);
   }
 
+  public function extraData()
+  {
+    $extra = [];
+    $userId = $this->getField('user_id');
+    if ($userId !== NULL) {
+      $extra['userId'] = $userId;
+    }
+    $userCountry = $this->getField('user_country');
+    if ($userCountry !== NULL) {
+      $extra['userCountry'] = $userCountry;
+    }
+    $browser = $this->browserInfo();
+    if ($browser !== NULL) {
+      $extra = array_merge($extra, $browser);
+    }
+    return $extra;
+  }
+
   public function extraKeys()
   {
-    $userId = $this->getField('user_id');
-    return $userId !== NULL ? ['userId'] : [];
+    return array_keys($this->extraData());
   }
 
   public function extraValues()
   {
-    $userId = $this->getField('user_id');
-    return $userId !== NULL ? [$userId] : [];
+    return array_values($this->extraData());
   }
 
   public function date()
