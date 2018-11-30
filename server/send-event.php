@@ -91,7 +91,7 @@ class Event
         'browserName' => $browser['name'],
         'browserVersion' => $browser['version'],
         'browserOS' => $browser['os']
-      ]
+      ];
     }
     return NULL;
   }
