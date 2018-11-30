@@ -44,7 +44,7 @@ export const closePopup = () => ({type: POPUP_CLOSE})
 export function fetchPartners() {
   return (dispatch) => {
     dispatch({type: PARTNERS_FETCH, status: 0})
-    fetch(`/data/partners.json`).then((response) => {
+    fetch(`http://localhost:8080/partner.php?action=fetch`).then((response) => {
       if (response.status >= 400) {
         throw new Error('Bad response from server')
       }
@@ -134,16 +134,56 @@ export function initSession() {
 }
 
 export function login(login, pass) {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/auth.php' : '/auth.php'
   return (dispatch) => {
-    dispatch({type: AUTH_LOGIN, status: 1, token: "KUGF032945ih32f98GBUFGWS"})
+    dispatch({type: AUTH_LOGIN, status: 0})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({login, password: pass})
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      if (data.token) {
+        dispatch({type: AUTH_LOGIN, status: 1, token: data.token})
+      } else {
+        dispatch({type: AUTH_LOGIN, status: 2})
+      }
+    })
+    .catch(console.log)
   }
 }
 
 export const logout = () => ({type: AUTH_LOGOUT})
 
 export function updatePartner(id, partner) {
-  return (dispatch) => {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/partner.php' : '/partner.php'
+  return (dispatch, getState) => {
     dispatch({type: PARTNER_UPDATE, id, partner})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        action: id === 'new' ? 'create' : 'update',
+        token: getState().auth.token,
+        payload: JSON.stringify(partner)
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      console.log(data)
+    })
+    .catch(console.log)
   }
 }
 

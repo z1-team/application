@@ -125,7 +125,7 @@ class PartnerController
         $row['id'],
         $row['type'],
         $row['title'],
-        $row['data']
+        json_decode($row['data'], true)
       );
       $result[] = $partner->toArray();
     }
@@ -179,15 +179,19 @@ class PartnerController
 
   public function processRequest($request)
   {
-    switch ($request['action']) {
-      case 'fetch':
-        echo $this->fetchAll(); break;
-      case 'update':
-        echo $this->update($request); break;
-      case 'create':
-        echo $this->create($request); break;
-      default:
-        echo json_encode(['error' => 'Bad request!']);
+    if ($this->processGuard($request)) {
+      switch ($request['action']) {
+        case 'fetch':
+          echo $this->fetchAll(); break;
+        case 'update':
+          echo $this->update($request); break;
+        case 'create':
+          echo $this->create($request); break;
+        default:
+          echo json_encode(['error' => 'Bad request!']);
+      }
+    } else {
+      echo json_encode(['error' => 'Access denied!']);
     }
   }
 }
@@ -195,4 +199,5 @@ class PartnerController
 $controller = new PartnerController($env);
 
 header("Content-type: application/json; charset=utf-8");
+header('Access-Control-Allow-Origin: *');
 $controller->processRequest($_REQUEST);
