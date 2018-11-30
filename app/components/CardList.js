@@ -38,7 +38,7 @@ class CardList extends Component {
 		const {cards, tail, isLoggedIn, partners} = this.props
 		return (
 			<div className="list">
-				<button className="add-card" onClick={this.handleAdd}>Добавить партнера</button>
+				{isLoggedIn && <button className="add-card" onClick={this.handleAdd}>Добавить партнера</button>}
 				{cards.map((id) => (
 					<Card key={id} item={partners[id]} tail={tail} onOrder={this.handleOrder} edit={isLoggedIn} onEdit={this.handleEdit} dataID={id} />
 				))}

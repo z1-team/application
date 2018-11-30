@@ -13,49 +13,49 @@ function mfoFilters(filters, handleChange) {
 			<SearchModule title="Спецпредложения" name="special_offers" onChange={handleChange}>
 				<CheckboxFilter name="special_offers"
 					items={[
-					"0% первый займ", 
-					"увеличенный лимит постоянным клиентам"]} 
+					"0% первый займ",
+					"увеличенный лимит постоянным клиентам"]}
 					value={filters.special_offers}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Сумма выдачи" name="summ" onChange={handleChange}>
 				<CheckboxFilter name="summ"
 					items={[
-					"100 - 1 000 руб.", 
-					"2 000 - 5 000 руб.", 
+					"100 - 1 000 руб.",
+					"2 000 - 5 000 руб.",
 					"6 000 - 10 000 руб.",
 					"11 000 - 15 000 руб.",
 					"16 000 - 20 000 руб.",
 					"20 000 - 30 000 руб",
-					"свыше 30 000 руб."]} 
+					"свыше 30 000 руб."]}
 					value={filters.summ}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Время рассмотрения" name="review_time" onChange={handleChange}>
 				<RadioFilter name="review_time"
 					items={[
-					"до 2 мин.", 
-					"до 15 мин.", 
+					"до 2 мин.",
+					"до 15 мин.",
 					"до 20 мин.",
-					"до 30 мин."]} 
+					"до 30 мин."]}
 					value={filters.review_time}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Время получения денег" name="get_money_time" onChange={handleChange}>
 				<RadioFilter name="get_money_time"
 					items={[
-					"Моментально", 
-					"До 15 минут", 
+					"Моментально",
+					"До 15 минут",
 					"До 20 минут",
-					"До 1 дня"]} 
+					"До 1 дня"]}
 					value={filters.get_money_time}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Подтверждение дохода" name="income_proof" onChange={handleChange}>
 				<RadioFilter name="income_proof"
 					items={[
-					"Да", 
-					"Нет"]} 
+					"Да",
+					"Нет"]}
 					value={filters.income_proof}
 					onChange={handleChange} />
 			</SearchModule>
@@ -63,7 +63,7 @@ function mfoFilters(filters, handleChange) {
 				<RadioFilter name="credit_history"
 					items={[
 					"Любая",
-					"Хорошая"]} 
+					"Хорошая"]}
 					value={filters.credit_history}
 					onChange={handleChange} />
 			</SearchModule>
@@ -76,7 +76,7 @@ function mfoFilters(filters, handleChange) {
 					"QIWI кошелек",
 					"Яндекс.Деньги",
 					"Система Юнистрим",
-					"Золотая корона"]} 
+					"Золотая корона"]}
 					value={filters.get_ways}
 					onChange={handleChange} />
 			</SearchModule>
@@ -98,7 +98,7 @@ function mfoFilters(filters, handleChange) {
 					"Промсвязьбанк",
 					"Салоны связи \"МТС\"",
 					"Салоны связи \"Билайн\"",
-					"Карта \"Кукуруза\""]} 
+					"Карта \"Кукуруза\""]}
 					value={filters.repayment_options}
 					onChange={handleChange} />
 			</SearchModule>
@@ -109,7 +109,7 @@ function mfoFilters(filters, handleChange) {
 					"От 25 до 34 лет",
 					"От 35 до 44 лет",
 					"От 45 до 54 лет",
-					"Старше 55"]} 
+					"Старше 55"]}
 					value={filters.age}
 					onChange={handleChange} />
 			</SearchModule>
@@ -117,7 +117,7 @@ function mfoFilters(filters, handleChange) {
 				<RadioFilter name="mob_app"
 					items={[
 					"Да",
-					"Нет"]} 
+					"Нет"]}
 					value={filters.mob_app}
 					onChange={handleChange} />
 			</SearchModule>
@@ -134,7 +134,7 @@ function cardsFilters(filters, handleChange) {
 					items={[
 					"MasterCard",
 					"Visa",
-					"Мир"]} 
+					"Мир"]}
 					value={filters.payment_system}
 					onChange={handleChange} />
 			</SearchModule>
@@ -144,7 +144,7 @@ function cardsFilters(filters, handleChange) {
 					"2 года",
 					"3 года ",
 					"4 года",
-					"5 лет и более"]} 
+					"5 лет и более"]}
 					value={filters.validity}
 					onChange={handleChange} />
 			</SearchModule>
@@ -155,7 +155,7 @@ function cardsFilters(filters, handleChange) {
 					"до 300 000 тыс.",
 					"до 400 000 тыс.",
 					"до 500 000 тыс.",
-					"до 600 000 тыс."]} 
+					"до 600 000 тыс."]}
 					value={filters.limits}
 					onChange={handleChange} />
 			</SearchModule>
@@ -165,7 +165,7 @@ function cardsFilters(filters, handleChange) {
 					"До 50 дней",
 					"До 60 дней",
 					"До 100 дней",
-					"Свыше 100 дней"]} 
+					"Свыше 100 дней"]}
 					value={filters.grace_period}
 					onChange={handleChange} />
 			</SearchModule>
@@ -173,7 +173,7 @@ function cardsFilters(filters, handleChange) {
 				<RadioFilter name="cashback"
 					items={[
 					"Да",
-					"Нет"]} 
+					"Нет"]}
 					value={filters.cashback}
 					onChange={handleChange} />
 			</SearchModule>
@@ -184,7 +184,7 @@ function cardsFilters(filters, handleChange) {
 					"3 - 5 мин.",
 					"15 - 30 мин.",
 					"1 - 2 часа",
-					"1 - 2 дня"]} 
+					"1 - 2 дня"]}
 					value={filters.consideration_time}
 					onChange={handleChange} />
 			</SearchModule>
@@ -192,7 +192,7 @@ function cardsFilters(filters, handleChange) {
 				<RadioFilter name="card_delivery"
 					items={[
 					"На дом",
-					"В отделение"]} 
+					"В отделение"]}
 					value={filters.card_delivery}
 					onChange={handleChange} />
 			</SearchModule>
@@ -201,15 +201,34 @@ function cardsFilters(filters, handleChange) {
 					items={[
 					"1 - 2 дня",
 					"3 - 4 дня",
-					"5 - 7 дней"]} 
+					"5 - 7 дней"]}
 					value={filters.time_delivery}
+					onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Подтверждение дохода" name="income_proof" onChange={handleChange}>
+				<RadioFilter name="income_proof"
+					items={[
+					"Да",
+					"Нет"]}
+					value={filters.income_proof}
+					onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Возраст" name="age" onChange={handleChange}>
+				<CheckboxFilter name="age"
+					items={[
+					"От 18 до 24 лет",
+					"От 25 до 34 лет",
+					"От 35 до 44 лет",
+					"От 45 до 54 лет",
+					"Старше 55"]}
+					value={filters.age}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Наличие чипа" name="chip_availability" onChange={handleChange}>
 				<RadioFilter name="chip_availability"
 					items={[
 					"Да",
-					"Нет"]} 
+					"Нет"]}
 					value={filters.chip_availability}
 					onChange={handleChange} />
 			</SearchModule>
@@ -217,8 +236,16 @@ function cardsFilters(filters, handleChange) {
 				<RadioFilter name="secure_3d"
 					items={[
 					"Да",
-					"Нет"]} 
+					"Нет"]}
 					value={filters.secure_3d}
+					onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Мобильное приложение" name="mob_app" onChange={handleChange}>
+				<RadioFilter name="mob_app"
+					items={[
+					"Да",
+					"Нет"]}
+					value={filters.mob_app}
 					onChange={handleChange} />
 			</SearchModule>
 		</div>
@@ -234,7 +261,7 @@ class Sidebar extends Component {
 
 	handleChange(name, value) {
 		const {dispatch} = this.props
-		
+
 		dispatch(changeFilter(name, value))
 	}
 
@@ -255,7 +282,7 @@ class Sidebar extends Component {
 	render() {
 		return (
 			<div className="sidebar">
-				{this.getFilters()}				
+				{this.getFilters()}
 			</div>
 		)
 	}
