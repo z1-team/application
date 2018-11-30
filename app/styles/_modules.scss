@@ -285,16 +285,18 @@
 			width: 100%;
 		}
 
-		& > p {
-			font-size: 12px; font-family: $os-l;
-			margin-bottom: 10px;
+		& > div {
+			& > p {
+				font-size: 12px; font-family: $os-l;
+				margin-bottom: 10px;
 
-			strong {
-				font-size: 16px; font-family: $os-b;
-			}
+				strong {
+					font-size: 16px; font-family: $os-b;
+				}
 
-			span {
-				font-size: 14px; white-space: nowrap;
+				span {
+					font-size: 14px; white-space: nowrap;
+				}
 			}
 		}
 	}
