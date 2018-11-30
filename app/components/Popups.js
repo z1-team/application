@@ -44,7 +44,7 @@ class Popups extends Component {
 	}
 
 	render() {
-		const {popups, partner, dispatch} = this.props
+		const {popups, partner, dispatch, error} = this.props
 		const {login, pass} = this.state
 
 		return (
@@ -58,6 +58,7 @@ class Popups extends Component {
 					<form action="#" onSubmit={this.handleLogin}>
 						<label>Логин: <input type="text" name="login" onChange={this.handleChange} value={login} /></label>
 						<label>Пароль: <input type="password" name="pass" onChange={this.handleChange} value={pass} /></label>
+						{error && <p>Не верно введен логин или пароль.</p>}
 						<button>Войти</button>
 					</form>
 				</div>

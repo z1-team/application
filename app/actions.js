@@ -42,9 +42,11 @@ export const openPopup = (name) => ({type: POPUP_OPEN, name})
 export const closePopup = () => ({type: POPUP_CLOSE})
 
 export function fetchPartners() {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/partner.php?action=fetch' : '/partner.php?action=fetch'
   return (dispatch) => {
     dispatch({type: PARTNERS_FETCH, status: 0})
-    fetch(`http://localhost:8080/partner.php?action=fetch`).then((response) => {
+    fetch(url).then((response) => {
       if (response.status >= 400) {
         throw new Error('Bad response from server')
       }
