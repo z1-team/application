@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import CategoriesList from './CategoriesList'
-import {changeFilter} from '../actions'
+import {changeFilter, sendEvent} from '../actions'
 
 const categories = {
 	"mfo": [
@@ -321,6 +321,12 @@ class Categories extends Component {
 		const {dispatch} = this.props
 		const dataID = target.getAttribute('data-id')
 		dispatch(changeFilter('category', dataID))
+		dispatch(sendEvent({
+			type: 'click_category',
+			payload: {
+				category: dataID
+			}
+		}))
 	}
 
 	getCategories() {

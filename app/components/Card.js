@@ -6,6 +6,7 @@ class Card extends Component {
     super(props)
     this.handleOrder = this.handleOrder.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleOpen = this.handleOpen.bind(this)
   }
 
   handleOrder(event) {
@@ -20,6 +21,14 @@ class Card extends Component {
 
     if(typeof onEdit === 'function') {
       onEdit(dataID)
+    }
+  }
+
+  handleOpen() {
+    const {onMore, item} = this.props
+
+    if(typeof onMore === 'function') {
+      onMore(item.id, item.main.title)
     }
   }
 
@@ -70,7 +79,7 @@ class Card extends Component {
             {/* item.main.overpayment && <p>переплата {item.main.overpayment}</p> */}
           </div>
         </section>
-        <CardAccordeon details={item.details} main={item.main} />
+        <CardAccordeon details={item.details} main={item.main} onOpen={this.handleOpen}/>
       </div>
     )
   }

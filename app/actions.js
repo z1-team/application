@@ -66,7 +66,10 @@ export function sendEvent(event) {
     'http://localhost:8080/send-event.php' : '/send-event.php'
   return (dispatch, getState) => {
     const datetime = getDateTime()
-    const {session} = getState()
+    const {auth, session} = getState()
+    if (auth.token !== null) {
+      return 'admin mode'
+    }
     const fullEvent = {
       ...event,
       yclick_id: session.query.yclid || 'NULL',
