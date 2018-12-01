@@ -4,7 +4,7 @@ import SearchModule from './SearchModule'
 import CheckboxFilter from './CheckboxFilter'
 import RadioFilter from './RadioFilter'
 
-import {changeFilter} from '../actions'
+import {changeFilter, sendEvent} from '../actions'
 
 function mfoFilters(filters, handleChange) {
 	return (
@@ -263,6 +263,13 @@ class Sidebar extends Component {
 		const {dispatch} = this.props
 
 		dispatch(changeFilter(name, value))
+		dispatch(sendEvent({
+			type: 'change_filter',
+			payload: {
+				filterName: name,
+				filterValue: JSON.stringify(value)
+			}
+		}))
 	}
 
 	getFilters() {

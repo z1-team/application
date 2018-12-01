@@ -8,19 +8,39 @@ const directionFromURL = {
   '/cards':'cards'
 }
 
-function sortResults(ids, category, partners) {
-  return ids.filter(function (id) {
-    return partners[id].categories[category]
-  })
+function testFilter(filter, value) {
+  if (filter.every(f => f === false)) {
+    return true
+  } else {
+    return filter.some((f, i) => f && value[i])
+  }
 }
 
-function selectCards(partners, category, url) {
+function testCategory(category, value) {
+  return category === null ? true : value[category]
+}
+
+function filterResults(ids, partners, filters) {
+  return ids.filter((id) => (
+    Object.getOwnPropertyNames(filters).every(f => {
+      if (f === 'category') {
+        return testCategory(filters.category, partners[id].categories)
+      } else {
+        return testFilter(filters[f], partners[id].filters[f])
+      }
+    })
+  ))
+}
+
+// function sortResults(ids, category, partners) {
+//   return ids.filter(function (id) {
+//     return partners[id].categories[category]
+//   })
+// }
+
+function selectCards(partners, filters, url) {
   const direction = directionFromURL[url] ? directionFromURL[url] : 'mfo'
-  if (category) {
-    return sortResults(partners[direction], category, partners.data)
-  } else {
-    return partners[direction]
-  }
+  return filterResults(partners[direction], partners.data, filters)
 }
 
 function makeTail({query, user_id, client_id}) {
@@ -41,7 +61,7 @@ function makeTail({query, user_id, client_id}) {
 }
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => ({
-  cards: selectCards(partners, filters.category || null, url),
+  cards: selectCards(partners, filters, url),
   partners: partners.data,
   tail: makeTail(session),
   isLoggedIn: auth.token !== null
