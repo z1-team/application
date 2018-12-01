@@ -6,10 +6,10 @@ import RadioFilter from './RadioFilter'
 
 import {changeFilter, sendEvent} from '../actions'
 
-function mfoFilters(filters, handleChange) {
+function mfoFilters(filters, handleChange, total, place) {
 	return (
 		<div>
-			<p><strong>152</strong> <span>микрозайма</span> найдено в <span>Москве, Площадь Ленина</span></p>
+			<p>Всего микрозаймов: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
 			<SearchModule title="Спецпредложения" name="special_offers" onChange={handleChange}>
 				<CheckboxFilter name="special_offers"
 					items={[
@@ -125,10 +125,10 @@ function mfoFilters(filters, handleChange) {
 	)
 }
 
-function cardsFilters(filters, handleChange) {
+function cardsFilters(filters, handleChange, total, place) {
 	return (
 		<div>
-			<p><strong>152</strong> <span>микрозайма</span> найдено в <span>Москве, Площадь Ленина</span></p>
+			<p>Всего карт: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
 			<SearchModule title="Платежная система" name="payment_system" onChange={handleChange}>
 				<CheckboxFilter name="payment_system"
 					items={[
@@ -273,14 +273,15 @@ class Sidebar extends Component {
 	}
 
 	getFilters() {
-		const url = this.props.location.pathname
-		const {filters} = this.props
+		const {url, filters, total, location} = this.props
+
+		const place =	typeof location !== 'undefined' ? location.city || location.place : 'вашем городе'
 
 		switch(url) {
 			case '/mfo':
-				return mfoFilters(filters, this.handleChange)
+				return mfoFilters(filters, this.handleChange, total, place)
 			case '/cards':
-				return cardsFilters(filters, this.handleChange)
+				return cardsFilters(filters, this.handleChange, total, place)
 			default:
 				return false
 		}

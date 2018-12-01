@@ -42,7 +42,11 @@ function filtersReducer(state = initialState, action) {
       if(action.value === null && Array.isArray(state[action.filter])) {
         return {...state, [action.filter]: state[action.filter].map((x) => false)}
       } else {
-        return {...state, [action.filter]: action.value}
+        if(action.filter !== "category") {
+          return {...state, [action.filter]: action.value, category: null}
+        } else {
+          return {...initialState, category: action.value}
+        }
       }
     case FILTER_RESET:
       return resetFilters(state)

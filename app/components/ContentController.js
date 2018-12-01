@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import CardList from './CardList'
 import queryString from 'query-string'
+
+import Sidebar from './Sidebar'
+import Results from './Results'
 
 const directionFromURL = {
   '/mfo':'mfo',
@@ -58,7 +61,25 @@ const mapStateToProps = ({session, filters, partners, auth}, {url}) => ({
   cards: selectCards(partners, filters, url),
   partners: partners.data,
   tail: makeTail(session),
-  isLoggedIn: auth.token !== null
+  isLoggedIn: auth.token !== null,
+  filters,
+  location: session.ip_info
 })
 
-export default connect(mapStateToProps)(CardList)
+class Main extends Component {
+	render() {
+		const {url, filters, cards, tail, isLoggedIn, partners, dispatch, location} = this.props
+		return (
+			<div className="wr-main">
+				<div className="container">
+					<div className="main">
+						<Sidebar url={url} filters={filters} total={cards.length} dispatch={dispatch} location={location} />
+						<Results url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} />
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
+
+export default connect(mapStateToProps)(Main)
