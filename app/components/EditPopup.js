@@ -6,7 +6,7 @@ import EditPopupDetails from './EditPopupDetails'
 import EditPopupCategories from './EditPopupCategories'
 import EditPopupFilter from './EditPopupFilter'
 
-import {closePopup, updatePartner} from '../actions'
+import {closePopup, updatePartner, selectPartner} from '../actions'
 
 const filterNames = {
   special_offers: {
@@ -318,6 +318,7 @@ class EditPopup extends Component {
     this.closePopup = this.closePopup.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSave = this.handleSave.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   changeTab(event) {
@@ -338,7 +339,6 @@ class EditPopup extends Component {
   handleChange(type, field, value) {
     this.changes[type][field] = value
     this.setState({changed: true})
-    console.log(this.changes)
   }
 
   handleSave(event) {
@@ -369,9 +369,7 @@ class EditPopup extends Component {
 
     this.setState({changed: false})
     dispatch(updatePartner(partner.id, partner_))
-    this.props.dispatch(closePopup())
-
-    console.log(partner_)
+    dispatch(closePopup())
   }
 
   handleDelete(event) {
@@ -380,6 +378,11 @@ class EditPopup extends Component {
 
   handleCancel(event) {
     event.preventDefault()
+
+    const {dispatch} = this.props
+
+    dispatch(closePopup())
+    setTimeout(function(){dispatch(selectPartner(null))}, 400)
   }
 
   render() {
@@ -431,9 +434,11 @@ class EditPopup extends Component {
             <li>
               <button className={this.state.changed ? 'active' : ''} onClick={this.handleSave}>Сохранить</button>
             </li>
+            {/*
             <li>
               <button onClick={this.handleDelete}>Удалить</button>
             </li>
+            */}
           </ul>
           <button onClick={this.handleCancel}>Отмена</button>
         </footer>
