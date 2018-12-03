@@ -26,7 +26,8 @@ class Partner
       $rightBase64 = str_replace(' ', '+', $rawBase64);
       $rawData = base64_decode($rightBase64);
       $file = 'uploads/' . uniqid() . '.png';
-      return file_put_contents($file, $rawData) ? $file : false;
+      $fullPath = $env['baseurl'] . $file;
+      return file_put_contents($file, $rawData) ? $fullPath : false;
     } else {
       return false;
     }
