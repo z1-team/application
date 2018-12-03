@@ -173,11 +173,26 @@ class PartnerController
     }
   }
 
+  public function delete($request)
+  {
+    if(isset($request['id'])) {
+      $sql = 'DELETE FROM partners WHERE id = :id';
+      $sth = $this->db->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+      return $sth->execute([
+        'id' => $request['id']
+      ]) ? json_encode(['id' => $request['id']])
+         : json_encode(['error' => 'Deleting failed!']);
+    } else {
+      return json_encode(['error' => 'Bad request!']);
+    }
+  }
+
   public function processGuard($request)
   {
     switch ($request['action']) {
       case 'update':
       case 'create':
+      case 'delete':
         return isset($request['token']) && $request['token'] === self::$token;
       default:
         return true;
@@ -194,6 +209,8 @@ class PartnerController
           echo $this->update($request); break;
         case 'create':
           echo $this->create($request); break;
+        case 'delete':
+          echo $this->delete($request); break;
         default:
           echo json_encode(['error' => 'Bad request!']);
       }

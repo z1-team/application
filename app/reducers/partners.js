@@ -1,4 +1,4 @@
-import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE, PARTNER_CREATE} from '../actions'
+import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE, PARTNER_CREATE, PARTNER_DELETE} from '../actions'
 import templates from '../partnersTemplate'
 
 const initialState = {
@@ -15,6 +15,16 @@ function filtersPartners(type, data) {
     data.map(({id}) => (id))
       .filter((el, index) => (data[index].type === type))
   )
+}
+
+function deleteReducer(state, id) {
+  const del = id_ => (id_ !== id)
+  return {
+    ...state,
+    cards: state.cards.filter(del),
+    credits: state.credits.filter(del),
+    mfo: state.mfo.filter(del)
+  }
 }
 
 function fetchReducer(state, action) {
@@ -57,6 +67,8 @@ function partnersReducer(state = initialState, action) {
         ...state.data,
         "new": templates[action.partnerType]
       }}
+    case PARTNER_DELETE:
+      return deleteReducer(state, action.id)
     default:
      return state
   }

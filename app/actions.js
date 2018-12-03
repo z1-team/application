@@ -15,6 +15,7 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 export const PARTNER_UPDATE = 'PARTNER_UPDATE'
 export const PARTNER_SELECT = 'PARTNER_SELECT'
 export const PARTNER_CREATE = 'PARTNER_CREATE'
+export const PARTNER_DELETE = 'PARTNER_DELETE'
 
 function getDateTime() {
   const date = new Date()
@@ -124,7 +125,7 @@ export function initSession() {
       },
       browser: detect() || 'unknown'
     }
-    console.log(session)
+
     dispatch({type: SESSION_INIT, session})
     document.addEventListener('DOMContentLoaded', () => {
       dispatch({type: SESSION_UPDATE, field: 'ip_info', value: window.__IP_INFO__ ? __IP_INFO__ : {
@@ -132,7 +133,6 @@ export function initSession() {
       }})
     });
     document.addEventListener('yacounter50978069inited', () => {
-      console.log('!!!')
       const client_id = yaCounter50978069.getClientID()
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
       dispatch(sendEvent({
@@ -200,3 +200,29 @@ export function updatePartner(id, partner) {
 export const selectPartner = (id) => ({type: PARTNER_SELECT, id})
 
 export const createPartner = (partnerType) => ({type: PARTNER_CREATE, partnerType})
+
+export function deletePartner(id) {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/partner.php' : '/partner.php'
+  return (dispatch, getState) => {
+    dispatch({type: PARTNER_DELETE, id})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        action: 'delete',
+        token: getState().auth.token,
+        id
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      console.log(data)
+    })
+    .catch(console.log)
+  }
+}
