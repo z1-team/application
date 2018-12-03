@@ -14,10 +14,16 @@ function array_copy($arr) {
 
 class Partner
 {
+  private static $baseurl = '';
   private $id;
   private $type;
   private $title;
   private $data;
+
+  public static function initClass($config)
+  {
+    self::$baseurl = $config['baseurl'];
+  }
 
   private static function uploadImage($data)
   {
@@ -26,7 +32,7 @@ class Partner
       $rightBase64 = str_replace(' ', '+', $rawBase64);
       $rawData = base64_decode($rightBase64);
       $file = 'uploads/' . uniqid() . '.png';
-      $fullPath = $env['baseurl'] . $file;
+      $fullPath = self::$baseurl . $file;
       return file_put_contents($file, $rawData) ? $fullPath : false;
     } else {
       return false;
@@ -197,6 +203,7 @@ class PartnerController
   }
 }
 
+Partner::initClass($env);
 $controller = new PartnerController($env);
 
 header("Content-type: application/json; charset=utf-8");

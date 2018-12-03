@@ -18,6 +18,7 @@
 .tmproj
 nbproject
 vendor/
+/server/uploads/
 Thumbs.db
 env.php
 
