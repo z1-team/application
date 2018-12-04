@@ -10,7 +10,7 @@ exports.files = {
 };
 
 exports.plugins = {
-  babel: {presets: ['@babel/preset-env','@babel/preset-react'], ignore: []},
+  babel: {presets: ['@babel/preset-env','@babel/preset-react'], ignore: [], plugins: ["@babel/plugin-proposal-class-properties"]},
   sass: {mode: 'native'},
   postcss: {
     processors: [
