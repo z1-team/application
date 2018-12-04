@@ -63,18 +63,20 @@ const mapStateToProps = ({session, filters, partners, auth}, {url}) => ({
   tail: makeTail(session),
   isLoggedIn: auth.token !== null,
   filters,
-  location: session.ip_info
+  location: session.ip_info,
+  currentPage: partners.currentPage
 })
 
 class Main extends Component {
 	render() {
-		const {url, filters, cards, tail, isLoggedIn, partners, dispatch, location} = this.props
+		const {url, filters, cards, tail, isLoggedIn,
+       partners, dispatch, location, currentPage} = this.props
 		return (
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
 						<Sidebar url={url} filters={filters} total={cards.length} dispatch={dispatch} location={location} />
-						<Results url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} />
+						<Results url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} currentPage={currentPage} />
 					</div>
 				</div>
 			</div>

@@ -16,6 +16,7 @@ export const PARTNER_UPDATE = 'PARTNER_UPDATE'
 export const PARTNER_SELECT = 'PARTNER_SELECT'
 export const PARTNER_CREATE = 'PARTNER_CREATE'
 export const PARTNER_DELETE = 'PARTNER_DELETE'
+export const PAGE_CHANGE = 'PAGE_CHANGE'
 
 function getDateTime() {
   const date = new Date()
@@ -39,6 +40,8 @@ export const changeFilter = (filter, value) => ({
   value
 })
 export const resetFilter = () => ({type: FILTER_RESET})
+
+export const changePage = (page) => ({type: PAGE_CHANGE, page})
 
 export const openPopup = (name) => ({type: POPUP_OPEN, name})
 export const closePopup = () => ({type: POPUP_CLOSE})

@@ -1,7 +1,9 @@
-import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE, PARTNER_CREATE, PARTNER_DELETE} from '../actions'
+import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE,
+   PARTNER_CREATE, PARTNER_DELETE, FILTER_CHANGE, FILTER_RESET, PAGE_CHANGE} from '../actions'
 import templates from '../partnersTemplate'
 
 const initialState = {
+  currentPage: 1,
   isFetching: false,
   selected: null,
   cards: [],
@@ -33,6 +35,7 @@ function fetchReducer(state, action) {
       return { ...state, isFetching: true }
     case 1:
       return {
+        currentPage: 1,
         isFetching: false,
         mfo: filtersPartners("mfo", action.data),
         credits: filtersPartners("credits", action.data),
@@ -69,6 +72,11 @@ function partnersReducer(state = initialState, action) {
       }}
     case PARTNER_DELETE:
       return deleteReducer(state, action.id)
+    case FILTER_CHANGE:
+    case FILTER_RESET:
+      return { ...state, currentPage: 1}
+    case PAGE_CHANGE:
+      return { ...state, currentPage: action.page}
     default:
      return state
   }
