@@ -282,7 +282,7 @@
 			width: 200px;
 		}
 		@include respond-to(sm) {
-			width: 100%;
+			display: none;
 		}
 
 		& > div {
@@ -365,21 +365,19 @@
 
 	.checkbox-module {
 
-		&.disabled {
-			label {
-				text-decoration: line-through;
-				pointer-events: none;
-
-				span {
-					text-decoration: none;
-				}
-			}
-		}
-
 		label {
 			color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
 			padding-left: 25px; position: relative; display: flex; justify-content: space-between; margin-bottom: 8px;
 			cursor: pointer;
+
+			&.disabled {
+				text-decoration: line-through;
+				pointer-events: none;
+
+				&:before {
+					opacity: 0.4;
+				}
+			}
 
 			&:last-child {
 				margin-bottom: 0;
