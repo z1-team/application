@@ -17,3 +17,5 @@ const config = {
 ftpDeploy.deploy(config)
   .then(res => console.log('finished'))
   .catch(console.log)
+
+// test commit
