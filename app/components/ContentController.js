@@ -42,6 +42,29 @@ function selectCards(partners, filters, url) {
   return filterResults(partners[direction], partners.data, filters)
 }
 
+function startAccumulation(filter) {
+  return filter.map((value) => value ? 1 : 0)
+}
+
+function accumulateFilter(current, value) {
+  return value ? current + 1 : current
+}
+
+function actualFilters(ids, partners) {
+  if (ids.length > 0) {
+    return Object.getOwnPropertyNames(partners[ids[0]].filters).reduce((result, filter) => {
+      const actual = ids.reduce((actual, id) => {
+        const nextFilter = partners[id].filters[filter]
+        return actual.map((current, index) => accumulateFilter(current, nextFilter[index]))
+      }, startAccumulation(partners[ids[0]].filters[filter]))
+      result[filter] = actual
+      return result
+    }, {})
+  } else {
+    return {}
+  }
+}
+
 function makeTail({query, user_id, client_id}) {
   const tail = {}
   if (query && user_id) {
@@ -59,26 +82,43 @@ function makeTail({query, user_id, client_id}) {
   return queryString.stringify(tail)
 }
 
-const mapStateToProps = ({session, filters, partners, auth}, {url}) => ({
-  cards: selectCards(partners, filters, url),
-  partners: partners.data,
-  tail: makeTail(session),
-  isLoggedIn: auth.token !== null,
-  filters,
-  location: session.ip_info,
-  currentPage: partners.currentPage
-})
+const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
+  const cards = selectCards(partners, filters, url)
+  return {
+    cards,
+    actual: actualFilters(cards, partners.data),
+    partners: partners.data,
+    tail: makeTail(session),
+    isLoggedIn: auth.token !== null,
+    filters,
+    location: session.ip_info,
+    currentPage: partners.currentPage
+  }
+}
 
 class Main extends Component {
 	render() {
 		const {url, filters, cards, tail, isLoggedIn,
-       partners, dispatch, location, currentPage} = this.props
+       partners, dispatch, location, currentPage, actual} = this.props
 		return (
 			<div className="wr-main">
 				<div className="container">
 					<div className="main">
-						<Sidebar url={url} filters={filters} total={cards.length} dispatch={dispatch} location={location} />
-						<Results url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} currentPage={currentPage} />
+						<Sidebar
+              url={url}
+              filters={filters}
+              total={cards.length}
+              dispatch={dispatch}
+              location={location}
+              actual={actual} />
+						<Results
+              url={url}
+              tail={tail}
+              partners={partners}
+              cards={cards}
+              isLoggedIn={isLoggedIn}
+              dispatch={dispatch}
+              currentPage={currentPage} />
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,7 @@ import RadioFilter from './RadioFilter'
 
 import {changeFilter, sendEvent} from '../actions'
 
-function mfoFilters(filters, handleChange, total, place) {
+function mfoFilters(filters, handleChange, total, place, actual) {
 	return (
 		<div>
 			<p>Всего микрозаймов: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
@@ -16,6 +16,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"0% первый займ",
 					"увеличенный лимит постоянным клиентам"]}
 					value={filters.special_offers}
+					actual={actual.special_offers || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Сумма выдачи" name="summ" onChange={handleChange}>
@@ -29,6 +30,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"20 000 - 30 000 руб",
 					"свыше 30 000 руб."]}
 					value={filters.summ}
+					actual={actual.summ || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Время рассмотрения" name="review_time" onChange={handleChange}>
@@ -39,6 +41,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"до 20 мин.",
 					"до 30 мин."]}
 					value={filters.review_time}
+					actual={actual.review_time || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Время получения денег" name="get_money_time" onChange={handleChange}>
@@ -49,6 +52,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"До 20 минут",
 					"До 1 дня"]}
 					value={filters.get_money_time}
+					actual={actual.get_money_time || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Подтверждение дохода" name="income_proof" onChange={handleChange}>
@@ -57,6 +61,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.income_proof}
+					actual={actual.income_proof || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Кредитная история" name="credit_history" onChange={handleChange}>
@@ -65,6 +70,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"Любая",
 					"Хорошая"]}
 					value={filters.credit_history}
+					actual={actual.credit_history || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Способы получения" name="get_ways" onChange={handleChange}>
@@ -78,6 +84,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"Система Юнистрим",
 					"Золотая корона"]}
 					value={filters.get_ways}
+					actual={actual.get_ways || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Способы погашения" name="repayment_options" onChange={handleChange}>
@@ -100,6 +107,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"Салоны связи \"Билайн\"",
 					"Карта \"Кукуруза\""]}
 					value={filters.repayment_options}
+					actual={actual.repayment_options || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Возраст" name="age" onChange={handleChange}>
@@ -111,6 +119,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"От 45 до 54 лет",
 					"Старше 55"]}
 					value={filters.age}
+					actual={actual.age || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Мобильное приложение" name="mob_app" onChange={handleChange}>
@@ -119,6 +128,7 @@ function mfoFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.mob_app}
+					actual={actual.mob_app || null}
 					onChange={handleChange} />
 			</SearchModule>
 		</div>
@@ -273,15 +283,15 @@ class Sidebar extends Component {
 	}
 
 	getFilters() {
-		const {url, filters, total, location} = this.props
+		const {url, filters, total, location, actual} = this.props
 
 		const place =	typeof location !== 'undefined' ? location.city || location.place : 'вашем городе'
 
 		switch(url) {
 			case '/mfo':
-				return mfoFilters(filters, this.handleChange, total, place)
+				return mfoFilters(filters, this.handleChange, total, place, actual)
 			case '/cards':
-				return cardsFilters(filters, this.handleChange, total, place)
+				return cardsFilters(filters, this.handleChange, total, place, actual)
 			default:
 				return false
 		}
