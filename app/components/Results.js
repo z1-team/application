@@ -34,19 +34,12 @@ class Results extends Component {
 
 	onChange = page => {
 		const { dispatch } = this.props
-
-		console.log(page)
-
 		dispatch(changePage(page))
 	}
 
 	selectCards() {
 		const { cards, currentPage } = this.props
-
-		console.log(currentPage)
-
 		const offset = (currentPage - 1) * PAGE_LIMIT
-
 		return cards.slice(offset, offset + PAGE_LIMIT)
 	}
 

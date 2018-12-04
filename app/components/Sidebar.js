@@ -135,7 +135,7 @@ function mfoFilters(filters, handleChange, total, place, actual) {
 	)
 }
 
-function cardsFilters(filters, handleChange, total, place) {
+function cardsFilters(filters, handleChange, total, place, actual) {
 	return (
 		<div>
 			<p>Всего карт: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
@@ -146,6 +146,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Visa",
 					"Мир"]}
 					value={filters.payment_system}
+					actual={actual.payment_system || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Срок действия карты" name="validity" onChange={handleChange}>
@@ -156,6 +157,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"4 года",
 					"5 лет и более"]}
 					value={filters.validity}
+					actual={actual.validity || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Лимиты" name="limits" onChange={handleChange}>
@@ -167,6 +169,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"до 500 000 тыс.",
 					"до 600 000 тыс."]}
 					value={filters.limits}
+					actual={actual.limits || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Льготный период" name="grace_period" onChange={handleChange}>
@@ -177,6 +180,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"До 100 дней",
 					"Свыше 100 дней"]}
 					value={filters.grace_period}
+					actual={actual.grace_period || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Cashback" name="cashback" onChange={handleChange}>
@@ -185,6 +189,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.cashback}
+					actual={actual.cashback || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Время рассмотрения" name="consideration_time" onChange={handleChange}>
@@ -196,6 +201,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"1 - 2 часа",
 					"1 - 2 дня"]}
 					value={filters.consideration_time}
+					actual={actual.consideration_time || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Доставка карты" name="card_delivery" onChange={handleChange}>
@@ -204,6 +210,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"На дом",
 					"В отделение"]}
 					value={filters.card_delivery}
+					actual={actual.card_delivery || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Срок доставки" name="time_delivery" onChange={handleChange}>
@@ -213,6 +220,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"3 - 4 дня",
 					"5 - 7 дней"]}
 					value={filters.time_delivery}
+					actual={actual.time_delivery || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Подтверждение дохода" name="income_proof" onChange={handleChange}>
@@ -221,6 +229,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.income_proof}
+					actual={actual.income_proof || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Возраст" name="age" onChange={handleChange}>
@@ -232,6 +241,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"От 45 до 54 лет",
 					"Старше 55"]}
 					value={filters.age}
+					actual={actual.age || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Наличие чипа" name="chip_availability" onChange={handleChange}>
@@ -240,6 +250,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.chip_availability}
+					actual={actual.chip_availability || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="3D Secure" name="secure_3d" onChange={handleChange}>
@@ -248,6 +259,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.secure_3d}
+					actual={actual.secure_3d || null}
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Мобильное приложение" name="mob_app" onChange={handleChange}>
@@ -256,6 +268,7 @@ function cardsFilters(filters, handleChange, total, place) {
 					"Да",
 					"Нет"]}
 					value={filters.mob_app}
+					actual={actual.mob_app || null}
 					onChange={handleChange} />
 			</SearchModule>
 		</div>

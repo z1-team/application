@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 
+const labelClass = (isChecked, isActual) => (
+	isActual ? isChecked ? 'active' : '' : 'disabled'
+)
+
 class RadioFilter extends Component {
 	constructor(props) {
 		super(props)
@@ -17,12 +21,15 @@ class RadioFilter extends Component {
 	}
 
 	render() {
-		const {items, value, name} = this.props
+		const {items, value, name, actual} = this.props
 
 		return (
 			<div className="checkbox-module">
 				{items.map((title, index) => (
-					<label key={index} className={value[index] ? 'active' : ''}><input data-index={index} onChange={this.handleChange} type="radio" name={name}/>{title}<span></span></label>
+					<label key={index} className={labelClass(value[index], actual !== null ? actual[index] > 0 : true)}>
+						<input data-index={index} onChange={this.handleChange} type="radio" name={name}/>{title}
+						<span>{actual ? actual[index] : ''}</span>
+					</label>
 				))}
 			</div>
 		)

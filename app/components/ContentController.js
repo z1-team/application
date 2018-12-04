@@ -37,26 +37,60 @@ function filterResults(ids, partners, filters) {
   ))
 }
 
-function selectCards(partners, filters, url) {
-  const direction = directionFromURL[url] ? directionFromURL[url] : 'mfo'
+function selectCards(partners, filters, direction) {
   return filterResults(partners[direction], partners.data, filters)
 }
 
 function startAccumulation(filter) {
-  return filter.map((value) => value ? 1 : 0)
+  return filter.map((value) => 0)
 }
 
-function accumulateFilter(current, value) {
-  return value ? current + 1 : current
+function applyFilter(ids, partners, value, filter) {
+  return ids.filter(id => (
+    testFilter(value, partners[id].filters[filter])
+  ))
 }
 
-function actualFilters(ids, partners) {
+function makeCollections(ids, partners, filters) {
   if (ids.length > 0) {
+    return Object.getOwnPropertyNames(partners[ids[0]].filters)
+      .reduce((result, filter) => {
+        result[filter] = applyFilter(ids, partners, filters[filter], filter)
+        return result
+      }, {})
+  } else {
+    return null
+  }
+}
+
+function countIntersection(collections) {
+  return collections ? Object.getOwnPropertyNames(collections)
+    .reduce((rest, c) => {
+      if (rest === 0) {
+        return collections[c]
+      } else {
+        return rest.filter(id => collections[c].indexOf(id) !== -1)
+      }
+    }, 0).length : 0
+}
+
+function calcFilterActual(collections, ids, partners, filter, filters, index) {
+  const test = filters[filter].map((value, i) => i === index ? true : value)
+  return countIntersection({
+    ...collections,
+    [filter]: applyFilter(ids, partners, test, filter)
+  })
+}
+
+function actualFilters(ids, partners, filters) {
+  if (ids.length > 0) {
+    const collections = makeCollections(ids, partners, filters)
     return Object.getOwnPropertyNames(partners[ids[0]].filters).reduce((result, filter) => {
-      const actual = ids.reduce((actual, id) => {
-        const nextFilter = partners[id].filters[filter]
-        return actual.map((current, index) => accumulateFilter(current, nextFilter[index]))
-      }, startAccumulation(partners[ids[0]].filters[filter]))
+      const actual = filters[filter].reduce((actual, value, index) => {
+        const t = calcFilterActual(collections, ids, partners, filter, filters, index)
+        actual[index] = t
+        return actual
+      }, startAccumulation(filters[filter]))
       result[filter] = actual
       return result
     }, {})
@@ -83,10 +117,11 @@ function makeTail({query, user_id, client_id}) {
 }
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
-  const cards = selectCards(partners, filters, url)
+  const direction = directionFromURL[url] ? directionFromURL[url] : 'mfo'
+  const cards = selectCards(partners, filters, direction)
   return {
     cards,
-    actual: actualFilters(cards, partners.data),
+    actual: actualFilters(partners[direction], partners.data, filters),
     partners: partners.data,
     tail: makeTail(session),
     isLoggedIn: auth.token !== null,
