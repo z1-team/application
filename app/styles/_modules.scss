@@ -282,7 +282,7 @@
 			width: 200px;
 		}
 		@include respond-to(sm) {
-			width: 100%;
+			display: none;
 		}
 
 		& > div {
