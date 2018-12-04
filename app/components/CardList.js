@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Card from './Card'
-import {sendEvent, openPopup, selectPartner, createPartner} from '../actions'
+import {sendEvent, openPopup, selectPartner, createPartner, resetFilter} from '../actions'
 
 class CardList extends Component {
 	constructor(props) {
@@ -14,6 +14,7 @@ class CardList extends Component {
 	componentDidUpdate(prevProps) {
 		const {url, dispatch} = this.props
 		if (prevProps.url !== url) {
+			dispatch(resetFilter())
 			dispatch(sendEvent({
 				type: 'change_direction',
 				payload: {

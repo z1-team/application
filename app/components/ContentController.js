@@ -28,8 +28,10 @@ function filterResults(ids, partners, filters) {
     Object.getOwnPropertyNames(filters).every(f => {
       if (f === 'category') {
         return testCategory(filters.category, partners[id].categories)
-      } else {
+      } else if (partners[id].filters[f]) {
         return testFilter(filters[f], partners[id].filters[f])
+      } else {
+        return true
       }
     })
   ))
