@@ -16,7 +16,9 @@ class RadioFilter extends Component {
 		const {value, name, onChange} = this.props
 
 		if(typeof onChange === 'function') {
-			onChange(name, value.map((v, i) => (i === index ? true : false)))
+			onChange(name, value.map((v, i) => (
+				i === index ? true : false
+			)))
 		}
 	}
 
