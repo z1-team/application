@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 const labelClass = (isChecked, isActual) => (
-	isActual ? isChecked ? 'active' : '' : 'disabled'
+	isChecked ? 'active' : isActual ? '' : 'disabled'
 )
 
 class CheckboxFilter extends Component {

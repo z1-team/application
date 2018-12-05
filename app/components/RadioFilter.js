@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 const labelClass = (isChecked, isActual) => (
-	isActual ? isChecked ? 'active' : '' : 'disabled'
+	isChecked ? 'active' : isActual ? '' : 'disabled'
 )
 
 class RadioFilter extends Component {
@@ -17,7 +17,7 @@ class RadioFilter extends Component {
 
 		if(typeof onChange === 'function') {
 			onChange(name, value.map((v, i) => (
-				i === index ? true : false
+				i === index ? !v : false
 			)))
 		}
 	}
@@ -29,7 +29,7 @@ class RadioFilter extends Component {
 			<div className="checkbox-module">
 				{items.map((title, index) => (
 					<label key={index} className={labelClass(value[index], actual !== null ? actual[index] > 0 : true)}>
-						<input data-index={index} onChange={this.handleChange} type="radio" name={name}/>{title}
+						<input data-index={index} onChange={this.handleChange} type="checkbox" name={name}/>{title}
 						<span>{actual ? actual[index] : ''}</span>
 					</label>
 				))}
