@@ -11,6 +11,29 @@ const directionFromURL = {
   '/cards':'cards'
 }
 
+const isRadio = {
+  special_offers: false,
+  summ: false,
+  review_time: true,
+  get_money_time: true,
+  income_proof: true,
+  credit_history: true,
+  get_ways: false,
+  repayment_options: false,
+  age: false,
+  mob_app: true,
+  payment_system: false,
+  validity: false,
+  limits: true,
+  grace_period: true,
+  cashback: true,
+  consideration_time: false,
+  card_delivery: true,
+  time_delivery: false,
+  chip_availability: true,
+  secure_3d: true
+}
+
 function testFilter(filter, value) {
   if (filter.every(f => f === false)) {
     return true
@@ -91,7 +114,9 @@ function countIntersection(collections) {
 }
 
 function calcFilterActual(collections, ids, partners, filter, filters, index) {
-  const test = filters[filter].map((value, i) => i === index ? true : value)
+  const test = filters[filter].map((value, i) => (
+    i === index ? true : isRadio[filter] ? false : value
+  ))
   return countIntersection({
     ...collections,
     [filter]: applyFilter(ids, partners, test, filter)
