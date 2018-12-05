@@ -320,6 +320,12 @@ class Categories extends Component {
 	handleClick({target}) {
 		const {dispatch} = this.props
 		const dataID = target.getAttribute('data-id')
+
+		window.scrollTo({
+        top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
+        behavior: "smooth"
+    })
+
 		dispatch(changeFilter('category', dataID))
 		dispatch(sendEvent({
 			type: 'click_category',

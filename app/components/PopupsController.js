@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 import Popups from './Popups'
 
 const mapStateToProps = ({popups, partners, auth}) => ({
@@ -8,4 +9,4 @@ const mapStateToProps = ({popups, partners, auth}) => ({
   error: auth.error
 })
 
-export default connect(mapStateToProps)(Popups)
+export default withRouter(connect(mapStateToProps)(Popups))

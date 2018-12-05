@@ -4,6 +4,7 @@ import { changePage } from '../actions'
 
 import CardList from './CardList'
 import ResultsPagination from './ResultsPagination'
+import ResultsSort from './ResultsSort'
 
 const PAGE_LIMIT = 5
 const PAGE_NEIGHBOURS = 1
@@ -34,6 +35,7 @@ class Results extends Component {
 
 	onChange = page => {
 		const { dispatch } = this.props
+
 		dispatch(changePage(page))
 	}
 
@@ -44,30 +46,13 @@ class Results extends Component {
 	}
 
 	render() {
-		const {url, cards, tail, isLoggedIn, partners, currentPage, dispatch} = this.props
+		const {url, cards, tail, isLoggedIn, partners, currentPage, dispatch, sortInfo} = this.props
 
 		return (
-			<div className="results">
+			<div className="results" id="results">
 				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
-				{/*
-				<div className="sort">
-					<p>СОРТИРОВАТЬ:</p>
-					<ul>
-						<li>
-							<a href="#">ПО РЕЙТИНГУ</a>
-						</li>
-						<li>
-							<a href="#">ПО СУММЕ</a>
-						</li>
-						<li>
-							<a href="#">ПО СРОКАМ</a>
-						</li>
-						<li>
-							<a href="#">ПО ПРОЦЕНТНОЙ СТАВКЕ</a>
-						</li>
-					</ul>
-				</div>
-				*/}
+				<ResultsSort url={url} dispatch={dispatch} sortInfo={sortInfo} />
+				<ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} />
 				<CardList url={url} tail={tail} partners={partners} cards={this.selectCards()} isLoggedIn={isLoggedIn} dispatch={dispatch} />
 				<ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} />
 			</div>

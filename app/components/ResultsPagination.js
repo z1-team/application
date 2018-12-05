@@ -32,6 +32,11 @@ class ResultsPagination extends Component {
 
     const currentPage = page
 
+		window.scrollTo({
+        top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
+        behavior: "smooth"
+    })
+
 		if(typeof onChange === 'function') {
 			onChange(currentPage)
 		}

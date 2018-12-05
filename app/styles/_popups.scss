@@ -242,7 +242,8 @@
 			&-main,
 			&-details,
 			&-categories,
-			&-filters {
+			&-filters,
+			&-sort {
 				padding: 10px 0; display: none; max-height: calc(90vh - 202px);
 				overflow-y: auto;
 
@@ -478,6 +479,52 @@
 								content: '';
 								display: block; width: 13px; height: 13px; position: absolute; left: 0; top: 0;
 								background: #f7f7f7; border: solid 1px #b1b1b1;
+							}
+						}
+					}
+				}
+			}
+
+			&-sort {
+
+				&.active {
+					display: block;
+				}
+
+				ul {
+
+					li {
+						display: flex; align-items: stretch; justify-content: space-between;
+						margin-bottom: 2px;
+
+						@include respond-to(sm) {
+							margin-bottom: 5px; flex-direction: column;
+						}
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+						label {
+							color: #161616; font-size: 12px; font-family: $m-r; line-height: 16px; white-space: nowrap;
+							width: 100%; padding: 5px 10px; display: flex; align-items: center; justify-content: space-between; position: relative;
+							background: $white;
+
+							@include respond-to(sm) {
+								font-family: $m-sb;
+								flex-direction: column; align-items: flex-start; padding: 0; width: 100%;
+								background: transparent;
+							}
+
+							input {
+								color: #161616; font-size: 12px; font-family: $m-sb; line-height: 16px; text-align: right;
+								width: 100%; margin-left: 10px;
+
+								@include respond-to(sm) {
+									text-align: left;
+									padding: 5px 10px; margin-left: 0;
+									border-bottom: solid 1px #e2e2e2;
+								}
 							}
 						}
 					}

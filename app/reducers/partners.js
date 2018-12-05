@@ -1,8 +1,10 @@
 import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE,
-   PARTNER_CREATE, PARTNER_DELETE, FILTER_CHANGE, FILTER_RESET, PAGE_CHANGE} from '../actions'
+   PARTNER_CREATE, PARTNER_DELETE, PARTNER_SORT, PARTNER_SORT_RESET, FILTER_CHANGE, FILTER_RESET, PAGE_CHANGE} from '../actions'
 import templates from '../partnersTemplate'
 
 const initialState = {
+  sortBy: "summ",
+  isAscending: false,
   currentPage: 1,
   isFetching: false,
   selected: null,
@@ -17,6 +19,17 @@ function filtersPartners(type, data) {
     data.map(({id}) => (id))
       .filter((el, index) => (data[index].type === type))
   )
+}
+
+function resetSort(direction) {
+  switch (direction) {
+    case 'mfo':
+      return {sortBy: "summ", isAscending: false}
+    case 'cards':
+      return {sortBy: "limit", isAscending: false}
+    default:
+      return {sortBy: "summ", isAscending: false}
+  }
 }
 
 function deleteReducer(state, id) {
@@ -35,7 +48,7 @@ function fetchReducer(state, action) {
       return { ...state, isFetching: true }
     case 1:
       return {
-        currentPage: 1,
+        ...state,
         isFetching: false,
         mfo: filtersPartners("mfo", action.data),
         credits: filtersPartners("credits", action.data),
@@ -72,6 +85,10 @@ function partnersReducer(state = initialState, action) {
       }}
     case PARTNER_DELETE:
       return deleteReducer(state, action.id)
+    case PARTNER_SORT:
+      return { ...state, sortBy: action.sort, isAscending: action.order}
+    case PARTNER_SORT_RESET:
+      return { ...state, ...resetSort(action.direction)}
     case FILTER_CHANGE:
     case FILTER_RESET:
       return { ...state, currentPage: 1}

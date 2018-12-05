@@ -68,6 +68,11 @@ const mfo = {
     "repayment_options": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     "age": [false, false, false, false, false],
     "mob_app": [false, false]
+  },
+  "sortBy": {
+    "summ": 0,
+    "term": 0,
+    "rate": 0
   }
 }
 
@@ -153,6 +158,11 @@ const cards = {
     "chip_availability": [false, false],
     "secure_3d": [false, false],
     "mob_app": [false, false]
+  },
+  "sortBy": {
+    "limit": 0,
+    "rate": 0,
+    "cashback": 0
   }
 }
 

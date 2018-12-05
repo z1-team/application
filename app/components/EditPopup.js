@@ -5,6 +5,7 @@ import EditPopupMain from './EditPopupMain'
 import EditPopupDetails from './EditPopupDetails'
 import EditPopupCategories from './EditPopupCategories'
 import EditPopupFilter from './EditPopupFilter'
+import EditPopupSort from './EditPopupSort'
 
 import {closePopup, updatePartner, selectPartner, deletePartner} from '../actions'
 
@@ -311,7 +312,8 @@ class EditPopup extends Component {
       main: {},
       details: {},
       categories: {},
-      filters: {}
+      filters: {},
+      sortBy: {}
     }
 
     this.changeTab = this.changeTab.bind(this)
@@ -363,6 +365,10 @@ class EditPopup extends Component {
       filters: {
         ...partner.filters,
         ...this.changes.filters
+      },
+      sortBy: {
+        ...partner.sortBy || {},
+        ...this.changes.sortBy
       }
     }
 
@@ -391,7 +397,7 @@ class EditPopup extends Component {
 
   render() {
     const {tab} = this.state
-    const {partner} = this.props
+    const {partner, url} = this.props
 
     return (
       <form action="#">
@@ -413,6 +419,9 @@ class EditPopup extends Component {
             <li>
               <button onClick={this.changeTab} data-tab="filters" className={tab === "filters" ? 'active' : undefined}>Фильтры</button>
             </li>
+            <li>
+              <button onClick={this.changeTab} data-tab="sort" className={tab === "sort" ? 'active' : undefined}>Сортировка</button>
+            </li>
           </ul>
           <div className={tab === "main" ? 'card-main active' : 'card-main'}>
             {partner && <LogoUploader logo={partner.main.logo} onChange={this.handleChange} />}
@@ -431,6 +440,9 @@ class EditPopup extends Component {
             {partner && Object.getOwnPropertyNames(partner.filters).map((filter, index) => (
               <EditPopupFilter name={filter} key={index} title={filterNames[filter].title} names={filterNames[filter].names} values={partner.filters[filter]} onChange={this.handleChange} />
             ))}
+          </div>
+          <div className={tab === "sort" ? 'card-sort active' : 'card-sort'}>
+            {partner && <EditPopupSort url={url} sortInfo={partner.sortBy} onChange={this.handleChange} />}
           </div>
         </section>
         <footer>

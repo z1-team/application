@@ -28,7 +28,6 @@ class CardAccordeon extends Component {
 				<ul>
 					<li>{main.firstLoan && main.firstLoan}</li>
 					<li><button onClick={this.handleClick}>Подробнее <img src="img/more.png"/></button></li>
-					{/*<li><button onClick={(e) => this.handleClick(index, e)}>Подробнее <img src="img/more.png"/></button></li>*/}
 				</ul>
 			</footer>
 		)

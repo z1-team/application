@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {
@@ -9,6 +10,8 @@ import {
 
 import { withRouter } from "react-router";
 
+import { resetSortPartner } from '../actions'
+
 const mapStateToProps = ({session}) => ({
   keyword: session.query && session.query.utm_term ?
     session.query.utm_term : 'Займ'
@@ -17,8 +20,6 @@ const mapStateToProps = ({session}) => ({
 class Intro extends Component {
 	constructor(props) {
 		super(props)
-
-		this.handleClick = this.handleClick.bind(this)
 	}
 	getBackground() {
 		const url = this.props.location.pathname
@@ -65,10 +66,6 @@ class Intro extends Component {
 			// 			<h2>Все Банки в одном месте</h2>
 			// 		</section>
 			// 	)
-			case "/about":
-				return false
-			case "/confidentiality":
-				return false
 			default:
 				return false
 		}
@@ -85,13 +82,22 @@ class Intro extends Component {
 		}
 	}
 
-	handleClick() {
-		const {onChange} = this.props
+  handleClick = (event) => {
+    const url = event.target.name
+    const { dispatch } = this.props
 
-		if(typeof onChange === "function") {
-			onChange()
-		}
-	}
+    switch (url) {
+      case 'mfo':
+        dispatch(resetSortPartner('mfo'))
+        break
+      case 'cards':
+        dispatch(resetSortPartner('cards'))
+        break
+      default:
+        dispatch(resetSortPartner('mfo'))
+        break
+    }
+  }
 
 	render() {
 		const { match, location, history } = this.props;
@@ -107,8 +113,8 @@ class Intro extends Component {
 								<img src="img/logo.png" />
 							</figure>
 							<ul>
-								<li><Link onClick={this.handleClick} className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
-								<li><Link onClick={this.handleClick} className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
+								<li><Link onClick={this.handleClick} name="mfo" className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
+								<li><Link onClick={this.handleClick} name="cards" className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
 								{/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
 							</ul>
 						</header>

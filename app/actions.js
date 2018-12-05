@@ -16,6 +16,8 @@ export const PARTNER_UPDATE = 'PARTNER_UPDATE'
 export const PARTNER_SELECT = 'PARTNER_SELECT'
 export const PARTNER_CREATE = 'PARTNER_CREATE'
 export const PARTNER_DELETE = 'PARTNER_DELETE'
+export const PARTNER_SORT = 'PARTNER_SORT'
+export const PARTNER_SORT_RESET = 'PARTNER_SORT_RESET'
 export const PAGE_CHANGE = 'PAGE_CHANGE'
 
 function getDateTime() {
@@ -229,3 +231,7 @@ export function deletePartner(id) {
     .catch(console.log)
   }
 }
+
+export const sortPartner = (sort, order) => ({type: PARTNER_SORT, sort, order})
+
+export const resetSortPartner = (direction) => ({type: PARTNER_SORT_RESET, direction})

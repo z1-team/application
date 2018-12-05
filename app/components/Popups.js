@@ -46,6 +46,7 @@ class Popups extends Component {
 	render() {
 		const {popups, partner, dispatch, error} = this.props
 		const {login, pass} = this.state
+		const url = this.props.location.pathname
 
 		return (
 			<div className={this.isOpened() ? "popups active" : "popups"}>
@@ -63,7 +64,7 @@ class Popups extends Component {
 					</form>
 				</div>
 				<div className={popups.edit ? "popup edit active" : "popup edit"}>
-					<EditPopup partner={partner} key={partner ? partner.id : -1} dispatch={dispatch} />
+					<EditPopup partner={partner} key={partner ? partner.id : -1} dispatch={dispatch} url={url} />
 				</div>
 			</div>
 		)

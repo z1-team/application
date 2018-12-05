@@ -37,8 +37,24 @@ function filterResults(ids, partners, filters) {
   ))
 }
 
-function selectCards(partners, filters, direction) {
-  return filterResults(partners[direction], partners.data, filters)
+function sortResults(ids, partners, sortInfo) {
+  if(ids){
+    return ids.sort((a, b) => {
+      const aValue = partners[a].sortBy ? partners[a].sortBy[sortInfo.sortBy] || 0 : 0
+      const bValue = partners[b].sortBy ? partners[b].sortBy[sortInfo.sortBy] || 0 : 0
+      const isBGreater = bValue - aValue
+
+      return sortInfo.isAscending ? isBGreater*(-1) : isBGreater
+    })
+  }
+}
+
+function selectCards(partners, filters, direction, sortInfo) {
+  return sortResults(
+    filterResults(partners[direction], partners.data, filters),
+    partners.data,
+    sortInfo
+  )
 }
 
 function startAccumulation(filter) {
@@ -117,12 +133,15 @@ function makeTail({query, user_id, client_id}) {
 }
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
+  const sortInfo = {sortBy: partners.sortBy, isAscending: partners.isAscending}
   const direction = directionFromURL[url] ? directionFromURL[url] : 'mfo'
-  const cards = selectCards(partners, filters, direction)
+  const cards = selectCards(partners, filters, direction, sortInfo)
+
   return {
     cards,
     actual: actualFilters(partners[direction], partners.data, filters),
     partners: partners.data,
+    sortInfo,
     tail: makeTail(session),
     isLoggedIn: auth.token !== null,
     filters,
@@ -134,7 +153,7 @@ const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
 class Main extends Component {
 	render() {
 		const {url, filters, cards, tail, isLoggedIn,
-       partners, dispatch, location, currentPage, actual} = this.props
+       partners, dispatch, location, currentPage, actual, sortInfo} = this.props
 		return (
 			<div className="wr-main">
 				<div className="container">
@@ -153,7 +172,8 @@ class Main extends Component {
               cards={cards}
               isLoggedIn={isLoggedIn}
               dispatch={dispatch}
-              currentPage={currentPage} />
+              currentPage={currentPage}
+              sortInfo={sortInfo} />
 					</div>
 				</div>
 			</div>
