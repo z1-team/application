@@ -22,6 +22,7 @@ class CardAccordeon extends Component {
 	render() {
 		const {details, main} = this.props
 		const {isOpen} = this.state
+
 		return (
 			<footer className={isOpen ? 'active' : ''}>
 				<CardDetails details={details} />

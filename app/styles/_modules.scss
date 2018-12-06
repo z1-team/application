@@ -573,10 +573,14 @@
 					}
 
 					ul.pros {
-						display: flex; align-items: flex-start;
+						display: flex; align-items: flex-start; margin-bottom: 15px;
 
 						@include respond-to(xs) {
 							flex-direction: column;
+						}
+
+						&:last-child {
+							margin-bottom: 0;
 						}
 
 						li {
@@ -608,6 +612,43 @@
 							em {
 								color: #f96868; font-size: 11px; font-family: $os-r; line-height: 14px;
 								display: block; margin-left: -28px; padding-top: 4px;
+							}
+						}
+					}
+
+					ul.options {
+
+						li {
+							color: #484848; font-size: 14px; font-family: $os-r; line-height: 18px;
+							padding-left: 20px; position: relative;
+
+							@include respond-to(lg) {
+								font-size: 13px;
+							}
+							@include respond-to(xs) {
+								padding-left: 15px;
+							}
+
+							&:last-child {
+								margin-bottom: -5px;
+							}
+
+							&:before {
+								content: '';
+								display: block; width: 6px; height: 6px; position: absolute; left: 0; top: 6px; transform: rotate(45deg);
+								border-top: solid 2px #484848; border-right: solid 2px #484848;
+							}
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+
+							span {
+								display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; width: 100%; padding-top: 5px;
+							}
+
+							i {
+								margin-right: 5px; margin-bottom: 5px;
 							}
 						}
 					}
@@ -1012,6 +1053,43 @@
 				counter-increment: count2;
 				content: counters(count2,".")". ";
 			}
+		}
+	}
+}
+
+.smart-search {
+	ul {
+		display: flex; justify-content: space-between; align-items: center;
+
+		li {
+			width: calc(50% - 10px);
+		}
+	}
+}
+.range-input {
+	display: block;
+
+	.line {
+		display: block; width: 100%; height: 4px; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+		background: #f96868;
+	}
+
+	.point {
+		display: block; width: 20px; height: 20px; position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%);
+		background: $white; border-radius: 50%; border: solid 1px grey;
+		cursor: pointer;
+	}
+
+	& > div {
+		position: relative;
+		border: solid 1px grey;
+
+		input {
+			margin-bottom: 10px; padding: 5px 5px 0;
+		}
+		div {
+			position: absolute; height: 12px; bottom: -4px; width: 100%;
+			cursor: pointer;
 		}
 	}
 }

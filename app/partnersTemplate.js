@@ -72,7 +72,9 @@ const mfo = {
   "sortBy": {
     "summ": 0,
     "term": 0,
-    "rate": 0
+    "rate": 0,
+    "min_days": 0,
+    "max_days": 0
   }
 }
 
