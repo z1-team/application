@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import CardAccordeon from './CardAccordeon'
 
 const repaymentOptions = [
@@ -88,6 +89,7 @@ class Card extends Component {
 
   render() {
     const {item, tail, edit} = this.props
+
     return (
       <div className="result-item">
         <section>
@@ -96,18 +98,16 @@ class Card extends Component {
           </figure>
           <div className="info">
             <h3>{item.main.title}</h3>
-            {/*
             <div className="rating">
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
               </ul>
-              <p><a href="#">22 отзыва</a> (4.1 из 5)</p>
+              <p><Link to={`/testimonials/${item.id}`}>22 отзыва</Link> (4.1 из 5)</p>
             </div>
-            */}
             {item.main &&
               <ul className="pros">
                 {/* For MFO */}

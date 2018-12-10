@@ -38,8 +38,9 @@
     "clean-css-brunch": "^2",
     "ftp-deploy": "^2.1.4",
     "postcss-brunch": "^2.1.0",
+    "react-masonry-component": "^6.2.1",
     "redux-devtools-extension": "^2.13.5",
-    "sass-brunch": "^2.10.4",
+    "sass-brunch": "2.10.4",
     "uglify-es-brunch": "^1.0.5"
   }
 }

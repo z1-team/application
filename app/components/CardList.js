@@ -19,7 +19,7 @@ class CardList extends Component {
 			dispatch(sendEvent({
 				type: 'change_direction',
 				payload: {
-					direction: url.split('/')[1]
+					direction: url
 				}
 			}))
 		}
@@ -44,7 +44,7 @@ class CardList extends Component {
 	handleAdd(event) {
 		event.preventDefault()
 		const {dispatch} = this.props
-		const url = this.props.url.split("/")[1]
+		const url = this.props.url
 
 		dispatch(createPartner(url))
 	}

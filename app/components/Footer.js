@@ -36,7 +36,7 @@ class Footer extends Component {
 			<div className="wr-footer">
 				<div className="container">
 					<div className="footer">
-						<span className="logo"><img src="img/logo-footer.png"/></span>
+						<span className="logo"><img src="/img/logo-footer.png"/></span>
 						{/*
 						<ul className="socials">
 							<li>

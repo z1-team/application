@@ -41,7 +41,7 @@
 	<div id="preloader">
 		<div>
 			<h2>
-				<img src="img/preloader-img.png">
+				<img src="/img/preloader-img.png">
 				<span id="preloader-title">Обрабатываем</span>
 			</h2>
 			<p id="preloader-text">фильтры</p>

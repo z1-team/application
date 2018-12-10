@@ -24,23 +24,23 @@ class SmartSearch extends Component {
   render() {
     return(
       <div className="smart-search">
-          <h2></h2>
+        <h2>Привет! Я твой Эмми, твой электронный помощник. Что ты ищещь?</h2>
+        <div>
+          <figure>
+            <img src="/img/smartsearch.png" />
+          </figure>
           <div>
-            <figure>
-              <img src="" alt=""/>
-            </figure>
-            <div>
-                <p></p>
-                <ul>
-                  <li>
-                    <RangeInput name="summ" label="сумма в рублях" start={100} end={50000} step={100} onChange={this.handleChange} />
-                  </li>
-                  <li>
-                    <RangeInput name="days" label="на сколько дней" start={1} end={50} step={1} onChange={this.handleChange} />
-                  </li>
-                </ul>
-            </div>
+            <p>Я хочу получить микрозайм</p>
+            <ul>
+              <li>
+                <RangeInput name="summ" label="сумма в рублях" start={100} end={50000} step={100} onChange={this.handleChange} />
+              </li>
+              <li>
+                <RangeInput name="days" label="на сколько дней" start={1} end={50} step={1} onChange={this.handleChange} />
+              </li>
+            </ul>
           </div>
+        </div>
       </div>
     )
   }

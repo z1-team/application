@@ -6,11 +6,6 @@ import queryString from 'query-string'
 import Sidebar from './Sidebar'
 import Results from './Results'
 
-const directionFromURL = {
-  '/mfo':'mfo',
-  '/cards':'cards'
-}
-
 const isRadio = {
   special_offers: false,
   summ: false,
@@ -159,12 +154,11 @@ function makeTail({query, user_id, client_id}) {
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
   const sortInfo = {sortBy: partners.sortBy, isAscending: partners.isAscending}
-  const direction = directionFromURL[url] ? directionFromURL[url] : 'mfo'
-  const cards = selectCards(partners, filters, direction, sortInfo)
+  const cards = selectCards(partners, filters, url, sortInfo)
 
   return {
     cards,
-    actual: actualFilters(partners[direction], partners.data, filters),
+    actual: actualFilters(partners[url], partners.data, filters),
     partners: partners.data,
     sortInfo,
     tail: makeTail(session),

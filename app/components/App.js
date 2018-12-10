@@ -1,12 +1,20 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import Header from './Header'
 import Intro from './Intro'
 import Content from './Content'
+//
+import ContentController from './ContentController'
+import Testimonials from './Testimonials'
+import Order from './Order'
+import AboutProject from './AboutProject'
+import Confidentiality from './Confidentiality'
+import NotFound from './NotFound'
 import About from './About'
 import UsefullInfo from './UsefullInfo'
+//
 import Footer from './Footer'
 import PopupsController from './PopupsController'
 import {closePopup, fetchPartners} from '../actions'
@@ -59,13 +67,21 @@ class App extends Component {
 	}
 
 	render() {
-    	const {isCategoriesOpen} = this.props
+    const {isCategoriesOpen} = this.props
+
 		return (
 			<div onKeyDown={this.handleKeyDown} tabIndex="1" className="app">
 				<Header />
 				<Intro />
-				<Content category={this.state.category} />
-				<Route path="/:id" component={UsefullInfo} />
+        <Switch>
+          <Route path="/testimonials/:id" component={Testimonials} />
+          <Route path="/mfo" render={props => (<ContentController {...props} url="mfo" />)}/>
+          <Route path="/cards" render={props => (<ContentController {...props} url="cards" />)}/>
+          <Route path="/about" component={AboutProject}/>
+          <Route path="/confidentiality" component={Confidentiality}/>
+          <Route component={NotFound}/>
+        </Switch>
+        <UsefullInfo />
 				<Footer />
 				<PopupsController />
 			</div>

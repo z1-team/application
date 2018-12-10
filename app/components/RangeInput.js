@@ -63,7 +63,7 @@ class RangeInput extends Component {
 
   render() {
     const { position, value } = this.state
-      const { label } = this.props
+    const { label } = this.props
 
     return(
       <div className="range-input">
@@ -74,7 +74,7 @@ class RangeInput extends Component {
               <span className="point" style={{left: 100*position + '%'}}></span>
             </div>
           </div>
-          <p>{label}</p>
+          {label && <p>{label}</p>}
       </div>
     )
   }

@@ -19,6 +19,7 @@ export const PARTNER_DELETE = 'PARTNER_DELETE'
 export const PARTNER_SORT = 'PARTNER_SORT'
 export const PARTNER_SORT_RESET = 'PARTNER_SORT_RESET'
 export const PAGE_CHANGE = 'PAGE_CHANGE'
+export const TESTIMONIAL_SEND = 'TESTIMONIAL_SEND'
 
 function getDateTime() {
   const date = new Date()
@@ -235,3 +236,5 @@ export function deletePartner(id) {
 export const sortPartner = (sort, order) => ({type: PARTNER_SORT, sort, order})
 
 export const resetSortPartner = (direction) => ({type: PARTNER_SORT_RESET, direction})
+
+export const sendTestimonial = (data) => ({type: TESTIMONIAL_SEND, data})
