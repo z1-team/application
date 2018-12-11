@@ -4,6 +4,7 @@
 *.orig
 *.log
 *.rej
+*.env
 *.swo
 *.swp
 *.vi
@@ -19,6 +20,7 @@
 nbproject
 vendor/
 /server/uploads/
+/server/logs/
 Thumbs.db
 env.php
 
@@ -26,7 +28,7 @@ env.php
 node_modules/
 
 # Brunch output folder.
-public/
+/public/
 
 # Materials folder.
 materials/

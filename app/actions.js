@@ -50,7 +50,7 @@ export const closePopup = () => ({type: POPUP_CLOSE})
 
 export function fetchPartners() {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/partner.php?action=fetch' : '/partner.php?action=fetch'
+    'http://localhost:8080/api/v1/partners' : '/partner.php?action=fetch'
   return (dispatch) => {
     dispatch({type: PARTNERS_FETCH, status: 0})
     fetch(url).then((response) => {
@@ -69,7 +69,7 @@ export function fetchPartners() {
 export function sendEvent(event) {
   const browserInfo = ({browser}) => browser ? JSON.stringify(browser) : NULL
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/send-event.php' : '/send-event.php'
+    'http://localhost:8080/api/v1/event' : '/send-event.php'
   return (dispatch, getState) => {
     const datetime = getDateTime()
     const {auth, session} = getState()
@@ -150,7 +150,7 @@ export function initSession() {
 
 export function login(login, pass) {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/auth.php' : '/auth.php'
+    'http://localhost:8080/api/v1/auth' : '/auth.php'
   return (dispatch) => {
     dispatch({type: AUTH_LOGIN, status: 0})
     fetch(url, {
@@ -178,16 +178,15 @@ export const logout = () => ({type: AUTH_LOGOUT})
 
 export function updatePartner(id, partner) {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/partner.php' : '/partner.php'
+    'http://localhost:8080/api/v1/partners' : '/partner.php'
   return (dispatch, getState) => {
     dispatch({type: PARTNER_UPDATE, id, partner})
     fetch(url, {
-      method: 'POST',
+      method: id === 'new' ? 'POST' : 'PUT',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       },
       body: queryString.stringify({
-        action: id === 'new' ? 'create' : 'update',
         token: getState().auth.token,
         payload: JSON.stringify(partner)
       })
@@ -208,19 +207,15 @@ export const createPartner = (partnerType) => ({type: PARTNER_CREATE, partnerTyp
 
 export function deletePartner(id) {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/partner.php' : '/partner.php'
+    `http://localhost:8080/api/v1/partners/${id}` : '/partner.php'
   return (dispatch, getState) => {
     dispatch({type: PARTNER_DELETE, id})
     fetch(url, {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       },
-      body: queryString.stringify({
-        action: 'delete',
-        token: getState().auth.token,
-        id
-      })
+      body: queryString.stringify({token: getState().auth.token})
     }).then((responce) => {
       if (responce.ok) {
         return responce.json()
