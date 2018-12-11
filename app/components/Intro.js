@@ -113,8 +113,8 @@ class Intro extends Component {
 								<img src="/img/logo.png" />
 							</figure>
 							<ul>
-								<li><Link onClick={this.handleClick} name="mfo" className={url === "/mfo" ? "active" : ""} to="mfo">Микрозаймы</Link></li>
-								<li><Link onClick={this.handleClick} name="cards" className={url === "/cards" ? "active" : ""} to="cards">Кредитные карты</Link></li>
+								<li><Link onClick={this.handleClick} name="mfo" className={url === "/mfo" ? "active" : ""} to="/mfo">Микрозаймы</Link></li>
+								<li><Link onClick={this.handleClick} name="cards" className={url === "/cards" ? "active" : ""} to="/cards">Кредитные карты</Link></li>
 								{/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
 							</ul>
 						</header>
