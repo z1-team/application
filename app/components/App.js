@@ -8,6 +8,7 @@ import Content from './Content'
 //
 import ContentController from './ContentController'
 import Testimonials from './Testimonials'
+import TestimonialsModerate from './TestimonialsModerate'
 import Order from './Order'
 import AboutProject from './AboutProject'
 import Confidentiality from './Confidentiality'
@@ -75,8 +76,10 @@ class App extends Component {
 				<Intro />
         <Switch>
           <Route path="/testimonials/:id" component={Testimonials} />
+          <Route path="/moderate" component={TestimonialsModerate} />
           <Route path="/mfo" render={props => (<ContentController {...props} url="mfo" />)}/>
           <Route path="/cards" render={props => (<ContentController {...props} url="cards" />)}/>
+          <Route path="/order" component={Order} />
           <Route path="/about" component={AboutProject}/>
           <Route path="/confidentiality" component={Confidentiality}/>
           <Route component={NotFound}/>

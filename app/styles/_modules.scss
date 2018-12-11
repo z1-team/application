@@ -1139,6 +1139,10 @@
 .testimonials {
 	margin: 0 -10px;
 
+	&.moderate {
+		display: flex; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;
+	}
+
 	header {
 		padding: 0 10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;
 	}
@@ -1185,6 +1189,14 @@
 	width: calc(33.33333% - 20px); margin: 10px;
 	border: solid 1px #e2e2e2;
 
+
+
+	&:hover {
+		.actions {
+			opacity: 1;
+		}
+	}
+
 	i.fa-quote {
 		&-left, &-right {
 			color: #c2c2c2; font-size: 24px;
@@ -1201,8 +1213,36 @@
 	div {
 		position: relative; padding: 40px 60px 35px;
 
-		p {
+		.moderate & {
+			padding: 20px 19px;
+			i {
+				display: none;
+			}
+		}
+
+		p, textarea {
 			color: #484848; font-size: 14px; font-family: $os-r; line-height: 22px;
+		}
+		textarea {
+			width: 100%; min-height: 200px;
+			resize: none;
+		}
+	}
+
+	.actions {
+		display: flex; align-items: center; justify-content: space-between; padding: 5px 19px 12px;
+		opacity: 0;
+
+		button {
+			color: $white; font-size: 16px; font-family: $m-sb; line-height: 22px;
+			margin: 0; display: block; padding: 7px 12px;
+			background: #f96868; border: solid 2px #f96868; border-radius: 5px;
+			cursor: pointer;
+
+			&:hover {
+				color: #f96868;
+				background: $white;
+			}
 		}
 	}
 
