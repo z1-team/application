@@ -6,7 +6,14 @@
             "email": "vladimir-shalaev22@yandex.ru"
         }
     ],
+    "autoload": {
+      "classmap": ["src/components"]
+    },
     "require": {
-        "bozerkins/clickhouse-client": "^1.0"
+        "bozerkins/clickhouse-client": "^1.0",
+        "slim/slim": "^3.11",
+        "vlucas/phpdotenv": "^2.5",
+        "slim/php-view": "^2.2",
+        "monolog/monolog": "^1.24"
     }
 }
