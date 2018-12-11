@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Card from './Card'
+import SmartSearch from './SmartSearch'
 import {sendEvent, openPopup, selectPartner, createPartner, resetFilter} from '../actions'
 
 class CardList extends Component {
@@ -18,7 +19,7 @@ class CardList extends Component {
 			dispatch(sendEvent({
 				type: 'change_direction',
 				payload: {
-					direction: url.split('/')[1]
+					direction: url
 				}
 			}))
 		}
@@ -43,7 +44,7 @@ class CardList extends Component {
 	handleAdd(event) {
 		event.preventDefault()
 		const {dispatch} = this.props
-		const url = this.props.url.split("/")[1]
+		const url = this.props.url
 
 		dispatch(createPartner(url))
 	}
@@ -59,11 +60,16 @@ class CardList extends Component {
     }))
 	}
 
+	handleChange = () => {
+
+	}
+
 	render() {
 		const {cards, tail, isLoggedIn, partners} = this.props
 		return (
 			<div className="list">
 				{isLoggedIn && <button className="add-card" onClick={this.handleAdd}>Добавить партнера</button>}
+				{/* <SmartSearch onChange={this.handleChange} /> */}
 				{cards.map((id) => (
 					<Card key={id} item={partners[id]} tail={tail} onOrder={this.handleOrder} edit={isLoggedIn} onEdit={this.handleEdit} dataID={id} onMore={this.handleMore}/>
 				))}

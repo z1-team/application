@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 import {openPopup, closePopup, logout} from '../actions'
 
@@ -36,7 +37,7 @@ class Footer extends Component {
 			<div className="wr-footer">
 				<div className="container">
 					<div className="footer">
-						<span className="logo"><img src="img/logo-footer.png"/></span>
+						<span className="logo"><img src="/img/logo-footer.png"/></span>
 						{/*
 						<ul className="socials">
 							<li>
@@ -55,6 +56,7 @@ class Footer extends Component {
 						*/}
 						<small>&copy; 2018 Moneyonline. Информация, предоставленная на сайте, носит ознакомительный характер. Реальные предложения организаций могут отличаться.</small>
 						<button onClick={this.handleClick}>{isLoggedIn ? "Выйти" : "Войти"}</button>
+            {isLoggedIn && <Link to="/moderate">Модерация отзывов</Link>}
 					</div>
 				</div>
 			</div>

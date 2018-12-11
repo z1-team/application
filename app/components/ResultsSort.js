@@ -37,7 +37,7 @@ class ResultsSort extends Component {
     const { url } = this.props
 
     return (
-      sortButtons[url.split('/')[1]] || sortButtons.mfo
+      sortButtons[url] || sortButtons.mfo
     )
   }
 

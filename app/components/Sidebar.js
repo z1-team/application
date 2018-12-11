@@ -301,9 +301,9 @@ class Sidebar extends Component {
 		const place =	typeof location !== 'undefined' ? location.city || location.place : 'вашем городе'
 
 		switch(url) {
-			case '/mfo':
+			case 'mfo':
 				return mfoFilters(filters, this.handleChange, total, place, actual)
-			case '/cards':
+			case 'cards':
 				return cardsFilters(filters, this.handleChange, total, place, actual)
 			default:
 				return false

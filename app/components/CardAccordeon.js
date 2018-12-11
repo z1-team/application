@@ -22,12 +22,13 @@ class CardAccordeon extends Component {
 	render() {
 		const {details, main} = this.props
 		const {isOpen} = this.state
+
 		return (
 			<footer className={isOpen ? 'active' : ''}>
 				<CardDetails details={details} />
 				<ul>
 					<li>{main.firstLoan && main.firstLoan}</li>
-					<li><button onClick={this.handleClick}>Подробнее <img src="img/more.png"/></button></li>
+					<li><button onClick={this.handleClick}>Подробнее <img src="/img/more.png"/></button></li>
 				</ul>
 			</footer>
 		)

@@ -14,11 +14,11 @@ class Results extends Component {
 		const {url} = this.props
 
 		switch(url) {
-			case "/mfo":
+			case "mfo":
 				return "микрозаймов"
-			case "/cards":
+			case "cards":
 				return "кредитных карт"
-			// case "/credits":
+			// case "credits":
 			// 	return "кредитов"
 			default:
 				return "микрозаймов"

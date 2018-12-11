@@ -19,6 +19,10 @@ export const PARTNER_DELETE = 'PARTNER_DELETE'
 export const PARTNER_SORT = 'PARTNER_SORT'
 export const PARTNER_SORT_RESET = 'PARTNER_SORT_RESET'
 export const PAGE_CHANGE = 'PAGE_CHANGE'
+export const TESTIMONIAL_SEND = 'TESTIMONIAL_SEND'
+export const TESTIMONIAL_DELETE = 'TESTIMONIAL_DELETE'
+export const TESTIMONIAL_PUBLIC = 'TESTIMONIAL_PUBLIC'
+export const TESTIMONIAL_FETCH = 'TESTIMONIAL_FETCH'
 
 function getDateTime() {
   const date = new Date()
@@ -230,3 +234,30 @@ export function deletePartner(id) {
 export const sortPartner = (sort, order) => ({type: PARTNER_SORT, sort, order})
 
 export const resetSortPartner = (direction) => ({type: PARTNER_SORT_RESET, direction})
+
+export const sendTestimonial = (data) => ({type: TESTIMONIAL_SEND, data})
+
+export const deleteTestimonial = (id) => ({type: TESTIMONIAL_DELETE, id})
+
+export const publicTestimonial = (data) => ({type: TESTIMONIAL_PUBLIC, data})
+
+export function fetchTestimonials(target, id) {
+  const url = location.hostname === 'localhost' ?
+    '/data/testimonials.json' : '/data/testimonials.json'
+  return (dispatch, getState) => {
+    dispatch({type: TESTIMONIAL_FETCH, status: 1})
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      dispatch({type: TESTIMONIAL_FETCH, status: 2, data})
+    })
+    .catch(console.log)
+  }
+}

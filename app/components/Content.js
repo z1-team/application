@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import { withRouter } from "react-router"
 
 import ContentController from './ContentController'
+import Testimonials from './Testimonials'
+import Order from './Order'
 import AboutProject from './AboutProject'
 import Confidentiality from './Confidentiality'
 import NotFound from './NotFound'
@@ -18,6 +20,10 @@ class Content extends Component {
 				return <ContentController url={url} />
 			// case "/credits":
 			// 	return <Main url={url} category={category} />
+			case "/testimonials":
+				return <div></div>
+			case "/order":
+				return <Order />
 			case "/about":
 				return <AboutProject />
 			case "/confidentiality":

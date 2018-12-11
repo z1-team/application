@@ -4,7 +4,8 @@ import partners from './partners'
 import popups from './popups'
 import session from './session'
 import auth from './auth'
+import testimonials from './testimonials'
 
-const app = combineReducers({session, filters, partners, popups, auth})
+const app = combineReducers({session, filters, partners, popups, auth, testimonials})
 
 export default app

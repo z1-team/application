@@ -1,5 +1,35 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import CardAccordeon from './CardAccordeon'
+
+const repaymentOptions = [
+  "bankcard",
+  "bankaccount",
+  "euroset",
+  "svaznoy",
+  "russianpost",
+  "elexnet",
+  "qiwi",
+  "contactsystem",
+  "goldencrown",
+  "yandexmoney",
+  "webmoney",
+  "alfaclick",
+  "promsvazbank",
+  "mts",
+  "beeline",
+  "kukuruza"
+]
+
+const getWays = [
+    "bankcard",
+    "bankaccount",
+    "contactsystem",
+    "qiwi",
+    "yandexmoney",
+    "unistream",
+    "goldencrown"
+]
 
 class Card extends Component {
   constructor(props) {
@@ -32,8 +62,34 @@ class Card extends Component {
     }
   }
 
+  repaymentOptions() {
+    const { item } = this.props
+    const { repayment_options } = item.filters
+
+    if(repayment_options) {
+      return repayment_options.map((item, index) => (
+        item ? repaymentOptions[index] : false
+      )).filter(i => i !== false)
+    }
+
+    return false
+  }
+  getWays() {
+      const { item } = this.props
+      const { get_ways } = item.filters
+
+      if(get_ways) {
+        return get_ways.map((item, index) => (
+          item ? getWays[index] : false
+        )).filter(i => i !== false)
+      }
+
+      return false
+  }
+
   render() {
     const {item, tail, edit} = this.props
+
     return (
       <div className="result-item">
         <section>
@@ -42,18 +98,16 @@ class Card extends Component {
           </figure>
           <div className="info">
             <h3>{item.main.title}</h3>
-            {/*
             <div className="rating">
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
+                <li><i className="fas fa-star"></i></li>
               </ul>
-              <p><a href="#">22 отзыва</a> (4.1 из 5)</p>
+              <p><Link to={`/testimonials/${item.id}`}>22 отзыва</Link> (4.1 из 5)</p>
             </div>
-            */}
             {item.main &&
               <ul className="pros">
                 {/* For MFO */}
@@ -70,6 +124,12 @@ class Card extends Component {
                 {item.main.maxSumm && <li><strong>{item.main.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}
                 {item.main.rate && <li>от <strong>{item.main.rate}</strong><em>процентная ставка</em></li>}
                 {item.main.timing && <li><strong>{item.main.timing}</strong><em>время рассмотрения</em></li>}
+              </ul>
+            }
+            {this.getWays() && this.repaymentOptions() &&
+              <ul className="options">
+                <li>Способы получения: <span>{this.getWays().map(item => (<i key={item} className={`icon ${item}`}></i>))}</span></li>
+                <li>Способы погашения: <span>{this.repaymentOptions().map(item => (<i key={item} className={`icon ${item}`}></i>))}</span></li>
               </ul>
             }
           </div>
