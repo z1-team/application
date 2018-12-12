@@ -244,7 +244,8 @@ export function deleteTestimonial(id) {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
+      },
+      body: queryString.stringify({token: getState().auth.token})
     }).then((responce) => {
       if (responce.ok) {
         return responce.json()
@@ -267,6 +268,7 @@ export function publicTestimonial(data) {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       },
       body: queryString.stringify({
+        token: getState().auth.token,
         testimonial: JSON.stringify(data)
       })
     }).then((responce) => {

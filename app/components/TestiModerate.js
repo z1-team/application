@@ -36,7 +36,7 @@ class Testi extends Component {
     const {item, onPublic} = this.props
     event.preventDefault()
     if (typeof onPublic === 'function') {
-      onPublic(item)
+      onPublic({...item, text: this.state.text})
     }
   }
 
