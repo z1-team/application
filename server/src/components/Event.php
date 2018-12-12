@@ -1,10 +1,5 @@
 <?php
 
-require dirname(__FILE__) . '/vendor/autoload.php';
-
-use ClickhouseClient\Client\Config;
-use ClickhouseClient\Client\Client;
-
 function withNull($value) {
   return strcmp($value, 'NULL') === 0 ? NULL : $value;
 }
@@ -186,48 +181,3 @@ class Event
     return $this->getField('localtime');
   }
 }
-
-class EventStore
-{
-  private $client;
-
-  public function __construct($config)
-  {
-    $this->client = new Client($config);
-  }
-
-  public function save($event) {
-    $this->client->writeRows('insert into analytics.events', [
-      [
-        'EventName' => $event->name(),
-        'YClickId' => $event->yClickId(),
-        'ClientId' => $event->clientId(),
-        'UtmCampaign' => $event->utmCampaign(),
-        'UtmExtraKeys' => $event->utmExtraKeys(),
-        'UtmExtraValues' => $event->utmExtraValues(),
-        'EventExtraKeys' => $event->eventExtraKeys(),
-        'EventExtraValues' => $event->eventExtraValues(),
-        'EventDate' => $event->date(),
-        'EventDateTime' => $event->dateTime(),
-        'UserIP' => $event->userIP(),
-        'UserRegion' => $event->userRegion(),
-        'UserCity' => $event->userCity(),
-        'UserLocalTime' => $event->userLocalTime(),
-        'ExtraKeys' => $event->extraKeys(),
-        'ExtraValues' => $event->extraValues(),
-        'EventVersion' => 1
-      ]
-    ]);
-  }
-}
-
-header('Access-Control-Allow-Origin: *');
-
-$config = new Config(
-  ['host' => '140.82.39.71', 'port' => '8123', 'protocol' => 'http'],
-  ['database' => 'analytics'],
-  ['user' => 'z1', 'password' => '7Z0D/8wF']
-);
-
-$store = new EventStore($config);
-$store->save(new Event($_REQUEST));

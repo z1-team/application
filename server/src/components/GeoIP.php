@@ -30,6 +30,16 @@ class GeoIP
   public function findCity($ip)
   {
     $location = $this->findCityRecord($this->getFlatIP($ip));
-    return $location ? $location : 'Планета Земля';
+    if (is_string($location)) {
+      return [
+        'place' => $location
+      ];
+    } else if (is_array($location)) {
+      return array_diff_key($location, ['id' => NULL]);
+    } else {
+      return [
+        'place' => 'Луна'
+      ];
+    }
   }
 }
