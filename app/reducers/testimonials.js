@@ -21,9 +21,8 @@ function testimonialsReducer(state = initialState, action) {
     case TESTIMONIAL_SEND:
       return state
     case TESTIMONIAL_PUBLIC:
-      return state
     case TESTIMONIAL_DELETE:
-      return state
+      return {...state, data: state.data.filter(({id}) => id !== action.id)}
     case TESTIMONIAL_FETCH:
       return testimonialsFetching(state, action)
     default:

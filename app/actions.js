@@ -261,7 +261,7 @@ export function publicTestimonial(data) {
   const url = location.hostname === 'localhost' ?
     'http://localhost:8080/api/v1/testimonials' : '/api/v1/testimonials'
   return (dispatch, getState) => {
-    dispatch({type: TESTIMONIAL_PUBLIC, status: 1})
+    dispatch({type: TESTIMONIAL_PUBLIC, status: 1, id: data.id})
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -276,7 +276,7 @@ export function publicTestimonial(data) {
         return responce.json()
       }
     }).then((data) => {
-      dispatch({type: TESTIMONIAL_PUBLIC, status: 2})
+      dispatch({type: TESTIMONIAL_PUBLIC, status: 2, id: data.id})
     })
     .catch(console.log)
   }
