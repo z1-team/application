@@ -6,6 +6,7 @@ class CardDetails extends Component {
 
 		return (
 			<div className="details">
+
 				<ul>
 					{details.minSumm && <li>Минимальная сумма: <strong>{details.minSumm}</strong></li>}
 					{details.maxSumm && <li>Максимальная сумма: <strong>{details.maxSumm}</strong></li>}
@@ -23,23 +24,21 @@ class CardDetails extends Component {
 					{details.interestRate && <li>Процентная ставка: <strong>{details.interestRate}</strong></li>}
 					{details.maintenanceСost && <li>Стоимость обслуживания: <strong>{details.maintenanceСost}</strong></li>}
 					{details.gracePeriod && <li>Льготный период: <strong>{details.gracePeriod}</strong></li>}
-				</ul>
-				<ul>
 					{details.penalty && <li>Штраф за неуплату: <strong>{details.penalty}</strong></li>}
 					{details.incomeProof && <li>Подтверждение дохода: <strong>{details.incomeProof}</strong></li>}
 					{details.regionRegistr && <li>Прописка в регионе банка: <strong>{details.regionRegistr}</strong></li>}
+					{details.commission && <li>Комиссия за снятие наличных: <strong>{details.commission}</strong></li>}
+					{details.cashback && <li>Кэшбэк: <strong>{details.cashback}</strong></li>}
+					{details.minPayment && <li>Минимальный платеж: <strong>{details.minPayment}</strong></li>}
+				</ul>
+				<ul>
 					{details.identification && <li>Идентификация: <strong>{details.identification}</strong></li>}
 					{details.age && <li>Возраст: <strong>{details.age}</strong></li>}
 					{details.obtainingMethods && <li>Способы получения: <strong>{details.obtainingMethods}</strong></li>}
 					{details.repaymentOptions && <li>Способы погашения: <strong>{details.repaymentOptions}</strong></li>}
-					{details.commission && <li>Комиссия за снятие наличных: <strong>{details.commission}</strong></li>}
-					{details.cashback && <li>Кэшбэк: <strong>{details.cashback}</strong></li>}
-					{details.minPayment && <li>Минимальный платеж: <strong>{details.minPayment}</strong></li>}
 					{details.considerationTime && <li>Время рассмотрения: <strong>{details.considerationTime}</strong></li>}
 					{details.delivery && <li>Доставка карты: <strong>{details.delivery}</strong></li>}
 					{details.deliveryTime && <li>Срок доставки: <strong>{details.deliveryTime}</strong></li>}
-				</ul>
-				<ul>
 					{details.creditHistory && <li>Кредитная история: <strong>{details.creditHistory}</strong></li>}
 					{details.creditHistoryImprovement && <li>Улучшение кредитной истории: <strong>{details.creditHistoryImprovement}</strong></li>}
 					{details.schedule && <li>График работы: <strong>{details.schedule}</strong></li>}

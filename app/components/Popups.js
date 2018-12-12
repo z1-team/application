@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import CategoriesController from './CategoriesController'
 import EditPopup from './EditPopup'
+import EmailPopup from './EmailPopup'
 
 import {openPopup, closePopup, login} from '../actions'
 
@@ -65,6 +66,10 @@ class Popups extends Component {
 				</div>
 				<div className={popups.edit ? "popup edit active" : "popup edit"}>
 					<EditPopup partner={partner} key={partner ? partner.id : -1} dispatch={dispatch} url={url} />
+				</div>
+				<div className={popups.email ? "popup email active" : "popup email"}>
+					<a href="#" className="close-popup" onClick={this.closePopup}></a>
+					<EmailPopup />
 				</div>
 			</div>
 		)

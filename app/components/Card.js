@@ -108,19 +108,22 @@ class Card extends Component {
               </ul>
               <p><Link to={`/testimonials/${item.id}`}>22 отзыва</Link> (4.1 из 5)</p>
             </div>
-            {item.main &&
+            {item.type === 'mfo' && item.main &&
               <ul className="pros">
-                {/* For MFO */}
-                {item.main.money && <li><strong>{item.main.money}</strong> руб.<em>сумма займа</em></li>}
-                {item.main.term && <li><strong>{item.main.term}</strong><em>срок займа</em></li>}
-                {item.main.minRate && <li><strong>{item.main.minRate}</strong><em>ставка</em></li>}
-
-                {/* For credit cards */}
-                {item.main.limit && <li><strong>{item.main.limit}</strong> руб.<em>кредитный лимит</em></li>}
-                {item.main.percent && <li>от <strong>{item.main.percent}</strong><em>процентная ставка</em></li>}
-                {item.main.cashback && <li><strong>{item.main.cashback}</strong><em>cashback</em></li>}
-
-                {/* For credits */}
+                {item.main.money && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.money}</strong> руб.</li>}
+                {item.main.term && <li><i className="far fa-calendar-alt"></i><strong>{item.main.term}</strong></li>}
+                {item.main.minRate && <li><i className="far fa-thumbs-up"></i>от <strong>{item.main.minRate}</strong> в день</li>}
+              </ul>
+            }
+            {item.type === 'cards' && item.main &&
+              <ul className="pros">
+                {item.main.limit && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.limit}</strong> руб.</li>}
+                {item.main.percent && <li><i className="far fa-money-bill-alt"></i>от <strong>{item.main.percent}</strong></li>}
+                {item.main.cashback && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.cashback}</strong></li>}
+              </ul>
+            }
+            {item.type === 'credits' && item.main &&
+              <ul className="pros">
                 {item.main.maxSumm && <li><strong>{item.main.maxSumm}</strong> руб.<em>максимальная сумма</em></li>}
                 {item.main.rate && <li>от <strong>{item.main.rate}</strong><em>процентная ставка</em></li>}
                 {item.main.timing && <li><strong>{item.main.timing}</strong><em>время рассмотрения</em></li>}

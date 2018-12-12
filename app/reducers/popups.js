@@ -3,7 +3,8 @@ import {FILTER_CHANGE, POPUP_OPEN, POPUP_CLOSE, AUTH_LOGIN, PARTNER_CREATE} from
 const initialState = {
   categories: false,
   login: false,
-  edit: false
+  edit: false,
+  email: false
 }
 
 function popupsReducer(state = initialState, action) {
