@@ -497,7 +497,7 @@
 			}
 
 			& > section {
-				display: flex; align-items: center; justify-content: space-between; padding: 23px 31px 30px 23px;
+				display: flex; align-items: flex-start; justify-content: space-between; padding: 23px 31px 30px 23px;
 
 				@include respond-to(lg) {
 					padding: 20px 15px;
@@ -583,7 +583,7 @@
 					}
 
 					ul.pros {
-						display: flex; align-items: flex-start; margin-bottom: 15px;
+						display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 15px;
 
 						@include respond-to(xs) {
 							flex-direction: column;
@@ -595,7 +595,7 @@
 
 						li {
 							color: #484848; font-size: 12px; font-family: $os-r; line-height: 20px;
-							margin-right: 10px; padding-left: 28px; position: relative;
+							margin-bottom: 5px; padding-left: 35px; position: relative;
 
 							@include respond-to(xs) {
 								margin-right: 0; margin-bottom: 10px;
@@ -605,14 +605,15 @@
 								margin-right: 0; margin-bottom: 0;
 							}
 
-							&:before {
-								content: '';
-								display: block; width: 21px; height: 21px; position: absolute; left: 0; top: 0;
-								background: url('./img/check-circle.png') center center no-repeat;
-							}
+							// &:before {
+							// 	content: '';
+							// 	display: block; width: 21px; height: 21px; position: absolute; left: 0; top: 0;
+							// 	background: url('./img/check-circle.png') center center no-repeat;
+							// }
 
 							i {
-
+								color: #f96868; font-size: 20px;
+								position: absolute; left: 15px; top: 11px; transform: translate(-50%, -50%);
 							}
 
 							strong {
@@ -745,7 +746,7 @@
 					}
 
 					ul {
-						width: 33.33333%; padding-right: 10px;
+						width: 50%; padding-right: 10px;
 
 						@include respond-to(md) {
 							width: 50%; margin-bottom: 10px;
@@ -760,7 +761,7 @@
 
 						li {
 							color: #484848; font-size: 14px; font-family: $os-r; line-height: 18px;
-							margin-bottom: 4px; padding-left: 20px; position: relative;
+							margin-bottom: 13px; padding-left: 35px; position: relative;
 
 							@include respond-to(lg) {
 								font-size: 13px;
@@ -771,8 +772,8 @@
 
 							&:before {
 								content: '';
-								display: block; width: 6px; height: 6px; position: absolute; left: 0; top: 6px; transform: rotate(45deg);
-								border-top: solid 2px #484848; border-right: solid 2px #484848;
+								display: block; width: 21px; height: 21px; position: absolute; left: 0; top: -2px;
+								background: url('./img/check-circle.png') center center no-repeat;
 							}
 
 							&:last-child {
