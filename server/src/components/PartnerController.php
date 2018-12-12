@@ -15,7 +15,13 @@ class PartnerController
 
   public function fetchAll()
   {
-    $sql = 'SELECT * FROM partners LIMIT 1000';
+    $rating = "(
+      SELECT AVG(rating) FROM testimonials
+      WHERE partner = partners.id AND status = 'published') as rating";
+    $count = "(
+      SELECT COUNT(*) FROM testimonials
+      WHERE partner = partners.id AND status = 'published') as t_count";
+    $sql = "SELECT id, type, title, data, $rating, $count FROM partners LIMIT 1000";
     $sth = $this->db->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $sth->execute();
     $result = [];
@@ -24,7 +30,9 @@ class PartnerController
         $row['id'],
         $row['type'],
         $row['title'],
-        json_decode($row['data'], true)
+        json_decode($row['data'], true),
+        $row['rating'],
+        $row['t_count']
       );
       $result[] = $partner->toArray();
     }
