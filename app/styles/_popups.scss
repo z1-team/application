@@ -571,7 +571,7 @@
 	}
 
 	&.email {
-		width: 600px; height: 500px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px;
+		width: 600px; height: 500px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px; display: none;
 		border-radius: 0;
 
 		.close-popup {
