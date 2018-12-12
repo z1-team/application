@@ -17,6 +17,8 @@ class Partner
   private $type;
   private $title;
   private $data;
+  private $rating;
+  private $count;
 
   public static function initClass($config)
   {
@@ -46,18 +48,25 @@ class Partner
     return new Partner($json['id'], $json['type'], $json['main']['title'], $simplified);
   }
 
-  public function __construct($id, $type, $title, $data)
+  public function __construct($id, $type, $title, $data, $rating = 0, $count = 0)
   {
     $this->id = $id;
     $this->type = $type;
     $this->title = $title;
     $this->data = $data;
+    $this->rating = $rating;
+    $this->count = $count;
   }
 
   public function toArray()
   {
     $data = array_copy($this->data);
+    $sortBy = isset($data['sortBy']) ? $data['sortBy'] : [];
     $data['main'] = array_merge(['title' => $this->title], $data['main']);
+    $data['sortBy'] = array_merge($sortBy, [
+      'rating' => $this->rating,
+      'testimonials_count' => $this->count
+    ]);
     return array_merge([
       'id' => $this->id,
       'type' => $this->type
