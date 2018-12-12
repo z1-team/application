@@ -4,6 +4,18 @@ use ClickhouseClient\Client\Config;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+$guard = function ($request, $response, $next) {
+  $body = $request->getParsedBody();
+  $token = isset($body['token']) ? $body['token'] : '';
+  $auth = new Auth($this->get('settings')['db']);
+  $account = $auth->verifyToken($token);
+  if ($account) {
+    return $next($request->withAttribute('account', $account), $response);
+  } else {
+    return $response->withJson(['error' => 'Access denied!']);
+  }
+};
+
 $app->post('/api/v1/event', function (Request $request, Response $response, array $args) {
   $config = new Config(
     ['host' => '140.82.39.71', 'port' => '8123', 'protocol' => 'http'],
@@ -124,14 +136,14 @@ $app->put('/api/v1/testimonials', function (Request $request, Response $response
   $status = Testimonial::update($testimonial);
   return $response->withJson($status)
     ->withHeader('Access-Control-Allow-Origin', '*');
-});
+})->add($guard);
 
 $app->delete('/api/v1/testimonials/{id}', function (Request $request, Response $response, array $args) {
   Testimonial::init($this->get('settings')['db']);
   $status = Testimonial::delete($args['id']);
   return $response->withJson($status)
     ->withHeader('Access-Control-Allow-Origin', '*');
-});
+})->add($guard);
 
 $app->get('/{path:.*}', function (Request $request, Response $response, array $args) {
     $ip = $_SERVER['REMOTE_ADDR'];
