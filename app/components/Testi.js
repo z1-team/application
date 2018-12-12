@@ -1,10 +1,22 @@
 import React, {Component} from 'react'
 
 class Testi extends Component {
+
+  handleDelete = (event) => {
+    event.preventDefault()
+
+    const { testiID, onDelete } = this.props
+
+    if(typeof onDelete === 'function') {
+      onDelete(testiID)
+    }
+  }
+
   render() {
-    const { text, user, rating } = this.props
+    const { text, user, rating, isLoggedIn } = this.props
     return(
       <div className="testi">
+        {isLoggedIn && <a href="#" className="delete-testi" onClick={this.handleDelete}><i className="fas fa-times"></i></a>}
         <div>
           <i className="fas fa-quote-left"></i>
           <p>{text}</p>

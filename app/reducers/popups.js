@@ -4,7 +4,8 @@ const initialState = {
   categories: false,
   login: false,
   edit: false,
-  email: false
+  email: false,
+  testi: false
 }
 
 function popupsReducer(state = initialState, action) {

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Masonry from 'react-masonry-component'
 
-import {fetchTestimonials, sendTestimonial} from '../actions'
+import {fetchTestimonials, sendTestimonial, deleteTestimonial} from '../actions'
 
 import Testi from './Testi'
 import LeaveTesti from './LeaveTesti'
@@ -13,9 +13,10 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: '' }
 
-const mapStateToProps = ({partners, testimonials}) => ({
+const mapStateToProps = ({partners, testimonials, auth}) => ({
   partners: partners.data,
-  testimonials
+  testimonials,
+  isLoggedIn: auth.token !== null
 })
 
 class Testimonials extends Component {
@@ -34,9 +35,14 @@ class Testimonials extends Component {
     }))
   }
 
+  handleDelete = (id) => {
+    const {dispatch} = this.props
+    dispatch(deleteTestimonial(id))
+  }
+
   render() {
     const id = this.props.match.params.id
-    const { partners, testimonials } = this.props
+    const { partners, testimonials, dispatch, isLoggedIn } = this.props
     const partner = partners[id]
 
     return (
@@ -61,12 +67,15 @@ class Testimonials extends Component {
                 <img src={partner && `/${partner.main.logo}`}/>
               </figure>
             </header>
-            <Masonry className="masonry">
-              {testimonials.data.map((item) => (
-                <Testi key={item.id} text={item.text} user={item.name} rating={item.rating} />
-              ))}
-            </Masonry>
-            <LeaveTesti id={id} onSubmit={this.handleSubmit}/>
+            {testimonials.data.length ?
+              <Masonry className="masonry">
+                {testimonials.data.map((item) => (
+                  <Testi key={item.id} testiID={item.id} text={item.text} user={item.name} rating={item.rating} isLoggedIn={isLoggedIn} onDelete={this.handleDelete} />
+                ))}
+              </Masonry>
+             : <h3>Отзывов пока нет.</h3>
+            }
+            <LeaveTesti id={id} onSubmit={this.handleSubmit} dispatch={dispatch}/>
           </div>
         </div>
       </div>

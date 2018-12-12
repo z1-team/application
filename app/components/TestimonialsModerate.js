@@ -40,10 +40,13 @@ class TestimonialsModerate extends Component {
       )
     }
 
+    console.log(testimonials.data.length)
+
     return (
       <div className="wr-testimonials">
         <div className="container">
           <div className="testimonials moderate">
+            {!testimonials.data.length && <h2>Нет отзывов для модерации.</h2>}
             {testimonials.data.map((item) => (
               <TestiModerate
                 key={item.id}

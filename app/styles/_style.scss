@@ -49,7 +49,7 @@
 		}
 
 		&-testimonials {
-			padding: 40px 0 75px;
+			padding: 40px 0 75px; min-height: calc(100vh - 379px);
 		}
 
 		&-order {
