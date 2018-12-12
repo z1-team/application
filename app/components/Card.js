@@ -35,7 +35,7 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.handleOrder = this.handleOrder.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
     this.handleOpen = this.handleOpen.bind(this)
   }
 
@@ -46,7 +46,7 @@ class Card extends Component {
     }
   }
 
-  handleClick() {
+  handleEdit() {
     const {onEdit, dataID} = this.props
 
     if(typeof onEdit === 'function') {
@@ -106,7 +106,7 @@ class Card extends Component {
                 <li><i className="fas fa-star"></i></li>
                 <li><i className="fas fa-star"></i></li>
               </ul>
-              <p><Link to={`/testimonials/${item.id}`}>22 отзыва</Link> (4.1 из 5)</p>
+              <p><Link to={`/testimonials/${item.id}`}>{item.sortBy.testimonials_count} отзыва</Link> {item.sortBy.rating && `(${item.sortBy.rating} из 5)`}</p>
             </div>
             {item.type === 'mfo' && item.main &&
               <ul className="pros">
@@ -137,7 +137,7 @@ class Card extends Component {
             }
           </div>
           <div className="process">
-            {edit && <button onClick={this.handleClick}><i className="fas fa-edit"></i></button>}
+            {edit && <button onClick={this.handleEdit}><i className="fas fa-edit"></i></button>}
             <a target="_blank" href={`${item.main.link}?${tail}`} rel="nofollow noopener" onClick={this.handleOrder}>Оформить</a>
             {/* item.main.overpayment && <p>переплата {item.main.overpayment}</p> */}
           </div>

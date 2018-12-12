@@ -52,15 +52,15 @@ class Testimonials extends Component {
             <header>
               <h2>Отзывы кредита “{partner && partner.main.title}”
                 <div className="rating">
-                  <ul className="rate-4">
+                  <ul className="rate-0">
                     <li><i className="fas fa-star"></i></li>
                     <li><i className="fas fa-star"></i></li>
                     <li><i className="fas fa-star"></i></li>
                     <li><i className="fas fa-star"></i></li>
                     <li><i className="fas fa-star"></i></li>
                   </ul>
-                  <p>22 отзыва</p>
-                  {partner && partner.sort && <span>({partner.sort.rating} из 5)</span>}
+                  <p>{testimonials.data.length} отзыва</p>
+                  {partner && partner.sortBy && partner.sortBy.rating && <span>({partner.sortBy.rating} из 5)</span>}
                 </div>
               </h2>
               <figure>
