@@ -27,9 +27,11 @@ class LeaveTesti extends Component {
   }
 
   handleSubmit = (event) => {
+    const {onSubmit} = this.props
     event.preventDefault()
-
-    console.log(this.state)
+    if (typeof onSubmit === 'function') {
+      onSubmit(this.state)
+    }
     this.setState({rating: 0})
   }
 

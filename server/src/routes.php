@@ -65,7 +65,6 @@ $app->options('/api/v1/{path:.*}', function (Request $request, Response $respons
 });
 
 $app->put('/api/v1/partners', function (Request $request, Response $response, array $args) {
-  $this->logger->info("Break point #1: PASSED");
   Partner::initClass($this->get('settings')['db']);
   $controller = new PartnerController($this->get('settings')['db']);
   $auth = new Auth($this->get('settings')['db']);
@@ -97,6 +96,40 @@ $app->delete('/api/v1/partners/{id}', function (Request $request, Response $resp
     $result = ['error' => 'Access denied'];
   }
   return $response->withJson($result)
+    ->withHeader('Access-Control-Allow-Origin', '*');
+});
+
+$app->get('/api/v1/testimonials/{id}', function (Request $request, Response $response, array $args) {
+  Testimonial::init($this->get('settings')['db']);
+  if (strcmp($args['id'], 'unpublished') === 0) {
+    $result = Testimonial::findUnpublished();
+  } else {
+    $result = Testimonial::findByPartner($args['id']);
+  }
+  return $response->withJson($result)
+    ->withHeader('Access-Control-Allow-Origin', '*');
+});
+
+$app->post('/api/v1/testimonials', function (Request $request, Response $response, array $args) {
+  $testimonial = json_decode($request->getParsedBody()['testimonial'], true);
+  Testimonial::init($this->get('settings')['db']);
+  $status = Testimonial::postNew($testimonial);
+  return $response->withJson($status)
+    ->withHeader('Access-Control-Allow-Origin', '*');
+});
+
+$app->put('/api/v1/testimonials', function (Request $request, Response $response, array $args) {
+  $testimonial = json_decode($request->getParsedBody()['testimonial'], true);
+  Testimonial::init($this->get('settings')['db']);
+  $status = Testimonial::update($testimonial);
+  return $response->withJson($status)
+    ->withHeader('Access-Control-Allow-Origin', '*');
+});
+
+$app->delete('/api/v1/testimonials/{id}', function (Request $request, Response $response, array $args) {
+  Testimonial::init($this->get('settings')['db']);
+  $status = Testimonial::delete($args['id']);
+  return $response->withJson($status)
     ->withHeader('Access-Control-Allow-Origin', '*');
 });
 

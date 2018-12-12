@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Masonry from 'react-masonry-component'
 
-import {fetchTestimonials} from '../actions'
+import {fetchTestimonials, sendTestimonial} from '../actions'
 
 import Testi from './Testi'
 import LeaveTesti from './LeaveTesti'
@@ -19,13 +19,19 @@ const mapStateToProps = ({partners, testimonials}) => ({
 })
 
 class Testimonials extends Component {
-
-
   componentDidMount() {
     const { dispatch } = this.props
     const id = this.props.match.params.id
 
-    dispatch(fetchTestimonials(id))
+    dispatch(fetchTestimonials('partner', id))
+  }
+
+  handleSubmit = ({cardID, name, email, text, rating}) => {
+    const {dispatch} = this.props
+    dispatch(sendTestimonial({
+      partner: cardID,
+      name, email, text, rating
+    }))
   }
 
   render() {
@@ -60,7 +66,7 @@ class Testimonials extends Component {
                 <Testi key={item.id} text={item.text} user={item.name} rating={item.rating} />
               ))}
             </Masonry>
-            <LeaveTesti id={id} />
+            <LeaveTesti id={id} onSubmit={this.handleSubmit}/>
           </div>
         </div>
       </div>

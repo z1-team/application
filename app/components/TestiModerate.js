@@ -25,11 +25,19 @@ class Testi extends Component {
   }
 
   handleDelete = (event) => {
+    const {item, onDelete} = this.props
     event.preventDefault()
+    if (typeof onDelete === 'function') {
+      onDelete(item.id)
+    }
   }
 
   handlePublic = (event) => {
+    const {item, onPublic} = this.props
     event.preventDefault()
+    if (typeof onPublic === 'function') {
+      onPublic(item)
+    }
   }
 
   render() {
@@ -54,8 +62,8 @@ class Testi extends Component {
           </ul>
         </footer>
         <div className="actions">
-          <button>Удалить</button>
-          <button>Опубликовать</button>
+          <button onClick={this.handleDelete}>Удалить</button>
+          <button onClick={this.handlePublic}>Опубликовать</button>
         </div>
       </div>
     )

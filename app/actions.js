@@ -235,15 +235,79 @@ export const sortPartner = (sort, order) => ({type: PARTNER_SORT, sort, order})
 
 export const resetSortPartner = (direction) => ({type: PARTNER_SORT_RESET, direction})
 
-export const sendTestimonial = (data) => ({type: TESTIMONIAL_SEND, data})
-
-export const deleteTestimonial = (id) => ({type: TESTIMONIAL_DELETE, id})
-
-export const publicTestimonial = (data) => ({type: TESTIMONIAL_PUBLIC, data})
-
-export function fetchTestimonials(target, id) {
+export function deleteTestimonial(id) {
   const url = location.hostname === 'localhost' ?
-    '/data/testimonials.json' : '/data/testimonials.json'
+    `http://localhost:8080/api/v1/testimonials/${id}` : '/api/v1/testimonials'
+  return (dispatch, getState) => {
+    dispatch({type: TESTIMONIAL_DELETE, status: 1, id})
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      dispatch({type: TESTIMONIAL_DELETE, status: 2, id})
+    })
+    .catch(console.log)
+  }
+}
+
+export function publicTestimonial(data) {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/api/v1/testimonials' : '/api/v1/testimonials'
+  return (dispatch, getState) => {
+    dispatch({type: TESTIMONIAL_PUBLIC, status: 1})
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        testimonial: JSON.stringify(data)
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      dispatch({type: TESTIMONIAL_PUBLIC, status: 2})
+    })
+    .catch(console.log)
+  }
+}
+
+export function sendTestimonial(data) {
+  const url = location.hostname === 'localhost' ?
+    'http://localhost:8080/api/v1/testimonials' : '/api/v1/testimonials'
+  return (dispatch, getState) => {
+    dispatch({type: TESTIMONIAL_SEND, status: 1})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        testimonial: JSON.stringify(data)
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      dispatch({type: TESTIMONIAL_SEND, status: 2})
+    })
+    .catch(console.log)
+  }
+}
+
+export function fetchTestimonials(target, id = 1) {
+  const targetId = target === 'partner' ? id : target
+  const url = location.hostname === 'localhost' ?
+    `http://localhost:8080/api/v1/testimonials/${targetId}` : '/data/testimonials.json'
   return (dispatch, getState) => {
     dispatch({type: TESTIMONIAL_FETCH, status: 1})
     fetch(url, {

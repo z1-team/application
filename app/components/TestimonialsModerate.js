@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
 import TestiModerate from './TestiModerate'
+import {publicTestimonial, deleteTestimonial, fetchTestimonials} from '../actions'
 
 const masonryOptions = {
     transitionDuration: 0
@@ -10,52 +11,29 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: '' }
 
-const mapStateToProps = ({auth}) => ({
-  isLoggedIn: auth.token !== null
+const mapStateToProps = ({auth, testimonials}) => ({
+  isLoggedIn: auth.token !== null,
+  testimonials
 })
 
-const testi = [
-  {
-    id: 1,
-    text: 'За пятнадцать минут получила деньги в компании Займер. Отправила к ним заявку на пробу, были у меня проблемы с КИ. Но может просто сумму просила маленькую - одобрение пришло сразу, а деньги на карту черездесять минут. Читала, что они помогают улучшить кредитную, буду занимать только здесь, про результат напишу.',
-    name: 'Валентина',
-    rating: 3
-  },
-  {
-    id: 2,
-    text: 'Как удачно получилось, что вы работаете круглосуточно. Просто мне поздно вечером пришло сообщение, что нужно срочно оплатить взнос за строительство гаража. Как этот долг у меня образовался, не представляю. А где я могу найти деньги среди ночи? На удачу отправила заявку в компанию Займер. И ура! Не только быстро одобрили, но и перевели деньги на счет сразу, я их автоматом дальше отправила! Просто меня спасли, спасибо.',
-    name: 'Татьяна',
-    rating: 2
-  },
-  {
-    id: 3,
-    text: 'Максимально что можно там взять при регистрации это 1000 рублей не больше. Зря потратил своё время на эту регистрацию.',
-    name: 'Семен',
-    rating: 5
-  },
-  {
-    id: 4,
-    text: 'Как удачно получилось, что вы работаете круглосуточно. Просто мне поздно вечером пришло сообщение, что нужно срочно оплатить взнос за строительство гаража. Как этот долг у меня образовался, не представляю. А где я могу найти деньги среди ночи? На удачу отправила заявку в компанию Займер. И ура! Не только быстро одобрили, но и перевели деньги на счет сразу, я их автоматом дальше отправила! Просто меня спасли, спасибо.',
-    name: 'Татьяна',
-    rating: 1
-  },
-  {
-    id: 5,
-    text: 'Максимально что можно там взять при регистрации это 1000 рублей не больше. Зря потратил своё время на эту регистрацию.',
-    name: 'Семен',
-    rating: 4
-  },
-  {
-    id: 6,
-    text: 'За пятнадцать минут получила деньги в компании Займер. Отправила к ним заявку на пробу, были у меня проблемы с КИ. Но может просто сумму просила маленькую - одобрение пришло сразу, а деньги на карту через десять минут. Читала, что они помогают улучшить кредитную, буду занимать только здесь, про результат напишу.',
-    name: 'Валентина',
-    rating: 2
-  }
-]
-
 class TestimonialsModerate extends Component {
+  componentDidMount() {
+    const {dispatch} = this.props
+    dispatch(fetchTestimonials('unpublished'))
+  }
+
+  handlePublic = (item) => {
+    const {dispatch} = this.props
+    dispatch(publicTestimonial({...item, status: 'published'}))
+  }
+
+  handleDelete = (id) => {
+    const {dispatch} = this.props
+    dispatch(deleteTestimonial(id))
+  }
+
   render() {
-    const { isLoggedIn } = this.props
+    const { testimonials, isLoggedIn } = this.props
     if(!isLoggedIn) {
       return (
         <Redirect exact from="/moderate" to={{ pathname: '/mfo' }}/>
@@ -66,8 +44,16 @@ class TestimonialsModerate extends Component {
       <div className="wr-testimonials">
         <div className="container">
           <div className="testimonials moderate">
-            {testi.map((item) => (
-              <TestiModerate key={item.id} text={item.text} user={item.name} rating={item.rating} />
+            {testimonials.data.map((item) => (
+              <TestiModerate
+                key={item.id}
+                item={item}
+                text={item.text}
+                user={item.name}
+                rating={item.rating}
+                onDelete={this.handleDelete}
+                onPublic={this.handlePublic}
+              />
             ))}
           </div>
         </div>
