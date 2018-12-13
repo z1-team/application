@@ -90,8 +90,8 @@ class Card extends Component {
 
   getEnding() {
     const { item } = this.props
-    const count = item.sortBy.testimonials_count.toString()
-    const ending = parseInt(count.slice(count.length-1))
+    const count = item.sortBy.testimonials_count
+    const ending = count%10
 
     switch(ending) {
       case 1:

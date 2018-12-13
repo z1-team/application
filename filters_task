@@ -1,0 +1,15 @@
+1)filters.js reudcer - initialState.category => [true, false, false, true, ]
+2)Categories.js - changeFilter (передаем массив, вместо категории)
+3)Sidebar.js - добавить фильтры по категориям
+4)EditPopupFilter.js - добавить параметр "Срок" [от, до]
+5)подготовить данные в json
+  a) добавить новые параметры:
+    "filter_values": {
+      // mfo
+      "summ": [1, 9999999],
+      "term": [1, 999]
+      // cards
+      "limit": [1, 999999],
+      "rate": [1, 999]
+    }
+  b) скопировать categories в filters

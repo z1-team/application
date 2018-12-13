@@ -8,127 +8,106 @@ const categories = {
 		{
 			"text": "С плохой кред. историей",
 			"dataID": "badCreditHistory",
-			"sortParam": "",
 			"index": 1
 		},
 		{
 			"text": "Онлайн",
 			"dataID": "online",
-			"sortParam": "",
 			"index": 2
 		},
 		{
 			"text": "Быстрые",
 			"dataID": "fast",
-			"sortParam": "",
 			"index": 3
 		},
 		{
 			"text": "С мгновенным одобрением",
 			"dataID": "instantApprove",
-			"sortParam": "",
 			"index": 4
 		},
 		{
 			"text": "Срочные",
 			"dataID": "urgently",
-			"sortParam": "",
 			"index": 5
 		},
 		{
 			"text": "Экспресс",
 			"dataID": "express",
-			"sortParam": "",
 			"index": 6
 		},
 		{
 			"text": "Круглосуточно",
 			"dataID": "DaN",
-			"sortParam": "",
 			"index": 7
 		},
 		{
 			"text": "Наличными",
 			"dataID": "inCash",
-			"sortParam": "",
 			"index": 8
 		},
 		{
 			"text": "Моментальные",
 			"dataID": "instant",
-			"sortParam": "",
 			"index": 9
 		},
 		{
 			"text": "По паспорту",
 			"dataID": "accordingPassport",
-			"sortParam": "",
 			"index": 10
 		},
 		{
 			"text": "До зарплаты",
 			"dataID": "toPaycheck",
-			"sortParam": "",
 			"index": 11
 		},
 		{
 			"text": "Долгосрочные",
 			"dataID": "longTerm",
-			"sortParam": "",
 			"index": 12
 		},
 		{
 			"text": "Без отказа",
 			"dataID": "withoutFailure",
-			"sortParam": "",
 			"index": 13
 		},
 		{
 			"text": "Без поручителей",
 			"dataID": "withoutGuarantors",
-			"sortParam": "",
 			"index": 14
 		},
 		{
 			"text": "Для студентов",
 			"dataID": "forStudents",
-			"sortParam": "",
 			"index": 15
 		},
 		{
 			"text": "Для пенсионеров",
 			"dataID": "forPensioners",
-			"sortParam": "",
 			"index": 16
 		},
 		{
 			"text": "Без процентов",
 			"dataID": "noInterest",
-			"sortParam": "",
 			"index": 17
 		},
 		{
 			"text": "С 18 лет",
 			"dataID": "from18Years",
-			"sortParam": "",
 			"index": 18
 		},
 		{
 			"text": "Безработным",
 			"dataID": "unemployed",
-			"sortParam": "",
 			"index": 19
 		},
 		{
 			"text": "Без паспорта",
 			"dataID": "withoutPassport",
-			"sortParam": "",
 			"index": 20
 		},
 		{
 			"text": "Без кредит. истории",
 			"dataID": "noCreditHistory",
-			"sortParam": "",
 			"index": 21
 		}
 	],
@@ -136,179 +115,208 @@ const categories = {
 		{
 			"text": "Альфа-Банк",
 			"dataID": "alfaBank",
-			"sortParam": "",
 			"index": 1
 		},
 		{
 			"text": "Тинькофф",
 			"dataID": "tinkoff",
-			"sortParam": "",
 			"index": 2
 		},
 		{
 			"text": "Самые лучшие кредитные карты",
 			"dataID": "bestCards",
-			"sortParam": "",
 			"index": 3
 		},
 		{
 			"text": "Самые выгодные",
 			"dataID": "mostProfitable",
-			"sortParam": "",
 			"index": 4
 		},
 		{
 			"text": "В день обращения",
 			"dataID": "dayOfTreatment",
-			"sortParam": "",
 			"index": 5
 		},
 		{
 			"text": "Без процентов",
 			"dataID": "withoutInterest",
-			"sortParam": "",
 			"index": 6
 		},
 		{
 			"text": "Срочно",
 			"dataID": "urgent",
-			"sortParam": "",
 			"index": 7
 		},
 		{
 			"text": "Без отказа",
 			"dataID": "withoutFailure",
-			"sortParam": "",
 			"index": 8
 		},
 		{
 			"text": "Без справок",
 			"dataID": "withoutReferences",
-			"sortParam": "",
 			"index": 9
 		},
 		{
 			"text": "На дом без визита в банк",
 			"dataID": "deliveryPlace",
-			"sortParam": "",
 			"index": 10
 		},
 		{
 			"text": "Без годового обслуживания",
 			"dataID": "withoutAnnualService",
-			"sortParam": "",
 			"index": 11
 		},
 		{
 			"text": "Без подтверждения дохода",
 			"dataID": "withoutIncomeProof",
-			"sortParam": "",
 			"index": 12
 		},
 		{
 			"text": "Без кредитной истории",
 			"dataID": "withoutCreditHistory",
-			"sortParam": "",
 			"index": 13
 		},
 		{
 			"text": "Для пенсионеров",
 			"dataID": "forPensioners",
-			"sortParam": "",
 			"index": 14
 		},
 		{
 			"text": "Для студентов",
 			"dataID": "forStudents",
-			"sortParam": "",
 			"index": 15
 		},
 		{
 			"text": "Безработным",
 			"dataID": "unemployed",
-			"sortParam": "",
 			"index": 16
 		},
 		{
 			"text": "С беспроцентным периодом",
 			"dataID": "interestFreePeriod",
-			"sortParam": "",
 			"index": 17
 		},
 		{
 			"text": "С кэшбэком",
 			"dataID": "cashback",
-			"sortParam": "",
 			"index": 18
 		},
 		{
 			"text": "Моментальные",
 			"dataID": "instant",
-			"sortParam": "",
 			"index": 19
 		},
 		{
 			"text": "Для снятия наличных",
 			"dataID": "forCashWithdrawals",
-			"sortParam": "",
 			"index": 20
 		},
 		{
 			"text": "Виртуальные",
 			"dataID": "virtual",
-			"sortParam": "",
 			"index": 21
 		},
 		{
 			"text": "Apple Pay",
 			"dataID": "applePay",
-			"sortParam": "",
 			"index": 22
 		},
 		{
 			"text": "Samsung Pay",
 			"dataID": "samsungPay",
-			"sortParam": "",
 			"index": 23
 		},
 		{
 			"text": "За 5 минут",
 			"dataID": "in5Minutes",
-			"sortParam": "",
 			"index": 24
 		},
 		{
 			"text": "За 15 минут",
 			"dataID": "in15Minutes",
-			"sortParam": "",
 			"index": 25
 		},
 		{
 			"text": "За 30 минут",
 			"dataID": "in30Minutes",
-			"sortParam": "",
 			"index": 26
 		},
 		{
 			"text": "Visa",
 			"dataID": "visa",
-			"sortParam": "",
 			"index": 27
 		},
 		{
 			"text": "MasterCard",
 			"dataID": "masterCard",
-			"sortParam": "",
 			"index": 28
 		},
 		{
 			"text": "МИР",
 			"dataID": "mir",
-			"sortParam": "",
 			"index": 29
 		}
 	]
 }
+
+const categoriesIndex = {
+	category_mfo: {
+		"badCreditHistory": 0,
+		"online": 1,
+		"fast": 2,
+		"instantApprove": 3,
+		"urgently": 4,
+		"express": 5,
+		"DaN": 6,
+		"inCash": 7,
+		"instant": 8,
+		"accordingPassport": 9,
+		"toPaycheck": 10,
+		"longTerm": 11,
+		"withoutFailure": 12,
+		"withoutGuarantors": 13,
+		"forStudents": 14,
+		"forPensioners": 15,
+		"noInterest": 16,
+		"from18Years": 17,
+		"unemployed": 18,
+		"withoutPassport": 19,
+		"noCreditHistory": 20
+	},
+	category_cards: {
+		"alfaBank": 0,
+		"tinkoff": 1,
+		"bestCards": 2,
+		"mostProfitable": 3,
+		"dayOfTreatment": 4,
+		"withoutInterest": 5,
+		"urgent": 6,
+		"withoutFailure": 7,
+		"withoutReferences": 8,
+		"deliveryPlace": 9,
+		"withoutAnnualService": 10,
+		"withoutIncomeProof": 11,
+		"withoutCreditHistory": 12,
+		"forPensioners": 13,
+		"forStudents": 14,
+		"unemployed": 15,
+		"interestFreePeriod": 16,
+		"cashback": 17,
+		"instant": 18,
+		"forCashWithdrawals": 19,
+		"virtual": 20,
+		"applePay": 21,
+		"samsungPay": 22,
+		"in5Minutes": 23,
+		"in15Minutes": 24,
+		"in30Minutes": 25,
+		"visa": 26,
+		"masterCard": 27,
+		"mir": 28
+	}
+}
+
 
 class Categories extends Component {
 	constructor(props) {
@@ -317,16 +325,35 @@ class Categories extends Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 
+	getFilterName(name) {
+		switch(name) {
+			case "/mfo":
+				return "category_mfo"
+			case "/cards":
+				return "category_cards"
+			// case "credits":
+			// 	return OffersCredits
+			default:
+				return false
+		}
+	}
+
 	handleClick({target}) {
-		const {dispatch} = this.props
+		const {dispatch, filters} = this.props
 		const dataID = target.getAttribute('data-id')
+		const url = this.props.location.pathname
+		const filterName = this.getFilterName(url)
+		const filterValue = filters[filterName]
+		const index = categoriesIndex[filterName][dataID]
+		const result = filterValue.map((v, i) => (i === index))
 
 		window.scrollTo({
         top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
         behavior: "smooth"
     })
 
-		dispatch(changeFilter('category', dataID))
+		dispatch(changeFilter(filterName, result))
+
 		dispatch(sendEvent({
 			type: 'click_category',
 			payload: {
@@ -358,7 +385,7 @@ class Categories extends Component {
 			<div className="categories">
 			{this.getCategories() &&
 				<CategoriesList>
-					{this.getCategories().map((item, index) => (
+					{this.getCategories().map((item) => (
 						<li key={item.index}>
 							<button onClick={this.handleClick} data-id={item.dataID}>{item.text}</button>
 						</li>

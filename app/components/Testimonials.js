@@ -29,9 +29,8 @@ class Testimonials extends Component {
 
   getEnding() {
     const { testimonials } = this.props
-    const count = testimonials && testimonials.data.length.toString()
-    const ending = parseInt(count.slice(count.length-1))
-    console.log(ending)
+    const count = testimonials && testimonials.data.length
+    const ending = count%10
 
     switch(ending) {
       case 1:

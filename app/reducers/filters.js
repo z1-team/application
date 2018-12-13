@@ -1,7 +1,8 @@
 import {FILTER_CHANGE, FILTER_RESET} from '../actions'
 
 const initialState = {
-  category: null,
+  category_mfo: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+  category_cards: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
   special_offers: [false, false],
   summ: [false, false, false, false, false, false, false],
   review_time: [false, false, false, false],

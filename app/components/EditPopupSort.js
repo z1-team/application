@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
 const sortInputs = {
-  mfo: { summ: "По сумме", term: "По срокам", rate: "По процентной ставке" },
-  cards: { limit: "По кредитному лимиту", rate: "По процентной ставке", cashback: "По кэшбэку" }
+  mfo: { summ: "По сумме", term: "По срокам", rate: "По процентной ставке", rating: "По рейтингу" },
+  cards: { limit: "По кредитному лимиту", rate: "По процентной ставке", cashback: "По кэшбэку", rating: "По рейтингу" }
 }
 
 const defaultSort = {
-  mfo: { summ: 0, term: 0, rate: 0 },
-  cards: { limit: 0, rate: 0, cashback: 0 }
+  mfo: { summ: 0, term: 0, rate: 0, rating: 0 },
+  cards: { limit: 0, rate: 0, cashback: 0, rating: 0 }
 }
 
 class EditPopupSort extends Component {
@@ -25,7 +25,7 @@ class EditPopupSort extends Component {
   defaultSort(id) {
     const { url } = this.props
 
-    return sortInputs[url.split('/')[1]][id] || defaultSort.mfo[id]
+    return sortInputs[url.split('/')[1]][id] || sortInputs.mfo[id]
   }
 
   handleChange = (event) => {
@@ -46,12 +46,12 @@ class EditPopupSort extends Component {
     return(
       <div>
         <ul>
-          {Object.getOwnPropertyNames(sortInfo).map((id) => (
-            <li key={id}>
-              <label>{this.defaultSort(id)}:
-                <input type="number" name={id} onChange={this.handleChange} value={sortInfo[id]} />
-              </label>
-            </li>
+          {Object.getOwnPropertyNames(sortInfo).filter(filter => filter !== "rating" && filter !== "testimonials_count").map((id) => (
+              <li key={id}>
+                <label>{this.defaultSort(id)}:
+                  <input type="number" name={id} onChange={this.handleChange} value={sortInfo[id]} />
+                </label>
+              </li>
           ))}
         </ul>
       </div>
