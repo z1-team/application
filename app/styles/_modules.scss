@@ -149,7 +149,7 @@
 
 .intro {
 	header {
-		display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;
+		display: flex; align-items: center; justify-content: center; margin-bottom: 40px;
 
 		@include respond-to(sm) {
 			flex-direction: column;
@@ -161,7 +161,7 @@
 	}
 
 	section {
-
+		display: flex; flex-direction: column; align-items: center;
 	}
 
 	figure {
@@ -209,20 +209,22 @@
 	}
 
 	h1, h2 {
-		color: $white; font-family: $m-th; text-align: center; text-transform: uppercase;
+		color: $white; font-family: $m-th; text-align: center; text-transform: uppercase; text-shadow: -5px 3px 6px rgba(0, 0, 0, 0.67);
+		padding: 0 10px;
+		background: rgba(0,0,0,0.75); border-radius: 10px;
 	}
 
 	h1 {
-		font-size: 62px; line-height: 86px;
+		font-size: 70px; line-height: 80px;
 
 		@include respond-to(md) {
 			font-size: 54px; line-height: 74px;
 		}
 		@include respond-to(sm) {
-			font-size: 44px; line-height: 46px;
+			font-size: 44px; line-height: 52px;
 		}
 		@include respond-to(xs) {
-			font-size: 34px; line-height: 34px;
+			font-size: 34px; line-height: 44px;
 		}
 
 		span {
@@ -237,30 +239,29 @@
 	}
 
 	h2 {
-		font-size: 58px; line-height: 70px;
-		padding-top: 32px; margin-top: 30px; position: relative;
+		font-size: 65px; line-height: 80px;
+		margin-top: 11px; position: relative;
 
 		@include respond-to(md) {
-			font-size: 46px; line-height: 62px;
+			font-size: 46px; line-height: 74px;
 		}
 		@include respond-to(sm) {
-			font-size: 32px; line-height: 46px;
+			font-size: 32px; line-height: 52px;
 		}
 		@include respond-to(xs) {
-			font-size: 26px; line-height: 34px;
-			padding-top: 22px; margin-top: 20px;
+			font-size: 28px; line-height: 36px;
 		}
 
-		&:before {
-			content: '';
-			display: block; width: 716px; height: 2px; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
-			background: $white;
-			opacity: 0.5;
-
-			@include respond-to(md) {
-				width: 90%;
-			}
-		}
+		// &:before {
+		// 	content: '';
+		// 	display: block; width: 716px; height: 2px; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+		// 	background: $white;
+		// 	opacity: 0.5;
+		//
+		// 	@include respond-to(md) {
+		// 		width: 90%;
+		// 	}
+		// }
 	}
 }
 
@@ -1148,6 +1149,11 @@
 		width: 100%; justify-content: center;
 	}
 
+	& > h3 {
+		color: #161616; font-size: 20px; font-family: $m-sb; line-height: 26px;
+		margin-bottom: 30px; padding: 0 10px;
+	}
+
 	header {
 		padding: 0 10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;
 	}
@@ -1181,12 +1187,16 @@
 		}
 
 		p {
-			text-decoration: underline; margin-right: 2px;
+			text-decoration: underline; margin-right: 4px;
 		}
 	}
 
 	figure {
+		max-height: 300px; max-width: 300px;
 
+		img {
+			max-width: 100%; max-height: 100%;
+		}
 	}
 }
 
@@ -1281,7 +1291,7 @@
 }
 
 .leave-testi {
-	padding-top: 40px;
+	padding: 40px 10px 0;
 
 	h2 {
 		color: #232935; font-size: 24px; font-family: $m-r; line-height: 30px;

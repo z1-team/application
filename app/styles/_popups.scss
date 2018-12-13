@@ -149,7 +149,7 @@
 	}
 
 	&.edit {
-		max-width: 800px; left: 0; top: 50%; transform: translate(-110%, -50%); padding: 20px; max-height: 90vh;
+		max-width: 800px; left: 0; top: 50%; transform: translate(-150%, -50%); padding: 20px; max-height: 90vh;
 		background: #e2e2e2;
 
 		@include respond-to(xs) {

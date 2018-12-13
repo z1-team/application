@@ -82,23 +82,6 @@ class Intro extends Component {
 		}
 	}
 
-  handleClick = (event) => {
-    const url = event.target.name
-    const { dispatch } = this.props
-
-    switch (url) {
-      case 'mfo':
-        dispatch(resetSortPartner('mfo'))
-        break
-      case 'cards':
-        dispatch(resetSortPartner('cards'))
-        break
-      default:
-        dispatch(resetSortPartner('mfo'))
-        break
-    }
-  }
-
 	render() {
 		const { match, location, history } = this.props;
 		const url = location.pathname
@@ -112,11 +95,6 @@ class Intro extends Component {
 							<figure>
 								<img src="/img/logo.png" />
 							</figure>
-							<ul>
-								<li><Link onClick={this.handleClick} name="mfo" className={url === "/mfo" ? "active" : ""} to="/mfo">Микрозаймы</Link></li>
-								<li><Link onClick={this.handleClick} name="cards" className={url === "/cards" ? "active" : ""} to="/cards">Кредитные карты</Link></li>
-								{/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
-							</ul>
 						</header>
 						{this.getTitle()}
 					</div>

@@ -74,6 +74,7 @@ class Card extends Component {
 
     return false
   }
+
   getWays() {
       const { item } = this.props
       const { get_ways } = item.filters
@@ -87,8 +88,32 @@ class Card extends Component {
       return false
   }
 
+  getEnding() {
+    const { item } = this.props
+    const count = item.sortBy.testimonials_count.toString()
+    const ending = parseInt(count.slice(count.length-1))
+
+    switch(ending) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+        return "отзыва"
+      case 0:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      default:
+        return "отзывов"
+    }
+  }
+
   render() {
     const {item, tail, edit} = this.props
+    const rating = Math.round(item.sortBy.rating*10)/10
+    const star = Math.round(item.sortBy.rating)
 
     return (
       <div className="result-item">
@@ -99,14 +124,14 @@ class Card extends Component {
           <div className="info">
             <h3>{item.main.title}</h3>
             <div className="rating">
-              <ul>
+              <ul className={`rate-${star}`}>
                 <li><i className="fas fa-star"></i></li>
                 <li><i className="fas fa-star"></i></li>
                 <li><i className="fas fa-star"></i></li>
                 <li><i className="fas fa-star"></i></li>
                 <li><i className="fas fa-star"></i></li>
               </ul>
-              <p><Link to={`/testimonials/${item.id}`}>{item.sortBy.testimonials_count} отзыва</Link> {item.sortBy.rating && `(${item.sortBy.rating} из 5)`}</p>
+              <p><Link to={`/testimonials/${item.id}`}>{item.sortBy.testimonials_count} {this.getEnding()}</Link> {item.sortBy.rating && `(${rating} из 5)`}</p>
             </div>
             {item.type === 'mfo' && item.main &&
               <ul className="pros">
@@ -117,8 +142,8 @@ class Card extends Component {
             }
             {item.type === 'cards' && item.main &&
               <ul className="pros">
-                {item.main.limit && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.limit}</strong> руб.</li>}
-                {item.main.percent && <li><i className="far fa-money-bill-alt"></i>от <strong>{item.main.percent}</strong></li>}
+                {item.main.limit && <li><i className="far fa-credit-card"></i><strong>{item.main.limit}</strong> руб.</li>}
+                {item.main.percent && <li><i className="far fa-thumbs-up"></i>от <strong>{item.main.percent}</strong></li>}
                 {item.main.cashback && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.cashback}</strong></li>}
               </ul>
             }

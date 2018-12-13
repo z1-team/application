@@ -12,7 +12,7 @@
 			&:hover {
 				text-decoration: underline;
 			}
-			
+
 			i {
 				margin-right: 5px;
 			}
@@ -32,14 +32,23 @@
 		display: flex; align-items: center;
 
 		li {
-			margin-right: 35px;
+			padding-right: 14px; margin-right: 15px;
+			border-right: solid 1px #fff;
 
-			&:last-child {
-				margin-right: 0;
+			@include respond-to(sm) {
+				padding-right: 9px; margin-right: 10px;
+			}
+			@include respond-to(xs) {
+			padding-right: 4px;	margin-right: 5px;
 			}
 
-			button {
-				color: #fff; font-size: 12px; line-height: 14px; font-family: $m-m; text-transform: uppercase;
+			&:last-child {
+				margin-right: 0; padding-right: 0;
+				border-right: none;
+			}
+
+			a, button {
+				color: #fff; font-size: 12px; line-height: 14px; font-family: $m-r; text-transform: uppercase;
 				background: none;
 				cursor: pointer;
 
@@ -47,10 +56,29 @@
 					font-size: 10px;
 				}
 
+				&.active {
+					font-family: $m-sb;
+				}
+
 				&:hover {
 					text-decoration: underline;
 				}
 			}
+		}
+	}
+
+	.categories-button {
+		color: #fff; font-size: 16px; font-family: $m-sb; line-height: 26px; text-align: center;
+		position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; display: none;
+		background: #f96868; border: solid 2px #f96868; box-shadow: 0 0 5px 0px rgba(0,0,0,0.5);
+
+		&:hover {
+			color: #f96868;
+			background: #fff;
+		}
+
+		@include respond-to(sm) {
+			display: block;
 		}
 	}
 
