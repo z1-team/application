@@ -4,10 +4,18 @@ import LogoUploader from './LogoUploader'
 import EditPopupMain from './EditPopupMain'
 import EditPopupDetails from './EditPopupDetails'
 import EditPopupCategories from './EditPopupCategories'
+import EditPopupRange from './EditPopupRange'
 import EditPopupFilter from './EditPopupFilter'
 import EditPopupSort from './EditPopupSort'
 
 import {closePopup, updatePartner, selectPartner, deletePartner} from '../actions'
+
+const filterValuesNames = {
+  summ: "Сколько нужно",
+  term: "На какой срок",
+  limit: "Кредитный лимит",
+  rate: "Процентная ставка"
+}
 
 const filterNames = {
   special_offers: {
@@ -238,53 +246,61 @@ const detailsNames = {
   internetBank: "Интернет-банк"
 }
 
-const categoriesNames = {
-  badCreditHistory: "С плохой кред. историей",
-  online: "Онлайн",
-  fast: "Быстрые",
-  instantApprove: "С мгновенным одобрением",
-  urgently: "Срочные",
-  express: "Экспресс",
-  DaN: "Круглосуточно",
-  inCash: "Наличными",
-  instant: "Моментальные",
-  accordingPassport: "По паспорту",
-  toPaycheck: "До зарплаты",
-  longTerm: "Долгосрочные",
-  withoutFailure: "Без отказа",
-  withoutGuarantors: "Без поручителей",
-  forStudents: "Для студентов",
-  forPensioners: "Для пенсионеров",
-  noInterest: "Без процентов",
-  from18Years: "С 18 лет",
-  unemployed: "Безработным",
-  withoutPassport: "Без паспорта",
-  noCreditHistory: "Без кредит. истории",
-  alfaBank: "Альфа-Банк",
-  tinkoff: "Тинькофф",
-  bestCards: "Самые лучшие кредитные карты",
-  mostProfitable: "Самые выгодные",
-  dayOfTreatment: "В день обращения",
-  withoutInterest: "Без процентов",
-  urgent: "Срочно",
-  withoutReferences: "Без справок",
-  deliveryPlace: "На дом без визита в банк",
-  withoutAnnualService: "Без годового обслуживания",
-  withoutIncomeProof: "Без подтверждения дохода",
-  withoutCreditHistory: "Без кредитной истории",
-  interestFreePeriod: "С беспроцентным периодом",
-  cashback: "С кэшбэком",
-  forCashWithdrawals: "Для снятия наличных",
-  virtual: "Виртуальные",
-  applePay: "Apple Pay",
-  samsungPay: "Samsung Pay",
-  in5Minutes: "За 5 минут",
-  in15Minutes: "За 15 минут",
-  in30Minutes: "За 30 минут",
-  visa: "Visa",
-  masterCard: "MasterCard",
-  mir: "МИР"
-}
+const categoriesMfoNames = [
+  "С плохой кред. историей",
+  "Онлайн",
+  "Быстрые",
+  "С мгновенным одобрением",
+  "Срочные",
+  "Экспресс",
+  "Круглосуточно",
+  "Наличными",
+  "Моментальные",
+  "По паспорту",
+  "До зарплаты",
+  "Долгосрочные",
+  "Без отказа",
+  "Без поручителей",
+  "Для студентов",
+  "Для пенсионеров",
+  "Без процентов",
+  "С 18 лет",
+  "Безработным",
+  "Без паспорта",
+  "Без кредит. истории"
+]
+
+const categoriesCardsNames = [
+  "Альфа-Банк",
+  "Тинькофф",
+  "Самые лучшие кредитные карты",
+  "Самые выгодные",
+  "В день обращения",
+  "Без процентов",
+  "Срочно",
+  "Без отказа",
+  "Без справок",
+  "На дом без визита в банк",
+  "Без годового обслуживания",
+  "Без подтверждения дохода",
+  "Без кредитной истории",
+  "Для пенсионеров",
+  "Для студентов",
+  "Безработным",
+  "С беспроцентным периодом",
+  "С кэшбэком",
+  "Моментальные",
+  "Для снятия наличных",
+  "Виртуальные",
+  "Apple Pay",
+  "Samsung Pay",
+  "За 5 минут",
+  "За 15 минут",
+  "За 30 минут",
+  "Visa",
+  "MasterCard",
+  "МИР"
+]
 
 const mainNames = {
   title: "Заголовок",
@@ -311,8 +327,8 @@ class EditPopup extends Component {
     this.changes = {
       main: {},
       details: {},
-      categories: {},
       filters: {},
+      filter_values: {},
       sortBy: {}
     }
 
@@ -340,6 +356,7 @@ class EditPopup extends Component {
   handleChange(type, field, value) {
     this.changes[type][field] = value
     this.setState({changed: true})
+    console.log(type, field, value)
   }
 
   handleSave(event) {
@@ -358,13 +375,13 @@ class EditPopup extends Component {
         ...partner.details,
         ...this.changes.details
       },
-      categories: {
-        ...partner.categories,
-        ...this.changes.categories
-      },
       filters: {
         ...partner.filters,
         ...this.changes.filters
+      },
+      filter_values: {
+          ...partner.filter_values,
+          ...this.changes.filter_values
       },
       sortBy: {
         ...partner.sortBy || {},
@@ -431,13 +448,17 @@ class EditPopup extends Component {
             {partner && <EditPopupDetails details={partner.details} names={detailsNames} onChange={this.handleChange} />}
           </div>
           <div className={tab === "categories" ? 'card-categories active' : 'card-categories'}>
-            {partner && <EditPopupCategories categories={partner.categories} names={categoriesNames} onChange={this.handleChange} />}
+            {partner && partner.filters.category_mfo && <EditPopupCategories categories={partner.filters.category_mfo} name="category_mfo" names={categoriesMfoNames} onChange={this.handleChange} />}
+            {partner && partner.filters.category_cards && <EditPopupCategories categories={partner.filters.category_cards} name="category_cards" names={categoriesCardsNames} onChange={this.handleChange} />}
           </div>
           <div className={tab === "filters" ? 'card-filters active' : 'card-filters'}>
             {/* partner && Object.getOwnPropertyNames(partner.filters).map((filter) => (
               console.log()
             )) */}
-            {partner && Object.getOwnPropertyNames(partner.filters).map((filter, index) => (
+            {partner && partner.filter_values && Object.getOwnPropertyNames(partner.filter_values).map((filter, index) => (
+              <EditPopupRange name={filter} key={index} title={filterValuesNames[filter]} values={partner.filter_values[filter]} onChange={this.handleChange} />
+            ))}
+            {partner && Object.getOwnPropertyNames(partner.filters).filter(filter => filter !== "category_mfo" && filter !== "category_cards").map((filter, index) => (
               <EditPopupFilter name={filter} key={index} title={filterNames[filter].title} names={filterNames[filter].names} values={partner.filters[filter]} onChange={this.handleChange} />
             ))}
           </div>

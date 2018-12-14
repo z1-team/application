@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import { withRouter } from "react-router";
-import {openPopup, closePopup, changeFilter, resetFilter} from '../actions'
+import { Link } from 'react-router-dom'
+
+import {openPopup, closePopup, changeFilter, resetFilter, resetSortPartner } from '../actions'
 
 const mapStateToProps = ({popups, session}) => ({
   popups: popups.categories || false,
@@ -12,7 +14,9 @@ const mapStateToProps = ({popups, session}) => ({
 class Header extends Component {
 	constructor() {
 		super()
-		this.handleClick = this.handleClick.bind(this)
+
+		this.handleCategories = this.handleCategories.bind(this)
+		this.handleDirection = this.handleDirection.bind(this)
 	}
 
   componentDidUpdate({location}) {
@@ -37,7 +41,7 @@ class Header extends Component {
 		}
 	}
 
-	handleClick() {
+	handleCategories() {
 		const {popups} = this.props
 
 		if(popups) {
@@ -47,7 +51,27 @@ class Header extends Component {
 		}
 	}
 
+  handleDirection = (event) => {
+    const url = event.target.name
+    const { dispatch } = this.props
+
+    switch (url) {
+      case 'mfo':
+        dispatch(resetSortPartner('mfo'))
+        break
+      case 'cards':
+        dispatch(resetSortPartner('cards'))
+        break
+      default:
+        dispatch(resetSortPartner('mfo'))
+        break
+    }
+  }
+
 	render() {
+		const { location } = this.props;
+		const url = location.pathname
+
 		return (
 			<div className="wr-header">
 				<div className="container">
@@ -56,16 +80,17 @@ class Header extends Component {
 							{/*<a href="#"><i className="fas fa-phone"></i>+7 (495) 666-55-44</a>*/}
 							<p><i className="fas fa-map-marker-alt"></i>{this.props.city}</p>
 						</div>
-						<ul>
-							<li>
-								{this.getCategoriesButton() && <button onClick={this.handleClick}>{this.getCategoriesButton()} по категориям</button>}
-							</li>
+            <ul>
+              <li><Link onClick={this.handleDirection} name="mfo" className={url === "/mfo" ? "active" : ""} to="/mfo">Микрозаймы</Link></li>
+              <li><Link onClick={this.handleDirection} name="cards" className={url === "/cards" ? "active" : ""} to="/cards">Кредитные карты</Link></li>
+              {/*<li><Link className={url === "/credits" ? "active" : ""} to="credits">Кредиты</Link></li>*/}
 							{/*
 							<li>
 								<a href="#">ОФОРМИТЬ СЕЙЧАС</a>
 							</li>
 							*/}
 						</ul>
+            {this.getCategoriesButton() && <button className="categories-button" onClick={this.handleCategories}>{this.getCategoriesButton()} по категориям</button>}
 					</div>
 				</div>
 			</div>

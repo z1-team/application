@@ -15,6 +15,11 @@
 		textarea {
 			min-height: 80px;
 		}
+
+		p {
+			color: #f96868; font-size: 14px; font-family: $m-sb; line-height: 18px;
+			padding-top: 5px;
+		}
 	}
 
 	&-input {

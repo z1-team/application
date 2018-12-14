@@ -28,11 +28,6 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 
-		this.state = {
-			category: null
-		}
-
-		this.clearCategory = this.clearCategory.bind(this)
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
@@ -53,10 +48,6 @@ class App extends Component {
 		}
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
-	}
-
-	clearCategory() {
-		this.setState({category: null})
 	}
 
 	handleKeyDown(event) {

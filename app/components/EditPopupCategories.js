@@ -4,36 +4,39 @@ class EditPopupCategories extends Component {
   constructor(props) {
     super(props)
 
-    this.state = this.props.categories
+    this.state = {
+      values: this.props.categories
+    }
 
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
-    const categories = this.state
-    const category = event.target.getAttribute('data-name')
-    const {onChange} = this.props
+    const {name, onChange} = this.props
+    const index = event.target.getAttribute('data-index')
+    this.setState((prev) => {
+      const result = prev.values.slice()
+      result[index] = !prev.values[index]
 
-    this.setState(() => {
       if(typeof onChange === "function") {
-        onChange("categories", category, !categories[category])
+        onChange("filters", name, result)
       }
 
       return {
-        [category]: !categories[category]
+        values: result
       }
     })
   }
 
   render() {
     const {names} = this.props
-    const categories = this.state
+    const categories = this.state.values
 
     return (
       <ul>
-        {Object.getOwnPropertyNames(categories).map((category, index) => (
+        {categories.map((value, index) => (
           <li key={index}>
-            <label className={categories[category] ? 'active' : ''}><input data-name={category} type="checkbox" onChange={this.handleChange} />{names[category]}</label>
+            <label className={value ? 'active' : ''}><input type="checkbox" data-index={index} onChange={this.handleChange} />{names[index]}</label>
           </li>
         ))}
       </ul>

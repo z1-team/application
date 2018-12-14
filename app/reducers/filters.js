@@ -1,7 +1,8 @@
 import {FILTER_CHANGE, FILTER_RESET} from '../actions'
 
 const initialState = {
-  category: null,
+  category_mfo: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+  category_cards: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
   special_offers: [false, false],
   summ: [false, false, false, false, false, false, false],
   review_time: [false, false, false, false],
@@ -21,7 +22,11 @@ const initialState = {
   card_delivery: [false, false],
   time_delivery: [false, false, false],
   chip_availability: [false, false],
-  secure_3d: [false, false]
+  secure_3d: [false, false],
+  summ_value: null,
+  term_value: null,
+  limit_value: null,
+  rate_value: null
 }
 
 function resetFilters(filters) {

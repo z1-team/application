@@ -41,15 +41,24 @@ function testCategory(category, value) {
   return category === null ? true : value[category]
 }
 
+function testRange(value, range) {
+  return value !== null ? range[0] <= value && value <= range[1] : true
+}
+
 function filterResults(ids, partners, filters) {
   return ids.filter((id) => (
     Object.getOwnPropertyNames(filters).every(f => {
-      if (f === 'category') {
-        return testCategory(filters.category, partners[id].categories)
-      } else if (partners[id].filters[f]) {
-        return testFilter(filters[f], partners[id].filters[f])
-      } else {
-        return true
+      switch(f) {
+        case 'summ_value':
+          return partners[id].filter_values.summ ? testRange(filters.summ_value, partners[id].filter_values.summ) : true
+        case 'term_value':
+          return partners[id].filter_values.term ? testRange(filters.term_value, partners[id].filter_values.term) : true
+        case 'limit_value':
+          return partners[id].filter_values.limit ? testRange(filters.limit_value, partners[id].filter_values.limit) : true
+        case 'rate_value':
+          return partners[id].filter_values.rate ? testRange(filters.rate_value, partners[id].filter_values.rate) : true
+        default:
+          return partners[id].filters[f] ? testFilter(filters[f], partners[id].filters[f]) : true
       }
     })
   ))
@@ -79,17 +88,29 @@ function startAccumulation(filter) {
   return filter.map((value) => 0)
 }
 
-function applyFilter(ids, partners, value, filter) {
-  return ids.filter(id => (
-    testFilter(value, partners[id].filters[filter])
-  ))
+function applyFilter(ids, partners, value, filter, filters) {
+  return ids.filter(id => {
+    switch(filter) {
+      case 'summ_value':
+        return partners[id].filter_values.summ ? testRange(filters.summ_value, partners[id].filter_values.summ) : true
+      case 'term_value':
+        return partners[id].filter_values.term ? testRange(filters.term_value, partners[id].filter_values.term) : true
+      case 'limit_value':
+        return partners[id].filter_values.limit ? testRange(filters.limit_value, partners[id].filter_values.limit) : true
+      case 'rate_value':
+        return partners[id].filter_values.rate ? testRange(filters.rate_value, partners[id].filter_values.rate) : true
+      default:
+        return partners[id].filters[filter] ? testFilter(value, partners[id].filters[filter]) : true
+    }
+  })
 }
 
 function makeCollections(ids, partners, filters) {
   if (ids.length > 0) {
-    return Object.getOwnPropertyNames(partners[ids[0]].filters)
+    const valueFilters = Object.getOwnPropertyNames(partners[ids[0]].filter_values).map(n => n+"_value")
+    return Object.getOwnPropertyNames(partners[ids[0]].filters).concat(valueFilters)
       .reduce((result, filter) => {
-        result[filter] = applyFilter(ids, partners, filters[filter], filter)
+        result[filter] = applyFilter(ids, partners, filters[filter], filter, filters)
         return result
       }, {})
   } else {

@@ -149,7 +149,7 @@
 	}
 
 	&.edit {
-		max-width: 800px; left: 0; top: 50%; transform: translate(-110%, -50%); padding: 20px; max-height: 90vh;
+		max-width: 800px; left: 0; top: 50%; transform: translate(-150%, -50%); padding: 20px; max-height: 90vh;
 		background: #e2e2e2;
 
 		@include respond-to(xs) {
@@ -211,7 +211,7 @@
 		}
 
 		ul.tabs {
-			display: flex; align-items: center; margin-bottom: 15px;
+			display: flex; align-items: center; margin-bottom: 15px; flex-wrap: wrap;
 
 			@include respond-to(xs) {
 				margin-bottom: 12px;
@@ -248,7 +248,7 @@
 				overflow-y: auto;
 
 				@include respond-to(xs) {
-					max-height: calc(96vh - 138px);
+					max-height: calc(96vh - 180px);
 				}
 			}
 
@@ -439,6 +439,37 @@
 
 				.popup-filter {
 					width: 33.33333%; margin-bottom: 15px;
+
+					@include respond-to(sm) {
+						width: 50%;
+					}
+					@include respond-to(xs) {
+						width: 100%;
+					}
+
+					&_range {
+						width: 33.33333%; margin-bottom: 15px;
+
+						@include respond-to(sm) {
+							width: 50%;
+						}
+						@include respond-to(xs) {
+							width: 100%;
+						}
+
+						label {
+							padding-left: 0; display: flex; align-items: center; padding-right: 10px;
+
+							&:before {
+								content: none;
+							}
+
+							input {
+								color: #161616; font-size: 16px; font-family: $m-r;
+								display: block; width: 100%; margin-left: 5px; padding: 2px 5px;
+							}
+						}
+					}
 				}
 
 				h3 {
@@ -574,6 +605,10 @@
 		width: 600px; height: 500px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px; display: none;
 		border-radius: 0;
 
+		&.active {
+			display: block;
+		}
+
 		.close-popup {
 			width: 32px; height: 32px; display: block; position: absolute; right: 0; top: 0; transform: translate(50%, -50%);
 			background: $white; border: solid 1px #bebebe; border-radius: 50%;
@@ -619,6 +654,54 @@
 			font-size: 16px; text-transform: uppercase; line-height: 22px;
 			width: 40.18519%; padding: 14px 10px;
 			border-width: 2px;
+		}
+	}
+
+	&.testi-sended {
+		display: none;  width: 300px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 30px 15px;
+
+		&.active {
+			display: flex; align-items: center; justify-content: center; flex-direction: column;
+		}
+
+		p {
+			color: #161616; font-size: 16px; font-family: $m-r; line-height: 22px; text-align: center;
+			margin-bottom: 30px;
+		}
+
+		a:not(.close-popup) {
+			@extend .btn;
+			font-size: 16px;
+			padding: 10px 16px;
+			border-width: 2px;
+		}
+	}
+
+	&.subscribe {
+		width: 260px; height: 160px; display: flex; align-items: center; justify-content: center; top: 50%; left: 0; transform: translate(-120%, -50%);
+
+		&.active {
+			 left: 50%; transform: translate(-50%, -50%);
+		}
+
+		.close-popup {
+			display: block; width: 20px; height: 20px; position: absolute; right: 5px; top: 5px;
+
+			&:before, &:after {
+				content: '';
+				display: block; width: 20px; height: 4px; position: absolute; left: 50%; top: 50%;
+				background: #f96868; border-radius: 10px;
+			}
+			&:before {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+			&:after {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+		}
+
+		p {
+			color: #161616; font-size: 16px; font-family: $m-r; line-height: 20px; text-align: center;
 		}
 	}
 }

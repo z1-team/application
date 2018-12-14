@@ -23,6 +23,7 @@ export const TESTIMONIAL_SEND = 'TESTIMONIAL_SEND'
 export const TESTIMONIAL_DELETE = 'TESTIMONIAL_DELETE'
 export const TESTIMONIAL_PUBLIC = 'TESTIMONIAL_PUBLIC'
 export const TESTIMONIAL_FETCH = 'TESTIMONIAL_FETCH'
+export const EMAIL_SEND = 'EMAIL_SEND'
 
 function getDateTime() {
   const date = new Date()
@@ -325,5 +326,13 @@ export function fetchTestimonials(target, id = 1) {
       dispatch({type: TESTIMONIAL_FETCH, status: 2, data})
     })
     .catch(console.log)
+  }
+}
+
+export function subscribeEmail(email) {
+  console.log(email)
+  return (dispatch) => {
+    dispatch({type: EMAIL_SEND, status: 1})
+    dispatch({type: EMAIL_SEND, status: 2})
   }
 }
