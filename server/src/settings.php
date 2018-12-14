@@ -21,6 +21,12 @@ return [
           'baseurl' => getenv('DB_BASEURL')
         ],
 
+        'clickhouse' => [
+          ['host' => '140.82.39.71', 'port' => '8123', 'protocol' => 'http'],
+          ['database' => 'analytics'],
+          ['user' => 'z1', 'password' => '7Z0D/8wF']
+        ],
+
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
