@@ -55,7 +55,7 @@ export const closePopup = () => ({type: POPUP_CLOSE})
 
 export function fetchPartners() {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/api/v1/partners' : '/partner.php?action=fetch'
+    'http://localhost:8080/api/v1/partners' : '/api/v1/partners'
   return (dispatch) => {
     dispatch({type: PARTNERS_FETCH, status: 0})
     fetch(url).then((response) => {
@@ -74,7 +74,7 @@ export function fetchPartners() {
 export function sendEvent(event) {
   const browserInfo = ({browser}) => browser ? JSON.stringify(browser) : NULL
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/api/v1/event' : '/send-event.php'
+    'http://localhost:8080/api/v1/event' : '/api/v1/event'
   return (dispatch, getState) => {
     const datetime = getDateTime()
     const {auth, session} = getState()
@@ -155,7 +155,7 @@ export function initSession() {
 
 export function login(login, pass) {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/api/v1/auth' : '/auth.php'
+    'http://localhost:8080/api/v1/auth' : '/api/v1/auth'
   return (dispatch) => {
     dispatch({type: AUTH_LOGIN, status: 0})
     fetch(url, {
@@ -183,7 +183,7 @@ export const logout = () => ({type: AUTH_LOGOUT})
 
 export function updatePartner(id, partner) {
   const url = location.hostname === 'localhost' ?
-    'http://localhost:8080/api/v1/partners' : '/partner.php'
+    'http://localhost:8080/api/v1/partners' : '/api/v1/partners'
   return (dispatch, getState) => {
     dispatch({type: PARTNER_UPDATE, id, partner})
     fetch(url, {
@@ -212,7 +212,7 @@ export const createPartner = (partnerType) => ({type: PARTNER_CREATE, partnerTyp
 
 export function deletePartner(id) {
   const url = location.hostname === 'localhost' ?
-    `http://localhost:8080/api/v1/partners/${id}` : '/partner.php'
+    `http://localhost:8080/api/v1/partners/${id}` : `/api/v1/partners/${id}`
   return (dispatch, getState) => {
     dispatch({type: PARTNER_DELETE, id})
     fetch(url, {
@@ -238,7 +238,7 @@ export const resetSortPartner = (direction) => ({type: PARTNER_SORT_RESET, direc
 
 export function deleteTestimonial(id) {
   const url = location.hostname === 'localhost' ?
-    `http://localhost:8080/api/v1/testimonials/${id}` : '/api/v1/testimonials'
+    `http://localhost:8080/api/v1/testimonials/${id}` : `/api/v1/testimonials/${id}`
   return (dispatch, getState) => {
     dispatch({type: TESTIMONIAL_DELETE, status: 1, id})
     fetch(url, {
@@ -310,7 +310,7 @@ export function sendTestimonial(data) {
 export function fetchTestimonials(target, id = 1) {
   const targetId = target === 'partner' ? id : target
   const url = location.hostname === 'localhost' ?
-    `http://localhost:8080/api/v1/testimonials/${targetId}` : '/data/testimonials.json'
+    `http://localhost:8080/api/v1/testimonials/${targetId}` : `/api/v1/testimonials/${targetId}`
   return (dispatch, getState) => {
     dispatch({type: TESTIMONIAL_FETCH, status: 1})
     fetch(url, {
