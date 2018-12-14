@@ -4,7 +4,7 @@ const initialState = {
   categories: false,
   login: false,
   edit: false,
-  email: true,
+  email: false,
   testi: false,
   subscribe: false
 }
