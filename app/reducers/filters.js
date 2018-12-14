@@ -22,7 +22,11 @@ const initialState = {
   card_delivery: [false, false],
   time_delivery: [false, false, false],
   chip_availability: [false, false],
-  secure_3d: [false, false]
+  secure_3d: [false, false],
+  summ_value: null,
+  term_value: null,
+  limit_value: null,
+  rate_value: null
 }
 
 function resetFilters(filters) {

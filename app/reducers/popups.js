@@ -1,11 +1,12 @@
-import {FILTER_CHANGE, POPUP_OPEN, POPUP_CLOSE, AUTH_LOGIN, PARTNER_CREATE} from '../actions'
+import {FILTER_CHANGE, POPUP_OPEN, POPUP_CLOSE, AUTH_LOGIN, PARTNER_CREATE, EMAIL_SEND} from '../actions'
 
 const initialState = {
   categories: false,
   login: false,
   edit: false,
-  email: false,
-  testi: false
+  email: true,
+  testi: false,
+  subscribe: false
 }
 
 function popupsReducer(state = initialState, action) {
@@ -23,6 +24,8 @@ function popupsReducer(state = initialState, action) {
       return action.status === 1 ? {...state, login: false} : state
     case PARTNER_CREATE:
       return {...state, edit: true}
+    case EMAIL_SEND:
+      return action.status === 1 ? {...state, email: false, subscribe: true} : state
     default:
       return state
   }

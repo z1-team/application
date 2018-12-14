@@ -211,7 +211,7 @@
 		}
 
 		ul.tabs {
-			display: flex; align-items: center; margin-bottom: 15px;
+			display: flex; align-items: center; margin-bottom: 15px; flex-wrap: wrap;
 
 			@include respond-to(xs) {
 				margin-bottom: 12px;
@@ -248,7 +248,7 @@
 				overflow-y: auto;
 
 				@include respond-to(xs) {
-					max-height: calc(96vh - 138px);
+					max-height: calc(96vh - 180px);
 				}
 			}
 
@@ -440,8 +440,22 @@
 				.popup-filter {
 					width: 33.33333%; margin-bottom: 15px;
 
+					@include respond-to(sm) {
+						width: 50%;
+					}
+					@include respond-to(xs) {
+						width: 100%;
+					}
+
 					&_range {
 						width: 33.33333%; margin-bottom: 15px;
+
+						@include respond-to(sm) {
+							width: 50%;
+						}
+						@include respond-to(xs) {
+							width: 100%;
+						}
 
 						label {
 							padding-left: 0; display: flex; align-items: center; padding-right: 10px;
@@ -660,6 +674,34 @@
 			font-size: 16px;
 			padding: 10px 16px;
 			border-width: 2px;
+		}
+	}
+
+	&.subscribe {
+		width: 260px; height: 160px; display: flex; align-items: center; justify-content: center; top: 50%; left: 0; transform: translate(-120%, -50%);
+
+		&.active {
+			 left: 50%; transform: translate(-50%, -50%);
+		}
+
+		.close-popup {
+			display: block; width: 20px; height: 20px; position: absolute; right: 5px; top: 5px;
+
+			&:before, &:after {
+				content: '';
+				display: block; width: 20px; height: 4px; position: absolute; left: 50%; top: 50%;
+				background: #f96868; border-radius: 10px;
+			}
+			&:before {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+			&:after {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+		}
+
+		p {
+			color: #161616; font-size: 16px; font-family: $m-r; line-height: 20px; text-align: center;
 		}
 	}
 }

@@ -69,7 +69,11 @@ class Popups extends Component {
 				</div>
 				<div className={popups.email ? "popup email active" : "popup email"}>
 					<a href="#" className="close-popup" onClick={this.closePopup}></a>
-					<EmailPopup />
+					<EmailPopup dispatch={dispatch} />
+				</div>
+				<div className={popups.subscribe ? "popup subscribe active" : "popup subscribe"}>
+					<a href="#" className="close-popup" onClick={this.closePopup}></a>
+					<p>Спасибо за подписку!</p>
 				</div>
 				<div className={popups.testi ? "popup testi-sended active" : "popup testi-sended"}>
 					<p>Ваш отзыв отправлен на модерацию. Спасибо!</p>

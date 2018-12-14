@@ -280,7 +280,7 @@
 			margin-right: 15px; padding: 10px; width: 250px;
 		}
 		@include respond-to(md) {
-			width: 200px;
+			width: 220px;
 		}
 		@include respond-to(sm) {
 			display: none;
@@ -298,6 +298,13 @@
 				span {
 					font-size: 14px; white-space: nowrap;
 				}
+			}
+		}
+
+		.range-input {
+			p {
+				color: #919191; font-size: 16px; font-family: $m-r; line-height: 20px;
+				position: absolute; right: 5px; top: 9px
 			}
 		}
 	}
@@ -421,13 +428,28 @@
 	.sort {
 		display: flex; align-items: center; margin-bottom: 25px;
 
+		@include respond-to(sm) {
+			flex-direction: column;
+		}
+
 		p, ul li button {
 			color: #232935; font-size: 14px; font-family: $os-r; line-height: 18px; text-transform: uppercase;
 			position: relative;
+
+			@include respond-to(md) {
+				font-size: 12px;
+			}
 		}
 
 		p {
 			margin-right: 15px;
+
+			@include respond-to(md) {
+				margin-right: 10px;
+			}
+			@include respond-to(sm) {
+				margin-right: 0; margin-bottom: 10px;
+			}
 		}
 
 		button {
@@ -438,7 +460,7 @@
 				padding-right: 15px;
 				&:after {
 					content: '';
-					display: block; position: absolute; right: 0; top: 5px;
+					display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
 					border-right: solid 4px transparent; border-left: solid 4px transparent;
 				}
 
@@ -458,13 +480,39 @@
 		ul {
 			display: flex; align-items: center;
 
+			@include respond-to(sm) {
+				flex-direction: column;
+			}
+
 			li {
-				margin-right: 20px; padding-right: 19px;
+				margin-right: 20px; padding-right: 19px; position: relative;
 				border-right: solid 1px #c2c2c2;
 
-				&:last-child {
-					margin-right: 0; padding-right: 0;
+				@include respond-to(md) {
+					margin-right: 10px; padding-right: 9px;
+				}
+				@include respond-to(sm) {
+					margin-right: 0; padding-right: 0; margin-bottom: 5px; padding-bottom: 6px;
 					border-right: none;
+				}
+
+				&:last-child {
+					margin-right: 0; padding-right: 0; margin-bottom: 0; padding-bottom: 0;
+					border-right: none;
+
+					&:after {
+						content: none;
+					}
+				}
+
+				&:after {
+					content: none;
+					display: block; width: 60px; height: 1px; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+					background: #c2c2c2;
+
+					@include respond-to(sm) {
+						content: '';
+					}
 				}
 			}
 		}
@@ -749,11 +797,8 @@
 					ul {
 						width: 50%; padding-right: 10px;
 
-						@include respond-to(md) {
-							width: 50%; margin-bottom: 10px;
-						}
 						@include respond-to(xs) {
-							width: 100%; padding-right: 0;
+							width: 100%; padding-right: 0; margin-bottom: 13px;
 						}
 
 						&:last-child {
@@ -768,13 +813,17 @@
 								font-size: 13px;
 							}
 							@include respond-to(xs) {
-								padding-left: 15px;
+								padding-left: 30px;
 							}
 
 							&:before {
 								content: '';
 								display: block; width: 21px; height: 21px; position: absolute; left: 0; top: -2px;
 								background: url('./img/check-circle.png') center center no-repeat;
+
+								@include respond-to(lg) {
+									top: -1px;
+								}
 							}
 
 							&:last-child {
@@ -982,7 +1031,7 @@
 
 	h3 {
 		color: #232935; font-size: 18px; font-family: $m-sb; line-height: 25px; text-transform: uppercase;
-		display: inline-block; margin-bottom: 15px;
+		display: inline; margin-bottom: 15px;
 	}
 
 	ol li, ul li, p {
@@ -1109,7 +1158,7 @@
 	}
 }
 .range-input {
-	display: block;
+	display: block; position: relative;
 
 	.line {
 		display: block; width: 100%; height: 4px; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
@@ -1139,7 +1188,14 @@
 }
 
 .testimonials {
-	margin: 0 -10px;
+
+	.masonry {
+		margin: 0 -10px;
+
+		@include respond-to(xs) {
+			margin: 0;
+		}
+	}
 
 	&.moderate {
 		display: flex; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;
@@ -1155,16 +1211,31 @@
 	}
 
 	header {
-		padding: 0 10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;
+		display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;
+
+		@include respond-to(sm) {
+			flex-direction: column; align-items: flex-start;
+		}
 	}
 
 	h2 {
 		color: #232935; font-size: 24px; font-family: $m-sb; line-height: 28px;
 		display: flex; align-items: center;
+
+		@include respond-to(sm) {
+			order: 1; flex-direction: column; align-items: flex-start;
+		}
+		@include respond-to(xs) {
+			font-size: 20px;
+		}
 	}
 
 	.rating {
 		display: flex; align-items: center; margin-left: 15px;
+
+		@include respond-to(sm) {
+			margin-left: 0; margin-top: 5px;
+		}
 
 		ul {
 			display: flex; align-items: center; margin-right: 10px;
@@ -1194,6 +1265,10 @@
 	figure {
 		max-height: 300px; max-width: 300px;
 
+		@include respond-to(sm) {
+			order: 0; margin-bottom: 10px;
+		}
+
 		img {
 			max-width: 100%; max-height: 100%;
 		}
@@ -1203,6 +1278,19 @@
 .testi {
 	width: calc(33.33333% - 20px); margin: 10px; position: relative;
 	background: #ffffff; border: solid 1px #e2e2e2;
+
+	@include respond-to(md) {
+		width: calc(50% - 20px);
+	}
+	@include respond-to(xs) {
+		width: 100%; margin: 0 0 10px;
+	}
+
+	&:last-child {
+		@include respond-to(xs) {
+			margin-bottom: 0;
+		}
+	}
 
 	.delete-testi {
 		color: #f96868; font-size: 16px;
@@ -1219,17 +1307,33 @@
 		&-left, &-right {
 			color: #c2c2c2; font-size: 24px;
 			position: absolute;
+
+			@include respond-to(xs) {
+				font-size: 16px;
+			}
 		}
 		&-left {
 			left: 19px; top: 19px;
+
+			@include respond-to(xs) {
+				left: 8px; top: 8px;
+			}
 		}
 		&-right {
 			right: 19px; bottom: 19px;
+
+			@include respond-to(xs) {
+				right: 8px; bottom: 8px;
+			}
 		}
 	}
 
 	div {
 		position: relative; padding: 40px 60px 35px;
+
+		@include respond-to(xs) {
+			padding: 20px 40px;
+		}
 
 		.moderate & {
 			padding: 20px 19px;
@@ -1268,12 +1372,24 @@
 		display: flex; align-items: center; justify-content: space-between; padding: 15px 19px;
 		border-top: solid 1px #e2e2e2;
 
+		@include respond-to(sm) {
+			flex-direction: column;
+		}
+
 		p {
 			color: #232935; font-size: 16px; font-family: $m-sb; line-height: 22px; text-transform: uppercase;
+
+			@include respond-to(sm) {
+				font-size: 14px; order: 1;
+			}
 		}
 
 		ul {
 			display: flex; align-items: center;
+
+			@include respond-to(sm) {
+				order: 0; margin-bottom: 2px;
+			}
 
 			li {
 				margin-right: 2px;
@@ -1291,7 +1407,7 @@
 }
 
 .leave-testi {
-	padding: 40px 10px 0;
+	padding: 40px 0px 0;
 
 	h2 {
 		color: #232935; font-size: 24px; font-family: $m-r; line-height: 30px;
@@ -1317,6 +1433,10 @@
 
 			&-input {
 				width: calc(50% - 10px);
+
+				@include respond-to(xs) {
+					width: 100%;
+				}
 			}
 
 			&-textarea {
@@ -1352,6 +1472,10 @@
 		display: block; padding: 10px 16px;
 		background: #f96868; border: solid 1px #f96868; border-radius: 5px;
 		cursor: pointer;
+
+		@include respond-to(xs) {
+			width: 100%;
+		}
 
 		&:hover {
 			color: #f96868;

@@ -3,10 +3,11 @@ import React, {Component} from 'react'
 import SearchModule from './SearchModule'
 import CheckboxFilter from './CheckboxFilter'
 import RadioFilter from './RadioFilter'
+import RangeInput from './RangeInput'
 
 import {changeFilter, sendEvent} from '../actions'
 
-function mfoFilters(filters, handleChange, total, place, actual) {
+function mfoFilters(filters, handleChange, total, place, actual, counter) {
 	return (
 		<div>
 			<p>Всего микрозаймов: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
@@ -18,6 +19,12 @@ function mfoFilters(filters, handleChange, total, place, actual) {
 					value={filters.special_offers}
 					actual={actual.special_offers || null}
 					onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Сколько нужно?" name="summ_value" onChange={handleChange}>
+				<RangeInput key={counter.summ_value} name="summ_value" label="(Руб.)" start={100} end={1000000} step={100} onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="На какой срок?" name="term_value" onChange={handleChange}>
+				<RangeInput key={counter.term_value} name="term_value" label="(Дней)" start={1} end={500} step={1} onChange={handleChange} />
 			</SearchModule>
 			{/*<SearchModule title="Сумма выдачи" name="summ" onChange={handleChange}>
 				<CheckboxFilter name="summ"
@@ -163,7 +170,7 @@ function mfoFilters(filters, handleChange, total, place, actual) {
 	)
 }
 
-function cardsFilters(filters, handleChange, total, place, actual) {
+function cardsFilters(filters, handleChange, total, place, actual, counter) {
 	return (
 		<div>
 			<p>Всего карт: <strong>{total}</strong><br/>Найдено в: <strong>{place}</strong></p>
@@ -176,6 +183,12 @@ function cardsFilters(filters, handleChange, total, place, actual) {
 					value={filters.payment_system}
 					actual={actual.payment_system || null}
 					onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Кредитный лимит" name="limit_value" onChange={handleChange}>
+				<RangeInput key={counter.limit_value} name="limit_value" label="(Руб.)" start={100} end={1000000} step={100} onChange={handleChange} />
+			</SearchModule>
+			<SearchModule title="Процентная ставка" name="rate_value" onChange={handleChange}>
+				<RangeInput key={counter.rate_value} name="rate_value" label="(Проценты)" start={1} end={100} step={1} onChange={handleChange} />
 			</SearchModule>
 			{/*<SearchModule title="Срок действия карты" name="validity" onChange={handleChange}>
 				<CheckboxFilter name="validity"
@@ -344,10 +357,23 @@ class Sidebar extends Component {
 		super(props)
 
 		this.handleChange = this.handleChange.bind(this)
+
+		this.state = {
+			summ_value: 1,
+			term_value: 1,
+			limit_value: 1,
+			rate_value: 1
+		}
 	}
 
 	handleChange(name, value) {
 		const {dispatch} = this.props
+
+		if(this.state[name] && value === null) {
+			this.setState(prev => ({
+				[name]: prev[name]+1
+			}))
+		}
 
 		dispatch(changeFilter(name, value))
 		dispatch(sendEvent({
@@ -366,9 +392,9 @@ class Sidebar extends Component {
 
 		switch(url) {
 			case 'mfo':
-				return mfoFilters(filters, this.handleChange, total, place, actual)
+				return mfoFilters(filters, this.handleChange, total, place, actual, this.state)
 			case 'cards':
-				return cardsFilters(filters, this.handleChange, total, place, actual)
+				return cardsFilters(filters, this.handleChange, total, place, actual, this.state)
 			default:
 				return false
 		}

@@ -13,12 +13,19 @@ class RangeInput extends Component {
 
   calcValue(event) {
     const {start, end, step} = this.props
+    const minp = 0
+    const maxp = 1
+    const minv = Math.log(start)
+    const maxv = Math.log(end)
+    const scale = (maxv-minv) / (maxp-minp)
     const elemWidth = this.range.clientWidth
     const left =  event.clientX - this.range.getBoundingClientRect().left
     const position = Math.max(0, Math.min(1, left / elemWidth))
-    const value = Math.round((start + (end-start)*position)/step)*step
 
-    return {position: (value - start)/(end-start), value}
+    const value = Math.round(Math.exp(minv + scale*(position-minp)))
+
+
+    return {position: (Math.log(value)-minv) / scale + minp, value}
   }
 
   handleStart = (event) => {
@@ -29,11 +36,14 @@ class RangeInput extends Component {
 
   handleEnd = (event) => {
     const { name, onChange } = this.props
+    const { isMoving } = this.state
 
-    this.setState({isMoving: false})
+    if(isMoving) {
+      this.setState({isMoving: false})
 
-    if(typeof onChange === 'function') {
-      onChange(name, this.state.value)
+      if(typeof onChange === 'function') {
+        onChange(name, this.state.value)
+      }
     }
   }
 
