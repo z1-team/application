@@ -13,15 +13,17 @@ class EditPopupRange extends Component {
   componentDidUpdate(prevProps, prevState) {
     const {valueFrom, valueTo} = this.state
     const {onChange, name} = this.props
+    const from = parseFloat(valueFrom) || 0
+    const to = parseFloat(valueTo) || 0
 
     if(typeof onChange === "function" &&  this.state !== prevState) {
-      onChange("filter_values", name, [valueFrom, valueTo])
+      onChange("filter_values", name, [from, to])
     }
   }
 
   handleChange = (event) => {
     const name = event.target.name
-    const value = parseInt(event.target.value)
+    const value = event.target.value
 
     this.setState({[name]: value})
   }
@@ -35,10 +37,10 @@ class EditPopupRange extends Component {
         <h3>{title}</h3>
         <ul>
           <li>
-            <label>От: <input onChange={this.handleChange} type="number" name="valueFrom" value={valueFrom} /></label>
+            <label>От: <input onChange={this.handleChange} type="text" name="valueFrom" value={valueFrom} /></label>
           </li>
           <li>
-            <label>До: <input onChange={this.handleChange} type="number" name="valueTo" value={valueTo} /></label>
+            <label>До: <input onChange={this.handleChange} type="text" name="valueTo" value={valueTo} /></label>
           </li>
         </ul>
       </div>
