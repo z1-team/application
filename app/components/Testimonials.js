@@ -88,7 +88,7 @@ class Testimonials extends Component {
                 </div>
               </h2>
               <figure>
-                <img src={partner && `/${partner.main.logo}`}/>
+                <img src={partner && partner.main.logo}/>
               </figure>
             </header>
             {testimonials.data.length ?

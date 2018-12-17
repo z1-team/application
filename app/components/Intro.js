@@ -14,7 +14,7 @@ import { resetSortPartner } from '../actions'
 
 const mapStateToProps = ({session}) => ({
   keyword: session.query && session.query.utm_term ?
-    session.query.utm_term : 'Займ'
+    session.query.utm_term : 'где занять денег'
 })
 
 class Intro extends Component {
@@ -48,8 +48,8 @@ class Intro extends Component {
 			case "/mfo":
 				return (
 					<section>
-						<h1>Ищите <strong>{keyword}</strong>?</h1>
-						<h2>Быстро. Надежно. Онлайн</h2>
+						<h1>Ищите <strong>{keyword}</strong> ?</h1>
+						<h2>Мы отобрали лучшие предложения.</h2>
 					</section>
 				)
 			case "/cards":

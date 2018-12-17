@@ -215,7 +215,7 @@
 	}
 
 	h1 {
-		font-size: 70px; line-height: 80px;
+		font-size: 60px; line-height: 80px;
 
 		@include respond-to(md) {
 			font-size: 54px; line-height: 74px;
@@ -239,11 +239,11 @@
 	}
 
 	h2 {
-		font-size: 65px; line-height: 80px;
+		font-size: 46px; line-height: 80px;
 		margin-top: 11px; position: relative;
 
 		@include respond-to(md) {
-			font-size: 46px; line-height: 74px;
+			font-size: 40px; line-height: 74px;
 		}
 		@include respond-to(sm) {
 			font-size: 32px; line-height: 52px;
@@ -413,9 +413,12 @@
 .results {
 
 	h2 {
-		color: #232935; font-size: 24px; font-family: $m-sb; line-height: 28px; text-align: center;
+		color: #232935; font-size: 24px; font-family: $m-sb; line-height: 28px;
 		margin-bottom: 35px;
 
+		@include respond-to(sm) {
+			text-align: center;
+		}
 		@include respond-to(xs) {
 			font-size: 22px;
 		}
@@ -429,7 +432,7 @@
 		display: flex; align-items: center; margin-bottom: 25px;
 
 		@include respond-to(sm) {
-			flex-direction: column;
+			flex-direction: column; display: none;
 		}
 
 		p, ul li button {
@@ -437,7 +440,7 @@
 			position: relative;
 
 			@include respond-to(md) {
-				font-size: 12px;
+				font-size: 12px; text-transform: none;
 			}
 		}
 
@@ -546,7 +549,7 @@
 			}
 
 			& > section {
-				display: flex; align-items: flex-start; justify-content: space-between; padding: 23px 31px 30px 23px;
+				display: flex; align-items: center; justify-content: space-between; padding: 23px 31px 30px 23px;
 
 				@include respond-to(lg) {
 					padding: 20px 15px;
@@ -841,7 +844,7 @@
 					display: flex; align-items: center; justify-content: space-between;
 
 					li {
-						color: #f96868; font-size: 14px; font-family: $os-r; line-height: 20px;
+						color: #f96868; font-size: 14px; font-family: $os-b; line-height: 20px;
 
 						button {
 							color: #484848; text-transform: uppercase;

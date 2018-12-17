@@ -68,8 +68,8 @@
 	}
 
 	.categories-button {
-		color: #fff; font-size: 16px; font-family: $m-sb; line-height: 26px; text-align: center;
-		position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; display: none;
+		color: #fff; font-size: 16px; font-family: $m-sb; line-height: 26px; text-align: center; text-transform: uppercase;
+		position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; display: none;
 		background: #f96868; border: solid 2px #f96868; box-shadow: 0 0 5px 0px rgba(0,0,0,0.5);
 
 		&:hover {
