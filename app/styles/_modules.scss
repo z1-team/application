@@ -540,6 +540,7 @@
 			margin: 0 auto 22px; max-width: 880px; width: 100%; position: relative;
 			border: solid 1px #e2e2e2;
 			overflow: hidden;
+			animation: showCards 0.5s ease-out 1;
 
 			@include respond-to(lg) {
 				max-width: 780px;

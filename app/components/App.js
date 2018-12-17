@@ -18,7 +18,7 @@ import UsefullInfo from './UsefullInfo'
 //
 import Footer from './Footer'
 import PopupsController from './PopupsController'
-import {closePopup, fetchPartners} from '../actions'
+import {openPopup, closePopup, fetchPartners} from '../actions'
 
 const mapStateToProps = ({popups}) => ({
   isCategoriesOpen: popups.categories
@@ -28,11 +28,17 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 
+    this.state = {
+      emailShowed: false
+    }
+
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
-	componentDidMount(){
+  componentDidMount(){
     const {dispatch} = this.props
+    const {emailShowed} = this.state
+
 		const ele = document.getElementById('preloader')
 		if(ele){
 			setTimeout(() => {
@@ -44,11 +50,23 @@ class App extends Component {
 			}, 2500)
 			setTimeout(() => {
 				ele.outerHTML = ''
-			}, 3300)
+      }, 3300)
+      setTimeout(() => {
+        if(!emailShowed) {
+          dispatch(openPopup("email"))
+          this.setState({emailShowed: true})
+        }
+			}, 15000)
 		}
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
-	}
+
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 
 	handleKeyDown(event) {
 		const {dispatch} = this.props
@@ -57,6 +75,24 @@ class App extends Component {
 			dispatch(closePopup())
 		}
 	}
+
+  handleScroll = (event) => {
+    const {emailShowed} = this.state
+    const {dispatch} = this.props
+
+    if(!emailShowed) {
+      let scrollTop = document.documentElement.scrollTop
+      let windowHiehgt = window.innerHeight
+      let appHeight = document.getElementById('root').offsetHeight
+      let footer = document.getElementsByClassName('wr-footer')[0].offsetHeight + document.getElementsByClassName('wr-usefull-info')[0].offsetHeight
+      let itemTranslate = Math.min(0, scrollTop/3 - 60)
+
+      if((appHeight - windowHiehgt - footer - scrollTop) <= 0) {
+        dispatch(openPopup("email"))
+        this.setState({emailShowed: true})
+      }
+    }
+  }
 
 	render() {
     const {isCategoriesOpen} = this.props
