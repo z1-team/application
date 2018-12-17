@@ -356,7 +356,6 @@ class EditPopup extends Component {
   handleChange(type, field, value) {
     this.changes[type][field] = value
     this.setState({changed: true})
-    console.log(type, field, value)
   }
 
   handleSave(event) {

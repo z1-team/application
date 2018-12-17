@@ -34,30 +34,8 @@ const mfo = {
     "creditHistoryImprovement": "",
     "smsInfo": ""
   },
-  "categories": {
-    "badCreditHistory": false,
-    "online": false,
-    "fast": false,
-    "instantApprove": false,
-    "urgently": false,
-    "express": false,
-    "DaN": false,
-    "inCash": false,
-    "instant": false,
-    "accordingPassport": false,
-    "toPaycheck": false,
-    "longTerm": false,
-    "withoutFailure": false,
-    "withoutGuarantors": false,
-    "forStudents": false,
-    "forPensioners": false,
-    "noInterest": false,
-    "from18Years": false,
-    "unemployed": false,
-    "withoutPassport": false,
-    "noCreditHistory": false
-  },
   "filters": {
+    "category_mfo": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     "special_offers": [false, false],
     "summ": [false, false, false, false, false, false, false],
     "review_time": [false, false, false, false],
@@ -68,6 +46,10 @@ const mfo = {
     "repayment_options": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     "age": [false, false, false, false, false],
     "mob_app": [false, false]
+  },
+  filter_values: {
+    "summ": [1, 9999999],
+    "term": [1, 999]
   },
   "sortBy": {
     "summ": 0,
@@ -115,38 +97,8 @@ const cards = {
     "application": "",
     "internetBank": ""
   },
-  "categories": {
-    "alfaBank": false,
-    "tinkoff": false,
-    "bestCards": false,
-    "mostProfitable": false,
-    "dayOfTreatment": false,
-    "withoutInterest": false,
-    "urgent": false,
-    "withoutFailure": false,
-    "withoutReferences": false,
-    "deliveryPlace": false,
-    "withoutAnnualService": false,
-    "withoutIncomeProof": false,
-    "withoutCreditHistory": false,
-    "forPensioners": false,
-    "forStudents": false,
-    "unemployed": false,
-    "interestFreePeriod": false,
-    "cashback": false,
-    "instant": false,
-    "forCashWithdrawals": false,
-    "virtual": false,
-    "applePay": false,
-    "samsungPay": false,
-    "in5Minutes": false,
-    "in15Minutes": false,
-    "in30Minutes": false,
-    "visa": false,
-    "masterCard": false,
-    "mir": false
-  },
   "filters": {
+    "category_cards": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     "payment_system": [false, false, false],
     "validity": [false, false, false, false],
     "limits": [false, false, false, false, false],
@@ -160,6 +112,10 @@ const cards = {
     "chip_availability": [false, false],
     "secure_3d": [false, false],
     "mob_app": [false, false]
+  },
+  filter_values: {
+    "limit": [1, 999999],
+    "rate": [1, 999]
   },
   "sortBy": {
     "limit": 0,

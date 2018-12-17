@@ -30,13 +30,13 @@ class EditPopupSort extends Component {
 
   handleChange = (event) => {
     const sortBy = event.target.name
-    const value = parseInt(event.target.value)
+    const value = event.target.value
     const { onChange } = this.props
 
     this.setState({[sortBy]: value})
 
     if(typeof onChange === 'function'){
-      onChange("sortBy", sortBy, value)
+      onChange("sortBy", sortBy, parseFloat(value))
     }
   }
 
@@ -49,7 +49,7 @@ class EditPopupSort extends Component {
           {Object.getOwnPropertyNames(sortInfo).filter(filter => filter !== "rating" && filter !== "testimonials_count").map((id) => (
               <li key={id}>
                 <label>{this.defaultSort(id)}:
-                  <input type="number" name={id} onChange={this.handleChange} value={sortInfo[id]} />
+                  <input type="text" name={id} onChange={this.handleChange} value={sortInfo[id]} />
                 </label>
               </li>
           ))}
