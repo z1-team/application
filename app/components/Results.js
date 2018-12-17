@@ -52,7 +52,6 @@ class Results extends Component {
 			<div className="results" id="results">
 				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
 				<ResultsSort url={url} dispatch={dispatch} sortInfo={sortInfo} />
-				<ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} />
 				<CardList url={url} tail={tail} partners={partners} cards={this.selectCards()} isLoggedIn={isLoggedIn} dispatch={dispatch} />
 				<ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} />
 			</div>
