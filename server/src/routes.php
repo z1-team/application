@@ -18,6 +18,20 @@ $guard = function ($request, $response, $next) {
 
 $app->get('/api/v1/test/{client}', ABTestController::class . ':test');
 
+$app->post('/api/v1/subscribe', function (Request $request, Response $response, array $args) {
+  $parsedBody = $request->getParsedBody();
+  $sql = 'INSERT INTO subscribers (email, client_id) VALUE (?, ?)';
+  $config = $this->settings['db'];
+  try {
+    $db = new PDO($config['dsn'], $config['user'], $config['password']);
+  } catch (PDOException $e) {
+    echo 'Подключение не удалось: ' . $e->getMessage();
+  }
+  $sth = $db->prepare($sql);
+  $status = $sth->execute([$parsedBody['email'], $parsedBody['client_id'] || NULL]);
+  return $response->withJson(['status' => $status])->withHeader('Access-Control-Allow-Origin', '*');
+});
+
 $app->post('/api/v1/event', function (Request $request, Response $response, array $args) {
   $config = new Config(
     ['host' => '140.82.39.71', 'port' => '8123', 'protocol' => 'http'],
