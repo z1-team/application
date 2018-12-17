@@ -16,6 +16,8 @@ $guard = function ($request, $response, $next) {
   }
 };
 
+$app->post('/api/v1/test/{client}', ABTestController::class . ':test');
+
 $app->post('/api/v1/event', function (Request $request, Response $response, array $args) {
   $config = new Config(
     ['host' => '140.82.39.71', 'port' => '8123', 'protocol' => 'http'],

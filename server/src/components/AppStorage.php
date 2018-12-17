@@ -22,10 +22,10 @@ class AppStorage
     }
     // Инициализируем ClickHouse
     $clickHouseConfig = new Config($cs[0], $cs[1], $cs[2]);
-    $clickHouseDB = new Client($config);
+    $clickHouseDB = new Client($clickHouseConfig);
     // Подключаем хранилища
-    $this->tests = new TestsStorage($db);
-    $this->client = new ClientsStorage($db, $clickHouseDB);
-    $this->groups = new GroupsStorage($db);
+    $this->tests = new TestsStorage($localDB);
+    $this->client = new ClientsStorage($localDB, $clickHouseDB);
+    $this->groups = new GroupsStorage($localDB);
   }
 }
