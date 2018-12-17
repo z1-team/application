@@ -11,10 +11,10 @@
 
 		&-intro {
 			padding: 96px 0 60px; position: relative;
-			background: url('./img/intro-bg.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+			background: url('./img/intro-bg.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed !important;
 
 			@include respond-to(sm) {
-					background-attachment: initial;
+					background-attachment: initial !important;
 			}
 
 			// &:before {
@@ -24,25 +24,25 @@
 			// }
 
 			&.cards {
-				background: url('./img/intro-bg-cards.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+				background: url('./img/intro-bg-cards.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed !important;
 
 				@include respond-to(sm) {
-					background-attachment: initial;
+					background-attachment: initial !important;
 				}
 			}
 
 			&.credits {
-				background: url('./img/intro-bg-credits.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+				background: url('./img/intro-bg-credits.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed !important;
 
 				@include respond-to(sm) {
-					background-attachment: initial;
+					background-attachment: initial !important;
 				}
 			}
 			&.inner {
-				background: url('./img/intro-bg-inner.jpg') center -170px no-repeat; background-size: cover; background-attachment: fixed;
+				background: url('./img/intro-bg-inner.jpg') center -170px no-repeat; background-size: cover; background-attachment: fixed !important;
 
 				@include respond-to(sm) {
-					background-attachment: initial;
+					background-attachment: initial !important;
 				}
 			}
 		}

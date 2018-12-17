@@ -303,7 +303,7 @@
 
 		.range-input {
 			p {
-				color: #919191; font-size: 16px; font-family: $m-r; line-height: 20px;
+				color: #919191; font-size: 12px; font-family: $m-r; line-height: 20px;
 				position: absolute; right: 5px; top: 9px
 			}
 		}
@@ -562,6 +562,11 @@
 					@include respond-to(lg) {
 						left: 50px; top: 50px;
 					}
+					@include respond-to(xs) {
+						font-style: normal;	font-variant: normal;	text-rendering: auto;
+						display: inline-block;
+						-moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
+					}
 				}
 
 				figure {
@@ -573,21 +578,37 @@
 			&.big_summ {
 				&:before {
 					content: 'На Большую Сумму';
+
+					@include respond-to(xs) {
+						content: none;
+					}
 				}
 			}
 			&.long_term {
 				&:before {
 					content: 'На Долгий Период';
+
+					@include respond-to(xs) {
+						content: none;
+					}
 				}
 			}
 			&.quick_solution {
 				&:before {
 					content: 'Быстрое Решение';
+
+					@include respond-to(xs) {
+						content: none;
+					}
 				}
 			}
 			&.recommend {
 				&:before {
 					content: 'Рекомендуют';
+
+					@include respond-to(xs) {
+						content: none;
+					}
 				}
 			}
 

@@ -21,7 +21,7 @@ function mfoFilters(filters, handleChange, total, place, actual, counter) {
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Сколько нужно?" name="summ_value" onChange={handleChange}>
-				<RangeInput key={counter.summ_value} name="summ_value" label="(Руб.)" start={100} end={1000000} step={100} onChange={handleChange} />
+				<RangeInput key={counter.summ_value} name="summ_value" label="(Руб.)" start={100} end={200000} step={100} onChange={handleChange} eStep="true" />
 			</SearchModule>
 			<SearchModule title="На какой срок?" name="term_value" onChange={handleChange}>
 				<RangeInput key={counter.term_value} name="term_value" label="(Дней)" start={1} end={500} step={1} onChange={handleChange} />
@@ -185,7 +185,7 @@ function cardsFilters(filters, handleChange, total, place, actual, counter) {
 					onChange={handleChange} />
 			</SearchModule>
 			<SearchModule title="Кредитный лимит" name="limit_value" onChange={handleChange}>
-				<RangeInput key={counter.limit_value} name="limit_value" label="(Руб.)" start={100} end={1000000} step={100} onChange={handleChange} />
+				<RangeInput key={counter.limit_value} name="limit_value" label="(Руб.)" start={100} end={1000000} step={100} onChange={handleChange} eStep="true" />
 			</SearchModule>
 			<SearchModule title="Процентная ставка" name="rate_value" onChange={handleChange}>
 				<RangeInput key={counter.rate_value} name="rate_value" label="(Проценты)" start={1} end={100} step={1} onChange={handleChange} />
