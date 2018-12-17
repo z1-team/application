@@ -377,9 +377,26 @@ export function fetchTestimonials(target, id = 1) {
 }
 
 export function subscribeEmail(email) {
-  console.log(email)
-  return (dispatch) => {
+  const url = location.hostname === 'localhost' ?
+    `http://localhost:8080/api/v1/subscribe` : '/api/v1/subscribe'
+  return (dispatch, getState) => {
+    const client_id = getState().session.client_id || null
     dispatch({type: EMAIL_SEND, status: 1})
-    dispatch({type: EMAIL_SEND, status: 2})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: queryString.stringify({
+        email, client_id
+      })
+    }).then((responce) => {
+      if (responce.ok) {
+        return responce.json()
+      }
+    }).then((data) => {
+      dispatch({type: EMAIL_SEND, status: 2})
+    })
+    .catch(console.log)
   }
 }
