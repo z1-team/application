@@ -29,7 +29,7 @@ class App extends Component {
 		super(props)
 
     this.state = {
-      emailShowed: false
+      emailShowed: localStorage.getItem("subscribed") || false
     }
 
 		this.handleKeyDown = this.handleKeyDown.bind(this)
@@ -37,7 +37,6 @@ class App extends Component {
 
   componentDidMount(){
     const {dispatch} = this.props
-    const {emailShowed} = this.state
 
 		const ele = document.getElementById('preloader')
 		if(ele){
@@ -52,7 +51,7 @@ class App extends Component {
 				ele.outerHTML = ''
       }, 3300)
       setTimeout(() => {
-        if(!emailShowed) {
+        if(!this.state.emailShowed) {
           dispatch(openPopup("email"))
           this.setState({emailShowed: true})
         }

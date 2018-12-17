@@ -35,7 +35,7 @@ class ClientsStorage
 
   public function assignValue($test, $group, $extra)
   {
-    if (strcmp($test, 'bannerPictures') === 0) {
+    if (strcmp($test, 'bannerPictures') === 0 && $extra['banner'] !== NULL) {
       if (strcmp($group, 'g0') === 0) {
         return $extra['banner'];
       } else {
@@ -43,7 +43,7 @@ class ClientsStorage
         return $static[random_int(0, 1)];
       }
     } else {
-      return 'unknown';
+      return false;
     }
   }
 
@@ -82,12 +82,14 @@ class ClientsStorage
     if ($groups) {
       $group = $this->findLightest($groups);
       $value = $this->assignValue($test, $group, $extra);
-      $this->saveClient([
-        'id' => $client,
-        'test' => $test,
-        'group' => $group,
-        'value' => $value
-      ]);
+      if ($value) {
+        $this->saveClient([
+          'id' => $client,
+          'test' => $test,
+          'group' => $group,
+          'value' => $value
+        ]);
+      }
       return $this->findValue($value);
     } else {
       return 'assign_error';

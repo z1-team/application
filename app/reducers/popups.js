@@ -25,7 +25,7 @@ function popupsReducer(state = initialState, action) {
     case PARTNER_CREATE:
       return {...state, edit: true}
     case EMAIL_SEND:
-      return action.status === 1 ? {...state, email: false, subscribe: true} : state
+      return action.status === 2 ? {...state, email: false, subscribe: true} : state
     default:
       return state
   }

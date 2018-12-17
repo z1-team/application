@@ -79,23 +79,23 @@ function detectBanner(session) {
 
 function fetchABTest(session, clientId) {
   const banner = detectBanner(session)
+  const banner_ = banner ? `?banner=${banner}` : ''
   const url = location.hostname === 'localhost' ?
-    `http://localhost:8080/api/v1/test/${clientId}?banner=${banner}`
-    : `/api/v1/test/${clientId}?banner=${banner}`
+    `http://localhost:8080/api/v1/test/${clientId}${banner_}`
+    : `/api/v1/test/${clientId}${banner_}`
   return (dispatch) => {
     dispatch({type: ABTEST_FETCH, status: 1})
-    if (banner) {
-      fetch(url).then((response) => {
-        if (response.status >= 400) {
-          throw new Error('Bad response from server')
-        }
-        return response.json()
-      }).then((data) => {
-        dispatch({type: ABTEST_FETCH, status: 2, data})
-      }).catch((error) => {
-        dispatch({type: ABTEST_FETCH, status: 3, error})
-      })
-    }
+    fetch(url).then((response) => {
+      if (response.status >= 400) {
+        throw new Error('Bad response from server')
+      }
+      return response.json()
+    }).then((data) => {
+      dispatch({type: ABTEST_FETCH, status: 2, data})
+      localStorage.setItem('abTests', JSON.stringify(data))
+    }).catch((error) => {
+      dispatch({type: ABTEST_FETCH, status: 3, error})
+    })
   }
 }
 
@@ -163,6 +163,8 @@ export function sendEvent(event) {
 }
 
 export function initSession() {
+  const abTests = localStorage.getItem('abTests')
+  
   function getUserId() {
     const saved = localStorage.getItem('user_id')
     if (!saved) {
@@ -180,6 +182,10 @@ export function initSession() {
         place: 'Москва'
       },
       browser: detect() || 'unknown'
+    }
+
+    if(abTests) {
+      session.abTests = JSON.parse(abTests)
     }
 
     dispatch({type: SESSION_INIT, session})
@@ -396,6 +402,7 @@ export function subscribeEmail(email) {
       }
     }).then((data) => {
       dispatch({type: EMAIL_SEND, status: 2})
+      localStorage.setItem("subscribed", true)
     })
     .catch(console.log)
   }
