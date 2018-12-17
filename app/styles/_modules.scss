@@ -303,7 +303,7 @@
 
 		.range-input {
 			p {
-				color: #919191; font-size: 16px; font-family: $m-r; line-height: 20px;
+				color: #919191; font-size: 12px; font-family: $m-r; line-height: 20px;
 				position: absolute; right: 5px; top: 9px
 			}
 		}
@@ -539,6 +539,8 @@
 		.result-item {
 			margin: 0 auto 22px; max-width: 880px; width: 100%; position: relative;
 			border: solid 1px #e2e2e2;
+			overflow: hidden;
+			animation: showCards 0.5s ease-out 1;
 
 			@include respond-to(lg) {
 				max-width: 780px;
@@ -546,6 +548,69 @@
 
 			&:last-child {
 				margin-bottom: 0;
+			}
+
+			&.big_summ,
+			&.long_term,
+			&.quick_solution,
+			&.recommend {
+				&:before {
+					content: '';
+					color: #fff; font-size: 10px; font-family: $m-sb; line-height: 20px; text-transform: uppercase; text-align: center;
+					display: block; width: 400px; height: 20px; position: absolute; left: 60px; top: 60px; transform: translate(-50%, -50%) rotate(-45deg);
+					background: #f96868;
+
+					@include respond-to(lg) {
+						left: 50px; top: 50px;
+					}
+					@include respond-to(xs) {
+						font-style: normal;	font-variant: normal;	text-rendering: auto;
+						display: inline-block;
+						-moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
+					}
+				}
+
+				figure {
+					@include respond-to(md) {
+						padding-left: 60px; width: 230px;
+					}
+				}
+			}
+			&.big_summ {
+				&:before {
+					content: 'На Большую Сумму';
+
+					@include respond-to(xs) {
+						content: none;
+					}
+				}
+			}
+			&.long_term {
+				&:before {
+					content: 'На Долгий Период';
+
+					@include respond-to(xs) {
+						content: none;
+					}
+				}
+			}
+			&.quick_solution {
+				&:before {
+					content: 'Быстрое Решение';
+
+					@include respond-to(xs) {
+						content: none;
+					}
+				}
+			}
+			&.recommend {
+				&:before {
+					content: 'Рекомендуют';
+
+					@include respond-to(xs) {
+						content: none;
+					}
+				}
 			}
 
 			& > section {

@@ -82,7 +82,7 @@ class Card extends Component {
       if(get_ways) {
         return get_ways.map((item, index) => (
           item ? getWays[index] : false
-        )).filter(i => i !== false)
+        )).filter(i => i)
       }
 
       return false
@@ -157,7 +157,7 @@ class Card extends Component {
             {this.getWays() && this.repaymentOptions() &&
               <ul className="options">
                 <li>Способы получения: <span>{this.getWays().map(item => (<i key={item} className={`icon ${item}`}></i>))}</span></li>
-                <li>Способы погашения: <span>{this.repaymentOptions().map(item => (<i key={item} className={`icon ${item}`}></i>))}</span></li>
+                {/* <li>Способы погашения: <span>{this.repaymentOptions().map(item => (<i key={item} className={`icon ${item}`}></i>))}</span></li> */}
               </ul>
             }
           </div>

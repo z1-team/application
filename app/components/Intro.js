@@ -14,7 +14,8 @@ import { resetSortPartner } from '../actions'
 
 const mapStateToProps = ({session}) => ({
   keyword: session.query && session.query.utm_term ?
-    session.query.utm_term : 'где занять денег'
+   session.query.utm_term : 'где занять денег',
+  abTests: session.abTests || {}
 })
 
 class Intro extends Component {
@@ -79,18 +80,21 @@ class Intro extends Component {
         pathname: '/mfo',
         search
       }}/>
-		}
-	}
+    }
+  }
 
-	render() {
-		const { match, location, history } = this.props;
-		const url = location.pathname
+  render() {
+    const { match, location, history, abTests } = this.props;
+    const url = location.pathname
+    const styles = {
+      backgroundImage: 'url(' + abTests.bannerPictures + ')'
+    }
 
-		return (
-			<div className={this.getBackground()}>
-				{this.renderRedirect()}
-				<div className="container">
-					<div className="intro">
+    return (
+      <div className={this.getBackground()} style={abTests.bannerPictures && styles}>
+        {this.renderRedirect()}
+        <div className="container">
+          <div className="intro">
 						<header>
 							<figure>
 								<img src="/img/logo.png" />
