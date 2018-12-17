@@ -24,6 +24,7 @@ export const TESTIMONIAL_DELETE = 'TESTIMONIAL_DELETE'
 export const TESTIMONIAL_PUBLIC = 'TESTIMONIAL_PUBLIC'
 export const TESTIMONIAL_FETCH = 'TESTIMONIAL_FETCH'
 export const EMAIL_SEND = 'EMAIL_SEND'
+export const ABTEST_FETCH = 'ABTEST_FETCH'
 
 function getDateTime() {
   const date = new Date()
@@ -52,6 +53,51 @@ export const changePage = (page) => ({type: PAGE_CHANGE, page})
 
 export const openPopup = (name) => ({type: POPUP_OPEN, name})
 export const closePopup = () => ({type: POPUP_CLOSE})
+
+const bannerId = {
+  mw_all: 'bg0',
+  m_all: 'bg1',
+  w_all: 'bg6',
+  m_18: 'bg2',
+  m_25: 'bg3',
+  m_35: 'bg4',
+  m_45: 'bg5',
+  w_18: 'bg7',
+  w_25: 'bg8',
+  w_35: 'bg9',
+  w_45: 'bg10'
+}
+
+function detectBanner(session) {
+  if (session.query && session.query.utm_img) {
+    const image = session.query.utm_img
+    return bannerId[image] || false
+  } else {
+    return false
+  }
+}
+
+function fetchABTest(session, clientId) {
+  const banner = detectBanner(session)
+  const url = location.hostname === 'localhost' ?
+    `http://localhost:8080/api/v1/test/${clientId}?banner=${banner}`
+    : `/api/v1/test/${clientId}?banner=${banner}`
+  return (dispatch) => {
+    dispatch({type: ABTEST_FETCH, status: 1})
+    if (banner) {
+      fetch(url).then((response) => {
+        if (response.status >= 400) {
+          throw new Error('Bad response from server')
+        }
+        return response.json()
+      }).then((data) => {
+        dispatch({type: ABTEST_FETCH, status: 2, data})
+      }).catch((error) => {
+        dispatch({type: ABTEST_FETCH, status: 3, error})
+      })
+    }
+  }
+}
 
 export function fetchPartners() {
   const url = location.hostname === 'localhost' ?
@@ -144,6 +190,7 @@ export function initSession() {
     });
     document.addEventListener('yacounter50978069inited', () => {
       const client_id = yaCounter50978069.getClientID()
+      dispatch(fetchABTest(session, client_id))
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
       dispatch(sendEvent({
         type: 'enter_landing',

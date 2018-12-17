@@ -16,7 +16,7 @@ $guard = function ($request, $response, $next) {
   }
 };
 
-$app->post('/api/v1/test/{client}', ABTestController::class . ':test');
+$app->get('/api/v1/test/{client}', ABTestController::class . ':test');
 
 $app->post('/api/v1/event', function (Request $request, Response $response, array $args) {
   $config = new Config(
