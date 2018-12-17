@@ -11,7 +11,11 @@
 
 		&-intro {
 			padding: 96px 0 60px; position: relative;
-			background: url('./img/intro-bg.jpg') center bottom no-repeat; background-size: cover;
+			background: url('./img/intro-bg.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+
+			@include respond-to(sm) {
+					background-attachment: initial;
+			}
 
 			// &:before {
 			// 	content: '';
@@ -21,13 +25,25 @@
 
 			&.cards {
 				background: url('./img/intro-bg-cards.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+
+				@include respond-to(sm) {
+					background-attachment: initial;
+				}
 			}
 
 			&.credits {
 				background: url('./img/intro-bg-credits.jpg') center bottom no-repeat; background-size: cover; background-attachment: fixed;
+
+				@include respond-to(sm) {
+					background-attachment: initial;
+				}
 			}
 			&.inner {
 				background: url('./img/intro-bg-inner.jpg') center -170px no-repeat; background-size: cover; background-attachment: fixed;
+
+				@include respond-to(sm) {
+					background-attachment: initial;
+				}
 			}
 		}
 
