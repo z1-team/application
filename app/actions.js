@@ -198,6 +198,7 @@ export function initSession() {
     return saved
   }
   return (dispatch, getState) => {
+    let clientIdIsFetched = false
     const session = {
       query: queryString.parse(location.search),
       user_id: getUserId(),
@@ -219,6 +220,7 @@ export function initSession() {
     });
     document.addEventListener('yacounter50978069inited', () => {
       const client_id = yaCounter50978069.getClientID()
+      clientIdIsFetched = true
       console.log(new Date())
       dispatch(fetchABTest(session, client_id))
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
@@ -229,7 +231,7 @@ export function initSession() {
     })
     setTimeout(() => {
       const {done, loading} = getState().preloader
-      if (!done && !loading) {
+      if (!clientIdIsFetched && !done && !loading) {
         dispatch(preloadImages(['/img/intro-bg.jpg']))
       }
     }, 1000)
