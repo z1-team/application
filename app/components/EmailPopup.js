@@ -34,9 +34,9 @@ class EmailPopups extends Component {
 					<img src="/img/email-catcher.png"/>
 				</figure>
 				<form action="#" onSubmit={this.handleSubmit}>
-					<p>Подпишитесь чтобы активировать предложение</p>
+					<p>Вышлем спецпредложения от премиум-партнеров</p>
 					<input type="email" placeholder="Ваш email" onChange={this.handleChange} value={email} />
-					<button>Получить купон</button>
+					<button>Жду на почту</button>
 				</form>
 			</div>
 		)
