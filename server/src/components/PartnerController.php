@@ -78,8 +78,8 @@ class PartnerController
     $sql = 'DELETE FROM partners WHERE id = :id';
     $sth = $this->db->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     return $sth->execute([
-      'id' => $request['id']
-      ]) ? ['id' => $request['id']]
+      'id' => $id
+      ]) ? ['id' => $id]
       : ['error' => 'Deleting failed!'];
   }
 

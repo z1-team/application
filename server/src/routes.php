@@ -117,6 +117,7 @@ $app->delete('/api/v1/partners/{id}', function (Request $request, Response $resp
   $controller = new PartnerController($this->get('settings')['db']);
   $auth = new Auth($this->get('settings')['db']);
   $result = ['error' => 'unknown error'];
+  $body = $request->getParsedBody();
   $account = $auth->verifyToken($body['token']);
   if ($account && strcmp($account['role'], 'admin') === 0) {
     $result = $controller->delete($args['id']);
