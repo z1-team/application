@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
-import StickyBox from "react-sticky-box"
+import StickyBox from 'react-sticky-box'
 
 import CardList from './CardList'
 import queryString from 'query-string'
