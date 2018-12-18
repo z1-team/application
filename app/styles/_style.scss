@@ -34,11 +34,13 @@
 				}
 			}
 			&.inner {
-				background: url('./img/intro-bg-inner.jpg') center -170px no-repeat; background-size: cover;
+				// background: url('./img/intro-bg-inner.jpg') center -170px no-repeat; background-size: cover;
 
-				@include respond-to(sm) {
-					background-attachment: initial !important;
-				}
+				// @include respond-to(sm) {
+				// 	background-attachment: initial !important;
+				// }
+
+				background: none; min-height: 160px; padding-bottom: 0;
 			}
 		}
 
