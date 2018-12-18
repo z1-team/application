@@ -189,19 +189,20 @@ const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
     isLoggedIn: auth.token !== null,
     filters,
     location: session.ip_info,
-    currentPage: partners.currentPage
+    currentPage: partners.currentPage,
+    cardsCount: partners.cardsCount
   }
 }
 
 class Main extends Component {
 	render() {
 		const {url, filters, cards, tail, isLoggedIn,
-       partners, dispatch, location, currentPage, actual, sortInfo} = this.props
+       partners, dispatch, location, currentPage, actual, sortInfo, cardsCount} = this.props
 		return (
 			<div className="wr-main">
         <div className="container">
           <div className="main">
-            <StickyBox offsetTop={50} offsetBottom={50}>
+            <StickyBox offsetTop={66} offsetBottom={20}>
               <Sidebar
                 url={url}
                 filters={filters}
@@ -218,7 +219,8 @@ class Main extends Component {
               isLoggedIn={isLoggedIn}
               dispatch={dispatch}
               currentPage={currentPage}
-              sortInfo={sortInfo} />
+              sortInfo={sortInfo}
+              cardsCount={cardsCount} />
           </div>
         </div>
 			</div>

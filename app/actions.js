@@ -26,6 +26,7 @@ export const TESTIMONIAL_FETCH = 'TESTIMONIAL_FETCH'
 export const EMAIL_SEND = 'EMAIL_SEND'
 export const ABTEST_FETCH = 'ABTEST_FETCH'
 export const IMAGES_PRELOAD = 'IMAGES_PRELOAD'
+export const CARDS_LOAD = 'CARDS_LOAD'
 
 function getDateTime() {
   const date = new Date()
@@ -439,3 +440,5 @@ export function subscribeEmail(email) {
     .catch(console.log)
   }
 }
+
+export const loadCards = (count) => ({type: CARDS_LOAD, count})

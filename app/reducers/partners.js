@@ -1,11 +1,12 @@
 import {PARTNERS_FETCH, PARTNER_SELECT, PARTNER_UPDATE,
-   PARTNER_CREATE, PARTNER_DELETE, PARTNER_SORT, PARTNER_SORT_RESET, FILTER_CHANGE, FILTER_RESET, PAGE_CHANGE} from '../actions'
+   PARTNER_CREATE, PARTNER_DELETE, PARTNER_SORT, PARTNER_SORT_RESET, FILTER_CHANGE, FILTER_RESET, PAGE_CHANGE, CARDS_LOAD} from '../actions'
 import templates from '../partnersTemplate'
 
 const initialState = {
   sortBy: "summ",
   isAscending: false,
   currentPage: 1,
+  cardsCount: 8,
   isFetching: false,
   selected: null,
   cards: [],
@@ -91,9 +92,11 @@ function partnersReducer(state = initialState, action) {
       return { ...state, ...resetSort(action.direction)}
     case FILTER_CHANGE:
     case FILTER_RESET:
-      return { ...state, currentPage: 1}
+      return { ...state, currentPage: 1, cardsCount: 8}
     case PAGE_CHANGE:
       return { ...state, currentPage: action.page}
+    case CARDS_LOAD:
+      return { ...state, cardsCount: state.cardsCount + action.count}
     default:
      return state
   }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+
 import Card from './Card'
 import SmartSearch from './SmartSearch'
 import {sendEvent, openPopup, selectPartner, createPartner, resetFilter} from '../actions'
@@ -6,6 +7,8 @@ import {sendEvent, openPopup, selectPartner, createPartner, resetFilter} from '.
 class CardList extends Component {
 	constructor(props) {
 		super(props);
+
+
 		this.handleOrder = this.handleOrder.bind(this)
 		this.handleEdit = this.handleEdit.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
@@ -66,6 +69,8 @@ class CardList extends Component {
 
 	render() {
 		const {cards, tail, isLoggedIn, partners} = this.props
+
+
 		return (
 			<div className="list">
 				{isLoggedIn && <button className="add-card" onClick={this.handleAdd}>Добавить партнера</button>}

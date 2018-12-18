@@ -66,6 +66,10 @@ class Header extends Component {
         dispatch(resetSortPartner('mfo'))
         break
     }
+
+    window.scrollTo({
+			top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100
+		}, 0)
   }
 
 	render() {

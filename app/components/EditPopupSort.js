@@ -33,6 +33,8 @@ class EditPopupSort extends Component {
     const value = event.target.value
     const { onChange } = this.props
 
+    console.log(value)
+
     this.setState({[sortBy]: value})
 
     if(typeof onChange === 'function'){

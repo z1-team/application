@@ -67,11 +67,11 @@ class App extends Component {
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
 
-    // window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
-    // window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
 	handleKeyDown(event) {

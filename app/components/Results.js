@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import { changePage } from '../actions'
+import { changePage, loadCards } from '../actions'
 
 import CardList from './CardList'
 import ResultsPagination from './ResultsPagination'
@@ -10,6 +10,28 @@ const PAGE_LIMIT = 5
 const PAGE_NEIGHBOURS = 1
 
 class Results extends Component {
+	constructor(props) {
+		super(props)
+	}
+
+	componentDidMount() {
+		window.addEventListener('scroll', this.handleScroll)
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.handleScroll)
+	}
+
+	handleScroll = () => {
+		const {cards, cardsCount} = this.props
+
+		if(cardsCount < cards.length) {
+			if( this.results.clientHeight + this.results.getBoundingClientRect().top - window.innerHeight  <= 0) {
+				this.loadMore()
+			}
+		}
+	}
+
 	getTitle() {
 		const {url} = this.props
 
@@ -45,14 +67,27 @@ class Results extends Component {
 	// 	return cards.slice(offset, offset + PAGE_LIMIT)
 	// }
 
+	selectCards() {
+		const { cards, cardsCount } = this.props
+		return cards.slice(0, Math.min(cards.length, cardsCount))
+	}
+
+	loadMore() {
+		const {cards, cardsCount, dispatch} = this.props
+
+		if(cardsCount < cards.length) {
+			dispatch(loadCards(8))
+		}
+	}
+
 	render() {
 		const {url, cards, tail, isLoggedIn, partners, currentPage, dispatch, sortInfo} = this.props
 
 		return (
-			<div className="results" id="results">
+			<div ref={ref => {this.results = ref}} className="results" id="results">
 				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
 				<ResultsSort url={url} dispatch={dispatch} sortInfo={sortInfo} />
-				<CardList url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} />
+				<CardList url={url} tail={tail} partners={partners} cards={this.selectCards()} isLoggedIn={isLoggedIn} dispatch={dispatch} />
 				{/* <ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} /> */}
 			</div>
 		)
