@@ -20,7 +20,8 @@ import Footer from './Footer'
 import PopupsController from './PopupsController'
 import {openPopup, closePopup, fetchPartners} from '../actions'
 
-const mapStateToProps = ({popups}) => ({
+const mapStateToProps = ({preloader, popups}) => ({
+  preloader,
   isCategoriesOpen: popups.categories
 })
 
@@ -35,6 +36,15 @@ class App extends Component {
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 	}
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.preloader.done !== this.props.preloader.done) {
+      if (this.props.preloader.done) {
+        const ele = document.getElementById('preloader')
+        ele.setAttribute('class', 'fadeOut')
+      }
+    }
+  }
+
   componentDidMount(){
     const {dispatch} = this.props
 
@@ -44,12 +54,9 @@ class App extends Component {
 				document.getElementById('loading-percent').innerHTML = '100%';
 				document.getElementById('loading-bar').style.width = '100%';
 			}, 2300)
-			setTimeout(() => {
-				ele.classList.add('fadeOut')
-			}, 2500)
-			setTimeout(() => {
-				ele.outerHTML = ''
-      }, 3300)
+			// setTimeout(() => {
+			// 	ele.outerHTML = ''
+      // }, 3300)
       setTimeout(() => {
         if(!this.state.emailShowed) {
           dispatch(openPopup("email"))
