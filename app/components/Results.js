@@ -25,25 +25,25 @@ class Results extends Component {
 		}
 	}
 
-	componentDidMount() {
-		const { cards } = this.props
+	// componentDidMount() {
+	// 	const { cards } = this.props
+	//
+	// 	if(cards.length !== 0) {
+	// 		this.onChange(1)
+	// 	}
+	// }
 
-		if(cards.length !== 0) {
-			this.onChange(1)
-		}
-	}
+	// onChange = page => {
+	// 	const { dispatch } = this.props
+	//
+	// 	dispatch(changePage(page))
+	// }
 
-	onChange = page => {
-		const { dispatch } = this.props
-
-		dispatch(changePage(page))
-	}
-
-	selectCards() {
-		const { cards, currentPage } = this.props
-		const offset = (currentPage - 1) * PAGE_LIMIT
-		return cards.slice(offset, offset + PAGE_LIMIT)
-	}
+	// selectCards() {
+	// 	const { cards, currentPage } = this.props
+	// 	const offset = (currentPage - 1) * PAGE_LIMIT
+	// 	return cards.slice(offset, offset + PAGE_LIMIT)
+	// }
 
 	render() {
 		const {url, cards, tail, isLoggedIn, partners, currentPage, dispatch, sortInfo} = this.props
@@ -52,8 +52,8 @@ class Results extends Component {
 			<div className="results" id="results">
 				<h2>Рейтинг {this.getTitle()} <em>Рунета 2018 года</em></h2>
 				<ResultsSort url={url} dispatch={dispatch} sortInfo={sortInfo} />
-				<CardList url={url} tail={tail} partners={partners} cards={this.selectCards()} isLoggedIn={isLoggedIn} dispatch={dispatch} />
-				<ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} />
+				<CardList url={url} tail={tail} partners={partners} cards={cards} isLoggedIn={isLoggedIn} dispatch={dispatch} />
+				{/* <ResultsPagination totalCards={cards.length} currentPage={currentPage} pageLimit={PAGE_LIMIT} pageNeighbours={PAGE_NEIGHBOURS} onChange={this.onChange} /> */}
 			</div>
 		)
 	}

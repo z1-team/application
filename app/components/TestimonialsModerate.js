@@ -40,8 +40,6 @@ class TestimonialsModerate extends Component {
       )
     }
 
-    console.log(testimonials.data.length)
-
     return (
       <div className="wr-testimonials">
         <div className="container">

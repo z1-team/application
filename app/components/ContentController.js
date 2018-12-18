@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
+import StickyBox from "react-sticky-box"
+
 import CardList from './CardList'
 import queryString from 'query-string'
 
@@ -196,16 +199,18 @@ class Main extends Component {
        partners, dispatch, location, currentPage, actual, sortInfo} = this.props
 		return (
 			<div className="wr-main">
-				<div className="container">
-					<div className="main">
-						<Sidebar
-              url={url}
-              filters={filters}
-              total={cards.length}
-              dispatch={dispatch}
-              location={location}
-              actual={actual} />
-						<Results
+        <div className="container">
+          <div className="main">
+            <StickyBox offsetTop={50} offsetBottom={50}>
+              <Sidebar
+                url={url}
+                filters={filters}
+                total={cards.length}
+                dispatch={dispatch}
+                location={location}
+                actual={actual} />
+            </StickyBox>
+            <Results
               url={url}
               tail={tail}
               partners={partners}
@@ -214,8 +219,8 @@ class Main extends Component {
               dispatch={dispatch}
               currentPage={currentPage}
               sortInfo={sortInfo} />
-					</div>
-				</div>
+          </div>
+        </div>
 			</div>
 		)
 	}
