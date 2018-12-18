@@ -25,6 +25,7 @@ export const TESTIMONIAL_PUBLIC = 'TESTIMONIAL_PUBLIC'
 export const TESTIMONIAL_FETCH = 'TESTIMONIAL_FETCH'
 export const EMAIL_SEND = 'EMAIL_SEND'
 export const ABTEST_FETCH = 'ABTEST_FETCH'
+export const IMAGES_PRELOAD = 'IMAGES_PRELOAD'
 
 function getDateTime() {
   const date = new Date()
@@ -92,10 +93,32 @@ function fetchABTest(session, clientId) {
       return response.json()
     }).then((data) => {
       dispatch({type: ABTEST_FETCH, status: 2, data})
+      dispatch(preloadImages([data.bannerPictures]))
       localStorage.setItem('abTests', JSON.stringify(data))
     }).catch((error) => {
       dispatch({type: ABTEST_FETCH, status: 3, error})
     })
+  }
+}
+
+function preloadImages(images) {
+  return (dispatch) => {
+    const total = images.length
+    let done = 0
+    dispatch({type: IMAGES_PRELOAD, status: 1})
+    function preloadDone() {
+      if (++done === total) {
+        dispatch({type: IMAGES_PRELOAD, status: 3})
+      } else {
+        dispatch({type: IMAGES_PRELOAD, status: 2, progress: done / total})
+      }
+    }
+    function preloadImage(path) {
+      const img = new Image()
+      img.addEventListener('load', preloadDone)
+      img.src = path
+    }
+    images.forEach(preloadImage)
   }
 }
 
@@ -164,7 +187,7 @@ export function sendEvent(event) {
 
 export function initSession() {
   const abTests = localStorage.getItem('abTests')
-  
+
   function getUserId() {
     const saved = localStorage.getItem('user_id')
     if (!saved) {
@@ -174,7 +197,7 @@ export function initSession() {
     }
     return saved
   }
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const session = {
       query: queryString.parse(location.search),
       user_id: getUserId(),
@@ -196,6 +219,7 @@ export function initSession() {
     });
     document.addEventListener('yacounter50978069inited', () => {
       const client_id = yaCounter50978069.getClientID()
+      console.log(new Date())
       dispatch(fetchABTest(session, client_id))
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
       dispatch(sendEvent({
@@ -203,6 +227,12 @@ export function initSession() {
         payload: session.query
       }))
     })
+    setTimeout(() => {
+      const {done, loading} = getState().preloader
+      if (!done && !loading) {
+        dispatch(preloadImages(['/img/intro-bg.jpg']))
+      }
+    }, 1000)
   }
 }
 

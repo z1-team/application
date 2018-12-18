@@ -3,6 +3,8 @@
 		document.getElementById('preloader').style.display = 'none';
 	}
 
+	console.log(new Date())
+
 	var currentProgress = 0,
 		preloaderbar = document.getElementById('loading-bar'),
 		preloaderPercent = document.getElementById('loading-percent'),
@@ -26,5 +28,5 @@
 				preloaderText.innerHTML = 'результаты';
 			}
 		}, 20);
-	
+
 })()

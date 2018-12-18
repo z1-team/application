@@ -89,8 +89,6 @@ class Intro extends Component {
     const styles = {
       backgroundImage: 'url(' + abTests.bannerPictures + ')'
     }
-    console.log(abTests.bannerPictures)
-
     return (
       <div className={this.getBackground()} style={abTests.bannerPictures && styles}>
         {this.renderRedirect()}
