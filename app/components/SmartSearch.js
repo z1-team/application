@@ -16,8 +16,6 @@ function searchRange(range, value, index = 0) {
 class SmartSearch extends Component {
 
   handleChange = (name, value) => {
-
-    console.log(value)
     console.log(name === "summ" ? searchRange(summRange, value) : '')
   }
 

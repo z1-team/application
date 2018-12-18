@@ -602,8 +602,12 @@
 	}
 
 	&.email {
-		width: 600px; height: 500px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px; display: none;
+		max-width: 600px; height: 500px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px; display: none;
 		border-radius: 0;
+
+		@include respond-to(sm) {
+			height: auto;
+		}
 
 		&.active {
 			display: block;
@@ -612,6 +616,10 @@
 		.close-popup {
 			width: 32px; height: 32px; display: block; position: absolute; right: 0; top: 0; transform: translate(50%, -50%);
 			background: $white; border: solid 1px #bebebe; border-radius: 50%;
+
+			@include respond-to(sm) {
+				width: 26px; height: 26px;
+			}
 
 			&:before, &:after {
 				content: '';
@@ -636,17 +644,32 @@
 
 		form {
 			display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 0 15px;
+
+			@include respond-to(sm) {
+				padding: 0;
+			}
 		}
 
 		p {
 			color: #161616; font-size: 17px; font-family: $m-b; line-height: 22px; text-transform: uppercase;
 			margin-bottom: 5px; width: 100%;
+
+			@include respond-to(sm) {
+				font-size: 16px;
+			}
+			@include respond-to(xs) {
+				font-size: 14px; line-height: 20px;
+			}
 		}
 
 		input {
 			color: #161616; font-size: 14px; font-family: $os-r; line-height: 22px;
 			padding: 14px; width: 57.96296%;
 			border: solid 1px #e2e2e2; border-radius: 5px;
+
+			@include respond-to(xs) {
+				width: 100%; margin-bottom: 5px; padding: 10px 14px;
+			}
 		}
 
 		button {
@@ -654,6 +677,11 @@
 			font-size: 16px; text-transform: uppercase; line-height: 22px;
 			width: 40.18519%; padding: 14px 10px;
 			border-width: 2px;
+
+			@include respond-to(xs) {
+				font-size: 14px;
+				width: 100%; padding: 10px;
+			}
 		}
 	}
 

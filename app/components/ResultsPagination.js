@@ -32,11 +32,6 @@ class ResultsPagination extends Component {
 
     const currentPage = page
 
-		window.scrollTo({
-        top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
-        behavior: "smooth"
-    })
-
 		if(typeof onChange === 'function') {
 			onChange(currentPage)
 		}
@@ -82,7 +77,7 @@ class ResultsPagination extends Component {
         }
       }
 
-      return [1, ...pages, totalPages];
+      return [1, ...pages, totalPages]
 
     }
 
@@ -90,20 +85,25 @@ class ResultsPagination extends Component {
   }
 
 	handleClick = page => event => {
-    event.preventDefault();
-    this.gotoPage(page);
-  }
+		event.preventDefault()
+		this.gotoPage(page)
 
-  handleMoveLeft = event => {
-    event.preventDefault();
+		window.scrollTo({
+			top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
+			behavior: "smooth"
+		})
+	}
+
+	handleMoveLeft = event => {
+		event.preventDefault();
 		const {pageNeighbours, currentPage} = this.props
-    this.gotoPage(currentPage - (pageNeighbours * 2) - 1);
+    this.gotoPage(currentPage - (pageNeighbours * 2) - 1)
   }
 
   handleMoveRight = event => {
     event.preventDefault();
 		const {pageNeighbours, currentPage} = this.props
-    this.gotoPage(currentPage + (pageNeighbours * 2) + 1);
+    this.gotoPage(currentPage + (pageNeighbours * 2) + 1)
   }
 
 	render() {
