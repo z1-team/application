@@ -114,9 +114,10 @@ class Card extends Component {
     const {item, tail, edit} = this.props
     const rating = Math.round(item.sortBy.rating*10)/10
     const star = Math.round(item.sortBy.rating)
+    const label = item.main.special_label ? item.main.special_label : ''
 
     return (
-      <div className="result-item">
+      <div className={`result-item ${label}`}>
         <section>
           <figure>
             <img src={item.main.logo} />

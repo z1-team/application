@@ -371,41 +371,43 @@
 		}
 	}
 
-	.checkbox-module {
 
-		label {
-			color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
-			padding-left: 25px; position: relative; display: flex; justify-content: space-between; margin-bottom: 8px;
-			cursor: pointer;
+}
 
-			&.disabled {
-				text-decoration: line-through;
-				pointer-events: none;
+.checkbox-module {
 
-				&:before {
-					opacity: 0.4;
-				}
-			}
+	label {
+		color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
+		padding-left: 25px; position: relative; display: flex; justify-content: space-between; margin-bottom: 8px;
+		cursor: pointer;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			input {
-				display: none;
-			}
-
-			&.active {
-				&:before {
-					background: #f7f7f7 url('./img/checked.png') center center no-repeat;
-				}
-			}
+		&.disabled {
+			text-decoration: line-through;
+			pointer-events: none;
 
 			&:before {
-				content: '';
-				display: block; width: 13px; height: 13px; position: absolute; left: 0; top: 0;
-				background: #f7f7f7; border: solid 1px #b1b1b1;
+				opacity: 0.4;
 			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		input {
+			display: none;
+		}
+
+		&.active {
+			&:before {
+				background: #f7f7f7 url('./img/checked.png') center center no-repeat;
+			}
+		}
+
+		&:before {
+			content: '';
+			display: block; width: 13px; height: 13px; position: absolute; left: 0; top: 0;
+			background: #f7f7f7; border: solid 1px #b1b1b1;
 		}
 	}
 }
@@ -553,6 +555,8 @@
 			&.long_term,
 			&.quick_solution,
 			&.recommend {
+				padding-top: 15px;
+
 				&:before {
 					content: '';
 					color: #fff; font-size: 10px; font-family: $m-sb; line-height: 20px; text-transform: uppercase; text-align: center;
@@ -563,9 +567,8 @@
 						left: 50px; top: 50px;
 					}
 					@include respond-to(xs) {
-						font-style: normal;	font-variant: normal;	text-rendering: auto;
-						display: inline-block;
-						-moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased;
+						font-size: 14px; line-height: 26px;
+						left: 0; top: 0; width: 100%; transform: none; height: 26px;
 					}
 				}
 
@@ -573,42 +576,29 @@
 					@include respond-to(md) {
 						padding-left: 60px; width: 230px;
 					}
+					@include respond-to(xs) {
+						padding-left: 0; width: 100%;
+					}
 				}
 			}
 			&.big_summ {
 				&:before {
 					content: 'На Большую Сумму';
-
-					@include respond-to(xs) {
-						content: none;
-					}
 				}
 			}
 			&.long_term {
 				&:before {
 					content: 'На Долгий Период';
-
-					@include respond-to(xs) {
-						content: none;
-					}
 				}
 			}
 			&.quick_solution {
 				&:before {
 					content: 'Быстрое Решение';
-
-					@include respond-to(xs) {
-						content: none;
-					}
 				}
 			}
 			&.recommend {
 				&:before {
 					content: 'Рекомендуют';
-
-					@include respond-to(xs) {
-						content: none;
-					}
 				}
 			}
 

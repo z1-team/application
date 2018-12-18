@@ -32,6 +32,13 @@ const isRadio = {
   secure_3d: true
 }
 
+const labelPriority = {
+  big_summ: 3,
+  long_term: 1,
+  quick_solution: 2,
+  recommend: 4
+}
+
 function testFilter(filter, value) {
   if (filter.every(f => f === false)) {
     return true
@@ -67,12 +74,24 @@ function filterResults(ids, partners, filters) {
   ))
 }
 
+function sortPriority(p) {
+  return p.main.special_label ? labelPriority[p.main.special_label] || 0 : 0
+}
+
+function abDiff(ap, bp, av, bv) {
+  return (ap === 0 && bp === 0) ? (bv - av) : (bp - ap)
+}
+
 function sortResults(ids, partners, sortInfo) {
-  if(ids){
+  if(ids) {
     return ids.sort((a, b) => {
+      const aPriority = sortPriority(partners[a])
+      const bPriority = sortPriority(partners[b])
       const aValue = partners[a].sortBy ? partners[a].sortBy[sortInfo.sortBy] || 0 : 0
       const bValue = partners[b].sortBy ? partners[b].sortBy[sortInfo.sortBy] || 0 : 0
-      const isBGreater = bValue - aValue
+
+      const isBGreater = sortInfo.isSorted ? (bValue - aValue)
+        : abDiff(aPriority, bPriority, aValue, bValue)
 
       return sortInfo.isAscending ? isBGreater*(-1) : isBGreater
     })
@@ -177,7 +196,7 @@ function makeTail({query, user_id, client_id}) {
 }
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
-  const sortInfo = {sortBy: partners.sortBy, isAscending: partners.isAscending}
+  const sortInfo = {sortBy: partners.sortBy, isSorted: partners.isSorted, isAscending: partners.isAscending}
   const cards = selectCards(partners, filters, url, sortInfo)
 
   return {

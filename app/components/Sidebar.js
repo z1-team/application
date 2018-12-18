@@ -375,6 +375,11 @@ class Sidebar extends Component {
 			}))
 		}
 
+		window.scrollTo({
+        top: document.getElementById('results').getBoundingClientRect().top + window.pageYOffset - 100,
+        behavior: "smooth"
+    })
+
 		dispatch(changeFilter(name, value))
 		dispatch(sendEvent({
 			type: 'change_filter',

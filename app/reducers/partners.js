@@ -4,6 +4,7 @@ import templates from '../partnersTemplate'
 
 const initialState = {
   sortBy: "summ",
+  isSorted: false,
   isAscending: false,
   currentPage: 1,
   cardsCount: 8,
@@ -87,9 +88,9 @@ function partnersReducer(state = initialState, action) {
     case PARTNER_DELETE:
       return deleteReducer(state, action.id)
     case PARTNER_SORT:
-      return { ...state, sortBy: action.sort, isAscending: action.order}
+      return { ...state, sortBy: action.sort, isSorted: true, isAscending: action.order}
     case PARTNER_SORT_RESET:
-      return { ...state, ...resetSort(action.direction)}
+      return { ...state, isSorted: false, ...resetSort(action.direction)}
     case FILTER_CHANGE:
     case FILTER_RESET:
       return { ...state, currentPage: 1, cardsCount: 8}

@@ -91,8 +91,12 @@ class Intro extends Component {
   render() {
     const { match, location, history, abTests } = this.props;
     const url = location.pathname
-    const styles = {
+    const styles = url === '/mfo' ? {
       backgroundImage: 'url(' + abTests.bannerPictures + ')'
+    } : {}
+
+    if(url !== '/mfo' && url !== '/cards') {
+      return false
     }
 
     return (

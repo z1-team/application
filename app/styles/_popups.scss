@@ -253,11 +253,7 @@
 			}
 
 			&-main {
-				align-items: flex-start;
-
-				@include respond-to(sm) {
-					flex-direction: column;
-				}
+				align-items: flex-start; flex-wrap: wrap;
 
 				&.active {
 					display: flex;
@@ -303,8 +299,8 @@
 					}
 				}
 
-				& > div {
-					width: 100%;
+				& > div:not(.specials) {
+					width: calc(100% - 220px);
 
 					label {
 						color: #161616; font-size: 14px; font-family: $m-r; line-height: 18px;
@@ -330,6 +326,32 @@
 						}
 					}
 				}
+
+				.specials {
+					width: 100%; padding-top: 20px;
+
+					h3 {
+						color: #161616; font-size: 16px; font-family: $m-sb; line-height: 20px;
+						margin-bottom: 10px;
+					}
+
+					.checkbox-module {
+						display: flex; align-items: flex-start;
+
+						@include respond-to(sm) {
+							flex-direction: column;
+						}
+
+						label {
+							width: 25%; padding-right: 10px;
+
+							@include respond-to(sm) {
+								width: 100%; padding-right: 0; margin-bottom: 5px;
+							}
+						}
+					}
+				}
+
 			}
 			&-details {
 

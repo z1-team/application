@@ -27,7 +27,7 @@ class EditPopupMain extends Component {
 
     return (
       <div>
-        {Object.getOwnPropertyNames(main).filter(el => el !== 'logo').map((label, index) =>(
+        {Object.getOwnPropertyNames(main).filter(el => el !== 'logo' && el !== 'special_label').map((label, index) =>(
           <label key={index}>{names[label]}: <input type="text" data-name={label} value={main[label]} onChange={this.handleChange}/></label>
         ))}
       </div>

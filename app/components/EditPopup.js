@@ -7,6 +7,7 @@ import EditPopupCategories from './EditPopupCategories'
 import EditPopupRange from './EditPopupRange'
 import EditPopupFilter from './EditPopupFilter'
 import EditPopupSort from './EditPopupSort'
+import EditPopupSpecials from './EditPopupSpecials'
 
 import {closePopup, updatePartner, selectPartner, deletePartner} from '../actions'
 
@@ -442,6 +443,7 @@ class EditPopup extends Component {
           <div className={tab === "main" ? 'card-main active' : 'card-main'}>
             {partner && <LogoUploader logo={partner.main.logo} onChange={this.handleChange} />}
             {partner && <EditPopupMain names={mainNames} main={partner.main} onChange={this.handleChange} />}
+            {partner && <EditPopupSpecials value={partner.main.special_label} onChange={this.handleChange} />}
           </div>
           <div className={tab === "details" ? 'card-details active' : 'card-details'}>
             {partner && <EditPopupDetails details={partner.details} names={detailsNames} onChange={this.handleChange} />}

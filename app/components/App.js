@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const {dispatch} = this.props
+    const {dispatch, location} = this.props
 
 		const ele = document.getElementById('preloader')
 		if(ele){
@@ -57,17 +57,21 @@ class App extends Component {
 			// setTimeout(() => {
 			// 	ele.outerHTML = ''
       // }, 3300)
-      setTimeout(() => {
-        if(!this.state.emailShowed) {
-          dispatch(openPopup("email"))
-          this.setState({emailShowed: true})
-        }
-			}, 60000)
+      if(location.pathname === '/mfo') {
+        setTimeout(() => {
+          if(!this.state.emailShowed) {
+            dispatch(openPopup("email"))
+            this.setState({emailShowed: true})
+          }
+        }, 60000)
+      }
 		}
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
 
-    window.addEventListener('scroll', this.handleScroll)
+    if(location.pathname === '/mfo') {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
 
   componentWillUnmount() {
