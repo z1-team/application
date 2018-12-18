@@ -1,5 +1,3 @@
-@import 'node_modules/react-typist/dist/Typist';
-
 // Используй это миксин для всего конфига!
 @mixin font-type($font-family, $font-size, $line-height, $letter-spacing) {
 	font-family: $font-family;
