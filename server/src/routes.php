@@ -17,6 +17,7 @@ $guard = function ($request, $response, $next) {
 };
 
 $app->get('/api/v1/test/{client}', ABTestController::class . ':test');
+$app->post('/api/v1/save-subscriber', PushController::class . ':save');
 
 $app->post('/api/v1/subscribe', function (Request $request, Response $response, array $args) {
   $parsedBody = $request->getParsedBody();

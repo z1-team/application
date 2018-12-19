@@ -6,6 +6,7 @@ import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {initSession} from './actions'
+import swRegister from './sw-register'
 
 import App from './components/App'
 import appReducer from './reducers/app'
@@ -22,3 +23,5 @@ ReactDOM.render(
       <Route component={App}/>
     </Router>
   </Provider>, document.getElementById('root'))
+
+swRegister()

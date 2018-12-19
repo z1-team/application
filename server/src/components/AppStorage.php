@@ -27,5 +27,6 @@ class AppStorage
     $this->tests = new TestsStorage($localDB);
     $this->client = new ClientsStorage($localDB, $clickHouseDB);
     $this->groups = new GroupsStorage($localDB);
+    $this->pushSubscribers = new PushSubscribersStorage($localDB);
   }
 }
