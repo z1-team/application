@@ -689,6 +689,9 @@
 			padding: 14px; width: 57.96296%;
 			border: solid 1px #e2e2e2; border-radius: 5px;
 
+			&:invalid:not(:placeholder-shown) {border-color: red;}
+			&:valid:not(:placeholder-shown) {border-color: green;}
+
 			@include respond-to(xs) {
 				width: 100%; margin-bottom: 5px; padding: 10px 14px;
 			}

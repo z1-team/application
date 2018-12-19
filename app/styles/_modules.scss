@@ -167,6 +167,10 @@
 	figure {
 		text-align: center;
 
+		.mfo & {
+			animation: scaleIntroLogo .8s ease-out 1;
+		}
+
 		@include respond-to(sm) {
 			margin-bottom: 20px;
 		}
@@ -375,9 +379,8 @@
 }
 
 .checkbox-module {
-
 	label {
-		color: #484848; font-size: 14px; font-family: $os-r; line-height: 14px;
+		color: #484848; font-size: 14px; font-family: $os-r; line-height: 18px;
 		padding-left: 25px; position: relative; display: flex; justify-content: space-between; margin-bottom: 8px;
 		cursor: pointer;
 
@@ -398,6 +401,10 @@
 			display: none;
 		}
 
+		span {
+			margin-left: 10px;
+		}
+
 		&.active {
 			&:before {
 				background: #f7f7f7 url('./img/checked.png') center center no-repeat;
@@ -406,7 +413,7 @@
 
 		&:before {
 			content: '';
-			display: block; width: 13px; height: 13px; position: absolute; left: 0; top: 0;
+			display: block; width: 14px; height: 14px; position: absolute; left: 0; top: 2px;
 			background: #f7f7f7; border: solid 1px #b1b1b1;
 		}
 	}
@@ -438,8 +445,9 @@
 		}
 
 		p, ul li button {
-			color: #232935; font-size: 14px; font-family: $os-r; line-height: 18px; text-transform: uppercase;
+			color: #484848; font-size: 14px; font-family: $os-r; line-height: 18px; text-transform: uppercase;
 			position: relative;
+			opacity: 0.8;
 
 			@include respond-to(md) {
 				font-size: 12px; text-transform: none;
@@ -462,7 +470,9 @@
 			cursor: pointer;
 
 			&.active {
+				color: #000;
 				padding-right: 15px;
+				opacity: 1;
 				&:after {
 					content: '';
 					display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
@@ -575,6 +585,9 @@
 				figure {
 					@include respond-to(md) {
 						padding-left: 60px; width: 230px;
+					}
+					@include respond-to(sm) {
+						width: 300px;
 					}
 					@include respond-to(xs) {
 						padding-left: 0; width: 100%;
@@ -793,6 +806,7 @@
 						color: $white; font-size: 16px; font-family: $m-sb; line-height: 20px;
 						display: inline-block; margin-bottom: 14px; padding: 10px 16px;
 						background: #f96868; border: solid 1px #f96868; border-radius: 5px;
+						transition: background 0.1s ease-out, color 0.1s ease-out;
 
 						@include respond-to(lg) {
 							font-size: 14px;
@@ -901,7 +915,7 @@
 						color: #f96868; font-size: 14px; font-family: $os-b; line-height: 20px;
 
 						button {
-							color: #484848; text-transform: uppercase;
+							color: #484848; font-family: $os-r; text-transform: uppercase;
 							display: flex; align-items: center;
 							background: none;
 							cursor: pointer;
@@ -1686,4 +1700,8 @@
 			}
 		}
 	}
+}
+
+.Typist .Cursor {
+	display: none !important;
 }

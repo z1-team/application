@@ -1,6 +1,6 @@
 .app {
 	min-width: 320px;
-	background: #ffffff;
+	background: #ffffff url('./img/preloader.gif') center top 65px no-repeat;
 
 	.wr {
 		&-header {
@@ -46,27 +46,33 @@
 
 		&-main {
 			padding: 69px 0 56px;
+			background: #fff;
 		}
 
 		&-about {
 			border-top: solid 1px #e2e2e2; border-bottom: solid 1px #e2e2e2;
+			background: #fff;
 		}
 
 		&-usefull-info {
 			// padding-top: 70px; padding-bottom: 75px;
 			padding-top: 10px; padding-bottom: 15px;
+			background: #fff;
 		}
 
 		&-inner-text {
 			padding: 100px 0 75px; min-height: calc(100vh - 163px);
+			background: #fff;
 		}
 
 		&-testimonials {
 			padding: 100px 0 75px; min-height: calc(100vh - 163px);
+			background: #fff;
 		}
 
 		&-order {
 			padding: 40px 0 75px;
+			background: #fff;
 		}
 
 		&-footer {

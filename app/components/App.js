@@ -88,9 +88,9 @@ class App extends Component {
 
   handleScroll = (event) => {
     const {emailShowed} = this.state
-    const {dispatch} = this.props
+    const {dispatch, location} = this.props
 
-    if(!emailShowed) {
+    if(!emailShowed && location.pathname === '/mfo') {
       let scrollTop = document.documentElement.scrollTop
       let windowHiehgt = window.innerHeight
       let appHeight = document.getElementById('root').offsetHeight

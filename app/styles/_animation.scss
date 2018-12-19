@@ -8,9 +8,19 @@
 }
 @keyframes showCards {
 	0% {
+		transform: scale(0.8);
 		opacity: 0;
 	}
 	100% {
+		transform: scale(1);
 		opacity: 1;
+	}
+}
+@keyframes scaleIntroLogo {
+	0% {
+		transform: scale(0.3);
+	}
+	100% {
+		transform: scale(1);
 	}
 }

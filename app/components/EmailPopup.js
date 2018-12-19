@@ -35,7 +35,7 @@ class EmailPopups extends Component {
 				</figure>
 				<form action="#" onSubmit={this.handleSubmit}>
 					<p>Вышлем спецпредложения от премиум-партнеров</p>
-					<input type="email" placeholder="Ваш email" onChange={this.handleChange} value={email} />
+					<input name="email" type="email" placeholder="Ваш email" onChange={this.handleChange} value={email} required />
 					<button>Жду на почту</button>
 				</form>
 			</div>
