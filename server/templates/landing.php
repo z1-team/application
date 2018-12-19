@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<title>Отдолжить денег до ЗП</title>
-	<link rel="stylesheet" href="app.css?v=1.0">
+	<link rel="stylesheet" href="/app.css?v=1.0">
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
 	(function (d, w, c) {

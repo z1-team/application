@@ -85,6 +85,8 @@ class Intro extends Component {
         pathname: '/mfo',
         search
       }}/>
+    } else {
+      return <div></div>
     }
   }
 
@@ -96,11 +98,11 @@ class Intro extends Component {
     } : {}
 
     if(url !== '/mfo' && url !== '/cards') {
-      return false
+      return this.renderRedirect()
     }
 
     return (
-      <div className={this.getBackground()} style={abTests.bannerPictures && styles}>
+      <div className={this.getBackground()} style={abTests.bannerPictures ? styles : {}}>
         {this.renderRedirect()}
         <div className="container">
           <div className="intro">

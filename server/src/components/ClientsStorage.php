@@ -89,8 +89,9 @@ class ClientsStorage
           'group' => $group,
           'value' => $value
         ]);
+        return $this->findValue($value);
       }
-      return $this->findValue($value);
+      return false;
     } else {
       return 'assign_error';
     }

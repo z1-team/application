@@ -94,10 +94,14 @@ function fetchABTest(session, clientId) {
       return response.json()
     }).then((data) => {
       dispatch({type: ABTEST_FETCH, status: 2, data})
-      dispatch(preloadImages([data.bannerPictures]))
+      if (data.bannerPictures) {
+        dispatch(preloadImages([data.bannerPictures]))
+      } else {
+        dispatch(preloadImages(['/img/intro-bg.jpg']))
+      }
       localStorage.setItem('abTests', JSON.stringify(data))
     }).catch((error) => {
-      dispatch({type: ABTEST_FETCH, status: 3, error})
+      console.log(error)
     })
   }
 }

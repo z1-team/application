@@ -15,7 +15,7 @@ class ABTestController
 
   public function test(Request $request, Response $response, array $args)
   {
-    $extra = ['banner' => $request->getQueryParams()['banner']];
+    $extra = ['banner' => $request->getQueryParams()['banner'] || NULL];
     $tests = $this->storage->tests->listActive();
     $params = $this->storage->client->testParams($args['client'], $tests, $extra);
     return $response->withJson($params)->withHeader('Access-Control-Allow-Origin', '*');
