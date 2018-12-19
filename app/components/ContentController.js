@@ -55,9 +55,14 @@ function testRange(value, range) {
   return value !== null ? range[0] <= value && value <= range[1] : true
 }
 
-function filterResults(ids, partners, filters) {
-  return ids.filter((id) => (
-    Object.getOwnPropertyNames(filters).every(f => {
+function filterResults(ids, partners, filters, isLoggedIn) {
+  return ids.filter((id) => {
+    const isPublished = typeof partners[id].main.isPublished === 'undefined' ? true : partners[id].main.isPublished
+
+    if(!isPublished && !isLoggedIn) {
+      return false
+    }
+    return Object.getOwnPropertyNames(filters).every(f => {
       switch(f) {
         case 'summ_value':
           return partners[id].filter_values.summ ? testRange(filters.summ_value, partners[id].filter_values.summ) : true
@@ -71,7 +76,7 @@ function filterResults(ids, partners, filters) {
           return partners[id].filters[f] ? testFilter(filters[f], partners[id].filters[f]) : true
       }
     })
-  ))
+  })
 }
 
 function sortPriority(p) {
@@ -98,9 +103,9 @@ function sortResults(ids, partners, sortInfo) {
   }
 }
 
-function selectCards(partners, filters, direction, sortInfo) {
+function selectCards(partners, filters, direction, sortInfo, isLoggedIn) {
   return sortResults(
-    filterResults(partners[direction], partners.data, filters),
+    filterResults(partners[direction], partners.data, filters, isLoggedIn),
     partners.data,
     sortInfo
   )
@@ -110,8 +115,14 @@ function startAccumulation(filter) {
   return filter.map((value) => 0)
 }
 
-function applyFilter(ids, partners, value, filter, filters) {
+function applyFilter(ids, partners, value, filter, filters, isLoggedIn) {
   return ids.filter(id => {
+    const isPublished = typeof partners[id].main.isPublished === 'undefined' ? true : partners[id].main.isPublished
+
+    if(!isPublished && !isLoggedIn) {
+      return false
+    }
+
     switch(filter) {
       case 'summ_value':
         return partners[id].filter_values.summ ? testRange(filters.summ_value, partners[id].filter_values.summ) : true
@@ -127,12 +138,12 @@ function applyFilter(ids, partners, value, filter, filters) {
   })
 }
 
-function makeCollections(ids, partners, filters) {
+function makeCollections(ids, partners, filters, isLoggedIn) {
   if (ids.length > 0) {
     const valueFilters = Object.getOwnPropertyNames(partners[ids[0]].filter_values).map(n => n+"_value")
     return Object.getOwnPropertyNames(partners[ids[0]].filters).concat(valueFilters)
       .reduce((result, filter) => {
-        result[filter] = applyFilter(ids, partners, filters[filter], filter, filters)
+        result[filter] = applyFilter(ids, partners, filters[filter], filter, filters, isLoggedIn)
         return result
       }, {})
   } else {
@@ -151,22 +162,22 @@ function countIntersection(collections) {
     }, 0).length : 0
 }
 
-function calcFilterActual(collections, ids, partners, filter, filters, index) {
+function calcFilterActual(collections, ids, partners, filter, filters, index, isLoggedIn) {
   const test = filters[filter].map((value, i) => (
     i === index ? true : isRadio[filter] ? false : value
   ))
   return countIntersection({
     ...collections,
-    [filter]: applyFilter(ids, partners, test, filter)
+    [filter]: applyFilter(ids, partners, test, filter, isLoggedIn)
   })
 }
 
-function actualFilters(ids, partners, filters) {
+function actualFilters(ids, partners, filters, isLoggedIn) {
   if (ids.length > 0) {
-    const collections = makeCollections(ids, partners, filters)
+    const collections = makeCollections(ids, partners, filters, isLoggedIn)
     return Object.getOwnPropertyNames(partners[ids[0]].filters).reduce((result, filter) => {
       const actual = filters[filter].reduce((actual, value, index) => {
-        const t = calcFilterActual(collections, ids, partners, filter, filters, index)
+        const t = calcFilterActual(collections, ids, partners, filter, filters, index, isLoggedIn)
         actual[index] = t
         return actual
       }, startAccumulation(filters[filter]))
@@ -197,11 +208,11 @@ function makeTail({query, user_id, client_id}) {
 
 const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
   const sortInfo = {sortBy: partners.sortBy, isSorted: partners.isSorted, isAscending: partners.isAscending}
-  const cards = selectCards(partners, filters, url, sortInfo)
+  const cards = selectCards(partners, filters, url, sortInfo, auth.token !== null)
 
   return {
     cards,
-    actual: actualFilters(partners[url], partners.data, filters),
+    actual: actualFilters(partners[url], partners.data, filters, auth.token !== null),
     partners: partners.data,
     sortInfo,
     tail: makeTail(session),
