@@ -52,7 +52,7 @@ class Intro extends Component {
 				return (
 					<section>
 					<Typist>
-						<h1>Ищите <strong>{keyword}</strong> ?</h1>
+						<h1>Ищите где занять денег?</h1>
 						<Typist.Delay ms={500} />
 						<h2>Мы отобрали лучшие предложения.</h2>
 					</Typist>
