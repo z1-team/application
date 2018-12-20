@@ -224,18 +224,26 @@ export function initSession() {
         place: 'Москва'
       }})
     });
-    document.addEventListener('yacounter50978069inited', () => {
-      const client_id = yaCounter50978069.getClientID()
-      clientIdIsFetched = true
-      console.log(new Date())
-      swRegister(client_id)
-      dispatch(fetchABTest(session, client_id))
-      dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
-      dispatch(sendEvent({
-        type: 'enter_landing',
-        payload: session.query
-      }))
-    })
+
+    function loadClientID() {
+      if (window.yaCounter50978069 && window.yaCounter50978069.getClientID) {
+        const client_id = yaCounter50978069.getClientID()
+        clientIdIsFetched = true
+        console.log(new Date())
+        swRegister(client_id)
+        dispatch(fetchABTest(session, client_id))
+        dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
+        dispatch(sendEvent({
+          type: 'enter_landing',
+          payload: session.query
+        }))
+      } else {
+        setTimeout(loadClientID, 200)
+      }
+    }
+
+    loadClientID()
+    
     setTimeout(() => {
       const {done, loading} = getState().preloader
       if (!clientIdIsFetched && !done && !loading) {

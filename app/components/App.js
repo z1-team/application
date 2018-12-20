@@ -55,24 +55,18 @@ class App extends Component {
 				document.getElementById('loading-percent').innerHTML = '100%';
 				document.getElementById('loading-bar').style.width = '100%';
 			}, 2300)
-			// setTimeout(() => {
-			// 	ele.outerHTML = ''
-      // }, 3300)
-      if(location.pathname === '/mfo') {
-        setTimeout(() => {
-          if(!this.state.emailShowed) {
-            dispatch(openPopup("email"))
-            this.setState({emailShowed: true})
-          }
-        }, 60000)
-      }
+      setTimeout(() => {
+        const {pathname} = this.props.location
+        if(!this.state.emailShowed && pathname === '/mfo') {
+          dispatch(openPopup("email"))
+          this.setState({emailShowed: true})
+        }
+      }, 60000)
 		}
     dispatch(fetchPartners('mfo'))
     dispatch(fetchPartners('cards'))
 
-    if(location.pathname === '/mfo') {
-      window.addEventListener('scroll', this.handleScroll)
-    }
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {

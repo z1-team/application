@@ -14,11 +14,11 @@ const store = createStore(appReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
 
-store.dispatch(initSession())
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Route component={App}/>
     </Router>
   </Provider>, document.getElementById('root'))
+
+store.dispatch(initSession())
