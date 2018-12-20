@@ -8,8 +8,7 @@ class UsefullInfo extends Component {
 
 	handleClick = (event) => {
 		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
+			top: 0
 		})
 	}
 
@@ -25,7 +24,7 @@ class UsefullInfo extends Component {
 							{/*<h3>Moneyonline</h3>*/}
 							<ul>
 								<li>
-									<Link onClick={this.handleClick()} className={url === "/about" ? "active" : ""} to="/about">Подробнее о проекте</Link>
+									<Link onClick={this.handleClick} className={url === "/about" ? "active" : ""} to="/about">Подробнее о проекте</Link>
 								</li>
 								{/*<li>
 									<a href="#">Почему мы?</a>
@@ -40,7 +39,7 @@ class UsefullInfo extends Component {
 									<a href="#">Соглашение</a>
 								</li>*/}
 								<li>
-									<Link onClick={this.handleClick()} className={url === "/confidentiality" ? "active" : ""} to="/confidentiality">Конфиденциальность</Link>
+									<Link onClick={this.handleClick} className={url === "/confidentiality" ? "active" : ""} to="/confidentiality">Конфиденциальность</Link>
 								</li>
 								{/*<li>
 									<a href="#">Отказ от гарантии</a>

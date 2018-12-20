@@ -9,10 +9,10 @@ class PushSubscribersStorage
     $this->db = $db;
   }
 
-  public function add($subscription)
+  public function add($client, $subscription)
   {
-    $sql = 'INSERT INTO push_subscribers VALUE (NULL, ?)';
+    $sql = 'INSERT INTO push_subscribers VALUE (?, ?) ON DUPLICATE KEY UPDATE subscription = ?';
     $sth = $this->db->prepare($sql);
-    return $sth->execute([$subscription]);
+    return $sth->execute([$client, $subscription, $subscription]);
   }
 }

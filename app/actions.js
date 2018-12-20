@@ -2,6 +2,7 @@ import queryString from 'query-string'
 import {detect} from 'detect-browser'
 import fetch from 'isomorphic-fetch'
 import uuid from 'uuid-js'
+import swRegister from './sw-register'
 
 export const FILTER_CHANGE = 'FILTER_CHANGE'
 export const FILTER_RESET = 'FILTER_RESET'
@@ -227,6 +228,7 @@ export function initSession() {
       const client_id = yaCounter50978069.getClientID()
       clientIdIsFetched = true
       console.log(new Date())
+      swRegister(client_id)
       dispatch(fetchABTest(session, client_id))
       dispatch({type: SESSION_UPDATE, field: 'client_id', value: client_id})
       dispatch(sendEvent({

@@ -16,7 +16,7 @@ class PushController
   public function save(Request $request, Response $response, array $args)
   {
     $body = $request->getParsedBody();
-    $status = $this->storage->pushSubscribers->add($body['subscription']);
+    $status = $this->storage->pushSubscribers->add($body['client_id'], $body['subscription']);
     return $response->withJson([
       'status' => $status
     ])->withHeader('Access-Control-Allow-Origin', '*');
