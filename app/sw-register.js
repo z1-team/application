@@ -14,7 +14,7 @@ function urlBase64ToUint8Array(base64String) {
   return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
 }
 
-function saveSubscription(subscription) {
+function saveSubscription(subscription, client_id) {
   const url = baseUrl + 'api/v1/save-subscriber'
   fetch(url, {
     method: 'POST',
@@ -22,6 +22,7 @@ function saveSubscription(subscription) {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     },
     body: queryString.stringify({
+      client_id,
       subscription: JSON.stringify(subscription)
     })
   }).then((responce) => {
@@ -33,7 +34,7 @@ function saveSubscription(subscription) {
   })
 }
 
-function doRegistration() {
+function doRegistration(client_id) {
   const vapidPublicKey = 'BDRyRCCpFbCcEbrGnyKLm8CekYwv9GC4mdWoKWR6nyuTK-ZhJJ-p8opMhGz76YYUvQ2p40Z6eS_C_t3Ntff7Lrk'
   const convertedKey = urlBase64ToUint8Array(vapidPublicKey)
 
@@ -56,7 +57,7 @@ function doRegistration() {
           applicationServerKey: convertedKey
         })
       })
-  }).then(saveSubscription)
+  }).then((subscription) => saveSubscription(subscription, client_id))
 }
 
 export default doRegistration
