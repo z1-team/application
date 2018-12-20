@@ -113,7 +113,7 @@ class Card extends Component {
   render() {
     const {item, tail, edit} = this.props
     const rating = Math.round(item.sortBy.rating*10)/10
-    const star = Math.round(item.sortBy.rating)
+    const star = Math.round(item.sortBy.rating*20)
     const label = item.main.special_label ? item.main.special_label : ''
 
     return (
@@ -125,26 +125,35 @@ class Card extends Component {
           <div className="info">
             <h3>{item.main.title}</h3>
             <div className="rating">
-              <ul className={`rate-${star}`}>
-                <li><i className="fas fa-star"></i></li>
-                <li><i className="fas fa-star"></i></li>
-                <li><i className="fas fa-star"></i></li>
-                <li><i className="fas fa-star"></i></li>
-                <li><i className="fas fa-star"></i></li>
-              </ul>
+                <div className="star-rating">
+                  <ul className="highlighted" style={{width: star + '%'}}>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                  </ul>
+                  <ul>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                    <li><i className="fas fa-star"></i></li>
+                  </ul>
+                </div>
               <p><Link to={`/testimonials/${item.id}`}>{item.sortBy.testimonials_count} {this.getEnding()}</Link> {item.sortBy.rating && `(${rating} из 5)`}</p>
             </div>
             {item.type === 'mfo' && item.main &&
               <ul className="pros">
                 {item.main.money && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.money}</strong> руб.</li>}
                 {item.main.term && <li><i className="far fa-calendar-alt"></i><strong>{item.main.term}</strong></li>}
-                {item.main.minRate && <li><i className="far fa-thumbs-up"></i>от <strong>{item.main.minRate}</strong> в день</li>}
+                {item.main.minRate && <li><i className="fas fa-percent"></i>от <strong>{item.main.minRate}</strong> в день</li>}
               </ul>
             }
             {item.type === 'cards' && item.main &&
               <ul className="pros">
                 {item.main.limit && <li><i className="far fa-credit-card"></i><strong>{item.main.limit}</strong> руб.</li>}
-                {item.main.percent && <li><i className="far fa-thumbs-up"></i>от <strong>{item.main.percent}</strong></li>}
+                {item.main.percent && <li><i className="fas fa-percent"></i>от <strong>{item.main.percent}</strong></li>}
                 {item.main.cashback && <li><i className="far fa-money-bill-alt"></i><strong>{item.main.cashback}</strong></li>}
               </ul>
             }

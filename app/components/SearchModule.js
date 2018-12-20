@@ -20,7 +20,7 @@ class SearchModule extends Component {
 
 		return (
 			<div className="search-module">
-				<h4>{title} <button onClick={this.handleClick}>Убрать</button></h4>
+				<h4>{title} <button onClick={this.handleClick}><i class="fas fa-window-close"></i></button></h4>
 				{children}
 			</div>
 		)

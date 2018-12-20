@@ -24,6 +24,9 @@ class Testimonials extends Component {
     const { dispatch } = this.props
     const id = this.props.match.params.id
 
+    window.scrollTo({
+      top: 0
+    })
     dispatch(fetchTestimonials('partner', id))
   }
 
@@ -67,7 +70,9 @@ class Testimonials extends Component {
     const { partners, testimonials, dispatch, isLoggedIn } = this.props
     const partner = partners[id]
     const rating = partner && Math.round(partner.sortBy.rating*10)/10
-    const star = partner && Math.round(partner.sortBy.rating)
+    const star = partner && Math.round(partner.sortBy.rating*20)
+
+    console.log(star)
 
     return (
       <div className="wr-testimonials">
@@ -76,13 +81,22 @@ class Testimonials extends Component {
             <header>
               <h2>Отзывы кредита “{partner && partner.main.title}”
                 <div className="rating">
-                  <ul className={`rate-${star}`}>
-                    <li><i className="fas fa-star"></i></li>
-                    <li><i className="fas fa-star"></i></li>
-                    <li><i className="fas fa-star"></i></li>
-                    <li><i className="fas fa-star"></i></li>
-                    <li><i className="fas fa-star"></i></li>
-                  </ul>
+                  <div className="star-rating">
+                    <ul className="highlighted" style={{width: star + '%'}}>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                    </ul>
+                    <ul>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                      <li><i className="fas fa-star"></i></li>
+                    </ul>
+                  </div>
                   <p>{testimonials.data.length} {this.getEnding()}</p>
                   {partner && partner.sortBy && partner.sortBy.rating && <span>({rating} из 5)</span>}
                 </div>

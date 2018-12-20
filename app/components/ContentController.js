@@ -220,14 +220,16 @@ const mapStateToProps = ({session, filters, partners, auth}, {url}) => {
     filters,
     location: session.ip_info,
     currentPage: partners.currentPage,
-    cardsCount: partners.cardsCount
+    cardsCount: partners.cardsCount,
+    isFetching: partners.isFetching
   }
 }
 
 class Main extends Component {
 	render() {
 		const {url, filters, cards, tail, isLoggedIn,
-       partners, dispatch, location, currentPage, actual, sortInfo, cardsCount} = this.props
+      partners, dispatch, location, currentPage,
+      actual, sortInfo, cardsCount, isFetching} = this.props
 		return (
 			<div className="wr-main">
         <div className="container">
@@ -250,7 +252,8 @@ class Main extends Component {
               dispatch={dispatch}
               currentPage={currentPage}
               sortInfo={sortInfo}
-              cardsCount={cardsCount} />
+              cardsCount={cardsCount}
+              isFetching={isFetching} />
           </div>
         </div>
 			</div>

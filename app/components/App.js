@@ -30,7 +30,8 @@ class App extends Component {
 		super(props)
 
     this.state = {
-      emailShowed: localStorage.getItem("subscribed") || false
+      emailShowed: localStorage.getItem("subscribed") || false,
+      isVisible: false
     }
 
 		this.handleKeyDown = this.handleKeyDown.bind(this)
@@ -78,6 +79,12 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const {emailShowed, isVisible} = this.state
+    const {location} = this.props
+    return emailShowed !== nextState.emailShowed || isVisible !== nextState.isVisible || location !== nextProps.location
+  }
+
 	handleKeyDown(event) {
 		const {dispatch} = this.props
 
@@ -87,7 +94,7 @@ class App extends Component {
 	}
 
   handleScroll = (event) => {
-    const {emailShowed} = this.state
+    const {emailShowed, isVisible} = this.state
     const {dispatch, location} = this.props
 
     if(!emailShowed && location.pathname === '/mfo') {
@@ -102,10 +109,20 @@ class App extends Component {
         this.setState({emailShowed: true})
       }
     }
+
+    window.pageYOffset > 400 ? this.setState({isVisible: true}) : this.setState({isVisible: false})
+  }
+
+  handleToTop = (event) => {
+    event.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
 	render() {
-    const {isCategoriesOpen} = this.props
+    const {isVisible} = this.state
 
 		return (
 			<div onKeyDown={this.handleKeyDown} tabIndex="1" className="app">
@@ -124,6 +141,7 @@ class App extends Component {
         <UsefullInfo />
 				<Footer />
 				<PopupsController />
+        <a href="#" className={`to-top ${isVisible ? 'active' : ''}`} onClick={this.handleToTop}><i class="fas fa-arrow-circle-up"></i></a>
 			</div>
 		)
 	}

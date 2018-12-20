@@ -7,7 +7,7 @@ class RangeInput extends Component {
     this.state = {
       isMoving: false,
       position: 0,
-      value: props.start
+      value: -1
     }
   }
 
@@ -86,7 +86,7 @@ class RangeInput extends Component {
     return(
       <div className="range-input">
           <div>
-            <input type="text" value={value} onChange={this.handleChange}/>
+            <input type="text" value={value === -1 ? 'Все' : value} onChange={this.handleChange}/>
             <div ref={ref => this.range = ref}
                onMouseDown={this.handleStart} onMouseUp={this.handleEnd} onMouseMove={this.handleMove} onMouseLeave={this.handleEnd} >
               <span className="line"></span>
