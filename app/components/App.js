@@ -79,12 +79,6 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const {emailShowed, isVisible} = this.state
-    const {location} = this.props
-    return emailShowed !== nextState.emailShowed || isVisible !== nextState.isVisible || location !== nextProps.location
-  }
-
 	handleKeyDown(event) {
 		const {dispatch} = this.props
 
@@ -110,7 +104,10 @@ class App extends Component {
       }
     }
 
-    window.pageYOffset > 400 ? this.setState({isVisible: true}) : this.setState({isVisible: false})
+    this.setState(prev => {
+      const isVisible = window.pageYOffset > 400
+      return prev.isVisible !== isVisible ? {isVisible} : null
+    })
   }
 
   handleToTop = (event) => {
@@ -141,7 +138,7 @@ class App extends Component {
         <UsefullInfo />
 				<Footer />
 				<PopupsController />
-        <a href="#" className={`to-top ${isVisible ? 'active' : ''}`} onClick={this.handleToTop}><i class="fas fa-arrow-circle-up"></i></a>
+        <a href="#" className={`to-top ${isVisible ? 'active' : ''}`} onClick={this.handleToTop}><i className="fas fa-arrow-circle-up"></i></a>
 			</div>
 		)
 	}
