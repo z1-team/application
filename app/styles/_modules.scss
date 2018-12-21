@@ -603,22 +603,22 @@
 			}
 			&.big_summ {
 				&:before {
-					content: 'На Большую Сумму';
+					content: 'Big summ';
 				}
 			}
 			&.long_term {
 				&:before {
-					content: 'На Долгий Период';
+					content: 'Long term';
 				}
 			}
 			&.quick_solution {
 				&:before {
-					content: 'Быстрое Решение';
+					content: 'Very fast';
 				}
 			}
 			&.recommend {
 				&:before {
-					content: 'Рекомендуют';
+					content: 'The best';
 				}
 			}
 
