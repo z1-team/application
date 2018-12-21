@@ -1,6 +1,5 @@
 
 import React, {Component} from 'react'
-import Typist from 'react-typist'
 
 import {connect} from 'react-redux'
 import {
@@ -51,11 +50,8 @@ class Intro extends Component {
 			case "/mfo":
 				return (
 					<section>
-					<Typist>
 						<h1>Ищите где занять денег?</h1>
-						<Typist.Delay ms={500} />
 						<h2>Мы отобрали лучшие предложения.</h2>
-					</Typist>
 					</section>
 				)
 			case "/cards":
