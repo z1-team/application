@@ -31,7 +31,7 @@ class Header extends Component {
 
 		switch(url) {
 			case "/mfo":
-				return "Заемы"
+				return "Займы"
 			case "/cards":
 				return "Кредитные карты"
 			// case "credits":

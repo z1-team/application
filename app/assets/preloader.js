@@ -1,7 +1,7 @@
 (function() {
-	if(window.location.origin === "http://localhost:3333") {
+	// if(window.location.origin === "http://localhost:3333") {
 		document.getElementById('preloader').style.display = 'none';
-	}
+	// }
 
 	console.log(new Date())
 

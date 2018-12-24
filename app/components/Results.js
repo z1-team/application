@@ -26,7 +26,7 @@ class Results extends Component {
 		const {cards, cardsCount} = this.props
 
 		if(cardsCount < cards.length) {
-			if( this.results.clientHeight + this.results.getBoundingClientRect().top - window.innerHeight  <= 0) {
+			if( this.results.clientHeight + this.results.getBoundingClientRect().top - window.innerHeight - 100  <= 0) {
 				this.loadMore()
 			}
 		}

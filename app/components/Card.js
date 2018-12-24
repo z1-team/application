@@ -118,6 +118,10 @@ class Card extends Component {
 
     return (
       <div className={`result-item ${label}`}>
+        {label === 'big_summ' ? <span className="spec-label">На большую сумму</span> : ''}
+        {label === 'long_term' ? <span className="spec-label">На долгий период</span> : ''}
+        {label === 'quick_solution' ? <span className="spec-label">Быстрое решение</span> : ''}
+        {label === 'recommend' ? <span className="spec-label">Рекомендуют</span> : ''}
         <section>
           <figure>
             <img src={item.main.logo} />

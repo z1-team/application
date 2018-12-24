@@ -568,25 +568,26 @@
 				margin-bottom: 0;
 			}
 
+			.spec-label {
+				color: #fff; font-size: 10px; font-family: $m-sb; line-height: 20px; text-transform: uppercase; text-align: center;
+				display: block; width: 400px; height: 20px; position: absolute; left: 60px; top: 60px; transform: translate(-50%, -50%) rotate(-45deg);
+				background: #f96868;
+
+				@include respond-to(lg) {
+					left: 50px; top: 50px;
+				}
+				@include respond-to(xs) {
+					font-size: 14px; line-height: 26px;
+					left: 0; top: 0; width: 100%; transform: none; height: 26px;
+				}
+			}
+
 			&.big_summ,
 			&.long_term,
 			&.quick_solution,
 			&.recommend {
-				padding-top: 15px;
-
-				&:before {
-					content: '';
-					color: #fff; font-size: 10px; font-family: $m-sb; line-height: 20px; text-transform: uppercase; text-align: center;
-					display: block; width: 400px; height: 20px; position: absolute; left: 60px; top: 60px; transform: translate(-50%, -50%) rotate(-45deg);
-					background: #f96868;
-
-					@include respond-to(lg) {
-						left: 50px; top: 50px;
-					}
-					@include respond-to(xs) {
-						font-size: 14px; line-height: 26px;
-						left: 0; top: 0; width: 100%; transform: none; height: 26px;
-					}
+				@include respond-to(xs) {
+					padding-top: 15px;
 				}
 
 				figure {
@@ -599,26 +600,6 @@
 					@include respond-to(xs) {
 						padding-left: 0; width: 100%;
 					}
-				}
-			}
-			&.big_summ {
-				&:before {
-					content: 'Big summ';
-				}
-			}
-			&.long_term {
-				&:before {
-					content: 'Long term';
-				}
-			}
-			&.quick_solution {
-				&:before {
-					content: 'Very fast';
-				}
-			}
-			&.recommend {
-				&:before {
-					content: 'The best';
 				}
 			}
 
@@ -1703,8 +1684,7 @@
 	transition: opacity 0.2s ease-out;
 
 	@include respond-to(sm) {
-		font-size: 26px;
-		bottom: 60px; right: 10px; width: 30px; height: 30px;
+		display: none;
 	}
 
 	&.active {
