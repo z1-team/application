@@ -30,7 +30,7 @@ class App extends Component {
 		super(props)
 
     this.state = {
-      emailShowed: localStorage.getItem("subscribed") || false,
+      emailShowed: true,
       isVisible: false
     }
 

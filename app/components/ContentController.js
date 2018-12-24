@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import StickyBox from 'react-sticky-box'
 
 import CardList from './CardList'
-import queryString from 'query-string'
+import queryString from 'querystring'
 
 import Sidebar from './Sidebar'
 import Results from './Results'

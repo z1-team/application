@@ -1,4 +1,4 @@
-import queryString from 'query-string'
+import queryString from 'querystring'
 import {detect} from 'detect-browser'
 import fetch from 'isomorphic-fetch'
 import uuid from 'uuid-js'
@@ -243,7 +243,7 @@ export function initSession() {
     }
 
     loadClientID()
-    
+
     setTimeout(() => {
       const {done, loading} = getState().preloader
       if (!clientIdIsFetched && !done && !loading) {

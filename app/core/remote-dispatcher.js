@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import queryString from 'query-string'
+import queryString from 'querystring'
 
 const url = location.hostname === 'localhost' ?
   'http://localhost:8080/send-event.php' : '/send-event.php'

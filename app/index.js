@@ -10,6 +10,8 @@ import {initSession} from './actions'
 import App from './components/App'
 import appReducer from './reducers/app'
 
+require('es6-promise').polyfill
+
 const store = createStore(appReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
