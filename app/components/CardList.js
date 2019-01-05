@@ -33,7 +33,8 @@ class CardList extends Component {
 		dispatch(sendEvent({
       type: 'click_offer',
       payload: {
-        partnerName: partner
+				partnerId: partner.id,
+        partnerName: partner.main.title
       }
     }))
 	}

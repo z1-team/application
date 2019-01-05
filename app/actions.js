@@ -158,6 +158,16 @@ export function sendEvent(event) {
     }
     const fullEvent = {
       ...event,
+      payload: {
+        ...event.payload,
+        utm_term: session.query.utm_term || 'NULL',
+        utm_medium: session.query.utm_medium || 'NULL',
+        utm_content: session.query.utm_content || 'NULL',
+        utm_gbid: session.query.utm_gbid || 'NULL',
+        utm_phrase: session.query.utm_phrase || 'NULL',
+        utm_gender: session.query.utm_gender || 'NULL',
+        utm_age: session.query.utm_age || 'NULL'
+      },
       yclick_id: session.query.yclid || 'NULL',
       client_id: session.client_id || 'NULL',
       utm_campaign: session.query.utm_campaign || 'NULL',
@@ -206,7 +216,7 @@ export function initSession() {
   return (dispatch, getState) => {
     let clientIdIsFetched = false
     const session = {
-      query: queryString.parse(location.search),
+      query: queryString.parse(location.search.substring(1)),
       user_id: getUserId(),
       ip_info: window.__IP_INFO__ ? __IP_INFO__ : {
         place: 'Москва'

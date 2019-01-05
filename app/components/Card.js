@@ -42,7 +42,7 @@ class Card extends Component {
   handleOrder(event) {
     const {onOrder} = this.props
     if (typeof onOrder === 'function') {
-      onOrder(this.props.item.title)
+      onOrder(this.props.item)
     }
   }
 
